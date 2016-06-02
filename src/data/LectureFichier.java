@@ -42,7 +42,7 @@ public class LectureFichier {
 			donnees = new String[i][nbMotsLigne]; //Création du tableau de manière dynamique en fonction du nombre de données dans le fichier.
 			tableauIntermediaire = new String[nbMotsLigne];
 			
-			while((ligne = tampon.readLine())!=null) { //Chargement du fichier en mémoire.
+			while((ligne = tampon.readLine())!=null && i!=donnees.length) { //Chargement du fichier en mémoire.
 				tableauIntermediaire=ligne.split(";");
 				donnees[j]=tableauIntermediaire;
 			}
