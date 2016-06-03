@@ -3,6 +3,7 @@ package data;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.util.ArrayList;
 
 public class LectureFichier {
 	
@@ -22,41 +23,55 @@ public class LectureFichier {
 	 * @return Le fichier chargé en mémoire dans un tableau.
 	 */
 	
-	public String[][] chargerFichier() {
+	public ArrayList<String[]> chargerFichier() {
 		FileReader fichier = null;
-		BufferedReader tampon = null;
-		String[][] donnees=null;
-		String ligne;
-		String[] tableauIntermediaire;
+		BufferedReader premiereLigne = null;
+		String ligne=null;
+		String[] tableauIntermediaire=null;
+		ArrayList<String[]> donnees = new ArrayList<String[]>();
 		int i = 0;
 		int j = 0;
 		
 		try {
 			fichier = new FileReader(file_path);
-			tampon = new BufferedReader(fichier);
-			ligne = tampon.readLine();
-			int nbMotsLigne=ligne.length(); //Donne le nombre de mots que contient une ligne.
-			while((ligne = tampon.readLine())!=null) { //Compte le nombre de lignes du fichier
-				i++;
-			}
-			donnees = new String[i][nbMotsLigne]; //Création du tableau de manière dynamique en fonction du nombre de données dans le fichier.
-			tableauIntermediaire = new String[nbMotsLigne];
-			
-			while((ligne = tampon.readLine())!=null && i!=donnees.length) { //Chargement du fichier en mémoire.
+			premiereLigne = new BufferedReader(fichier);
+			ligne=premiereLigne.readLine();
+			tableauIntermediaire = ligne.split(";");
+			donnees.add(tableauIntermediaire);
+			while((ligne = premiereLigne.readLine())!=null && i!=donnees.size()) { //Chargement du fichier en mémoire.
 				tableauIntermediaire=ligne.split(";");
-				donnees[j]=tableauIntermediaire;
+				donnees.add(tableauIntermediaire);
 			}
 			
 		} catch(IOException exception) {
 			exception.printStackTrace();
-		} finally {
+		} catch(Exception exception3) {
+			exception3.printStackTrace();
+		}
+		finally {
 			try {
-				tampon.close();
+				premiereLigne.close();
 				fichier.close();
 			} catch(IOException exception1) {
 				exception1.printStackTrace();
 			}
 		}
 		return donnees;
+	}
+	
+	public String getString(ArrayList<String[]> tableau, int index1, int index2) {
+		String chaine = "";
+		
+		for(int i=0;i<tableau.size();i++) {
+			if(i==index1) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				if(j==index2) {
+					chaine=tableau.get(i)[j];
+					}
+				}
+			}
+		}
+		
+		return chaine;
 	}
 }
