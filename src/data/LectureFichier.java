@@ -74,4 +74,16 @@ public class LectureFichier {
 		
 		return chaine;
 	}
+	
+	public String retournerChaine(ArrayList<String[]> tableau, String chaine) {
+		
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				if(tableau.get(i)[j].equals(chaine)) {
+					return chaine;
+				}
+			}
+		}
+		return null;
+	}
 }

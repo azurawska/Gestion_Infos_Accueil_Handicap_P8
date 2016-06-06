@@ -5,18 +5,20 @@ import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JTextField;
 
-import action.SuivantAction;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.awt.event.KeyListener;
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 
 import javax.print.attribute.standard.JobPrioritySupported;
 import javax.swing.JButton;
 
 public class Authentification extends JPanel {
-	private static JTextField textField_num_etudiant;
-	private static JTextField textField_nom;
-	private static JTextField textField_prenom;
+	private JTextField textField_num_etudiant;
+	private JTextField textField_nom;
+	private JTextField textField_prenom;
 	
 	private JButton btnSuivant;
 
@@ -34,6 +36,7 @@ public class Authentification extends JPanel {
 		textField_num_etudiant.setBounds(147, 29, 86, 20);
 		add(textField_num_etudiant);
 		textField_num_etudiant.setColumns(10);
+		textField_num_etudiant.addMouseListener(new QuitNumEtudiantFieldMouseEvent());
 		
 		JLabel lblNom = new JLabel("Nom :");
 		lblNom.setBounds(76, 69, 46, 14);
@@ -59,16 +62,65 @@ public class Authentification extends JPanel {
 		add(btnSuivant);
 
 	}
+	
+	private class SuivantAction implements ActionListener {
 
-	public static JTextField getTextField_num_etudiant() {
-		return textField_num_etudiant;
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			
+			if(textField_num_etudiant.getText().equals("") && textField_nom.getText().equals("") && textField_prenom.getText().equals("")) {
+				JOptionPane.showMessageDialog(null, "Veuillez renseigner au moins l'un des trois champs SVP.", "Erreur", JOptionPane.ERROR_MESSAGE);
+			}
+			else {
+				if(!textField_num_etudiant.getText().equals("") && textField_nom.getText().equals("") && textField_nom.getText().equals("")) {
+					
+				}
+			}
+			
+		}
+		
 	}
+	
+	private class QuitNumEtudiantFieldMouseEvent implements MouseListener {
 
-	public static JTextField getTextField_nom() {
-		return textField_nom;
-	}
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
 
-	public static JTextField getTextField_prenom() {
-		return textField_prenom;
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			if(!textField_num_etudiant.getText().equals("")) {
+				textField_nom.setText("");
+				textField_nom.setEditable(false);
+				textField_prenom.setText("");
+				textField_prenom.setEditable(false);
+			}
+			else {
+				textField_nom.setEditable(true);
+				textField_prenom.setEditable(true);
+			}
+			
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
 	}
 }
