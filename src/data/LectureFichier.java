@@ -5,6 +5,8 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JTextField;
+
 public class LectureFichier {
 	
 	private String file_path;
@@ -85,5 +87,61 @@ public class LectureFichier {
 			}
 		}
 		return null;
+	}
+	
+	public ArrayList<String> retournerChaines(ArrayList<String[]> tableau, int index) {
+		
+		ArrayList<String> chaines = new ArrayList<String>();
+		
+		for(int i=0;i<tableau.size();i++) {
+			chaines.add(tableau.get(i)[index]);
+		}
+		
+		return chaines;
+	}
+	
+	public int retournerIndexChaine(ArrayList<String[]> tableau, String chaine) {
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				if(tableau.get(i)[j].equals(chaine)) {
+					return j;
+				}
+			}
+		}
+		return -1;
+	}
+	
+	public ArrayList<String[]> retournerEtudiantsAvecChaineCommune(ArrayList<String[]> tableau, String[] chaines) {
+		
+		ArrayList<String[]> etudiantsAvecChaineCommune = new ArrayList<String[]>();
+		
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				for(int k=0;k<chaines.length;k++) {
+					if(tableau.get(i)[j].equals(chaines[k])) {
+						if(!etudiantsAvecChaineCommune.contains(tableau.get(i))) {
+						etudiantsAvecChaineCommune.add(tableau.get(i));
+						}
+					}
+				}
+			}
+		}
+		return etudiantsAvecChaineCommune;
+	}
+	
+	public String[] retournerChainesCommunes(JTextField textField_1, JTextField textField_2) {
+		
+		String[] chainesCommunes = new String[2];
+		
+		chainesCommunes[0]=textField_1.getText();
+		if(chainesCommunes[0]!="") {
+			chainesCommunes[0]=textField_1.getText().toUpperCase();
+		}
+		chainesCommunes[1]=textField_2.getText();
+		if(chainesCommunes[1]!="") {
+			chainesCommunes[1]=textField_2.getText().toLowerCase().substring(0, 1).toUpperCase();
+		}
+		
+		return chainesCommunes;
 	}
 }
