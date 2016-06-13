@@ -26,12 +26,19 @@ public class Authentification extends JPanel {
 	private JButton btnSuivant;
 	
 	private LectureFichier lectureFichier;
-
+	
+	private Accueil accueil;
+	
+	private boolean found;
+	
 	/**
 	 * Create the panel.
 	 */
 	public Authentification() {
+		this.found=false;
 		setLayout(null);
+		
+		accueil = new Accueil();
 		
 		JLabel lblNEtudiant = new JLabel("N° Etudiant :");
 		lblNEtudiant.setBounds(66, 25, 62, 29);
@@ -69,6 +76,14 @@ public class Authentification extends JPanel {
 
 	}
 	
+	public boolean getFound() {
+		return found;
+	}
+
+	public void setFound(boolean found) {
+		this.found = found;
+	}
+
 	private class SuivantAction implements ActionListener {
 		
 		private int num_etudiant;
@@ -77,7 +92,8 @@ public class Authentification extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			
 			if(textField_num_etudiant.getText().equals("") && textField_nom.getText().equals("") && textField_prenom.getText().equals("")) {
-				JOptionPane.showMessageDialog(null, "Veuillez renseigner au moins l'un des trois champs SVP.", "Erreur", JOptionPane.ERROR_MESSAGE);
+				//JOptionPane.showMessageDialog(null, "Veuillez renseigner au moins l'un des trois champs SVP.", "Erreur", JOptionPane.ERROR_MESSAGE);
+				
 			}
 			else {
 				try {
@@ -91,6 +107,7 @@ public class Authentification extends JPanel {
 						
 						if(num_etudiant_reconverti!=null) {
 							JOptionPane.showMessageDialog(null, "Etudiant trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
+							
 						}
 						else {
 							JOptionPane.showMessageDialog(null, "Numéro d'étudiant invalide.", "Erreur", JOptionPane.ERROR_MESSAGE);
@@ -275,7 +292,7 @@ public class Authentification extends JPanel {
 						ArrayList<String> chainesNomNaissance = lectureFichier.retournerChaines(donneesEtudiants, 2);
 						ArrayList<String> chainesNomMarie = lectureFichier.retournerChaines(donneesEtudiants, 3);
 						
-						if(chainesNomNaissance.contains(textField_nom.getText())) {
+						if(chainesNomNaissance.contains(chainesCommunes[0])) {
 							if(donneesEtudiantsAvecChainesCommunes.size()==1) {
 								JOptionPane.showMessageDialog(null, "Etudiant trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
 							}
@@ -291,7 +308,7 @@ public class Authentification extends JPanel {
 							}
 						}
 						else {
-							if(chainesNomMarie.contains(textField_nom.getText())) {
+							if(chainesNomMarie.contains(chainesCommunes[0])) {
 								if(donneesEtudiantsAvecChainesCommunes.size()==1) {
 									JOptionPane.showMessageDialog(null, "Etudant Trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
 								}
@@ -318,7 +335,7 @@ public class Authentification extends JPanel {
 						ArrayList<String[]> donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
 						ArrayList<String> chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 4);
 						
-						if(chainesPrenom.contains(textField_prenom.getText())) {
+						if(chainesPrenom.contains(chainesCommunes[1])) {
 							if(donneesEtudiantsAvecChainesCommunes.size()==1) {
 								JOptionPane.showMessageDialog(null, "Etudiant trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
 							}
@@ -346,8 +363,8 @@ public class Authentification extends JPanel {
 						ArrayList<String> chainesNomMarie = lectureFichier.retournerChaines(donneesEtudiants, 3);
 						ArrayList<String> chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 4);
 						
-						if(chainesNomNaissance.contains(textField_nom.getText())) {
-							if(chainesPrenom.contains(textField_prenom.getText())) {
+						if(chainesNomNaissance.contains(chainesCommunes[0])) {
+							if(chainesPrenom.contains(chainesCommunes[1])) {
 								if(donneesEtudiantsAvecChainesCommunes.size()==1) {
 									JOptionPane.showMessageDialog(null, "Etudiant trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
 								}
@@ -367,8 +384,8 @@ public class Authentification extends JPanel {
 							}
 						}
 						else {
-							if(chainesNomMarie.contains(textField_nom.getText())) {
-								if(chainesPrenom.contains(textField_prenom.getText())) {
+							if(chainesNomMarie.contains(chainesCommunes[0])) {
+								if(chainesPrenom.contains(chainesCommunes[1])) {
 									if(donneesEtudiantsAvecChainesCommunes.size()==1) {
 										JOptionPane.showMessageDialog(null, "Etudiant trouvé !", "", JOptionPane.INFORMATION_MESSAGE);
 									}

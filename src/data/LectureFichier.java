@@ -133,15 +133,32 @@ public class LectureFichier {
 		
 		String[] chainesCommunes = new String[2];
 		
-		chainesCommunes[0]=textField_1.getText();
-		if(chainesCommunes[0]!="") {
+		if(textField_1.getText().equals("")) {
+			chainesCommunes[0]=textField_1.getText();
+		}
+		
+		else {
 			chainesCommunes[0]=textField_1.getText().toUpperCase();
 		}
-		chainesCommunes[1]=textField_2.getText();
-		if(chainesCommunes[1]!="") {
-			chainesCommunes[1]=textField_2.getText().toLowerCase().substring(0, 1).toUpperCase();
+		
+		if(textField_2.getText().equals("")) {
+			chainesCommunes[1]=textField_2.getText();
+		}
+		
+		else {
+			chainesCommunes[1]=textField_2.getText().toLowerCase().substring(0, 1).toUpperCase() + textField_2.getText().substring(1).toLowerCase();
 		}
 		
 		return chainesCommunes;
+	}
+	
+	public String[] retournerEtudiant(ArrayList<String[]> tableau, int index) {
+		
+		for(int i=0;i<tableau.size();i++) {
+			if(i==index) {
+				return tableau.get(i);
+			}
+		}
+		return null;
 	}
 }

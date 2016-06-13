@@ -13,17 +13,33 @@ import javax.swing.border.EmptyBorder;
 public class Fenetre extends JFrame {
 	
 	private Authentification authentification;
+	private Accueil accueil;
 
 	/**
 	 * Create the frame.
 	 */
 	public Fenetre() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		setBounds(100, 100, 450, 300);
+		setBounds(0, 0, 1024, 768);
 		this.authentification = new Authentification();
-		this.authentification.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(authentification);
+		
+		if (authentification.getFound() == false)
 		this.authentification.setVisible(true);
+		
+		else {
+		this.accueil = new Accueil();
+		this.accueil.setBorder(new EmptyBorder(5, 5, 5, 5));
+		setContentPane(accueil);
+		this.accueil.setVisible(true);
+		}
 		setVisible(true);
+		
+	}
+	
+	public void changerPanel(JPanel old_panel, JPanel new_panel) {
+		old_panel.setVisible(false);
+		setContentPane(new_panel);
+		new_panel.setVisible(true);
 	}
 }
