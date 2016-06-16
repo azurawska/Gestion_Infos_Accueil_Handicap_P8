@@ -161,4 +161,16 @@ public class LectureFichier {
 		}
 		return null;
 	}
+	
+	public String[] retournerEtudiant(ArrayList<String[]> tableau, String numEtudiant) {
+		
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				if(tableau.get(i)[j].equals(numEtudiant)) {
+					return tableau.get(i);
+				}
+			}
+		}
+		return null;
+	}
 }
