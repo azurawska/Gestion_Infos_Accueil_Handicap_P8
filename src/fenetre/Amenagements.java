@@ -21,16 +21,16 @@ public class Amenagements extends JPanel {
 		setLayout(null);
 		
 		JLabel lblDateDeLa = new JLabel("Date de la visite \u00E0 la M\u00E9decine Pr\u00E9ventive");
-		lblDateDeLa.setBounds(21, 22, 207, 14);
+		lblDateDeLa.setBounds(21, 22, 251, 14);
 		add(lblDateDeLa);
 		
 		textField = new JTextField();
-		textField.setBounds(278, 16, 86, 20);
+		textField.setBounds(333, 19, 86, 20);
 		add(textField);
 		textField.setColumns(10);
 		
 		JLabel lblNomDuMdecin = new JLabel("Nom du m\u00E9decin");
-		lblNomDuMdecin.setBounds(21, 47, 86, 14);
+		lblNomDuMdecin.setBounds(21, 47, 140, 14);
 		add(lblNomDuMdecin);
 		
 		JComboBox comboBox = new JComboBox();
@@ -38,19 +38,19 @@ public class Amenagements extends JPanel {
 		add(comboBox);
 		
 		JLabel lblAmnagementDesCours = new JLabel("Am\u00E9nagements des cours :");
-		lblAmnagementDesCours.setBounds(10, 84, 131, 14);
+		lblAmnagementDesCours.setBounds(10, 84, 160, 14);
 		add(lblAmnagementDesCours);
 		
 		JRadioButton rdbtnOui = new JRadioButton("Oui");
-		rdbtnOui.setBounds(233, 80, 41, 23);
+		rdbtnOui.setBounds(233, 80, 47, 23);
 		add(rdbtnOui);
 		
 		JRadioButton rdbtnNom = new JRadioButton("Non");
-		rdbtnNom.setBounds(278, 80, 47, 23);
+		rdbtnNom.setBounds(288, 80, 47, 23);
 		add(rdbtnNom);
 		
 		JLabel lblAidesHumaines = new JLabel("Aides humaines :");
-		lblAidesHumaines.setBounds(30, 116, 86, 14);
+		lblAidesHumaines.setBounds(30, 116, 114, 14);
 		add(lblAidesHumaines);
 		
 		JRadioButton rdbtnOui_1 = new JRadioButton("Oui");
@@ -62,158 +62,158 @@ public class Amenagements extends JPanel {
 		add(rdbtnNon);
 		
 		JCheckBox chckbxPriseDeNotes = new JCheckBox("Prise de notes");
-		chckbxPriseDeNotes.setBounds(29, 137, 97, 23);
+		chckbxPriseDeNotes.setBounds(-1, 137, 114, 23);
 		add(chckbxPriseDeNotes);
 		
 		JCheckBox chckbxTutoratDaccompagnement = new JCheckBox("Tutorat d'accompagnement");
-		chckbxTutoratDaccompagnement.setBounds(29, 167, 157, 23);
+		chckbxTutoratDaccompagnement.setBounds(128, 137, 197, 23);
 		add(chckbxTutoratDaccompagnement);
 		
 		JCheckBox chckbxInterprtationEnLsf = new JCheckBox("Interpr\u00E9tation en LSF");
-		chckbxInterprtationEnLsf.setBounds(30, 197, 131, 23);
+		chckbxInterprtationEnLsf.setBounds(326, 138, 166, 23);
 		add(chckbxInterprtationEnLsf);
 		
 		JCheckBox chckbxCodageEnLpc = new JCheckBox("Codage en LPC");
-		chckbxCodageEnLpc.setBounds(30, 223, 104, 23);
+		chckbxCodageEnLpc.setBounds(486, 137, 119, 23);
 		add(chckbxCodageEnLpc);
 		
 		JCheckBox chckbxLecturefrappeAuKilomtreaide = new JCheckBox("Lecture/Frappe au kilom\u00E8tre/Aide \u00E0 la recherche documentaire");
-		chckbxLecturefrappeAuKilomtreaide.setBounds(30, 250, 325, 23);
+		chckbxLecturefrappeAuKilomtreaide.setBounds(595, 137, 386, 23);
 		add(chckbxLecturefrappeAuKilomtreaide);
 		
 		JLabel lblAidesTechniques = new JLabel("Aides techniques :");
-		lblAidesTechniques.setBounds(29, 294, 97, 14);
+		lblAidesTechniques.setBounds(10, 185, 117, 14);
 		add(lblAidesTechniques);
 		
 		JRadioButton rdbtnOui_2 = new JRadioButton("Oui");
-		rdbtnOui_2.setBounds(216, 290, 41, 23);
+		rdbtnOui_2.setBounds(175, 181, 47, 23);
 		add(rdbtnOui_2);
 		
 		JRadioButton rdbtnNon_1 = new JRadioButton("Non");
-		rdbtnNon_1.setBounds(259, 290, 47, 23);
+		rdbtnNon_1.setBounds(233, 181, 47, 23);
 		add(rdbtnNon_1);
 		
 		JCheckBox chckbxCarteDaccessibilitAux = new JCheckBox("Carte d'accessibilit\u00E9 aux locaux et ascenseurs :");
-		chckbxCarteDaccessibilitAux.setBounds(30, 317, 251, 23);
+		chckbxCarteDaccessibilitAux.setBounds(10, 206, 284, 23);
 		add(chckbxCarteDaccessibilitAux);
 		
 		JLabel lblRemiseLe = new JLabel("Remise le :");
-		lblRemiseLe.setBounds(300, 321, 59, 14);
+		lblRemiseLe.setBounds(305, 210, 75, 14);
 		add(lblRemiseLe);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(380, 318, 86, 20);
+		textField_1.setBounds(422, 207, 86, 20);
 		add(textField_1);
 		textField_1.setColumns(10);
 		
 		JCheckBox chckbxClsWcAccessibles = new JCheckBox("Cl\u00E9s WC accessibles :");
-		chckbxClsWcAccessibles.setBounds(30, 343, 131, 23);
+		chckbxClsWcAccessibles.setBounds(10, 232, 131, 23);
 		add(chckbxClsWcAccessibles);
 		
 		JLabel lblRemiseLe_1 = new JLabel("Remise le :");
-		lblRemiseLe_1.setBounds(300, 346, 59, 14);
+		lblRemiseLe_1.setBounds(305, 241, 87, 14);
 		add(lblRemiseLe_1);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(380, 344, 86, 20);
+		textField_2.setBounds(422, 233, 86, 20);
 		add(textField_2);
 		textField_2.setColumns(10);
 		
 		JCheckBox chckbxNumrisation = new JCheckBox("Num\u00E9risation");
-		chckbxNumrisation.setBounds(30, 368, 87, 23);
+		chckbxNumrisation.setBounds(9, 262, 104, 23);
 		add(chckbxNumrisation);
 		
 		JCheckBox chckbxTranscriptionsBraille = new JCheckBox("Transcriptions braille");
-		chckbxTranscriptionsBraille.setBounds(119, 369, 123, 23);
+		chckbxTranscriptionsBraille.setBounds(112, 262, 155, 23);
 		add(chckbxTranscriptionsBraille);
 		
 		JCheckBox chckbxAgrandissements = new JCheckBox("Agrandissements");
-		chckbxAgrandissements.setBounds(243, 368, 112, 23);
+		chckbxAgrandissements.setBounds(269, 262, 139, 23);
 		add(chckbxAgrandissements);
 		
 		JCheckBox chckbxPretDeDictaphone = new JCheckBox("Pr\u00EAt de dictaphone");
-		chckbxPretDeDictaphone.setBounds(357, 367, 123, 23);
+		chckbxPretDeDictaphone.setBounds(397, 262, 159, 23);
 		add(chckbxPretDeDictaphone);
 		
-		JCheckBox chckbxNewCheckBox = new JCheckBox("Autres (\u00E0 pr\u00E9ciser) :");
-		chckbxNewCheckBox.setBounds(482, 368, 123, 23);
+		JCheckBox chckbxNewCheckBox = new JCheckBox("Autres");
+		chckbxNewCheckBox.setBounds(558, 262, 86, 23);
 		add(chckbxNewCheckBox);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(611, 369, 86, 20);
+		textField_3.setBounds(676, 263, 86, 20);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
 		JLabel lblAmnagementsDesExamens = new JLabel("Am\u00E9nagements des examens :");
-		lblAmnagementsDesExamens.setBounds(21, 410, 149, 14);
+		lblAmnagementsDesExamens.setBounds(12, 307, 172, 14);
 		add(lblAmnagementsDesExamens);
 		
 		JRadioButton rdbtnOui_3 = new JRadioButton("Oui");
-		rdbtnOui_3.setBounds(300, 406, 41, 23);
+		rdbtnOui_3.setBounds(288, 303, 47, 23);
 		add(rdbtnOui_3);
 		
 		JRadioButton rdbtnNon_2 = new JRadioButton("Non");
-		rdbtnNon_2.setBounds(343, 406, 47, 23);
+		rdbtnNon_2.setBounds(367, 303, 47, 23);
 		add(rdbtnNon_2);
 		
 		JLabel lblAidesHumaines_1 = new JLabel("Aides humaines :");
-		lblAidesHumaines_1.setBounds(21, 435, 86, 14);
+		lblAidesHumaines_1.setBounds(22, 332, 91, 14);
 		add(lblAidesHumaines_1);
 		
 		JRadioButton rdbtnOui_4 = new JRadioButton("Oui");
-		rdbtnOui_4.setBounds(300, 432, 41, 23);
+		rdbtnOui_4.setBounds(288, 332, 47, 23);
 		add(rdbtnOui_4);
 		
 		JRadioButton rdbtnNon_3 = new JRadioButton("Non");
-		rdbtnNon_3.setBounds(343, 432, 47, 23);
+		rdbtnNon_3.setBounds(367, 332, 47, 23);
 		add(rdbtnNon_3);
 		
 		JCheckBox chckbxSecrtaire = new JCheckBox("Secr\u00E9taire");
-		chckbxSecrtaire.setBounds(21, 456, 75, 23);
+		chckbxSecrtaire.setBounds(21, 353, 92, 23);
 		add(chckbxSecrtaire);
 		
 		JCheckBox chckbxSurveillant = new JCheckBox("Surveillant");
-		chckbxSurveillant.setBounds(98, 456, 75, 23);
+		chckbxSurveillant.setBounds(117, 353, 113, 23);
 		add(chckbxSurveillant);
 		
 		JCheckBox chckbxInterprteLsf = new JCheckBox("Interpr\u00EAte LSF");
-		chckbxInterprteLsf.setBounds(175, 456, 97, 23);
+		chckbxInterprteLsf.setBounds(228, 353, 137, 23);
 		add(chckbxInterprteLsf);
 		
 		JCheckBox chckbxCodeurEnLpc = new JCheckBox("Codeur en LPC");
-		chckbxCodeurEnLpc.setBounds(267, 458, 97, 23);
+		chckbxCodeurEnLpc.setBounds(367, 358, 131, 23);
 		add(chckbxCodeurEnLpc);
 		
 		JLabel lblAidesTechniques_1 = new JLabel("Aides techniques :");
-		lblAidesTechniques_1.setBounds(30, 486, 97, 14);
+		lblAidesTechniques_1.setBounds(16, 383, 128, 14);
 		add(lblAidesTechniques_1);
 		
 		JRadioButton rdbtnOui_5 = new JRadioButton("Oui");
-		rdbtnOui_5.setBounds(283, 482, 41, 23);
+		rdbtnOui_5.setBounds(289, 379, 46, 23);
 		add(rdbtnOui_5);
 		
 		JRadioButton rdbtnNon_4 = new JRadioButton("Non");
-		rdbtnNon_4.setBounds(326, 482, 47, 23);
+		rdbtnNon_4.setBounds(367, 379, 47, 23);
 		add(rdbtnNon_4);
 		
 		JCheckBox chckbxTranscriptionBrailleDu = new JCheckBox("Transcription braille du sujet d'examen");
-		chckbxTranscriptionBrailleDu.setBounds(21, 509, 209, 23);
+		chckbxTranscriptionBrailleDu.setBounds(21, 405, 251, 23);
 		add(chckbxTranscriptionBrailleDu);
 		
-		JCheckBox chckbxAgrandissementDuSujet = new JCheckBox("Agrandissement du sujet (format papier ou USB)");
-		chckbxAgrandissementDuSujet.setBounds(228, 509, 264, 23);
+		JCheckBox chckbxAgrandissementDuSujet = new JCheckBox("Agrandissement du sujet");
+		chckbxAgrandissementDuSujet.setBounds(266, 405, 176, 23);
 		add(chckbxAgrandissementDuSujet);
 		
 		JCheckBox chckbxUtilisationDeMatriel = new JCheckBox("Utilisation de mat\u00E9riel personnel");
-		chckbxUtilisationDeMatriel.setBounds(497, 509, 177, 23);
+		chckbxUtilisationDeMatriel.setBounds(444, 405, 215, 23);
 		add(chckbxUtilisationDeMatriel);
 		
 		JList list = new JList();
 		list.setBounds(720, 531, 1, 1);
 		add(list);
 		
-		JCheckBox chckbxUtilisationDeMatriel_1 = new JCheckBox("Utilisation de mat\u00E9riel mis \u00E0 disposition par le service");
-		chckbxUtilisationDeMatriel_1.setBounds(21, 543, 275, 23);
+		JCheckBox chckbxUtilisationDeMatriel_1 = new JCheckBox("Utilisation de mat\u00E9riel du service");
+		chckbxUtilisationDeMatriel_1.setBounds(661, 405, 229, 23);
 		add(chckbxUtilisationDeMatriel_1);
 		
 		JList list_1 = new JList();
@@ -221,59 +221,59 @@ public class Amenagements extends JPanel {
 		add(list_1);
 		
 		JCheckBox chckbxNewCheckBox_1 = new JCheckBox("Autre :");
-		chckbxNewCheckBox_1.setBounds(21, 580, 59, 23);
+		chckbxNewCheckBox_1.setBounds(21, 450, 92, 23);
 		add(chckbxNewCheckBox_1);
 		
 		JCheckBox chckbxTempsMajorPour = new JCheckBox("Temps major\u00E9 pour \u00E9preuves \u00E9crites");
-		chckbxTempsMajorPour.setBounds(21, 606, 201, 23);
+		chckbxTempsMajorPour.setBounds(21, 491, 251, 23);
 		add(chckbxTempsMajorPour);
 		
 		JCheckBox chckbxTempsMajorPour_1 = new JCheckBox("Temps major\u00E9 pour pr\u00E9paration d'\u00E9preuves orales");
-		chckbxTempsMajorPour_1.setBounds(216, 606, 264, 23);
+		chckbxTempsMajorPour_1.setBounds(252, 491, 312, 23);
 		add(chckbxTempsMajorPour_1);
 		
 		JCheckBox chckbxTempsMajorPour_2 = new JCheckBox("Temps major\u00E9 pour les \u00E9preuves pratiques");
-		chckbxTempsMajorPour_2.setBounds(482, 606, 229, 23);
+		chckbxTempsMajorPour_2.setBounds(578, 491, 284, 23);
 		add(chckbxTempsMajorPour_2);
 		
 		JCheckBox chckbxSalleParticulire = new JCheckBox("Salle particuli\u00E8re");
-		chckbxSalleParticulire.setBounds(21, 632, 104, 23);
+		chckbxSalleParticulire.setBounds(21, 528, 140, 23);
 		add(chckbxSalleParticulire);
 		
 		JCheckBox chckbxTempsDePause = new JCheckBox("Temps de pause");
-		chckbxTempsDePause.setBounds(119, 632, 104, 23);
+		chckbxTempsDePause.setBounds(233, 528, 132, 23);
 		add(chckbxTempsDePause);
 		
 		JCheckBox chckbxSortieDeLa = new JCheckBox("Sortie de la salle pendant l'examen");
-		chckbxSortieDeLa.setBounds(228, 632, 191, 23);
+		chckbxSortieDeLa.setBounds(499, 531, 229, 23);
 		add(chckbxSortieDeLa);
 		
 		JLabel lblAmnagementsDeLa = new JLabel("Am\u00E9nagements de la formation :");
-		lblAmnagementsDeLa.setBounds(21, 661, 163, 14);
+		lblAmnagementsDeLa.setBounds(21, 565, 190, 14);
 		add(lblAmnagementsDeLa);
 		
 		JRadioButton rdbtnOui_6 = new JRadioButton("Oui");
-		rdbtnOui_6.setBounds(367, 658, 41, 23);
+		rdbtnOui_6.setBounds(367, 565, 47, 23);
 		add(rdbtnOui_6);
 		
 		JRadioButton rdbtnNon_5 = new JRadioButton("Non");
-		rdbtnNon_5.setBounds(410, 658, 47, 23);
+		rdbtnNon_5.setBounds(422, 565, 47, 23);
 		add(rdbtnNon_5);
 		
 		JCheckBox chckbxDispenseDassiduit = new JCheckBox("Dispense d'assiduit\u00E9");
-		chckbxDispenseDassiduit.setBounds(21, 679, 123, 23);
+		chckbxDispenseDassiduit.setBounds(21, 591, 160, 23);
 		add(chckbxDispenseDassiduit);
 		
 		JCheckBox chckbxAmnagementDeLa = new JCheckBox("Am\u00E9nagement de la dur\u00E9e de formation");
-		chckbxAmnagementDeLa.setBounds(146, 679, 220, 23);
+		chckbxAmnagementDeLa.setBounds(175, 591, 260, 23);
 		add(chckbxAmnagementDeLa);
 		
 		JCheckBox chckbxAmnagementDesHoraires = new JCheckBox("Am\u00E9nagement des horaires");
-		chckbxAmnagementDesHoraires.setBounds(365, 679, 163, 23);
+		chckbxAmnagementDesHoraires.setBounds(436, 591, 208, 23);
 		add(chckbxAmnagementDesHoraires);
 		
 		JCheckBox chckbxDispenseDeStage = new JCheckBox("Dispense de stage");
-		chckbxDispenseDeStage.setBounds(530, 679, 114, 23);
+		chckbxDispenseDeStage.setBounds(632, 591, 140, 23);
 		add(chckbxDispenseDeStage);
 
 	}

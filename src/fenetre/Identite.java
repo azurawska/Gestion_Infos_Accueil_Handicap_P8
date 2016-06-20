@@ -35,7 +35,7 @@ public class Identite extends JPanel {
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Date de création du dossier :");
-		lblNewLabel.setBounds(10, 11, 146, 14);
+		lblNewLabel.setBounds(10, 11, 170, 14);
 		add(lblNewLabel);
 		
 		textField = new JTextField();
@@ -44,7 +44,7 @@ public class Identite extends JPanel {
 		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Dernière mise à jour :");
-		lblNewLabel_1.setBounds(10, 36, 113, 14);
+		lblNewLabel_1.setBounds(10, 36, 130, 14);
 		add(lblNewLabel_1);
 		
 		textField_1 = new JTextField();
@@ -53,7 +53,7 @@ public class Identite extends JPanel {
 		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("N° Etudiant :");
-		lblNewLabel_2.setBounds(10, 73, 63, 14);
+		lblNewLabel_2.setBounds(10, 73, 75, 14);
 		add(lblNewLabel_2);
 		
 		textField_2 = new JTextField();
@@ -66,11 +66,11 @@ public class Identite extends JPanel {
 		add(rdbtnNewRadioButton);
 		
 		JRadioButton rdbtnMme = new JRadioButton("Mme");
-		rdbtnMme.setBounds(50, 103, 52, 23);
+		rdbtnMme.setBounds(50, 103, 60, 23);
 		add(rdbtnMme);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nom de naissance :");
-		lblNewLabel_3.setBounds(10, 133, 102, 14);
+		lblNewLabel_3.setBounds(10, 133, 120, 14);
 		add(lblNewLabel_3);
 		
 		textField_3 = new JTextField();
@@ -79,7 +79,7 @@ public class Identite extends JPanel {
 		textField_3.setColumns(10);
 		
 		JLabel lblNewLabel_4 = new JLabel("Nom d'époux(se) :");
-		lblNewLabel_4.setBounds(10, 159, 94, 14);
+		lblNewLabel_4.setBounds(10, 159, 110, 14);
 		add(lblNewLabel_4);
 		
 		textField_4 = new JTextField();
@@ -88,7 +88,7 @@ public class Identite extends JPanel {
 		textField_4.setColumns(10);
 		
 		JLabel lblNewLabel_5 = new JLabel("Prénom :");
-		lblNewLabel_5.setBounds(20, 195, 46, 14);
+		lblNewLabel_5.setBounds(20, 195, 55, 14);
 		add(lblNewLabel_5);
 		
 		textField_5 = new JTextField();
@@ -97,7 +97,7 @@ public class Identite extends JPanel {
 		textField_5.setColumns(10);
 		
 		JLabel lblDateDeNaissance = new JLabel("Date de naissance :");
-		lblDateDeNaissance.setBounds(10, 234, 102, 14);
+		lblDateDeNaissance.setBounds(10, 234, 115, 14);
 		add(lblDateDeNaissance);
 		
 		textField_6 = new JTextField();
@@ -106,7 +106,7 @@ public class Identite extends JPanel {
 		textField_6.setColumns(10);
 		
 		JLabel lblNewLabel_6 = new JLabel("Domicile :");
-		lblNewLabel_6.setBounds(27, 259, 46, 14);
+		lblNewLabel_6.setBounds(27, 259, 55, 14);
 		add(lblNewLabel_6);
 		
 		textField_7 = new JTextField();
@@ -133,7 +133,7 @@ public class Identite extends JPanel {
 		textField_9.setColumns(10);
 		
 		JLabel lblTlphone = new JLabel("Téléphone :");
-		lblTlphone.setBounds(27, 380, 63, 14);
+		lblTlphone.setBounds(27, 380, 75, 14);
 		add(lblTlphone);
 		
 		textField_10 = new JTextField();
@@ -151,7 +151,7 @@ public class Identite extends JPanel {
 		textField_11.setColumns(10);
 		
 		JLabel lblCoordonnesDunePersonnes = new JLabel("Coordonnées d'une personne à contacter en cas d'urgence : ");
-		lblCoordonnesDunePersonnes.setBounds(356, 11, 299, 14);
+		lblCoordonnesDunePersonnes.setBounds(356, 11, 350, 14);
 		add(lblCoordonnesDunePersonnes);
 		
 		JLabel lblNewLabel_7 = new JLabel("Nom :");
@@ -164,7 +164,7 @@ public class Identite extends JPanel {
 		textField_12.setColumns(10);
 		
 		JLabel lblNewLabel_8 = new JLabel("Prénom :");
-		lblNewLabel_8.setBounds(356, 61, 46, 14);
+		lblNewLabel_8.setBounds(356, 61, 55, 14);
 		add(lblNewLabel_8);
 		
 		textField_13 = new JTextField();
@@ -190,12 +190,12 @@ public class Identite extends JPanel {
 		add(textField_15);
 		textField_15.setColumns(10);
 		
-		JLabel lblCoordonnesDunPartenaire = new JLabel("Coordonnées d'un partenaire extérieur (psy, m\u00E9decin, etc...) :");
-		lblCoordonnesDunPartenaire.setBounds(356, 164, 320, 14);
+		JLabel lblCoordonnesDunPartenaire = new JLabel("Coordonnées d'un partenaire extérieur (psy, médecin, etc...) :");
+		lblCoordonnesDunPartenaire.setBounds(356, 164, 350, 14);
 		add(lblCoordonnesDunPartenaire);
 		
 		JLabel lblNom = new JLabel("Nom :");
-		lblNom.setBounds(366, 195, 30, 14);
+		lblNom.setBounds(366, 195, 45, 14);
 		add(lblNom);
 		
 		textField_16 = new JTextField();
@@ -204,7 +204,7 @@ public class Identite extends JPanel {
 		textField_16.setColumns(10);
 		
 		JLabel lblPrnom = new JLabel("Prénom :");
-		lblPrnom.setBounds(366, 234, 46, 14);
+		lblPrnom.setBounds(366, 234, 55, 14);
 		add(lblPrnom);
 		
 		textField_17 = new JTextField();
@@ -213,7 +213,7 @@ public class Identite extends JPanel {
 		textField_17.setColumns(10);
 		
 		JLabel lblTlphone_2 = new JLabel("Téléphone :");
-		lblTlphone_2.setBounds(356, 259, 63, 14);
+		lblTlphone_2.setBounds(356, 259, 75, 14);
 		add(lblTlphone_2);
 		
 		textField_18 = new JTextField();
@@ -231,7 +231,7 @@ public class Identite extends JPanel {
 		textField_19.setColumns(10);
 		
 		JLabel lblFonction = new JLabel("Fonction :");
-		lblFonction.setBounds(366, 336, 52, 14);
+		lblFonction.setBounds(366, 336, 65, 14);
 		add(lblFonction);
 		
 		textField_20 = new JTextField();
