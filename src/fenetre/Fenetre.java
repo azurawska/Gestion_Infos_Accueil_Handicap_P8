@@ -8,6 +8,8 @@ import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
@@ -342,15 +344,15 @@ public class Fenetre extends JFrame {
 				setLayout(null);
 				
 				JLabel lblNumEtudiant = new JLabel(this.numEtudiant);
-				lblNumEtudiant.setBounds(22, 11, 100, 14);
+				lblNumEtudiant.setBounds(132, 11, 150, 14);
 				add(lblNumEtudiant);
 				
 				JLabel lblNom = new JLabel(this.nom);
-				lblNom.setBounds(101, 11, 100, 14);
+				lblNom.setBounds(226, 11, 150, 14);
 				add(lblNom);
 				
 				JLabel lblPrenom = new JLabel(this.prenom);
-				lblPrenom.setBounds(212, 11, 100, 14);
+				lblPrenom.setBounds(354, 11, 150, 14);
 				add(lblPrenom);
 				
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
@@ -366,6 +368,12 @@ public class Fenetre extends JFrame {
 				tabbedPane.addTab("Notes", new NotesReussite());
 				tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires());
 				add(tabbedPane);
+				
+				Icon icon = new ImageIcon("C:\\Users\\Alexou\\workspace\\Gestion_Infos_Accueil_Handicap_P8\\src\\fenetre\\accueil.jpg");
+				
+				JButton btnNewButton = new JButton(icon);
+				btnNewButton.setBounds(22, 2, 45, 23);
+				add(btnNewButton);
 			}
 		}
 	}

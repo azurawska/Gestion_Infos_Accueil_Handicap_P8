@@ -1,13 +1,24 @@
 package fenetre;
 
 import javax.swing.JPanel;
+
+import java.awt.Color;
+import java.text.DateFormat;
+import java.util.Calendar;
+
+import javax.swing.ButtonGroup;
+import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import com.toedter.calendar.JCalendar;
+import com.toedter.calendar.JDateChooser;
+
 import javax.swing.JRadioButton;
 
 public class Identite extends JPanel {
-	private JTextField textField;
-	private JTextField textField_1;
+	private JDateChooser textField;
+	private JDateChooser textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
@@ -38,19 +49,20 @@ public class Identite extends JPanel {
 		lblNewLabel.setBounds(10, 11, 170, 14);
 		add(lblNewLabel);
 		
-		textField = new JTextField();
+		textField = new JDateChooser();
 		textField.setBounds(204, 8, 86, 20);
+		textField.getDateEditor().setEnabled(false);
+		//textField.setBackground(Color.GRAY);
 		add(textField);
-		textField.setColumns(10);
 		
 		JLabel lblNewLabel_1 = new JLabel("Dernière mise à jour :");
 		lblNewLabel_1.setBounds(10, 36, 130, 14);
 		add(lblNewLabel_1);
 		
-		textField_1 = new JTextField();
+		textField_1 = new JDateChooser();
 		textField_1.setBounds(204, 39, 86, 20);
+		textField_1.getDateEditor().setEnabled(false);
 		add(textField_1);
-		textField_1.setColumns(10);
 		
 		JLabel lblNewLabel_2 = new JLabel("N° Etudiant :");
 		lblNewLabel_2.setBounds(10, 73, 75, 14);
@@ -59,15 +71,24 @@ public class Identite extends JPanel {
 		textField_2 = new JTextField();
 		textField_2.setBounds(204, 70, 86, 20);
 		add(textField_2);
+		textField_2.setEditable(false);
+		textField_2.setBackground(Color.GRAY);
 		textField_2.setColumns(10);
 		
-		JRadioButton rdbtnNewRadioButton = new JRadioButton("M");
-		rdbtnNewRadioButton.setBounds(10, 103, 38, 23);
-		add(rdbtnNewRadioButton);
+		ButtonGroup monsieurMadame = new ButtonGroup();
+		
+		JRadioButton rdbtnM = new JRadioButton("M");
+		rdbtnM.setBounds(10, 103, 38, 23);
+		rdbtnM.setEnabled(false);
+		add(rdbtnM);
 		
 		JRadioButton rdbtnMme = new JRadioButton("Mme");
 		rdbtnMme.setBounds(50, 103, 60, 23);
+		rdbtnMme.setEnabled(false);
 		add(rdbtnMme);
+		
+		monsieurMadame.add(rdbtnM);
+		monsieurMadame.add(rdbtnMme);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nom de naissance :");
 		lblNewLabel_3.setBounds(10, 133, 120, 14);
@@ -75,6 +96,8 @@ public class Identite extends JPanel {
 		
 		textField_3 = new JTextField();
 		textField_3.setBounds(204, 130, 86, 20);
+		textField_3.setEditable(false);
+		textField_3.setBackground(Color.GRAY);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -84,6 +107,8 @@ public class Identite extends JPanel {
 		
 		textField_4 = new JTextField();
 		textField_4.setBounds(204, 161, 86, 20);
+		textField_4.setEditable(false);
+		textField_4.setBackground(Color.GRAY);
 		add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -93,6 +118,8 @@ public class Identite extends JPanel {
 		
 		textField_5 = new JTextField();
 		textField_5.setBounds(204, 192, 86, 20);
+		textField_5.setEditable(false);
+		textField_5.setBackground(Color.GRAY);
 		add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -101,7 +128,9 @@ public class Identite extends JPanel {
 		add(lblDateDeNaissance);
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(214, 231, 86, 20);
+		textField_6.setBounds(204, 231, 86, 20);
+		textField_6.setEditable(false);
+		textField_6.setBackground(Color.GRAY);
 		add(textField_6);
 		textField_6.setColumns(10);
 		
@@ -111,6 +140,8 @@ public class Identite extends JPanel {
 		
 		textField_7 = new JTextField();
 		textField_7.setBounds(83, 262, 247, 20);
+		textField_7.setEditable(false);
+		textField_7.setBackground(Color.GRAY);
 		add(textField_7);
 		textField_7.setColumns(10);
 		
@@ -120,6 +151,8 @@ public class Identite extends JPanel {
 		
 		textField_8 = new JTextField();
 		textField_8.setBounds(186, 293, 86, 20);
+		textField_8.setEditable(false);
+		textField_8.setBackground(Color.GRAY);
 		add(textField_8);
 		textField_8.setColumns(10);
 		
@@ -129,6 +162,8 @@ public class Identite extends JPanel {
 		
 		textField_9 = new JTextField();
 		textField_9.setBounds(186, 336, 86, 20);
+		textField_9.setEditable(false);
+		textField_9.setBackground(Color.GRAY);
 		add(textField_9);
 		textField_9.setColumns(10);
 		
@@ -138,6 +173,8 @@ public class Identite extends JPanel {
 		
 		textField_10 = new JTextField();
 		textField_10.setBounds(186, 377, 86, 20);
+		textField_10.setEditable(false);
+		textField_10.setBackground(Color.GRAY);
 		add(textField_10);
 		textField_10.setColumns(10);
 		
@@ -147,6 +184,8 @@ public class Identite extends JPanel {
 		
 		textField_11 = new JTextField();
 		textField_11.setBounds(186, 408, 86, 20);
+		textField_11.setEditable(false);
+		textField_11.setBackground(Color.GRAY);
 		add(textField_11);
 		textField_11.setColumns(10);
 		
