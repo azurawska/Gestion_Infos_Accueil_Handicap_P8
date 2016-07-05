@@ -20,7 +20,7 @@ public class Amenagements extends JPanel {
 	public Amenagements() {
 		setLayout(null);
 		
-		JLabel lblDateDeLa = new JLabel("Date de la visite \u00E0 la M\u00E9decine Pr\u00E9ventive");
+		JLabel lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
 		lblDateDeLa.setBounds(21, 22, 251, 14);
 		add(lblDateDeLa);
 		
@@ -29,7 +29,7 @@ public class Amenagements extends JPanel {
 		add(textField);
 		textField.setColumns(10);
 		
-		JLabel lblNomDuMdecin = new JLabel("Nom du m\u00E9decin");
+		JLabel lblNomDuMdecin = new JLabel("Nom du médecin");
 		lblNomDuMdecin.setBounds(21, 47, 140, 14);
 		add(lblNomDuMdecin);
 		
@@ -37,7 +37,7 @@ public class Amenagements extends JPanel {
 		comboBox.setBounds(278, 47, 114, 20);
 		add(comboBox);
 		
-		JLabel lblAmnagementDesCours = new JLabel("Am\u00E9nagements des cours :");
+		JLabel lblAmnagementDesCours = new JLabel("Aménagements des cours :");
 		lblAmnagementDesCours.setBounds(10, 84, 160, 14);
 		add(lblAmnagementDesCours);
 		
@@ -69,7 +69,7 @@ public class Amenagements extends JPanel {
 		chckbxTutoratDaccompagnement.setBounds(128, 137, 197, 23);
 		add(chckbxTutoratDaccompagnement);
 		
-		JCheckBox chckbxInterprtationEnLsf = new JCheckBox("Interpr\u00E9tation en LSF");
+		JCheckBox chckbxInterprtationEnLsf = new JCheckBox("Interprétation en LSF");
 		chckbxInterprtationEnLsf.setBounds(326, 138, 166, 23);
 		add(chckbxInterprtationEnLsf);
 		
@@ -77,7 +77,7 @@ public class Amenagements extends JPanel {
 		chckbxCodageEnLpc.setBounds(486, 137, 119, 23);
 		add(chckbxCodageEnLpc);
 		
-		JCheckBox chckbxLecturefrappeAuKilomtreaide = new JCheckBox("Lecture/Frappe au kilom\u00E8tre/Aide \u00E0 la recherche documentaire");
+		JCheckBox chckbxLecturefrappeAuKilomtreaide = new JCheckBox("Lecture/Frappe au kilomètre/Aide à la recherche documentaire");
 		chckbxLecturefrappeAuKilomtreaide.setBounds(595, 137, 386, 23);
 		add(chckbxLecturefrappeAuKilomtreaide);
 		
@@ -93,7 +93,7 @@ public class Amenagements extends JPanel {
 		rdbtnNon_1.setBounds(233, 181, 47, 23);
 		add(rdbtnNon_1);
 		
-		JCheckBox chckbxCarteDaccessibilitAux = new JCheckBox("Carte d'accessibilit\u00E9 aux locaux et ascenseurs :");
+		JCheckBox chckbxCarteDaccessibilitAux = new JCheckBox("Carte d'accessibilité aux locaux et ascenseurs :");
 		chckbxCarteDaccessibilitAux.setBounds(10, 206, 284, 23);
 		add(chckbxCarteDaccessibilitAux);
 		
@@ -106,7 +106,7 @@ public class Amenagements extends JPanel {
 		add(textField_1);
 		textField_1.setColumns(10);
 		
-		JCheckBox chckbxClsWcAccessibles = new JCheckBox("Cl\u00E9s WC accessibles :");
+		JCheckBox chckbxClsWcAccessibles = new JCheckBox("Clés WC accessibles :");
 		chckbxClsWcAccessibles.setBounds(10, 232, 131, 23);
 		add(chckbxClsWcAccessibles);
 		
@@ -119,7 +119,7 @@ public class Amenagements extends JPanel {
 		add(textField_2);
 		textField_2.setColumns(10);
 		
-		JCheckBox chckbxNumrisation = new JCheckBox("Num\u00E9risation");
+		JCheckBox chckbxNumrisation = new JCheckBox("Numérisation");
 		chckbxNumrisation.setBounds(9, 262, 104, 23);
 		add(chckbxNumrisation);
 		
@@ -131,7 +131,7 @@ public class Amenagements extends JPanel {
 		chckbxAgrandissements.setBounds(269, 262, 139, 23);
 		add(chckbxAgrandissements);
 		
-		JCheckBox chckbxPretDeDictaphone = new JCheckBox("Pr\u00EAt de dictaphone");
+		JCheckBox chckbxPretDeDictaphone = new JCheckBox("Prêt de dictaphone");
 		chckbxPretDeDictaphone.setBounds(397, 262, 159, 23);
 		add(chckbxPretDeDictaphone);
 		
@@ -144,7 +144,7 @@ public class Amenagements extends JPanel {
 		add(textField_3);
 		textField_3.setColumns(10);
 		
-		JLabel lblAmnagementsDesExamens = new JLabel("Am\u00E9nagements des examens :");
+		JLabel lblAmnagementsDesExamens = new JLabel("Aménagements des examens :");
 		lblAmnagementsDesExamens.setBounds(12, 307, 172, 14);
 		add(lblAmnagementsDesExamens);
 		
@@ -168,7 +168,7 @@ public class Amenagements extends JPanel {
 		rdbtnNon_3.setBounds(367, 332, 47, 23);
 		add(rdbtnNon_3);
 		
-		JCheckBox chckbxSecrtaire = new JCheckBox("Secr\u00E9taire");
+		JCheckBox chckbxSecrtaire = new JCheckBox("Secrétaire");
 		chckbxSecrtaire.setBounds(21, 353, 92, 23);
 		add(chckbxSecrtaire);
 		
@@ -176,7 +176,7 @@ public class Amenagements extends JPanel {
 		chckbxSurveillant.setBounds(117, 353, 113, 23);
 		add(chckbxSurveillant);
 		
-		JCheckBox chckbxInterprteLsf = new JCheckBox("Interpr\u00EAte LSF");
+		JCheckBox chckbxInterprteLsf = new JCheckBox("Interprête LSF");
 		chckbxInterprteLsf.setBounds(228, 353, 137, 23);
 		add(chckbxInterprteLsf);
 		
@@ -204,7 +204,7 @@ public class Amenagements extends JPanel {
 		chckbxAgrandissementDuSujet.setBounds(266, 405, 176, 23);
 		add(chckbxAgrandissementDuSujet);
 		
-		JCheckBox chckbxUtilisationDeMatriel = new JCheckBox("Utilisation de mat\u00E9riel personnel");
+		JCheckBox chckbxUtilisationDeMatriel = new JCheckBox("Utilisation de matériel personnel");
 		chckbxUtilisationDeMatriel.setBounds(444, 405, 215, 23);
 		add(chckbxUtilisationDeMatriel);
 		
@@ -212,7 +212,7 @@ public class Amenagements extends JPanel {
 		list.setBounds(720, 531, 1, 1);
 		add(list);
 		
-		JCheckBox chckbxUtilisationDeMatriel_1 = new JCheckBox("Utilisation de mat\u00E9riel du service");
+		JCheckBox chckbxUtilisationDeMatriel_1 = new JCheckBox("Utilisation de matériel du service");
 		chckbxUtilisationDeMatriel_1.setBounds(661, 405, 229, 23);
 		add(chckbxUtilisationDeMatriel_1);
 		
@@ -224,19 +224,19 @@ public class Amenagements extends JPanel {
 		chckbxNewCheckBox_1.setBounds(21, 450, 92, 23);
 		add(chckbxNewCheckBox_1);
 		
-		JCheckBox chckbxTempsMajorPour = new JCheckBox("Temps major\u00E9 pour \u00E9preuves \u00E9crites");
+		JCheckBox chckbxTempsMajorPour = new JCheckBox("Temps majoré pour les épreuves écrites");
 		chckbxTempsMajorPour.setBounds(21, 491, 251, 23);
 		add(chckbxTempsMajorPour);
 		
-		JCheckBox chckbxTempsMajorPour_1 = new JCheckBox("Temps major\u00E9 pour pr\u00E9paration d'\u00E9preuves orales");
+		JCheckBox chckbxTempsMajorPour_1 = new JCheckBox("Temps majoré pour les préparation d'épreuves orales");
 		chckbxTempsMajorPour_1.setBounds(252, 491, 312, 23);
 		add(chckbxTempsMajorPour_1);
 		
-		JCheckBox chckbxTempsMajorPour_2 = new JCheckBox("Temps major\u00E9 pour les \u00E9preuves pratiques");
+		JCheckBox chckbxTempsMajorPour_2 = new JCheckBox("Temps majoré pour les épreuves pratiques");
 		chckbxTempsMajorPour_2.setBounds(578, 491, 284, 23);
 		add(chckbxTempsMajorPour_2);
 		
-		JCheckBox chckbxSalleParticulire = new JCheckBox("Salle particuli\u00E8re");
+		JCheckBox chckbxSalleParticulire = new JCheckBox("Salle particulière");
 		chckbxSalleParticulire.setBounds(21, 528, 140, 23);
 		add(chckbxSalleParticulire);
 		
@@ -248,7 +248,7 @@ public class Amenagements extends JPanel {
 		chckbxSortieDeLa.setBounds(499, 531, 229, 23);
 		add(chckbxSortieDeLa);
 		
-		JLabel lblAmnagementsDeLa = new JLabel("Am\u00E9nagements de la formation :");
+		JLabel lblAmnagementsDeLa = new JLabel("Aménagements de la formation :");
 		lblAmnagementsDeLa.setBounds(21, 565, 190, 14);
 		add(lblAmnagementsDeLa);
 		
@@ -260,15 +260,15 @@ public class Amenagements extends JPanel {
 		rdbtnNon_5.setBounds(422, 565, 47, 23);
 		add(rdbtnNon_5);
 		
-		JCheckBox chckbxDispenseDassiduit = new JCheckBox("Dispense d'assiduit\u00E9");
+		JCheckBox chckbxDispenseDassiduit = new JCheckBox("Dispense d'assiduité");
 		chckbxDispenseDassiduit.setBounds(21, 591, 160, 23);
 		add(chckbxDispenseDassiduit);
 		
-		JCheckBox chckbxAmnagementDeLa = new JCheckBox("Am\u00E9nagement de la dur\u00E9e de formation");
+		JCheckBox chckbxAmnagementDeLa = new JCheckBox("Aménagement de la durée de formation");
 		chckbxAmnagementDeLa.setBounds(175, 591, 260, 23);
 		add(chckbxAmnagementDeLa);
 		
-		JCheckBox chckbxAmnagementDesHoraires = new JCheckBox("Am\u00E9nagement des horaires");
+		JCheckBox chckbxAmnagementDesHoraires = new JCheckBox("Aménagement des horaires");
 		chckbxAmnagementDesHoraires.setBounds(436, 591, 208, 23);
 		add(chckbxAmnagementDesHoraires);
 		

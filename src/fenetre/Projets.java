@@ -13,7 +13,7 @@ public class Projets extends JPanel {
 		setLayout(null);
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
-		lblProjetDeFormation.setBounds(20, 26, 130, 14);
+		lblProjetDeFormation.setBounds(20, 26, 186, 14);
 		add(lblProjetDeFormation);
 		
 		JTextArea textArea = new JTextArea();
@@ -21,7 +21,7 @@ public class Projets extends JPanel {
 		add(textArea);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
-		lblProjets.setBounds(56, 221, 175, 14);
+		lblProjets.setBounds(56, 221, 240, 14);
 		add(lblProjets);
 		
 		JTextArea textArea_1 = new JTextArea();

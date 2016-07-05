@@ -13,7 +13,7 @@ public class CarnetDeVisiteEtCommentaires extends JPanel {
 		setLayout(null);
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
-		lblIndiquerLesJours.setBounds(23, 26, 380, 14);
+		lblIndiquerLesJours.setBounds(23, 26, 420, 14);
 		add(lblIndiquerLesJours);
 		
 		JTextArea textArea = new JTextArea();

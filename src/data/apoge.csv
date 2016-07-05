@@ -1,12 +1,12 @@
-N° Etudiant;	Sexe;	Nom de naissance;	Nom d'époux(se); Prénom;	Date de naissance;	Adresse;;	Ville;	Téléphone;	Adresse Mail
-11020304;	M;	DUPONT;	DUBOIS-DUPONT;	Jean;	01/01/1992;	12 rue du savoir;	93200;	Saint-Denis;	33123456789;	jean.dupont@yahoo.com
-10203040;	Mme;	TACOU;	MANDRIVA;	Nora;	29/02/1988;	76 boulevard du plaisir;	94300;	Vincennes;	33148484848;	tacou.nora@gmail.com
-50607080;	M;	ZWAGROSKY;	ZWAGROSKY;	Wladimir;	20/12/1992;	23 route de l'amour;	91300;	 Massy;	33190807060;	zwagr@hotmail.fr
-2202529;	Mme;	DUPOULET;	DUPOULET;	Delphine;	01/03/1996;	13 place du rire;77700;	Coupvray;	33160102030;	delpoulet@lapost.net
-13091933;	M;	DUSOLEIL;	 DUSOLEIL;	Michel;	23/06/1993;	13 rue de la plage;	92400;	Courbevoie;	33156575859;	michel.dusoleil@yahoo.fr
-7071993;	M;	CHARLES;	CHARLES;	Robin;	06/06/1997;	7 boulevard du sentier;	78200;	Mantes-la-Jolie;	33180509030;	robin.charles@orange.fr
-10051993;	Mme;	PIQUET;	PIQUET-DURANT;	Françoise;	20/11/1990;	70 place du marché;	95400;	Arnouville;	33130354045;	francoise.durant@free.fr
-22091994;	Mme;	EL KHEBIR;	EL KHEBIR;	Myriam;	17/11/1990;	37 place de la république;	59000;	Lille;	33340506070;	elkebir@alice-adsl.fr
-25021960;	M;	SIMON;	SIMON;	Vincent;	20/10/1987;	97 rue du bac;	75001;	Paris;	33140506080;	vincent.simon@hotmail.com
-29101988;	Mme;	LOLA;	 LOLA;	Patricia;	30/06/1995;	50 boulevard HAUSSMANN;	76000;	Rouen;	33235507090;	patricia.lola@orange.com
-777777;	Mme;	CHARLES;	BARBIER;	Patricia;	01/01/1992;	6 boulevard de l'université;	93000;	Bobigny;	33148555555; Patricia.charles-barbier@free.fr
+N° Etudiant;Sexe;Nom de naissance;Nom d'époux(se); Prénom;Date de naissance;Adresse;Code postal;Ville;Téléphone;Adresse Mail
+11020304;M;DUPONT;DUBOIS-DUPONT;Jean;01/01/92;12 rue du savoir;93200;Saint-Denis;33123456789;jean.dupont@yahoo.com
+10203040;Mme;TACOU;MANDRIVA;Nora;29/02/88;76 boulevard du plaisir;94300;Vincennes;	33148484848;tacou.nora@gmail.com
+50607080;M;ZWAGROSKY;ZWAGROSKY;Wladimir;20/12/92;23 route de l'amour;91300;Massy;	33190807060;zwagr@hotmail.fr
+2202529;Mme;DUPOULET;DUPOULET;Delphine;01/03/96;13 place du rire;77700;Coupvray;	33160102030;delpoulet@lapost.net
+13091933;M;DUSOLEIL;DUSOLEIL;Michel;23/06/93;13 rue de la plage;92400;Courbevoie;	33156575859;michel.dusoleil@yahoo.fr
+7071993;M;CHARLES;CHARLES;Robin;06/06/97;7 boulevard du sentier;78200;Mantes-la-Jolie;	33180509030;robin.charles@orange.fr
+10051993;Mme;PIQUET;PIQUET-DURANT;Françoise;20/11/90;70 place du marché;95400;Arnouville;	33130354045;francoise.durant@free.fr
+22091994;Mme;EL KHEBIR;EL KHEBIR;Myriam;17/11/90;37 place de la république;59000;Lille;	33340506070;elkebir@alice-adsl.fr
+25021960;M;SIMON;SIMON;Vincent;20/10/87;97 rue du bac;75001;Paris;	33140506080;vincent.simon@hotmail.com
+29101988;Mme;LOLA;LOLA;Patricia;30/06/95;50 boulevard HAUSSMANN;76000;Rouen;	33235507090;patricia.lola@orange.com
+777777;Mme;CHARLES;BARBIER;Patricia;01/01/92;6 boulevard de l'université;93000;Bobigny;	33148555555; Patricia.charles-barbier@free.fr
