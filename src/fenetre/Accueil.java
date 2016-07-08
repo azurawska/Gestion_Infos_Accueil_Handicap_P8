@@ -46,6 +46,13 @@ public class Accueil extends JPanel {
 		JButton btnNewButton = new JButton(icon);
 		btnNewButton.setBounds(22, 2, 45, 23);
 		add(btnNewButton);
-
+		
+		JButton btnNewButton_1 = new JButton("Ok");
+		btnNewButton_1.setBounds(404, 5, 61, 29);
+		add(btnNewButton_1);
+		
+		JButton btnAnnuler = new JButton("Annuler");
+		btnAnnuler.setBounds(487, 5, 77, 29);
+		add(btnAnnuler);
 	}
 }

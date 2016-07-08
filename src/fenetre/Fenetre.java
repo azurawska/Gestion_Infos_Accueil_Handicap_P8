@@ -33,7 +33,6 @@ public class Fenetre extends JFrame {
 	
 	private int num_etudiant;
 	private ArrayList<String[]> donneesEtudiantsAvecChainesCommunes;
-	private boolean nouveau;
 
 	/**
 	 * Create the frame.
@@ -44,12 +43,10 @@ public class Fenetre extends JFrame {
 		this.authentification = new Authentification();
 		setContentPane(authentification);
 		this.authentification.setVisible(true);
-		addKeyListener(new SuivantClavier());
-		addKeyListener(new QuitApplication());
 		setVisible(true);
 	}
 	
-	private class Authentification extends JPanel {
+	private class Authentification extends JPanel implements KeyListener {
 		private JTextField textField_num_etudiant;
 		private JTextField textField_nom;
 		private JTextField textField_prenom;
@@ -109,6 +106,8 @@ public class Fenetre extends JFrame {
 			btnNouveau.setBounds(400, 280, 89, 23);
 			btnNouveau.addActionListener(new NouveauAction());
 			add(btnNouveau);
+			
+			addKeyListener(this);
 		}
 		
 		private class NouveauAction implements ActionListener {
@@ -116,8 +115,10 @@ public class Fenetre extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				accueil = new Accueil();
 				authentification.setVisible(false);
-				setContentPane(new Accueil("", "", ""));
+				setContentPane(accueil);
+				accueil.setVisible(true);
 			}
 			
 		}
@@ -178,9 +179,71 @@ public class Fenetre extends JFrame {
 			private String prenom;
 			
 			/**
-			 * Create the panel.
+			 * Create the panel for a new user.
+			 */
+			
+			public Accueil() {
+				
+				setLayout(null);
+				
+				Identite.nouveau=true;
+				
+				JLabel lblNumEtudiant = new JLabel(this.numEtudiant);
+				lblNumEtudiant.setBounds(132, 11, 150, 14);
+				add(lblNumEtudiant);
+				
+				JLabel lblNom = new JLabel(this.nom);
+				lblNom.setBounds(226, 11, 150, 14);
+				add(lblNom);
+				
+				JLabel lblPrenom = new JLabel(this.prenom);
+				lblPrenom.setBounds(354, 11, 150, 14);
+				add(lblPrenom);
+				
+				JButton btnNewButton_1 = new JButton("Ok");
+				btnNewButton_1.setBounds(404, 5, 61, 29);
+				add(btnNewButton_1);
+				
+				JButton btnAnnuler = new JButton("Annuler");
+				btnAnnuler.setBounds(487, 5, 77, 29);
+				add(btnAnnuler);
+				
+				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+				tabbedPane.setBounds(0, 50, 1024, 700);
+				tabbedPane.addTab("Identité", new Identite());
+				tabbedPane.addTab("Parcours", new ParcoursAnterieurP8());
+				tabbedPane.addTab("Inscription", new Inscription());
+				tabbedPane.addTab("Projets", new Projets());
+				tabbedPane.addTab("Handicap", new Handicap());
+				tabbedPane.addTab("Amenagement", new Amenagements());
+				tabbedPane.addTab("Menesr", new Menesr());
+				tabbedPane.addTab("Notes", new NotesReussite());
+				tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires());
+				add(tabbedPane);
+				
+				Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/accueil.jpg");
+				
+				JButton btnNewButton = new JButton(icon);
+				btnNewButton.setBounds(22, 2, 45, 23);
+				add(btnNewButton);
+				
+				btnNewButton.addActionListener(new ActionListener() {
+					
+					@Override
+					public void actionPerformed(ActionEvent e) {
+						accueil.setVisible(false);
+						setContentPane(authentification);
+						authentification.setVisible(true);
+					}
+				});
+			}
+			
+			/**
+			 * Create the panel with student number, Family Name and First Name.
 			 */
 			public Accueil(String numEtudiant, String nom, String prenom) {
+				
+				Identite.nouveau=false;
 				
 				this.numEtudiant=numEtudiant;
 				this.nom=nom;
@@ -199,6 +262,14 @@ public class Fenetre extends JFrame {
 				JLabel lblPrenom = new JLabel(this.prenom);
 				lblPrenom.setBounds(354, 11, 150, 14);
 				add(lblPrenom);
+				
+				JButton btnNewButton_1 = new JButton("Ok");
+				btnNewButton_1.setBounds(404, 5, 61, 29);
+				add(btnNewButton_1);
+				
+				JButton btnAnnuler = new JButton("Annuler");
+				btnAnnuler.setBounds(487, 5, 77, 29);
+				add(btnAnnuler);
 				
 				JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 				tabbedPane.setBounds(0, 50, 1024, 700);
@@ -409,38 +480,16 @@ public class Fenetre extends JFrame {
 				}
 			}
 		}
-	}
-	
-	private class SuivantClavier implements KeyListener {
 
 		@Override
 		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
 			if(e.getKeyCode()==KeyEvent.VK_ENTER) {
-				//suivant();
+				suivant();
 			}
-		}
-		
-	}
-	
-	private class QuitApplication implements KeyListener {
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
+			if(e.getKeyCode()==KeyEvent.VK_ESCAPE) {
+				System.exit(0);
+			}
 		}
 
 		@Override
@@ -452,10 +501,7 @@ public class Fenetre extends JFrame {
 		@Override
 		public void keyReleased(KeyEvent e) {
 			// TODO Auto-generated method stub
-			if(e.getKeyCode()==KeyEvent.VK_ESCAPE) {
-				System.exit(EXIT_ON_CLOSE);
-			}
+			
 		}
-		
 	}
 }
