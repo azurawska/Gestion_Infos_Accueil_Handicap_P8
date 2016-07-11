@@ -312,13 +312,13 @@ public class Fenetre extends JFrame {
 					if(!textField_num_etudiant.getText().equals("")) {
 					num_etudiant = Integer.parseInt(textField_num_etudiant.getText());
 						String num_etudiant_reconverti=Integer.toString(num_etudiant);
-						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/apoge.csv");
+						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
 						ArrayList<String[]> donneesEtudiants = lectureFichier.chargerFichier();
 						num_etudiant_reconverti=lectureFichier.retournerChaine(donneesEtudiants, num_etudiant_reconverti);
 						
 						if(num_etudiant_reconverti!=null) {
 							//JOptionPane.showMessageDialog(null, "Etudiant trouv� !", "", JOptionPane.INFORMATION_MESSAGE);
-							String[] etudiant = lectureFichier.retournerEtudiant(donneesEtudiants, num_etudiant_reconverti);
+							String[] etudiant = lectureFichier.retournerInfosEtudiant(donneesEtudiants, num_etudiant_reconverti);
 							authentification.setVisible(false);
 							accueil = new Accueil(etudiant[0], etudiant[3], etudiant[4]);
 							setContentPane(accueil);
@@ -330,7 +330,7 @@ public class Fenetre extends JFrame {
 				}
 				else if(!textField_nom.getText().equals("") && textField_prenom.getText().equals("")) {
 						
-						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/apoge.csv");
+						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
 						ArrayList<String[]> donneesEtudiants = lectureFichier.chargerFichier();
 						String[] chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
 						donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
@@ -382,7 +382,7 @@ public class Fenetre extends JFrame {
 						}
 					}
 					else if(!textField_prenom.getText().equals("") && textField_nom.getText().equals("")) {
-						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/apoge.csv");
+						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
 						ArrayList<String[]> donneesEtudiants = lectureFichier.chargerFichier();
 						String[] chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
 						donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
@@ -412,7 +412,7 @@ public class Fenetre extends JFrame {
 						}
 					}
 					else if(!textField_nom.getText().equals("") && !textField_prenom.getText().equals("")) {
-						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/apoge.csv");
+						lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
 						ArrayList<String[]> donneesEtudiants = lectureFichier.chargerFichier();
 						String[] chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
 						donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);

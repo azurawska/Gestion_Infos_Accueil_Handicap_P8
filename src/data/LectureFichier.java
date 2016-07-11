@@ -12,7 +12,7 @@ public class LectureFichier {
 	private String file_path;
 	
 	/**
-	 * Constructeur d'une instance de la classe LectureFichier prenant le fichier sur lequel on travaille en paramètres.
+	 * Constructeur d'une instance de la classe LectureFichier prenant le fichier sur lequel on travaille en paramï¿½tres.
 	 * @param file_path
 	 */
 	
@@ -21,8 +21,8 @@ public class LectureFichier {
 	}
 	
 	/**
-	 * Charge le fichier passé en paramètre en mémoire.
-	 * @return Le fichier chargé en mémoire dans un tableau.
+	 * Charge le fichier passï¿½ en paramï¿½tre en mï¿½moire.
+	 * @return Le fichier chargï¿½ en mï¿½moire dans un tableau.
 	 */
 	
 	public ArrayList<String[]> chargerFichier() {
@@ -40,7 +40,7 @@ public class LectureFichier {
 			ligne=premiereLigne.readLine();
 			tableauIntermediaire = ligne.split(";");
 			donnees.add(tableauIntermediaire);
-			while((ligne = premiereLigne.readLine())!=null && i!=donnees.size()) { //Chargement du fichier en mémoire.
+			while((ligne = premiereLigne.readLine())!=null && i!=donnees.size()) { //Chargement du fichier en mï¿½moire.
 				tableauIntermediaire=ligne.split(";");
 				donnees.add(tableauIntermediaire);
 			}
@@ -162,7 +162,7 @@ public class LectureFichier {
 		return null;
 	}
 	
-	public String[] retournerEtudiant(ArrayList<String[]> tableau, String numEtudiant) {
+	public String[] retournerInfosEtudiant(ArrayList<String[]> tableau, String numEtudiant) {
 		
 		for(int i=0;i<tableau.size();i++) {
 			for(int j=0;j<tableau.get(i).length;j++) {
