@@ -70,11 +70,9 @@ public class Identite extends JPanel implements Scrollable {
 		add(hbar, null);
 		add(vbar, null);
 		
-		LectureFichier fichierApoge = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/apoge.csv");
-		LectureFichier fichierHandi = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/handi.csv");
+		LectureFichier fichierIdentite = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
 		
-		ArrayList<String[]> etudiants = fichierApoge.chargerFichier();
-		ArrayList<String[]> infosEtudiantsAccueilHandicap = fichierHandi.chargerFichier();
+		ArrayList<String[]> etudiants = fichierIdentite.chargerFichier();
 		
 		JLabel lblNewLabel = new JLabel("Date de création du dossier :");
 		lblNewLabel.setBounds(10, 11, 190, 14);
