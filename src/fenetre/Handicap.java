@@ -83,14 +83,6 @@ public class Handicap extends JPanel {
 		chckbxTroublesVisuels.setBounds(18, 142, 150, 23);
 		add(chckbxTroublesVisuels);
 		
-		JCheckBox chckbxCcit = new JCheckBox("Cécité");
-		chckbxCcit.setBounds(163, 180, 73, 23);
-		add(chckbxCcit);
-		
-		JCheckBox chckbxAutresTroublesDes = new JCheckBox("Autres troubles des fonctions visuelles :");
-		chckbxAutresTroublesDes.setBounds(252, 180, 291, 23);
-		add(chckbxAutresTroublesDes);
-		
 		textField_2 = new JTextField();
 		textField_2.setBounds(597, 182, 248, 20);
 		add(textField_2);
@@ -100,16 +92,8 @@ public class Handicap extends JPanel {
 		chckbxNewCheckBox.setBounds(18, 205, 150, 23);
 		add(chckbxNewCheckBox);
 		
-		JCheckBox chckbxSurditSvreEt = new JCheckBox("Surdité sévère et profonde");
-		chckbxSurditSvreEt.setBounds(79, 240, 218, 23);
-		add(chckbxSurditSvreEt);
-		
-		JCheckBox chckbxAutresTroublesDes_1 = new JCheckBox("Autres troubles des fonctions auditives :");
-		chckbxAutresTroublesDes_1.setBounds(300, 243, 314, 23);
-		add(chckbxAutresTroublesDes_1);
-		
 		textField_3 = new JTextField();
-		textField_3.setBounds(597, 244, 261, 20);
+		textField_3.setBounds(648, 244, 261, 20);
 		add(textField_3);
 		textField_3.setColumns(10);
 		
@@ -193,6 +177,22 @@ public class Handicap extends JPanel {
 		textField_8.setBounds(360, 499, 254, 20);
 		add(textField_8);
 		textField_8.setColumns(10);
+		
+		JRadioButton rdbtnCcit = new JRadioButton("Cécité");
+		rdbtnCcit.setBounds(115, 177, 78, 23);
+		add(rdbtnCcit);
+		
+		JRadioButton rdbtnAutresTroublesDes = new JRadioButton("Autres troubles des fonctions visuelles");
+		rdbtnAutresTroublesDes.setBounds(224, 177, 293, 23);
+		add(rdbtnAutresTroublesDes);
+		
+		JRadioButton rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
+		rdbtnSurditSvreEt.setBounds(103, 242, 209, 23);
+		add(rdbtnSurditSvreEt);
+		
+		JRadioButton rdbtnAutresTroublesDes_1 = new JRadioButton("Autres troubles des fonctions auditives");
+		rdbtnAutresTroublesDes_1.setBounds(309, 242, 293, 23);
+		add(rdbtnAutresTroublesDes_1);
 
 	}
 }

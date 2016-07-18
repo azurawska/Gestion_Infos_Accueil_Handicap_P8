@@ -17,15 +17,15 @@ public class Projets extends JPanel {
 		add(lblProjetDeFormation);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(30, 47, 410, 129);
+		textArea.setBounds(40, 55, 386, 176);
 		add(textArea);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
-		lblProjets.setBounds(56, 221, 240, 14);
+		lblProjets.setBounds(20, 231, 240, 14);
 		add(lblProjets);
 		
 		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(54, 246, 386, 176);
+		textArea_1.setBounds(40, 257, 386, 176);
 		add(textArea_1);
 
 	}
