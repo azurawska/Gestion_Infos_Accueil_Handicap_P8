@@ -54,7 +54,7 @@ public class Fenetre extends JFrame {
 	 */
 	public Fenetre() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		screenSize  = Toolkit.getDefaultToolkit().getScreenSize();
+		screenSize=Toolkit.getDefaultToolkit().getScreenSize();
 		screenSize.setSize(1000, 500);
 		setBounds(0, 0, screenSize.width, screenSize.height);
 		this.authentification = new Authentification();
@@ -63,7 +63,7 @@ public class Fenetre extends JFrame {
 		setVisible(true);
 	}
 	
-	private class Authentification extends JPanel implements KeyListener {
+	private class Authentification extends JPanel {
 		private JTextField textField_num_etudiant;
 		private JTextField textField_nom;
 		private JTextField textField_prenom;
@@ -121,14 +121,13 @@ public class Fenetre extends JFrame {
 			btnSuivant = new JButton("Suivant");
 			btnSuivant.setBounds(x+pasx,y+4*pasy, 89, 23);
 			btnSuivant.addActionListener(new SuivantAction());
+			btnSuivant.addKeyListener(new SuivantActionClavier());
 			add(btnSuivant);
 			
 			btnNouveau = new JButton("Nouveau");
 			btnNouveau.setBounds(x+pasx, y+5*pasy, 89, 23);
 			btnNouveau.addActionListener(new NouveauAction());
 			add(btnNouveau);
-			
-			addKeyListener(this);
 		}
 		
 		private class NouveauAction implements ActionListener {
@@ -150,6 +149,30 @@ public class Fenetre extends JFrame {
 			public void actionPerformed(ActionEvent e) {
 				suivant();
 			}
+		}
+		
+		private class SuivantActionClavier implements KeyListener {
+
+			@Override
+			public void keyTyped(KeyEvent e) {
+				// TODO Auto-generated method stub
+				if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+					suivant();
+				}
+			}
+
+			@Override
+			public void keyPressed(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+
+			@Override
+			public void keyReleased(KeyEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+			
 		}
 		
 		private class QuitNumEtudiantFieldMouseEvent implements MouseListener {
@@ -1069,29 +1092,6 @@ public class Fenetre extends JFrame {
 					JOptionPane.showMessageDialog(null, "Le champ numéro étudiant ne doit contenir que des chiffres.", "Erreur", JOptionPane.ERROR_MESSAGE);
 				}
 			}
-		}
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			if(e.getKeyCode()==KeyEvent.VK_ENTER) {
-				suivant();
-			}
-			if(e.getKeyCode()==KeyEvent.VK_ESCAPE) {
-				System.exit(0);
-			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
 		}
 	}
 }
