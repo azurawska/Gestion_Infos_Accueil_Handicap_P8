@@ -116,6 +116,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_4 = new JTextField();
 		textField_4.setBounds(133, 161, 197, 20);
+		textField_4.setEditable(true);
 		add(textField_4);
 		textField_4.setColumns(10);
 		
@@ -125,6 +126,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_5 = new JTextField();
 		textField_5.setBounds(87, 192, 243, 20);
+		textField_5.setEditable(true);
 		add(textField_5);
 		textField_5.setColumns(10);
 		
@@ -143,6 +145,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_7 = new JTextField();
 		textField_7.setBounds(83, 262, 247, 20);
+		textField_7.setEditable(true);
 		add(textField_7);
 		textField_7.setColumns(10);
 		
@@ -152,6 +155,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_8 = new JTextField();
 		textField_8.setBounds(120, 293, 210, 20);
+		textField_8.setEditable(true);
 		add(textField_8);
 		textField_8.setColumns(10);
 		
@@ -161,6 +165,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_9 = new JTextField();
 		textField_9.setBounds(87, 336, 243, 20);
+		textField_9.setEditable(true);
 		add(textField_9);
 		textField_9.setColumns(10);
 		
@@ -170,6 +175,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_10 = new JTextField();
 		textField_10.setBounds(112, 377, 218, 20);
+		textField_10.setEditable(true);
 		add(textField_10);
 		textField_10.setColumns(10);
 		
@@ -179,6 +185,7 @@ public class Identite extends JPanel implements Scrollable {
 		
 		textField_11 = new JTextField();
 		textField_11.setBounds(109, 408, 221, 20);
+		textField_11.setEditable(true);
 		add(textField_11);
 		textField_11.setColumns(10);
 		
@@ -226,8 +233,8 @@ public class Identite extends JPanel implements Scrollable {
 		lblCoordonnesDunPartenaire.setBounds(356, 164, 390, 14);
 		add(lblCoordonnesDunPartenaire);
 		
-		JLabel lblNom = new JLabel("Nom :");
-		lblNom.setBounds(367, 223, 45, 14);
+		JLabel lblNom = new JLabel("Fonction :");
+		lblNom.setBounds(366, 195, 45, 14);
 		add(lblNom);
 		
 		textField_16 = new JTextField();
@@ -235,8 +242,8 @@ public class Identite extends JPanel implements Scrollable {
 		add(textField_16);
 		textField_16.setColumns(10);
 		
-		JLabel lblPrnom = new JLabel("Prénom :");
-		lblPrnom.setBounds(366, 259, 55, 14);
+		JLabel lblPrnom = new JLabel("Nom :");
+		lblPrnom.setBounds(366, 234, 55, 14);
 		add(lblPrnom);
 		
 		textField_17 = new JTextField();
@@ -244,8 +251,8 @@ public class Identite extends JPanel implements Scrollable {
 		add(textField_17);
 		textField_17.setColumns(10);
 		
-		JLabel lblTlphone_2 = new JLabel("Téléphone :");
-		lblTlphone_2.setBounds(351, 300, 75, 14);
+		JLabel lblTlphone_2 = new JLabel("Prénom :");
+		lblTlphone_2.setBounds(356, 259, 75, 14);
 		add(lblTlphone_2);
 		
 		textField_18 = new JTextField();
@@ -253,8 +260,8 @@ public class Identite extends JPanel implements Scrollable {
 		add(textField_18);
 		textField_18.setColumns(10);
 		
-		JLabel lblEmail_2 = new JLabel("E-mail :");
-		lblEmail_2.setBounds(366, 336, 60, 14);
+		JLabel lblEmail_2 = new JLabel("Téléphone :");
+		lblEmail_2.setBounds(366, 300, 60, 14);
 		add(lblEmail_2);
 		
 		textField_19 = new JTextField();
@@ -262,8 +269,8 @@ public class Identite extends JPanel implements Scrollable {
 		add(textField_19);
 		textField_19.setColumns(10);
 		
-		JLabel lblFonction = new JLabel("Fonction :");
-		lblFonction.setBounds(356, 195, 65, 14);
+		JLabel lblFonction = new JLabel("E-mail :");
+		lblFonction.setBounds(366, 336, 65, 14);
 		add(lblFonction);
 		
 		textField_20 = new JTextField();
@@ -519,7 +526,7 @@ public class Identite extends JPanel implements Scrollable {
 		add(lblEmail_1);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(494, 124, 150, 20);
+		textField_15.setBounds(494, 124, 250, 20);
 		add(textField_15);
 		textField_15.setColumns(10);
 		textField_15.setText(etudiant[16]);
@@ -528,17 +535,17 @@ public class Identite extends JPanel implements Scrollable {
 		lblCoordonnesDunPartenaire.setBounds(356, 164, 390, 14);
 		add(lblCoordonnesDunPartenaire);
 		
-		JLabel lblNom = new JLabel("Nom :");
-		lblNom.setBounds(366, 195, 45, 14);
+		JLabel lblNom = new JLabel("Fonction :");
+		lblNom.setBounds(366, 195, 70, 14);
 		add(lblNom);
 		
 		textField_16 = new JTextField();
 		textField_16.setBounds(467, 192, 177, 20);
 		add(textField_16);
 		textField_16.setColumns(10);
-		textField_16.setText(etudiant[17]);
+		textField_16.setText(etudiant[21]);
 		
-		JLabel lblPrnom = new JLabel("Prénom :");
+		JLabel lblPrnom = new JLabel("Nom :");
 		lblPrnom.setBounds(366, 234, 55, 14);
 		add(lblPrnom);
 		
@@ -546,9 +553,9 @@ public class Identite extends JPanel implements Scrollable {
 		textField_17.setBounds(467, 223, 177, 20);
 		add(textField_17);
 		textField_17.setColumns(10);
-		textField_17.setText(etudiant[18]);
+		textField_17.setText(etudiant[17]);
 		
-		JLabel lblTlphone_2 = new JLabel("Téléphone :");
+		JLabel lblTlphone_2 = new JLabel("Prénom :");
 		lblTlphone_2.setBounds(356, 259, 75, 14);
 		add(lblTlphone_2);
 		
@@ -556,19 +563,19 @@ public class Identite extends JPanel implements Scrollable {
 		textField_18.setBounds(467, 256, 177, 20);
 		add(textField_18);
 		textField_18.setColumns(10);
-		textField_18.setText(etudiant[19]);
+		textField_18.setText(etudiant[18]);
 		
-		JLabel lblEmail_2 = new JLabel("E-mail :");
-		lblEmail_2.setBounds(366, 300, 60, 14);
+		JLabel lblEmail_2 = new JLabel("Téléphone :");
+		lblEmail_2.setBounds(366, 300, 75, 14);
 		add(lblEmail_2);
 		
 		textField_19 = new JTextField();
 		textField_19.setBounds(467, 297, 177, 20);
 		add(textField_19);
 		textField_19.setColumns(10);
-		textField_19.setText(etudiant[20]);
+		textField_19.setText(etudiant[19]);
 		
-		JLabel lblFonction = new JLabel("Fonction :");
+		JLabel lblFonction = new JLabel("E-mail :");
 		lblFonction.setBounds(366, 336, 65, 14);
 		add(lblFonction);
 		
@@ -576,7 +583,7 @@ public class Identite extends JPanel implements Scrollable {
 		textField_20.setBounds(467, 330, 177, 20);
 		add(textField_20);
 		textField_20.setColumns(10);
-		textField_20.setText(etudiant[21]);
+		textField_20.setText(etudiant[20]);
 		
 		JLabel lblNewLabel_9 = new JLabel("Commentaires :");
 		lblNewLabel_9.setBounds(356, 379, 130, 16);
