@@ -16,4 +16,8 @@ public class Inscription extends JPanel {
 		add(chckbxAffectationPrioritaire);
 
 	}
+
+	public Inscription(String numEtudiant) {
+		// TODO Auto-generated constructor stub
+	}
 }

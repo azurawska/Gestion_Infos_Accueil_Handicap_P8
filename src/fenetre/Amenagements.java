@@ -46,4 +46,8 @@ public class Amenagements extends JPanel {
 		AmenagementsCours amenagementsCours = new AmenagementsCours();
 		tabbedPane.add("Cours", amenagementsCours);
 	}
+
+	public Amenagements(String numEtudiant) {
+		// TODO Auto-generated constructor stub
+	}
 }

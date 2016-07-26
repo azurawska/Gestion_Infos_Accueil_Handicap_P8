@@ -11,4 +11,8 @@ public class NotesReussite extends JPanel {
 
 	}
 
+	public NotesReussite(String numEtudiant) {
+		// TODO Auto-generated constructor stub
+	}
+
 }

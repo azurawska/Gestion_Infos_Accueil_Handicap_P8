@@ -129,4 +129,8 @@ public class ParcoursAnterieurP8 extends JPanel {
 		add(textField_4);
 
 	}
+
+	public ParcoursAnterieurP8(String numEtudiant) {
+		// TODO Auto-generated constructor stub
+	}
 }

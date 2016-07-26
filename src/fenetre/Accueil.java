@@ -114,14 +114,14 @@ public class Accueil extends JPanel {
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		tabbedPane.setBounds(0, 50, 1024, 700);
 		tabbedPane.addTab("Identité", new Identite(this.numEtudiant));
-		tabbedPane.addTab("Parcours", new ParcoursAnterieurP8());
-		tabbedPane.addTab("Inscription", new Inscription());
-		tabbedPane.addTab("Projets", new Projets());
-		tabbedPane.addTab("Handicap", new Handicap());
-		tabbedPane.addTab("Amenagement", new Amenagements());
-		tabbedPane.addTab("Menesr", new Menesr());
-		tabbedPane.addTab("Notes", new NotesReussite());
-		tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires());
+		tabbedPane.addTab("Parcours", new ParcoursAnterieurP8(this.numEtudiant));
+		tabbedPane.addTab("Inscription", new Inscription(this.numEtudiant));
+		tabbedPane.addTab("Projets", new Projets(this.numEtudiant));
+		tabbedPane.addTab("Handicap", new Handicap(this.numEtudiant));
+		tabbedPane.addTab("Amenagement", new Amenagements(this.numEtudiant));
+		tabbedPane.addTab("Menesr", new Menesr(this.numEtudiant));
+		tabbedPane.addTab("Notes", new NotesReussite(this.numEtudiant));
+		tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires(this.numEtudiant));
 		add(tabbedPane);
 		
 		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/accueil.jpg");

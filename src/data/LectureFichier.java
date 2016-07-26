@@ -173,4 +173,19 @@ public class LectureFichier {
 		}
 		return null;
 	}
+	
+	public ArrayList<String[]> retournerInfosMultiplesEtudiant(ArrayList<String[]> tableau, String numEtudiant) {
+		
+		ArrayList<String[]> infosMultiplesEtudiant = new ArrayList<String[]>();
+		
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				if(tableau.get(i)[j].equals(numEtudiant)) {
+					infosMultiplesEtudiant.add(tableau.get(i));
+				}
+			}
+		}
+		
+		return infosMultiplesEtudiant;
+	}
 }

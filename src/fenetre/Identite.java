@@ -284,6 +284,8 @@ public class Identite extends JPanel implements Scrollable {
 		
 		JTextArea textArea = new JTextArea();
 		textArea.setBounds(356, 393, 288, 141);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
 		add(textArea);
 	}
 	
@@ -593,6 +595,8 @@ public class Identite extends JPanel implements Scrollable {
 		textArea.setBounds(356, 393, 288, 141);
 		add(textArea);
 		textArea.setText(etudiant[22]);
+		textArea.setLineWrap(true);
+		textArea.setWrapStyleWord(true);
 	}
 		
 		/*JScrollPane scrollPane = new JScrollPane();
@@ -601,10 +605,6 @@ public class Identite extends JPanel implements Scrollable {
 		scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
 		scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_ALWAYS);
 		add(scrollPane, null);*/
-		
-		
-		/*JScrollPane scrollpaneCommentaires = new JScrollPane(textArea);
-		add(scrollpaneCommentaires);*/
 		
 		/*JScrollPane scrollpane = new JScrollPane();
 		scrollpane.setViewportView(this);

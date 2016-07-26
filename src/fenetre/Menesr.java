@@ -193,4 +193,8 @@ public class Menesr extends JPanel {
 		add(rdbtnNon_1);
 
 	}
+
+	public Menesr(String numEtudiant) {
+		// TODO Auto-generated constructor stub
+	}
 }
