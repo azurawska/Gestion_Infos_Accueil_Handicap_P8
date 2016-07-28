@@ -1,0 +1,30 @@
+Handicap temporaire
+Non renseigné
+Troubles moteurs :
+Fauteuil manuel
+Fauteuil électrique
+Béquilles
+Dyspraxie
+Epilepsie
+SEP (Sclérose en plaques)
+Autre (à préciser)
+Troubles visuels :
+Cécité
+Autres troubles des fonctions visuelles
+Troubles auditifs :
+Surdité sévère et profonde
+Autres troubles des fonctions auditives
+Troubles cognitifs :
+TSA (trouble du spectre autistique) :
+Autisme profondeAutisme de haut niveau
+Syndrôme d'Asperger
+Troubles psychiques :
+Troubles du langage et de la parole (dyslexie, dysphasie...) :
+Troubles viscéraux :
+Maladie cardiaque
+Maladie pulmonaire
+Maladie du système digestif
+Pathologie cancéreuse
+Autre (à préciser) :
+Plusieurs troubles associés
+Autres troubles (préciser)

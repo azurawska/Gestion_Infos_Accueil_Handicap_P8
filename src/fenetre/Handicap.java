@@ -736,6 +736,7 @@ public class Handicap extends JPanel {
 			rdbtnHandicapTemporaire.setSelected(false);
 		}
 		else {
+			rdbtnHandicapTemporaire.setSelected(true);
 			textField.setText(etudiant[1]);
 		}
 		
@@ -752,8 +753,10 @@ public class Handicap extends JPanel {
 		
 		else {
 			chckbxTroublesMoteurs.setSelected(false);
+			if(troublesCoches.contains(chckbxTroublesMoteurs)) {
 			troublesCoches.remove(chckbxTroublesMoteurs);
 			plusieursTroublesCoches(troublesCoches);
+			}
 		}
 		
 		chckbxFauteuilManuel = new JCheckBox("Fauteuil manuel");
@@ -844,6 +847,7 @@ public class Handicap extends JPanel {
 			chckbxAutres.setSelected(false);
 		}
 		else {
+			chckbxAutres.setSelected(true);
 			textField_1.setText(etudiant[11]);
 		}
 		
@@ -854,9 +858,15 @@ public class Handicap extends JPanel {
 		
 		if(etudiant[12].equals("Oui")) {
 			chckbxTroublesVisuels.setSelected(true);
+			troublesCoches.add(chckbxTroublesVisuels);
+			plusieursTroublesCoches(troublesCoches);
 		}
 		else {
 			chckbxTroublesVisuels.setSelected(false);
+			if(troublesCoches.contains(chckbxTroublesVisuels)) {
+				troublesCoches.remove(chckbxTroublesVisuels);
+				plusieursTroublesCoches(troublesCoches);
+			}
 		}
 		
 		textField_2 = new JTextField();
@@ -872,9 +882,15 @@ public class Handicap extends JPanel {
 		
 		if(etudiant[15].equals("Oui")) {
 			chckbxNewCheckBox.setSelected(true);
+			troublesCoches.add(chckbxNewCheckBox);
+			plusieursTroublesCoches(troublesCoches);
 		}
 		else {
 			chckbxNewCheckBox.setSelected(false);
+			if(troublesCoches.contains(chckbxNewCheckBox)) {
+				troublesCoches.remove(chckbxNewCheckBox);
+				plusieursTroublesCoches(troublesCoches);
+			}
 		}
 		
 		textField_3 = new JTextField();
@@ -896,9 +912,16 @@ public class Handicap extends JPanel {
 		
 		if(etudiant[18].equals("Non")) {
 			chckbxTroublesCognitifs.setSelected(false);
+			if(troublesCoches.contains(chckbxTroublesCognitifs)) {
+				troublesCoches.remove(chckbxTroublesCognitifs);
+				plusieursTroublesCoches(troublesCoches);
+			}
 		}
 		else {
+			chckbxTroublesCognitifs.setSelected(true);
 			textField_4.setText(etudiant[18]);
+			troublesCoches.add(chckbxTroublesCognitifs);
+			plusieursTroublesCoches(troublesCoches);
 		}
 		
 		chckbxTsa = new JCheckBox("TSA :");
@@ -906,20 +929,54 @@ public class Handicap extends JPanel {
 		add(chckbxTsa);
 		chckbxTsa.addChangeListener(new TsaListener());
 		
+		if(etudiant[19].equals("Oui")) {
+			chckbxTsa.setSelected(true);
+			troublesCoches.add(chckbxTsa);
+			plusieursTroublesCoches(troublesCoches);
+		}
+		else {
+			chckbxTsa.setSelected(false);
+			if(troublesCoches.contains(chckbxTsa)) {
+				troublesCoches.remove(chckbxTsa);
+				plusieursTroublesCoches(troublesCoches);
+			}
+		}
+		
 		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
 		rdbtnNewRadioButton.setBounds(72, 339, 150, 23);
 		add(rdbtnNewRadioButton);
 		rdbtnNewRadioButton.setVisible(false);
+		
+		if(etudiant[20].equals("Oui")) {
+			rdbtnNewRadioButton.setSelected(true);
+		}
+		else {
+			rdbtnNewRadioButton.setSelected(false);
+		}
 		
 		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
 		rdbtnAutismeDeHaut.setBounds(222, 339, 190, 23);
 		add(rdbtnAutismeDeHaut);
 		rdbtnAutismeDeHaut.setVisible(false);
 		
+		if(etudiant[21].equals("Oui")) {
+			rdbtnAutismeDeHaut.setSelected(true);
+		}
+		else {
+			rdbtnAutismeDeHaut.setSelected(false);
+		}
+		
 		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
 		rdbtnSyndrmeDasperger.setBounds(424, 339, 190, 23);
 		add(rdbtnSyndrmeDasperger);
 		rdbtnSyndrmeDasperger.setVisible(false);
+		
+		if(etudiant[22].equals("Oui")) {
+			rdbtnSyndrmeDasperger.setSelected(true);
+		}
+		else {
+			rdbtnSyndrmeDasperger.setSelected(false);
+		}
 		
 		autisme = new ButtonGroup();
 		autisme.add(rdbtnNewRadioButton);
@@ -937,6 +994,20 @@ public class Handicap extends JPanel {
 		textField_5.setColumns(10);
 		textField_5.setVisible(false);
 		
+		if(etudiant[23].equals("Non")) {
+			chckbxTroublesPsychiques.setSelected(false);
+			if(troublesCoches.contains(chckbxTroublesPsychiques)) {
+				troublesCoches.remove(chckbxTroublesPsychiques);
+				plusieursTroublesCoches(troublesCoches);
+			}
+		}
+		else {
+			chckbxTroublesPsychiques.setSelected(true);
+			textField_5.setText(etudiant[23]);
+			troublesCoches.add(chckbxTroublesPsychiques);
+			plusieursTroublesCoches(troublesCoches);
+		}
+		
 		chckbxTroublesDuLangage = new JCheckBox("Troubles du langage et de la parole :");
 		chckbxTroublesDuLangage.setBounds(18, 413, 279, 23);
 		add(chckbxTroublesDuLangage);
@@ -947,6 +1018,15 @@ public class Handicap extends JPanel {
 		add(textField_6);
 		textField_6.setColumns(10);
 		textField_6.setVisible(false);
+		
+		if(etudiant[24].equals("Non")) {
+			chckbxTroublesDuLangage.setSelected(false);
+		}
+		else {
+			chckbxTroublesDuLangage.setSelected(true);
+			textField_6.setText(etudiant[24]);
+		}
+		
 		
 		chckbxTroublesViscraux = new JCheckBox("Troubles viscéraux :");
 		chckbxTroublesViscraux.setBounds(16, 443, 190, 23);
