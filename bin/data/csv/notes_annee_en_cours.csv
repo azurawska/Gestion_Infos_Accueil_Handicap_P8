@@ -1,0 +1,150 @@
+N° Etudiant;Année;Code;Libellé;Session 1;Résultat;Session 2;Résultat
+11020304;2015-2016;D1INFO;1ère année de doctorat informatique;;DEF;;DEF
+10203040;;;;;;;
+50607080;2015-2016;M2COMC;M2 Management parcours Conseil en organisation et Management du Changement;12.91;DEF;13.16;ADM
+;;VM2COMCEC;Vet miroir M2 COMC;;DEF;13.16;ADM
+;;SM21ANEC;Semestre 3;12.32;DEF;12.82;ADM
+;;UM21COMC;UE1 – Fondements théoriques et dynamiques des organisations;10.5;DEF;12;ADM
+;;EM21COMC1;Théorie des organisations;10;ADM;;
+;;EM21COMC2;Management stratégique;15;ADM;;
+;;EM21COMC3;Stratégies de changement;5;AJ;11;ADM
+;;EM21COMC4;Dynamiques des organisations : apports de la sociologie;12;ADM;;
+;;UM22COMC;UE2 – Organisation, Audit, Qualité, système d'information;14.25;ADM;;
+;;EM22COMC1;Normalisation, certification et management de la qualité;18;ADM;;
+;;EM22COMC2;Contrôle organisationnel et instrument de pilotage;16;ADM;;
+;;EM22COMC3;Processus, procédure et Audit;12;ADM;;
+;;EM22COMC4;Système d'information, ERP, CRM;11;ADM;;
+;;UM23COMC;UE3 – Conduite de projet et management du changement;12.2;ADM;;
+;;EM23COMC1;Accompagnement du changement;10;ADM;;
+;;EM23COMC2;Management de projet;9;AJ;;
+;;EM23COMC3;Mise en œuvre d'un projet;13;ADM;;
+;;EM23COMC4;Communication managériale opérationnelle;14;ADM;;
+;;EM23COMC5;GRH : Accompagnement humain;15;ADM;;
+;;SM22ANEC;Semestre 4;13.5;ADM;;
+;;UM24COMC;UE4 – Préparation à l'insertion professionnelle;12.0;ADM;;
+;;EM24COMC1;Anglais;13;ADM;;
+;;EM24COMC2;Projet professionnel et outils de recherche d'emploi (projet Voltaire);11;ADM;;
+;;EM24COMC3;Séminaires de méthodologie de la recherche – Livrables intermédiaires 1 et 2 du mémoire;12;ADM;;
+;;UM25COMC;UE5 – Expérience professionnelle;15.0;ADM;;
+;;EM25COMC1;Mémoire de stage;20;ADM;;
+;;EM25COMC2;Conférences;10;ADM;;
+2202529;2015-2016;L1LLCERANG;L1 Langue, Littérature, Civilisation Etrangère et Régionale parcours Anglais;9.675;AJ;10.3;ADM
+;;VL1LLCERANG;Vet miroir L1 LLCER Anglais;9.715;AJ;;
+;;SL11LLCERANG;Semestre 1;11.1;ADM;;
+;;UL11LLCERANG;UE1 – Compétences linguistiques 1 (remédiation);8.33;AJ;;
+;;EL111LLCERANGC1;Grammaire et thème grammatical;8;AJ;;
+;;EL11LLCERANGC2;Phonétique et production orale;7;AJ;;
+;;EL11LLCERANGC3;Compréhension et expression;10;ADM;;
+;;UL12LLCERANG;UE2 – Découverte d'un champ disciplinaire;9.0;AJ;;
+;;EL112LLCERANGC1;Initiation aux études anglophones;5;AJ;;
+;;EL112LLCERANGC2;Découverte : autre département;13;ADM;;
+;;UL13LLCERANG;UE3 – Compétences transversales 1;16.0;ADM;;
+;;EL113LLCERANGC1;EC Libre;15;ADM;;
+;;EL113LLCERANGC2;Préparation au C2i;17;ADM;;
+;;SL12LLCERANG;Semestre 2;8.25;AJ;9.5;AJ
+;;UL14LLCERANG;UE4 – Compétences linguistiques 2 (consolidation);5.5;AJ;7.5;AJ
+;;EL114LLCERANGC1;Grammaire et thème grammatical;5;AJ;7;AJ
+;;EL114LLCERANGC2;Phonétique et production orale;6;AJ;8;AJ
+;;UL15LLCERANG;UE5 – Introduction aux études anglophones;7.5;AJ;9.5;AJ
+;;EL115LLCERANGC1;Introduction à la civilisation des pays anglophones;7;AJ;9;AJ
+;;EL115LLCERANGC2;Introduction à l'étude des littératures anglophones;8;AJ;10;ADM
+;;UL16LLCERANG;UE6 – Construction du parcours individuel;8.0;AJ;9.0;AJ
+;;EL116LLCERANGC1;Introduction à la linguistique anglaise;6;AJ;8;AJ
+;;EL116LLCERANGC2;EC Externe;10;ADM;;
+;;UL17LLCERANG;UE7 – Compétences transversales 2;12.0;ADM;;
+;;EL117LLCERANGC1;Langue B;14;ADM;;
+;;EL117LLCERANGC2;Information sur le parcours en études anglophones;10;ADM;;
+13091933;2015-2016;M1MINF;M1 Informatique;;;;
+;;VM1MINFC;Vet miroir M1 MINF;12.042;ADM;;
+;;SMB1INFC;Semestre 1;11.909;ADM;;
+;;UMB1CULC;UE1 - Culture générale;12.33;ADM;;
+;;EMB1ANGC;Anglais;13;ADM;;
+;;EMB1ENTC;Entreprise, aspects juridiques des logiciels et des systèmes;15;ADM;;
+;;EMB1INDC;Conférences industrielles;9;AJ;;
+;;UMB1INIC;UE2 - Initiation à la recherche;14.0;ADM;;
+;;EMB1FOUC;Fouille de données;15;ADM;;
+;;EMB1INEC;Intelligence économique;13;ADM;;
+;;UMB1PRAC;UE3 - Pratique I;11.5;ADM;;
+;;EMB1GESC;Conduite et gestion de projet I;11;ADM;;
+;;EMB1PRJC;Projet tuteuré I;12;ADM;;
+;;UMB1PROC;UE4 - Programmation avancée;10.75;ADM;;
+;;EMB1AUTC;Programmation d'agents autonomes;15;ADM;;
+;;EMB1CONC;Conception sur systèmes d'exploitation nomades;8;AJ;;
+;;EMB1MISC;Mise en œuvre des réseaux;6;AJ;;
+;;EMB1PROC;Programmation temps-réel;14;ADM;;
+;;SMB2INFC;Semestre 2;12.175;ADM;;
+;;UMB2ARCC;UE5 - Architecture des ordinateurs;11.083;ADM;;
+;;EMB2MICC;Microprocesseurs – Microcontrôleurs ;8;AJ;;
+;;EMB2OUTC;Outils et Méthodes pour la Conduite de Processus;10;ADM;;
+;;EMB2ROBC;Robotique 1;15.25;ADM;;
+;;UMB2GENC;UE6 - Génie logiciel;15.625;ADM;;
+;;EMB2SPEC;Spécification et conception;14.25;ADM;;
+;;EMB2VALC;Validation, vérification et tests;17;ADM;;
+;;UMB2PRAC;UE7 - Pratique II;9.0;AJ;;
+;;EMB2GESC;Conduite et gestion de projet II;10;ADM;;
+;;EMB2PRJC;Projet tuteuré II;8;ADM;;
+;;UMB2STGC;UE8 - Stage en entreprise ou en laboratoire;15.0;ADM;;
+;;EMB2STGC;Stage avec soutenance publique;15;ADM;;
+7071993;2015-2016;L2AESRHM;L2 AES spécialisation Administration et Gestion des Entreprises spécialité Ressources Humaines et Marketing;12.5;ADM;;
+;;VL2AESRHM;Vet miroir L2 AES spécialisation Administration et Gestion des Entreprises spécialité Ressources Humaines et Marketing;12.5;ADM;;
+;;SL21AESRHM;Semestre 3;12.583;ADM;;
+;;UL27AESRHM;UE7 – Microéconomie, sociologie, droit administratif, mathématiques appliquées aux sciences sociales;12.75;ADM;;
+;;EL27AESRHMC1;Microéconomie + TD;12;ADM;;
+;;EL27AESRHMC2;Variables fondamentales de la sociologie + TD;12;ADM;;
+;;EL27AESRHMC3;Droit administratif + TD;12;ADM;;
+;;EL27AESRHMC4;Math. Appliquées aux sciences sociales + TD;15;ADM;;
+;;UL28AESRHM;UE8 – Droit des obligations et sociologie du travail;13.0;ADM;;
+;;EL28AESRHMC1;Droit des obligations + TD;12;ADM;;
+;;EL28AESRHMC2;Sociologie du travail + TD;14;ADM;;
+;;UL29AESRHM;UE9 – Langue et projet professionnel;12.0;ADM;;
+;;EL29AESRHMC1;Projet professionnel 2;11;ADM;;
+;;EL29AESRHMC2;Anglais AES 2;13;ADM;;
+;;SL22AESRHM;Semestre 4;12.5;ADM;;
+;;UL210AESRHM;UE10 – Institutions et mécanismes monétaires, macroéconomie, histoire de la pensée économique classique, comptabilité financière ;10.0;ADM;;
+;;EL210AESRHMC1;Institutions et mécanismes monétaires + TD;9;AJ;;
+;;EL210AESRHMC2;Macroéconomie 2 + TD;11;ADM;;
+;;EL210AESRHMC3;Histoire de la pensée économique classique + TD;11;ADM;;
+;;EL210AESRHMC4;Comptabilité financière + TD;9;AJ;;
+;;UL211AESRHM;UE11 – Psychosociologie et psychologie du travail, Economie du travail;11.5;ADM;;
+;;EL211AESRHMC1;Psychosociologie et psychologie d'entreprise + TD;11;ADM;;
+;;EL211AESRHMC2;Economie du travail + TD;12;ADM;;
+;;UL212AESRHM;UE12 – Outils mathématiques et professionnels;16.0;ADM;;
+;;EL212AESRHMC1;Statistiques;14;ADM;;
+;;EL212AESRHMC2;Stage (6 semaines minimum) ou Fiscalité ou LV2 ou EC libre au choix dans l'université;18;ADM;;
+10051993;2015-2016;M1PSYCHOCLIETPSY;M1 Psychologie parcours psychologie clinique et psychothérapies;14.5;ADM;;
+;;VM1PSYCHOCLIETPSY;Vet miroir M1 PSYCHOCLIETPSY;14.5;ADM;;
+;;SM11PSYCHOCLIETPSY;Semestre 1;15.0;ADM;;
+;;UM11PSYCHOCLIETPSY;UE1 – Méthodologie et recherche en psychologie;13.0;ADM;;
+;;EM11PSYCHOCLIETPSYC1;Méthodes qualitatives de la recherche en psychologie;13;ADM;;
+;;EM11PSYCHOCLIETPSYC2;Anglais;13;ADM;;
+;;EM11PSYCHOCLIETPSYC3;Méthodologie et déontologie de la recherche;11;ADM;;
+;;EM11PSYCHOCLIETPSYC3;Handicap et vieillissement;15;ADM;;
+;;UM12PSYCHCLIETPSY;UE2 – Fondations cliniques;17.0;ADM;;
+;;EM12PSYCHOCLIETPSYC1;Clinique des troubles mentaux de l'adulte;17;ADM;;
+;;EM12PSYCHOCLIETPSYC2;Clinique des troubles de l'enfant et de l'adolescent;18;ADM;;
+;;EM12PSYCHOCLIETPSYC3;Psychopathologie et neuropsychologie;16;ADM;;
+;;SM12PSYCHOCLIETPSY;Semestre 2;14.0;ADM;;
+;;UM13PSYCHOCLIETPSY;UE3 – Relation thérapeutique;10.5;ADM;;
+;;EM13PSYCHOCLIETPSYC1;Psychopathologie et communication;11;ADM;;
+;;EM13PSYCHOCLIETPSYC2;Evaluation des psychotérapies;10;ADM;;
+;;UM14PSYCHOCLIETPSY;UE4 – Mémoire de recherche et stage;17.5;ADM;;
+;;EM14PSYCHOCLIETPSYC1;Séminaire de recherche et mémoire;15;ADM;;
+;;EM14PSYCHOCLIETPSYC2;Stage de 280h et supervision de stage;20;ADM;;
+22091994;2015-2016;D2HIST;2ème année de doctorat Histoire;;DEF;;DEF
+25021960;;;;;;;
+29101988;;;;;;;
+777777;2015-2016;M2MEEFESP;M2 MEEF Espagnol;14.615;ADM;;
+;;VM2MEEFESP;Vet miroir M2 MEEF Espagnol;14.615;ADM;;
+;;SM21MEEFESP;Semestre 3;13.83;ADM;;
+;;UM21MEEFESP;UE1 – Séminaire de recherche;10.0;ADM;;
+;;UM22MEEFESP;UE2 – Pratique de la langue;19.0;ADM;;
+;;UM23MEEFESP;UE3 – Langue : discipline scolaire;18.0;ADM;;
+;;UM24MEEFESP;UE4 – TICE;12.0;ADM;;
+;;UM25MEEFESP;UE5 – Séminaire de recherche en lien avec la didactique et analyse des pratiques professionnelles;11.0;ADM;;
+;;UM26MEEFESP;UE6 – Tronc commun;13.0;ADM;;
+;;SM22MEEFESP;Semestre 4;15.4;ADM;;
+;;UM27MEEFESP;UE7 – Perspectives disciplinaires;11.0;ADM;;
+;;UM28MEEFESP;UE8 – Langue : discipline scolaire;20.0;ADM;;
+;;UM29MEEFESP;UE9 – Pratique orale;19.0;ADM;;
+;;UM210MEEFESP;UE10 – Tronc commun;15.0;ADM;;
+;;UM211MEEFESP;UE11 – Séminaire de recherche en lien avec la didactique et analyse des pratiques professionnelles;12.0;ADM;;
