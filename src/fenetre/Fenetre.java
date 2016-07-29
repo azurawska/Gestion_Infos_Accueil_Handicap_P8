@@ -1,4 +1,4 @@
-package fenetre;
+package fenetre.ecrans;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;

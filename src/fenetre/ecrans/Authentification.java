@@ -1,4 +1,4 @@
-package fenetre;
+package fenetre.ecrans;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;

@@ -1,4 +1,4 @@
-package fenetre;
+package fenetre.ecrans;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
