@@ -3,6 +3,9 @@ package fenetre.ecrans;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
+
+import fenetre.Fenetre;
+
 import javax.swing.JLabel;
 
 import java.awt.event.ActionEvent;
@@ -41,16 +44,16 @@ public class Accueil extends JPanel {
 		add(lblPrenom);
 		
 		JButton btnNewButton_1 = new JButton("Ok");
-		btnNewButton_1.setBounds(Fenetre.getInstance().screenSize.width/2-10-61, 5, 61, 29);
+		btnNewButton_1.setBounds(Fenetre.getInstance().getScreenSize().width/2-10-61, 5, 61, 29);
 		add(btnNewButton_1);
 		
 		JButton btnAnnuler = new JButton("Annuler");
-		btnAnnuler.setBounds(Fenetre.getInstance().screenSize.width/2+10, 5, 77, 29);
+		btnAnnuler.setBounds(Fenetre.getInstance().getScreenSize().width/2+10, 5, 77, 29);
 		add(btnAnnuler);
 		
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(0, 50, Fenetre.getInstance().screenSize.width, Fenetre.getInstance().screenSize.height-50);
+		tabbedPane.setBounds(0, 50, Fenetre.getInstance().getScreenSize().width, Fenetre.getInstance().getScreenSize().height-50);
 		tabbedPane.addTab("Identité", new Identite());
 		tabbedPane.addTab("Parcours", new ParcoursAnterieurP8());
 		tabbedPane.addTab("Inscription", new Inscription());
@@ -62,7 +65,7 @@ public class Accueil extends JPanel {
 		tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires());
 		add(tabbedPane);
 		
-		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/accueil.jpg");
+		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/img/accueil.jpg");
 		
 		JButton btnNewButton = new JButton(icon);
 		btnNewButton.setBounds(22, 2, 45, 23);
@@ -124,7 +127,7 @@ public class Accueil extends JPanel {
 		tabbedPane.addTab("Autres", new CarnetDeVisiteEtCommentaires(this.numEtudiant));
 		add(tabbedPane);
 		
-		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/accueil.jpg");
+		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/img/accueil.jpg");
 		
 		JButton btnNewButton = new JButton(icon);
 		btnNewButton.setBounds(22, 2, 45, 23);

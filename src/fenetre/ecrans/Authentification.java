@@ -14,7 +14,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 
-import data.LectureFichier;
+import data.LectureFichierCSV;
+import fenetre.Fenetre;
 
 public class Authentification extends JPanel {
 	
@@ -163,7 +164,7 @@ public class Authentification extends JPanel {
 	
 	private void suivant() {
 		
-		LectureFichier lectureFichier = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
+		LectureFichierCSV lectureFichier = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
 		
 		int num_etudiant;
 		

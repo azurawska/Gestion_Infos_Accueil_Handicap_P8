@@ -1,4 +1,4 @@
-import fenetre.ecrans.Fenetre;
+import fenetre.Fenetre;
 
 public class Main {
 

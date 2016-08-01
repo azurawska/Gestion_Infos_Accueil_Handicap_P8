@@ -19,7 +19,7 @@ import org.junit.Test;
  */
 public class LectureFichierTest {
 	
-	LectureFichier lectureFichier;
+	LectureFichierCSV lectureFichier;
 	ArrayList<String[]> donnees;
 
 	/**
@@ -52,11 +52,11 @@ public class LectureFichierTest {
 	}
 
 	/**
-	 * Test method for {@link data.LectureFichier#getString(java.lang.String[][], int)}.
+	 * Test method for {@link data.LectureFichierCSV#getString(java.lang.String[][], int)}.
 	 */
 	@Test
 	public void testGetString() {
-		lectureFichier = new LectureFichier("C:\\Users\\Alexou\\workspace\\Gestion_Infos_Accueil_Handicap_P8\\src\\data\\apoge.csv");
+		lectureFichier = new LectureFichierCSV("C:\\Users\\Alexou\\workspace\\Gestion_Infos_Accueil_Handicap_P8\\src\\data\\apoge.csv");
 		donnees = lectureFichier.chargerFichier();
 		
 		assertEquals("DUPONT", lectureFichier.getString(donnees, 0, 2));

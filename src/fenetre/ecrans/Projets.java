@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import data.LectureFichier;
+import data.LectureFichierCSV;
 
 public class Projets extends JPanel {
 	
@@ -49,7 +49,7 @@ public class Projets extends JPanel {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		
-		LectureFichier fichierProjets = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/projets.csv");
+		LectureFichierCSV fichierProjets = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/projets.csv");
 		
 		ArrayList<String[]> etudiants = fichierProjets.chargerFichier();
 		String[] etudiant = fichierProjets.retournerInfosEtudiant(etudiants, this.numEtudiant);

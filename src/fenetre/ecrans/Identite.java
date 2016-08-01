@@ -22,7 +22,7 @@ import javax.swing.Scrollable;
 import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
-import data.LectureFichier;
+import data.LectureFichierCSV;
 
 import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
@@ -296,7 +296,7 @@ public class Identite extends JPanel implements Scrollable {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		
-		LectureFichier fichierIdentite = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/identite.csv");
+		LectureFichierCSV fichierIdentite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
 		
 		ArrayList<String[]> etudiants = fichierIdentite.chargerFichier();
 		

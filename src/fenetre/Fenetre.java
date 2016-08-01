@@ -1,13 +1,15 @@
-package fenetre.ecrans;
+package fenetre;
 
 import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import fenetre.ecrans.Authentification;
+
 public class Fenetre extends JFrame {
 
-	static Dimension screenSize;
+	private static Dimension screenSize;
 	private Authentification authentification;
 	private static Fenetre fenetre;
 
@@ -30,5 +32,9 @@ public class Fenetre extends JFrame {
 			fenetre = new Fenetre();
 		}
 		return fenetre;
+	}
+	
+	public static Dimension getScreenSize() {
+		return screenSize;
 	}
 }

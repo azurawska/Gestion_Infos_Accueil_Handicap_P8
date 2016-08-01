@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
-import data.LectureFichier;
+import data.LectureFichierCSV;
 
 public class CarnetDeVisiteEtCommentaires extends JPanel {
 
@@ -38,7 +38,7 @@ public class CarnetDeVisiteEtCommentaires extends JPanel {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		
-		LectureFichier fichierCarnetVisite = new LectureFichier("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/carnet_des_visites_et_commentaires.csv");
+		LectureFichierCSV fichierCarnetVisite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/carnet_des_visites_et_commentaires.csv");
 		
 		ArrayList<String[]> etudiants = fichierCarnetVisite.chargerFichier();
 		

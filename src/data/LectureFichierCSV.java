@@ -7,16 +7,16 @@ import java.util.ArrayList;
 
 import javax.swing.JTextField;
 
-public class LectureFichier {
+public class LectureFichierCSV {
 	
 	private String file_path;
 	
 	/**
-	 * Constructeur d'une instance de la classe LectureFichier prenant le fichier sur lequel on travaille en param�tres.
+	 * Constructeur d'une instance de la classe LectureFichierCSV prenant le fichier sur lequel on travaille en param�tres.
 	 * @param file_path
 	 */
 	
-	public LectureFichier(String file_path) {
+	public LectureFichierCSV(String file_path) {
 		this.file_path=file_path;
 	}
 	
