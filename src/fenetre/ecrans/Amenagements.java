@@ -3,13 +3,16 @@ package fenetre.ecrans;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import fenetre.composants.AbstractJPanel;
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import javax.swing.JList;
 import javax.swing.JTabbedPane;
 
-public class Amenagements extends JPanel {
+public class Amenagements extends AbstractJPanel {
 	private JTextField textField;
 	private JTextField textField_3;
 	private JTextField textField_1;

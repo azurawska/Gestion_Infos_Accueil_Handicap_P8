@@ -3,10 +3,13 @@ package fenetre.ecrans;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
+
+import fenetre.composants.AbstractJPanel;
+
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
-public class AmenagementsExamens extends JPanel {
+public class AmenagementsExamens extends AbstractJPanel {
 
 	/**
 	 * Create the panel.

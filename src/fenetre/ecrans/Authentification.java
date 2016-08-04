@@ -15,9 +15,12 @@ import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.Fenetre;
+import fenetre.composants.AbstractJPanel;
 
-public class Authentification extends JPanel {
+public class Authentification extends AbstractJPanel {
 	
 	private JTextField textField_num_etudiant;
 	private JTextField textField_nom;
@@ -68,7 +71,6 @@ public class Authentification extends JPanel {
 		btnSuivant = new JButton("Suivant");
 		btnSuivant.setBounds(x+pasx,y+4*pasy, 89, 23);
 		btnSuivant.addActionListener(new SuivantAction());
-		btnSuivant.addKeyListener(new SuivantActionClavier());
 		add(btnSuivant);
 		
 		btnNouveau = new JButton("Nouveau");
@@ -83,7 +85,12 @@ public class Authentification extends JPanel {
 		public void actionPerformed(ActionEvent e) {
 			// TODO Auto-generated method stub
 			setVisible(false);
-			accueil = new Accueil();
+			try {
+				accueil = new Accueil();
+			} catch (LongueurDifferenteListesException | NullArgumentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
+			}
 			Fenetre.getInstance().setContentPane(accueil);
 			accueil.setVisible(true);
 		}
@@ -93,32 +100,13 @@ public class Authentification extends JPanel {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
-			suivant();
-		}
-	}
-	
-	private class SuivantActionClavier implements KeyListener {
-
-		@Override
-		public void keyTyped(KeyEvent e) {
-			// TODO Auto-generated method stub
-			if(e.getKeyCode()==KeyEvent.VK_ENTER) {
+			try {
 				suivant();
+			} catch (LongueurDifferenteListesException | NullArgumentException e1) {
+				// TODO Auto-generated catch block
+				e1.printStackTrace();
 			}
 		}
-
-		@Override
-		public void keyPressed(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-
-		@Override
-		public void keyReleased(KeyEvent e) {
-			// TODO Auto-generated method stub
-			
-		}
-		
 	}
 	
 	private class QuitNumEtudiantFieldMouseEvent implements MouseListener {
@@ -162,7 +150,7 @@ public class Authentification extends JPanel {
 		}
 	}
 	
-	private void suivant() {
+	private void suivant() throws LongueurDifferenteListesException, NullArgumentException {
 		
 		LectureFichierCSV lectureFichier = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
 		

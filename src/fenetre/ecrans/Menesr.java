@@ -3,10 +3,13 @@ package fenetre.ecrans;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import fenetre.composants.AbstractJPanel;
+
 import javax.swing.JComboBox;
 import javax.swing.JRadioButton;
 
-public class Menesr extends JPanel {
+public class Menesr extends AbstractJPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;

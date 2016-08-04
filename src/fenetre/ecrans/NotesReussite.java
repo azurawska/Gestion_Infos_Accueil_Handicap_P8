@@ -2,7 +2,9 @@ package fenetre.ecrans;
 
 import javax.swing.JPanel;
 
-public class NotesReussite extends JPanel {
+import fenetre.composants.AbstractJPanel;
+
+public class NotesReussite extends AbstractJPanel {
 
 	/**
 	 * Create the panel.

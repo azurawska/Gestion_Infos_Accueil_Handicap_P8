@@ -6,7 +6,9 @@ import javax.swing.JRadioButton;
 import javax.swing.JCheckBox;
 import javax.swing.JTextField;
 
-public class AmenagementsCours extends JPanel {
+import fenetre.composants.AbstractJPanel;
+
+public class AmenagementsCours extends AbstractJPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;

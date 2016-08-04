@@ -23,13 +23,14 @@ import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 import data.LectureFichierCSV;
+import fenetre.composants.AbstractJPanel;
 
 import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Identite extends JPanel implements Scrollable {
+public class Identite extends AbstractJPanel implements Scrollable {
 	private JDateChooser textField;
 	private JDateChooser textField_1;
 	private JTextField textField_2;

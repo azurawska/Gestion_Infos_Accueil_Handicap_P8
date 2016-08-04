@@ -8,8 +8,11 @@ import javax.swing.JLabel;
 import javax.swing.JTextArea;
 
 import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
+import fenetre.composants.AbstractJPanel;
 
-public class CarnetDeVisiteEtCommentaires extends JPanel {
+public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 
 	/**
 	 * Create the panel.
@@ -18,23 +21,21 @@ public class CarnetDeVisiteEtCommentaires extends JPanel {
 	private boolean nouveau;
 	private String numEtudiant;
 	
-	public CarnetDeVisiteEtCommentaires() {
+	public CarnetDeVisiteEtCommentaires() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
 		
 		setLayout(null);
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
-		lblIndiquerLesJours.setBounds(23, 26, 420, 14);
-		add(lblIndiquerLesJours);
+		
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(10, 51, 707, 436);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		add(textArea);
+		
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, true, true, true, null, null, null, "");
 	}
 	
-	public CarnetDeVisiteEtCommentaires(String numEtudiant) {
+	public CarnetDeVisiteEtCommentaires(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		
@@ -56,14 +57,11 @@ public class CarnetDeVisiteEtCommentaires extends JPanel {
 		setLayout(null);
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
-		lblIndiquerLesJours.setBounds(23, 26, 420, 14);
-		add(lblIndiquerLesJours);
+		
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(10, 51, 707, 436);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		textArea.setText(infosEtudiant.toString());
-		add(textArea);
+		
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, true, true, true, null, null, null, infosEtudiant.toString());
 	}
 }

@@ -1,9 +1,12 @@
 package fenetre.ecrans;
 
 import javax.swing.JPanel;
+
+import fenetre.composants.AbstractJPanel;
+
 import javax.swing.JCheckBox;
 
-public class Inscription extends JPanel {
+public class Inscription extends AbstractJPanel {
 
 	/**
 	 * Create the panel.

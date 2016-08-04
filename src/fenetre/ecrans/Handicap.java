@@ -11,6 +11,7 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import data.LectureFichierCSV;
+import fenetre.composants.AbstractJPanel;
 import fenetre.composants.Audition;
 import fenetre.composants.Autisme;
 import fenetre.composants.HandicapParticulier;
@@ -23,7 +24,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 
-public class Handicap extends JPanel {
+public class Handicap extends AbstractJPanel {
 	
 	private class AutresTroublesListener implements ChangeListener {
 

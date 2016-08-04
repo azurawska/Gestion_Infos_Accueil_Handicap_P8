@@ -3,10 +3,13 @@ package fenetre.ecrans;
 import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+
+import fenetre.composants.AbstractJPanel;
+
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 
-public class ParcoursAnterieurP8 extends JPanel {
+public class ParcoursAnterieurP8 extends AbstractJPanel {
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
