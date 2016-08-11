@@ -1,28 +1,23 @@
 package fenetre.ecrans;
 
-import javax.swing.JPanel;
-
-import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Rectangle;
-import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.Date;
 
 import javax.swing.ButtonGroup;
-import javax.swing.JFormattedTextField;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
 import javax.swing.Scrollable;
 
-import com.toedter.calendar.JCalendar;
 import com.toedter.calendar.JDateChooser;
 
 import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
 
 import javax.swing.JRadioButton;
@@ -53,244 +48,216 @@ public class Identite extends AbstractJPanel implements Scrollable {
 	private JTextField textField_19;
 	private JTextField textField_20;
 	
+	private JRadioButton rdbtnM;
+	private JRadioButton rdbtnMme;
+	
 	private boolean nouveau;
 	
 	private String numEtudiant;
 	
-	public Identite() {
+	public Identite() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
 		
 		setLayout(null);
 		
 		JLabel lblNewLabel = new JLabel("Date de création du dossier :");
-		lblNewLabel.setBounds(10, 11, 190, 14);
-		add(lblNewLabel);
+		
+		gestionChampsEtExceptions(lblNewLabel, 10, 11, 190, 14, null, true, true, null, null, null, null, null);
 		
 		textField = new JDateChooser();
-		textField.setBounds(204, 8, 150, 20);
-		textField.getDateEditor().setEnabled(false);
-		add(textField);
+		
+		gestionChampsEtExceptions(textField, 204, 8, 150, 20, null, true, true, null, null, null, null, "");
 		
 		JLabel lblNewLabel_1 = new JLabel("Dernière mise à jour :");
-		lblNewLabel_1.setBounds(10, 36, 150, 14);
-		add(lblNewLabel_1);
+		
+		gestionChampsEtExceptions(lblNewLabel_1, 10, 36, 150, 14, null, true, true, null, null, null, null, null);
 		
 		textField_1 = new JDateChooser();
-		textField_1.setBounds(204, 39, 150, 20);
-		textField_1.getDateEditor().setEnabled(false);
-		add(textField_1);
+		
+		gestionChampsEtExceptions(textField_1, 204,39, 150, 20, null, true, true, null, null, null, null, "");
 		
 		JLabel lblNewLabel_2 = new JLabel("N° Etudiant :");
-		lblNewLabel_2.setBounds(10, 73, 90, 14);
-		add(lblNewLabel_2);
+		
+		gestionChampsEtExceptions(lblNewLabel_2, 10, 73, 90, 14, null, true, true, null, null, null, null, null);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(112, 70, 218, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_2, 112, 70, 218, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		ButtonGroup monsieurMadame = new ButtonGroup();
 		
 		JRadioButton rdbtnM = new JRadioButton("M");
-		rdbtnM.setBounds(10, 103, 50, 23);
-		add(rdbtnM);
+		
+		gestionChampsEtExceptions(rdbtnM, 10, 103, 50, 23, null, true, true, null, null, null, null, null);
 		
 		JRadioButton rdbtnMme = new JRadioButton("Mme");
-		rdbtnMme.setBounds(50, 103, 70, 23);
-		add(rdbtnMme);
+	
+		gestionChampsEtExceptions(rdbtnMme, 50, 103, 70, 23, null, true, true, null, null, null, null, null);
 		
-		monsieurMadame.add(rdbtnM);
-		monsieurMadame.add(rdbtnMme);
+		regrouperBoutons(monsieurMadame);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nom de naissance :");
-		lblNewLabel_3.setBounds(10, 133, 130, 14);
-		add(lblNewLabel_3);
+		
+		gestionChampsEtExceptions(lblNewLabel_3, 10, 133, 130, 14, null, true, true, null, null, null, null, null);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(140, 130, 190, 20);
-		add(textField_3);
-		textField_3.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_3, 140, 130, 190, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblNewLabel_4 = new JLabel("Nom d'époux(se) :");
-		lblNewLabel_4.setBounds(10, 159, 125, 14);
-		add(lblNewLabel_4);
+		
+		gestionChampsEtExceptions(lblNewLabel_4, 10, 159, 125, 14, null, true, true, null, null, null, null, null);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(133, 161, 197, 20);
-		textField_4.setEditable(true);
-		add(textField_4);
-		textField_4.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_4, 133, 161, 197, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblNewLabel_5 = new JLabel("Prénom :");
-		lblNewLabel_5.setBounds(20, 195, 55, 14);
-		add(lblNewLabel_5);
+		
+		gestionChampsEtExceptions(lblNewLabel_5, 20, 195, 55, 14, null, true, true, null, null, null, null, null);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(87, 192, 243, 20);
-		textField_5.setEditable(true);
-		add(textField_5);
-		textField_5.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_5, 87, 192, 243, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblDateDeNaissance = new JLabel("Date de naissance :");
-		lblDateDeNaissance.setBounds(10, 234, 130, 14);
-		add(lblDateDeNaissance);
+		
+		gestionChampsEtExceptions(lblDateDeNaissance, 10, 234, 130, 14, null, true, true, null, null, null, null, null);
 		
 		textField_6 = new JDateChooser();
-		textField_6.setBounds(140, 231, 190, 20);
-		textField_6.getDateEditor().setEnabled(false);
-		add(textField_6);
+		
+		gestionChampsEtExceptions(textField_6, 140, 231, 190, 20, null, true, true, null, null, null, null, "");
 		
 		JLabel lblNewLabel_6 = new JLabel("Domicile :");
-		lblNewLabel_6.setBounds(15, 259, 80, 14);
-		add(lblNewLabel_6);
+		
+		gestionChampsEtExceptions(lblNewLabel_6, 15, 259, 80, 14, null, true, true, null, null, null, null, null);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(83, 262, 247, 20);
-		textField_7.setEditable(true);
-		add(textField_7);
-		textField_7.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_7, 83, 262, 247, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblCodePostal = new JLabel("Code postal :");
-		lblCodePostal.setBounds(27, 300, 90, 14);
-		add(lblCodePostal);
+		
+		gestionChampsEtExceptions(lblCodePostal, 27, 300, 90, 14, null, true, true, null, null, null, null, null);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(120, 293, 210, 20);
-		textField_8.setEditable(true);
-		add(textField_8);
-		textField_8.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_8, 120, 293, 210, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblVille = new JLabel("Ville :");
-		lblVille.setBounds(36, 336, 40, 14);
-		add(lblVille);
+		
+		gestionChampsEtExceptions(lblVille, 36, 336, 40, 14, null, true, true, null, null, null, null, null);
 		
 		textField_9 = new JTextField();
-		textField_9.setBounds(87, 336, 243, 20);
-		textField_9.setEditable(true);
-		add(textField_9);
-		textField_9.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_9, 87, 336, 243, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblTlphone = new JLabel("Téléphone :");
-		lblTlphone.setBounds(27, 380, 75, 14);
-		add(lblTlphone);
+		
+		gestionChampsEtExceptions(lblTlphone, 27, 380, 75, 14, null, true, true, null, null, null, null, null);
 		
 		textField_10 = new JTextField();
-		textField_10.setBounds(112, 377, 218, 20);
-		textField_10.setEditable(true);
-		add(textField_10);
-		textField_10.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_10, 112, 377, 218, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblEmail = new JLabel("E-mail :");
-		lblEmail.setBounds(37, 413, 60, 14);
-		add(lblEmail);
+		
+		gestionChampsEtExceptions(lblEmail, 37, 413, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_11 = new JTextField();
-		textField_11.setBounds(109, 408, 221, 20);
-		textField_11.setEditable(true);
-		add(textField_11);
-		textField_11.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_11, 109, 408, 221, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblCoordonnesDunePersonnes = new JLabel("Coordonnées d'une personne à contacter en cas d'urgence : ");
-		lblCoordonnesDunePersonnes.setBounds(356, 11, 380, 14);
-		add(lblCoordonnesDunePersonnes);
+		
+		gestionChampsEtExceptions(lblCoordonnesDunePersonnes, 356, 11, 380, 14, null, true, true, null, null, null, null, null);
 		
 		JLabel lblNewLabel_7 = new JLabel("Nom :");
-		lblNewLabel_7.setBounds(366, 36, 46, 14);
-		add(lblNewLabel_7);
+		
+		gestionChampsEtExceptions(lblNewLabel_7, 366, 36, 46, 14, null, true, true, null, null, null, null, null);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(494, 33, 150, 20);
-		add(textField_12);
-		textField_12.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_12, 494, 33, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblNewLabel_8 = new JLabel("Prénom :");
-		lblNewLabel_8.setBounds(356, 61, 55, 14);
-		add(lblNewLabel_8);
+	
+		gestionChampsEtExceptions(lblNewLabel_8, 356, 61, 55, 14, null, true, true, null, null, null, null, null);
 		
 		textField_13 = new JTextField();
-		textField_13.setBounds(494, 67, 150, 20);
-		add(textField_13);
-		textField_13.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_13, 494, 67, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblTlphone_1 = new JLabel("Téléphone :");
-		lblTlphone_1.setBounds(356, 95, 80, 14);
-		add(lblTlphone_1);
+		
+		gestionChampsEtExceptions(lblTlphone_1, 356, 95, 80, 14, null, true, true, null, null, null, null, null);
 		
 		textField_14 = new JTextField();
-		textField_14.setBounds(494, 92, 150, 20);
-		add(textField_14);
-		textField_14.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_14, 494, 92, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblEmail_1 = new JLabel("E-mail :");
-		lblEmail_1.setBounds(366, 120, 60, 14);
-		add(lblEmail_1);
+		
+		gestionChampsEtExceptions(lblEmail_1, 366, 120, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(494, 124, 150, 20);
-		add(textField_15);
-		textField_15.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_15, 494, 124, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblCoordonnesDunPartenaire = new JLabel("Coordonnées d'un partenaire extérieur (psy, médecin, etc...) :");
-		lblCoordonnesDunPartenaire.setBounds(356, 164, 390, 14);
-		add(lblCoordonnesDunPartenaire);
+		
+		gestionChampsEtExceptions(lblCoordonnesDunPartenaire, 356, 164, 390, 14, null, true, true, null, null, null, null, null);
 		
 		JLabel lblNom = new JLabel("Fonction :");
-		lblNom.setBounds(366, 195, 45, 14);
-		add(lblNom);
+	
+		gestionChampsEtExceptions(lblNom, 366, 195, 45, 14, null, true, true, null, null, null, null, null);
 		
 		textField_16 = new JTextField();
-		textField_16.setBounds(467, 192, 177, 20);
-		add(textField_16);
-		textField_16.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_16, 467, 192, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblPrnom = new JLabel("Nom :");
-		lblPrnom.setBounds(366, 234, 55, 14);
-		add(lblPrnom);
+		
+		gestionChampsEtExceptions(lblPrnom, 366, 234, 55, 14, null, true, true, null, null, null, null, "");
 		
 		textField_17 = new JTextField();
-		textField_17.setBounds(467, 223, 177, 20);
-		add(textField_17);
-		textField_17.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_17, 467, 223, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblTlphone_2 = new JLabel("Prénom :");
-		lblTlphone_2.setBounds(356, 259, 75, 14);
-		add(lblTlphone_2);
+	
+		gestionChampsEtExceptions(lblTlphone_2, 356, 259, 75, 14, null, true, true, null, null, null, null, null);
 		
 		textField_18 = new JTextField();
-		textField_18.setBounds(467, 256, 177, 20);
-		add(textField_18);
-		textField_18.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_18, 467, 256, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblEmail_2 = new JLabel("Téléphone :");
-		lblEmail_2.setBounds(366, 300, 60, 14);
-		add(lblEmail_2);
+		
+		gestionChampsEtExceptions(lblEmail_2, 366, 300, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_19 = new JTextField();
-		textField_19.setBounds(467, 297, 177, 20);
-		add(textField_19);
-		textField_19.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_19, 467, 297, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblFonction = new JLabel("E-mail :");
-		lblFonction.setBounds(366, 336, 65, 14);
-		add(lblFonction);
+		
+		gestionChampsEtExceptions(lblFonction, 366, 336, 65, 14, null, true, true, null, null, null, null, null);
 		
 		textField_20 = new JTextField();
-		textField_20.setBounds(467, 330, 177, 20);
-		add(textField_20);
-		textField_20.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_20, 467, 330, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblNewLabel_9 = new JLabel("Commentaires :");
-		lblNewLabel_9.setBounds(356, 379, 130, 16);
-		add(lblNewLabel_9);
+		
+		gestionChampsEtExceptions(lblNewLabel_9, 356, 379, 130, 16, null, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(356, 393, 288, 141);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
-		add(textArea);
+		
+		gestionChampsEtExceptions(textArea, 356, 393, 288, 141, Color.WHITE, true, true, true, null, null, null, "");
 	}
 	
-	public Identite(String numEtudiant) {
+	public Identite(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		
 		setLayout(null);
 		
@@ -304,300 +271,200 @@ public class Identite extends AbstractJPanel implements Scrollable {
 		String[] etudiant = fichierIdentite.retournerInfosEtudiant(etudiants, this.numEtudiant);
 		
 		JLabel lblNewLabel = new JLabel("Date de création du dossier :");
-		lblNewLabel.setBounds(10, 11, 190, 14);
-		add(lblNewLabel);
+		
+		gestionChampsEtExceptions(lblNewLabel, 10, 11, 190, 14, null, true, true, null, null, null, null, null);
 		
 		textField = new JDateChooser();
-		textField.setBounds(204, 8, 150, 20);
-		textField.getDateEditor().setEnabled(false);
-		String dateCreationDossierAConvertir = etudiant[1];
-		Date dateCreationDossier=null;
-		SimpleDateFormat formatDateCreationDossier = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			dateCreationDossier = formatDateCreationDossier.parse(dateCreationDossierAConvertir);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		textField.getDateEditor().setDate(dateCreationDossier);
-		add(textField);
+		
+		gestionChampsEtExceptions(textField, 204, 8, 150, 20, null, true, false, null, null, null, null, etudiant[1]);
 		
 		JLabel lblNewLabel_1 = new JLabel("Dernière mise à jour :");
-		lblNewLabel_1.setBounds(10, 36, 150, 14);
-		add(lblNewLabel_1);
+		
+		gestionChampsEtExceptions(lblNewLabel_1, 10, 36, 150, 14, null, true, true, null, null, null, null, null);
 		
 		textField_1 = new JDateChooser();
-		textField_1.setBounds(204, 39, 150, 20);
-		textField_1.getDateEditor().setEnabled(false);
-		String dateMiseAJourDossierAConvertir = etudiant[2];
-		Date dateMiseAJourDossier=null;
-		SimpleDateFormat formatDateMiseAJourDossier = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			dateMiseAJourDossier = formatDateMiseAJourDossier.parse(dateMiseAJourDossierAConvertir);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		textField_1.getDateEditor().setDate(dateMiseAJourDossier);
-		add(textField_1);
+		
+		gestionChampsEtExceptions(textField_1, 204,39, 150, 20, null, true, false, null, null, null, null, etudiant[2]);
 		
 		JLabel lblNewLabel_2 = new JLabel("N° Etudiant :");
-		lblNewLabel_2.setBounds(10, 73, 90, 14);
-		add(lblNewLabel_2);
+		
+		gestionChampsEtExceptions(lblNewLabel_2, 10, 73, 90, 14, null, true, true, null, null, null, null, null);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(112, 70, 218, 20);
-		add(textField_2);
-		textField_2.setEditable(false);
-		textField_2.setBackground(Color.GRAY);
-		textField_2.setText(etudiant[0]);
-		textField_2.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_2, 112, 70, 218, 20, Color.GRAY, true, false, false, null, null, null, etudiant[0]);
 		
 		ButtonGroup monsieurMadame = new ButtonGroup();
 		
 		JRadioButton rdbtnM = new JRadioButton("M");
-		rdbtnM.setBounds(10, 103, 50, 23);
-		rdbtnM.setEnabled(false);
-		add(rdbtnM);
+		
+		gestionChampsEtExceptions(rdbtnM, 10, 103, 50, 23, null, true, false, null, null, null, null, null);
 		
 		JRadioButton rdbtnMme = new JRadioButton("Mme");
-		rdbtnMme.setBounds(50, 103, 70, 23);
-		rdbtnMme.setEnabled(false);
-		add(rdbtnMme);
+	
+		gestionChampsEtExceptions(rdbtnMme, 50, 103, 70, 23, null, true, false, null, null, null, null, null);
 		
-		monsieurMadame.add(rdbtnM);
-		monsieurMadame.add(rdbtnMme);
-		
-		if(rdbtnM.getText().equals(etudiant[3])) {
-			rdbtnM.setSelected(true);
-		}
-		else {
-			rdbtnMme.setSelected(true);
-		}
+		regrouperBoutons(monsieurMadame);
 		
 		JLabel lblNewLabel_3 = new JLabel("Nom de naissance :");
-		lblNewLabel_3.setBounds(10, 133, 130, 14);
-		add(lblNewLabel_3);
+		
+		gestionChampsEtExceptions(lblNewLabel_3, 10, 133, 130, 14, null, true, true, null, null, null, null, null);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(140, 130, 190, 20);
-		textField_3.setEditable(false);
-		textField_3.setBackground(Color.GRAY);
-		textField_3.setText(etudiant[4]);
-		add(textField_3);
-		textField_3.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_3, 140, 130, 190, 20, Color.GRAY, true, false, false, null, null, null, etudiant[4]);
 		
 		JLabel lblNewLabel_4 = new JLabel("Nom d'époux(se) :");
-		lblNewLabel_4.setBounds(10, 159, 125, 14);
-		add(lblNewLabel_4);
+		
+		gestionChampsEtExceptions(lblNewLabel_4, 10, 159, 125, 14, null, true, true, null, null, null, null, null);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(133, 161, 197, 20);
-		textField_4.setEditable(false);
-		textField_4.setBackground(Color.GRAY);
-		textField_4.setText(etudiant[5]);
-		add(textField_4);
-		textField_4.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_4, 133, 161, 197, 20, Color.GRAY, true, false, false, null, null, null, etudiant[5]);
 		
 		JLabel lblNewLabel_5 = new JLabel("Prénom :");
-		lblNewLabel_5.setBounds(20, 195, 55, 14);
-		add(lblNewLabel_5);
+		
+		gestionChampsEtExceptions(lblNewLabel_5, 20, 195, 55, 14, null, true, true, null, null, null, null, null);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(87, 192, 243, 20);
-		textField_5.setEditable(false);
-		textField_5.setBackground(Color.GRAY);
-		textField_5.setText(etudiant[6]);
-		add(textField_5);
-		textField_5.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_5, 87, 192, 243, 20, Color.GRAY, true, false, false, null, null, null, etudiant[6]);
 		
 		JLabel lblDateDeNaissance = new JLabel("Date de naissance :");
-		lblDateDeNaissance.setBounds(10, 234, 130, 14);
-		add(lblDateDeNaissance);
+		
+		gestionChampsEtExceptions(lblDateDeNaissance, 10, 234, 130, 14, null, true, true, null, null, null, null, null);
 		
 		textField_6 = new JDateChooser();
-		textField_6.setBounds(140, 231, 190, 20);
-		textField_6.getDateEditor().setEnabled(false);
-		String dateDeNaissanceAConvertir = etudiant[7];
-		Date dateDeNaissance=null;
-		SimpleDateFormat formatDateDeNaissance = new SimpleDateFormat("dd/MM/yyyy");
-		try {
-			dateDeNaissance = formatDateDeNaissance.parse(dateDeNaissanceAConvertir);
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		textField_6.getDateEditor().setDate(dateDeNaissance);
-		add(textField_6);
+		
+		gestionChampsEtExceptions(textField_6, 140, 231, 190, 20, null, true, false, null, null, null, null, etudiant[7]);
 		
 		JLabel lblNewLabel_6 = new JLabel("Domicile :");
-		lblNewLabel_6.setBounds(15, 259, 80, 14);
-		add(lblNewLabel_6);
+		
+		gestionChampsEtExceptions(lblNewLabel_6, 15, 259, 80, 14, null, true, true, null, null, null, null, null);
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(83, 262, 247, 20);
-		textField_7.setEditable(false);
-		textField_7.setBackground(Color.GRAY);
-		textField_7.setText(etudiant[8]);
-		add(textField_7);
-		textField_7.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_7, 83, 262, 247, 20, Color.WHITE, true, true, true, null, null, null, etudiant[8]);
 		
 		JLabel lblCodePostal = new JLabel("Code postal :");
-		lblCodePostal.setBounds(27, 300, 90, 14);
-		add(lblCodePostal);
+		
+		gestionChampsEtExceptions(lblCodePostal, 27, 300, 90, 14, null, true, true, null, null, null, null, null);
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(120, 293, 210, 20);
-		textField_8.setEditable(false);
-		textField_8.setBackground(Color.GRAY);
-		textField_8.setText(etudiant[9]);
-		add(textField_8);
-		textField_8.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_8, 120, 293, 210, 20, Color.WHITE, true, true, true, null, null, null, etudiant[9]);
 		
 		JLabel lblVille = new JLabel("Ville :");
-		lblVille.setBounds(36, 336, 40, 14);
-		add(lblVille);
+		
+		gestionChampsEtExceptions(lblVille, 36, 336, 40, 14, null, true, true, null, null, null, null, null);
 		
 		textField_9 = new JTextField();
-		textField_9.setBounds(87, 336, 243, 20);
-		textField_9.setEditable(false);
-		textField_9.setBackground(Color.GRAY);
-		textField_9.setText(etudiant[10]);
-		add(textField_9);
-		textField_9.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_9, 87, 336, 243, 20, Color.WHITE, true, true, true, null, null, null, etudiant[10]);
 		
 		JLabel lblTlphone = new JLabel("Téléphone :");
-		lblTlphone.setBounds(27, 380, 75, 14);
-		add(lblTlphone);
+		
+		gestionChampsEtExceptions(lblTlphone, 27, 380, 75, 14, null, true, true, null, null, null, null, null);
 		
 		textField_10 = new JTextField();
-		textField_10.setBounds(112, 377, 218, 20);
-		textField_10.setEditable(false);
-		textField_10.setBackground(Color.GRAY);
-		textField_10.setText(etudiant[11]);
-		add(textField_10);
-		textField_10.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_10, 112, 377, 218, 20, Color.WHITE, true, true, true, null, null, null, etudiant[11]);
 		
 		JLabel lblEmail = new JLabel("E-mail :");
-		lblEmail.setBounds(37, 413, 60, 14);
-		add(lblEmail);
+		
+		gestionChampsEtExceptions(lblEmail, 37, 413, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_11 = new JTextField();
-		textField_11.setBounds(109, 408, 221, 20);
-		textField_11.setEditable(false);
-		textField_11.setBackground(Color.GRAY);
-		textField_11.setText(etudiant[12]);
-		add(textField_11);
-		textField_11.setColumns(10);
+		
+		gestionChampsEtExceptions(textField_11, 109, 408, 221, 20, Color.WHITE, true, true, true, null, null, null, etudiant[12]);
 		
 		JLabel lblCoordonnesDunePersonnes = new JLabel("Coordonnées d'une personne à contacter en cas d'urgence : ");
-		lblCoordonnesDunePersonnes.setBounds(356, 11, 380, 14);
-		add(lblCoordonnesDunePersonnes);
+		
+		gestionChampsEtExceptions(lblCoordonnesDunePersonnes, 356, 11, 380, 14, null, true, true, null, null, null, null, null);
 		
 		JLabel lblNewLabel_7 = new JLabel("Nom :");
-		lblNewLabel_7.setBounds(366, 36, 46, 14);
-		add(lblNewLabel_7);
+		
+		gestionChampsEtExceptions(lblNewLabel_7, 366, 36, 46, 14, null, true, true, null, null, null, null, null);
 		
 		textField_12 = new JTextField();
-		textField_12.setBounds(494, 33, 150, 20);
-		add(textField_12);
-		textField_12.setColumns(10);
-		textField_12.setText(etudiant[13]);
+		
+		gestionChampsEtExceptions(textField_12, 494, 33, 150, 20, Color.WHITE, true, true, true, null, null, null, etudiant[13]);
 		
 		JLabel lblNewLabel_8 = new JLabel("Prénom :");
-		lblNewLabel_8.setBounds(356, 61, 55, 14);
-		add(lblNewLabel_8);
+	
+		gestionChampsEtExceptions(lblNewLabel_8, 356, 61, 55, 14, null, true, true, null, null, null, null, null);
 		
 		textField_13 = new JTextField();
-		textField_13.setBounds(494, 67, 150, 20);
-		add(textField_13);
-		textField_13.setColumns(10);
-		textField_13.setText(etudiant[14]);
+		
+		gestionChampsEtExceptions(textField_13, 494, 67, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblTlphone_1 = new JLabel("Téléphone :");
-		lblTlphone_1.setBounds(356, 95, 80, 14);
-		add(lblTlphone_1);
+		
+		gestionChampsEtExceptions(lblTlphone_1, 356, 95, 80, 14, null, true, true, null, null, null, null, null);
 		
 		textField_14 = new JTextField();
-		textField_14.setBounds(494, 92, 150, 20);
-		add(textField_14);
-		textField_14.setColumns(10);
-		textField_14.setText(etudiant[15]);
+		
+		gestionChampsEtExceptions(textField_14, 494, 92, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblEmail_1 = new JLabel("E-mail :");
-		lblEmail_1.setBounds(366, 120, 60, 14);
-		add(lblEmail_1);
+		
+		gestionChampsEtExceptions(lblEmail_1, 366, 120, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_15 = new JTextField();
-		textField_15.setBounds(494, 124, 250, 20);
-		add(textField_15);
-		textField_15.setColumns(10);
-		textField_15.setText(etudiant[16]);
+		
+		gestionChampsEtExceptions(textField_15, 494, 124, 150, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblCoordonnesDunPartenaire = new JLabel("Coordonnées d'un partenaire extérieur (psy, médecin, etc...) :");
-		lblCoordonnesDunPartenaire.setBounds(356, 164, 390, 14);
-		add(lblCoordonnesDunPartenaire);
+		
+		gestionChampsEtExceptions(lblCoordonnesDunPartenaire, 356, 164, 390, 14, null, true, true, null, null, null, null, null);
 		
 		JLabel lblNom = new JLabel("Fonction :");
-		lblNom.setBounds(366, 195, 70, 14);
-		add(lblNom);
+	
+		gestionChampsEtExceptions(lblNom, 366, 195, 45, 14, null, true, true, null, null, null, null, null);
 		
 		textField_16 = new JTextField();
-		textField_16.setBounds(467, 192, 177, 20);
-		add(textField_16);
-		textField_16.setColumns(10);
-		textField_16.setText(etudiant[21]);
+		
+		gestionChampsEtExceptions(textField_16, 467, 192, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblPrnom = new JLabel("Nom :");
-		lblPrnom.setBounds(366, 234, 55, 14);
-		add(lblPrnom);
+		
+		gestionChampsEtExceptions(lblPrnom, 366, 234, 55, 14, null, true, true, null, null, null, null, "");
 		
 		textField_17 = new JTextField();
-		textField_17.setBounds(467, 223, 177, 20);
-		add(textField_17);
-		textField_17.setColumns(10);
-		textField_17.setText(etudiant[17]);
+		
+		gestionChampsEtExceptions(textField_17, 467, 223, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblTlphone_2 = new JLabel("Prénom :");
-		lblTlphone_2.setBounds(356, 259, 75, 14);
-		add(lblTlphone_2);
+	
+		gestionChampsEtExceptions(lblTlphone_2, 356, 259, 75, 14, null, true, true, null, null, null, null, null);
 		
 		textField_18 = new JTextField();
-		textField_18.setBounds(467, 256, 177, 20);
-		add(textField_18);
-		textField_18.setColumns(10);
-		textField_18.setText(etudiant[18]);
+		
+		gestionChampsEtExceptions(textField_18, 467, 256, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblEmail_2 = new JLabel("Téléphone :");
-		lblEmail_2.setBounds(366, 300, 75, 14);
-		add(lblEmail_2);
+		
+		gestionChampsEtExceptions(lblEmail_2, 366, 300, 60, 14, null, true, true, null, null, null, null, null);
 		
 		textField_19 = new JTextField();
-		textField_19.setBounds(467, 297, 177, 20);
-		add(textField_19);
-		textField_19.setColumns(10);
-		textField_19.setText(etudiant[19]);
+		
+		gestionChampsEtExceptions(textField_19, 467, 297, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblFonction = new JLabel("E-mail :");
-		lblFonction.setBounds(366, 336, 65, 14);
-		add(lblFonction);
+		
+		gestionChampsEtExceptions(lblFonction, 366, 336, 65, 14, null, true, true, null, null, null, null, null);
 		
 		textField_20 = new JTextField();
-		textField_20.setBounds(467, 330, 177, 20);
-		add(textField_20);
-		textField_20.setColumns(10);
-		textField_20.setText(etudiant[20]);
+		
+		gestionChampsEtExceptions(textField_20, 467, 330, 177, 20, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblNewLabel_9 = new JLabel("Commentaires :");
-		lblNewLabel_9.setBounds(356, 379, 130, 16);
-		add(lblNewLabel_9);
+		
+		gestionChampsEtExceptions(lblNewLabel_9, 356, 379, 130, 16, null, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
-		textArea.setBounds(356, 393, 288, 141);
-		add(textArea);
-		textArea.setText(etudiant[22]);
-		textArea.setLineWrap(true);
-		textArea.setWrapStyleWord(true);
+		
+		gestionChampsEtExceptions(textArea, 356, 393, 288, 141, Color.WHITE, true, true, true, null, null, null, "");
 	}
 		
 		/*JScrollPane scrollPane = new JScrollPane();
@@ -648,5 +515,10 @@ public class Identite extends AbstractJPanel implements Scrollable {
 	public boolean getScrollableTracksViewportHeight() {
 		// TODO Auto-generated method stub
 		return false;
+	}
+	
+	private void regrouperBoutons(ButtonGroup buttons) {
+		buttons.add(rdbtnM);
+		buttons.add(rdbtnMme);
 	}
 }

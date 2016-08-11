@@ -2,6 +2,7 @@ package fenetre.ecrans;
 
 import javax.swing.JPanel;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.JLabel;
@@ -30,19 +31,19 @@ public class Projets extends AbstractJPanel {
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, true, true, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, true, true, true, null, null, null, "");
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, "");
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, true, true, true, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, true, true, true, null, null, null, "");
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, "");
 
 	}
 	
@@ -59,18 +60,18 @@ public class Projets extends AbstractJPanel {
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, true, true, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, true, true, true, null, null, null, etudiant[1]);
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, etudiant[1]);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, true, true, true, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, true, true, true, null, null, null, etudiant[2]);
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, etudiant[2]);
 	}
 }
