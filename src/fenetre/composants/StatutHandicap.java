@@ -6,5 +6,4 @@ public class StatutHandicap extends ButtonGroupAmeliore {
 		// TODO Auto-generated constructor stub
 		super();
 	}
-
 }

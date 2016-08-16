@@ -11,14 +11,22 @@ import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
 import fenetre.composants.Audition;
 import fenetre.composants.Autisme;
+import fenetre.composants.DureeHandicap;
+import fenetre.composants.FamilleHandicapNonDefinie;
 import fenetre.composants.HandicapParticulier;
+import fenetre.composants.HandicapTemporaire;
+import fenetre.composants.HandicapAPreciser;
 import fenetre.composants.RegroupementTypeHandicap;
 import fenetre.composants.StatutHandicap;
+import fenetre.composants.TypeHandicapSensoriel;
 import fenetre.composants.Vision;
 
+import java.awt.Color;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -389,16 +397,18 @@ public class Handicap extends AbstractJPanel {
 	private JTextField textField_7;
 	private JTextField textField_8;
 	
-	private JRadioButton rdbtnNonRenseign;
-	private JRadioButton rdbtnHandicapTemporaire;
-	private JRadioButton rdbtnHandicapDfinitif;
+	private DureeHandicap rdbtnNonRenseign;
+	private HandicapTemporaire rdbtnHandicapTemporaire;
+	private DureeHandicap rdbtnHandicapDfinitif;
+	
 	private JRadioButton rdbtnNewRadioButton;
 	private JRadioButton rdbtnAutismeDeHaut;
 	private JRadioButton rdbtnSyndrmeDasperger;
 	private JRadioButton rdbtnCcit;
 	private JRadioButton rdbtnSurditSvreEt;
-	private JRadioButton rdbtnAutresTroublesDes;
-	private JRadioButton rdbtnAutresTroublesDes_1;
+	
+	private TypeHandicapSensoriel rdbtnAutresTroublesDes;
+	private TypeHandicapSensoriel rdbtnAutresTroublesDes_1;
 	
 	private RegroupementTypeHandicap chckbxTroublesMoteurs;
 	private RegroupementTypeHandicap chckbxTroublesVisuels;
@@ -408,19 +418,19 @@ public class Handicap extends AbstractJPanel {
 	private HandicapParticulier chckbxSep;
 	private HandicapParticulier chckbxDyspraxie;
 	private HandicapParticulier chckbxEpilepsie;
-	private HandicapParticulier chckbxAutres;
-	private RegroupementTypeHandicap chckbxTroublesPsychiques;
+	private HandicapAPreciser chckbxAutres;
+	private FamilleHandicapNonDefinie chckbxTroublesPsychiques;
 	private RegroupementTypeHandicap chckbxNewCheckBox;
-	private RegroupementTypeHandicap chckbxTroublesCognitifs;
+	private FamilleHandicapNonDefinie chckbxTroublesCognitifs;
 	private RegroupementTypeHandicap chckbxTsa;
-	private RegroupementTypeHandicap chckbxTroublesDuLangage;
+	private FamilleHandicapNonDefinie chckbxTroublesDuLangage;
 	private RegroupementTypeHandicap chckbxTroublesViscraux;
 	private HandicapParticulier chckbxMaladieCardiaque;
 	private HandicapParticulier chckbxMaladiePulmonaire;
 	private HandicapParticulier chckbxMaladieDuSystme;
 	private HandicapParticulier chckbxPathologieCancreuse;
-	private HandicapParticulier chckbxAutrePrciser;
-	private RegroupementTypeHandicap chckbxAutresTroublesprciser;
+	private HandicapAPreciser chckbxAutrePrciser;
+	private FamilleHandicapNonDefinie chckbxAutresTroublesprciser;
 	private JCheckBox chckbxPlusieursTroublesAssocis;
 	
 	private StatutHandicap handiParticulier;
@@ -432,251 +442,198 @@ public class Handicap extends AbstractJPanel {
 
 	/**
 	 * Create the panel.
+	 * @throws NullArgumentException 
+	 * @throws LongueurDifferenteListesException 
 	 */
-	public Handicap() {
+	public Handicap() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
 		this.troublesCoches=new ArrayList<RegroupementTypeHandicap>();
 		
 		setLayout(null);
 		
-		rdbtnNonRenseign = new JRadioButton("Non renseigné");
-		rdbtnNonRenseign.setBounds(18, 7, 150, 23);
-		add(rdbtnNonRenseign);
-		rdbtnNonRenseign.addChangeListener(new NonRenseigneListener());
+		rdbtnNonRenseign = new DureeHandicap("Non renseigné");
 		
-		rdbtnHandicapTemporaire = new JRadioButton("Handicap temporaire");
-		rdbtnHandicapTemporaire.setBounds(18, 33, 175, 23);
-		add(rdbtnHandicapTemporaire);
-		rdbtnHandicapTemporaire.addChangeListener(new HandicapTemporaireListener());
+		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), "", null);
 		
-		rdbtnHandicapDfinitif = new JRadioButton("Handicap définitif");
-		rdbtnHandicapDfinitif.setBounds(151, 7, 161, 23);
-		add(rdbtnHandicapDfinitif);
-		rdbtnHandicapDfinitif.addChangeListener(new HandicapDefinitifListener());
+		rdbtnHandicapTemporaire = new HandicapTemporaire("Handicap temporaire");
+		
+		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), "", textField);
+		
+		rdbtnHandicapDfinitif = new DureeHandicap("Handicap définitif");
+		
+		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), "", null);
 		
 		handiParticulier = new StatutHandicap();
 		regrouperBoutons(handiParticulier);
 		
 		lblPrcisez = new JLabel("Précisez :");
-		lblPrcisez.setBounds(226, 38, 71, 14);
-		add(lblPrcisez);
-		lblPrcisez.setVisible(false);
+		
+		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null);
 		
 		textField = new JTextField();
-		textField.setBounds(324, 35, 146, 20);
-		add(textField);
-		textField.setColumns(10);
-		textField.setVisible(false);
+		
+		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
-		chckbxTroublesMoteurs.setBounds(18, 66, 204, 23);
-		add(chckbxTroublesMoteurs);
-		chckbxTroublesMoteurs.addChangeListener(new TroublesMoteursListener());
+		
+		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), "", null);
 		
 		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
-		chckbxFauteuilManuel.setBounds(94, 104, 150, 23);
-		add(chckbxFauteuilManuel);
-		chckbxFauteuilManuel.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
-		chckbxFauteuillectrique.setBounds(238, 104, 154, 23);
-		add(chckbxFauteuillectrique);
-		chckbxFauteuillectrique.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxBquilles = new HandicapParticulier("Béquilles");
-		chckbxBquilles.setBounds(389, 104, 96, 23);
-		add(chckbxBquilles);
-		chckbxBquilles.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
-		chckbxDyspraxie.setBounds(484, 104, 100, 23);
-		add(chckbxDyspraxie);
-		chckbxDyspraxie.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
-		chckbxEpilepsie.setBounds(585, 104, 108, 23);
-		add(chckbxEpilepsie);
-		chckbxEpilepsie.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxSep = new HandicapParticulier("SEP");
-		chckbxSep.setBounds(693, 104, 57, 23);
-		add(chckbxSep);
-		chckbxSep.setVisible(false);
 		
-		chckbxAutres = new HandicapParticulier("Autres");
-		chckbxAutres.setBounds(762, 104, 96, 23);
-		add(chckbxAutres);
-		chckbxAutres.setVisible(false);
-		chckbxAutres.addChangeListener(new AutreHandicapMoteurListener());
+		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, "", null);
+		
+		chckbxAutres = new HandicapAPreciser("Autres");
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(870, 106, 141, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
-		textField_1.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), "", textField_1);
+		
+		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
-		chckbxTroublesVisuels.setBounds(18, 142, 150, 23);
-		add(chckbxTroublesVisuels);
-		chckbxTroublesVisuels.addChangeListener(new TroublesVisuelsListener());
+		
+		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), "", null);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(597, 182, 248, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
-		textField_2.setVisible(false);
+		
+		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
-		chckbxNewCheckBox.setBounds(18, 205, 150, 23);
-		add(chckbxNewCheckBox);
-		chckbxNewCheckBox.addChangeListener(new TroublesAuditifsListener());
+		
+		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), "", null);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(648, 244, 261, 20);
-		add(textField_3);
-		textField_3.setColumns(10);
-		textField_3.setVisible(false);
 		
-		chckbxTroublesCognitifs = new RegroupementTypeHandicap("Troubles cognitifs :");
-		chckbxTroublesCognitifs.setBounds(18, 282, 175, 23);
-		add(chckbxTroublesCognitifs);
-		chckbxTroublesCognitifs.addChangeListener(new TroublesCognitifsListener());
+		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		
+		chckbxTroublesCognitifs = new FamilleHandicapNonDefinie("Troubles cognitifs :");
+		
+		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), "", textField_4);
 		
 		textField_4 = new JTextField();
-		textField_4.setBounds(248, 284, 196, 20);
-		add(textField_4);
-		textField_4.setColumns(10);
-		textField_4.setVisible(false);
+		
+		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		chckbxTsa = new RegroupementTypeHandicap("TSA :");
-		chckbxTsa.setBounds(18, 313, 71, 23);
-		add(chckbxTsa);
-		chckbxTsa.addChangeListener(new TsaListener());
+		
+		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), "", null);
 		
 		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
-		rdbtnNewRadioButton.setBounds(72, 339, 150, 23);
-		add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setVisible(false);
+		
+		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
-		rdbtnAutismeDeHaut.setBounds(222, 339, 190, 23);
-		add(rdbtnAutismeDeHaut);
-		rdbtnAutismeDeHaut.setVisible(false);
+		
+		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
-		rdbtnSyndrmeDasperger.setBounds(424, 339, 190, 23);
-		add(rdbtnSyndrmeDasperger);
-		rdbtnSyndrmeDasperger.setVisible(false);
+		
+		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		autisme = new Autisme();
 		regrouperBoutons(autisme);
 		
-		chckbxTroublesPsychiques = new RegroupementTypeHandicap("Troubles psychiques :");
-		chckbxTroublesPsychiques.setBounds(18, 375, 175, 23);
-		add(chckbxTroublesPsychiques);
-		chckbxTroublesPsychiques.addChangeListener(new TroublesPsychiquesListener());
+		chckbxTroublesPsychiques = new FamilleHandicapNonDefinie("Troubles psychiques :");
+		
+		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), "", textField_5);
 		
 		textField_5 = new JTextField();
-		textField_5.setBounds(220, 376, 204, 20);
-		add(textField_5);
-		textField_5.setColumns(10);
-		textField_5.setVisible(false);
 		
-		chckbxTroublesDuLangage = new RegroupementTypeHandicap("Troubles du langage et de la parole :");
-		chckbxTroublesDuLangage.setBounds(18, 413, 279, 23);
-		add(chckbxTroublesDuLangage);
-		chckbxTroublesDuLangage.addChangeListener(new TroublesDuLangageEtDeLaParoleListener());
+		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		
+		chckbxTroublesDuLangage = new FamilleHandicapNonDefinie("Troubles du langage et de la parole :");
 		
 		textField_6 = new JTextField();
-		textField_6.setBounds(324, 414, 204, 20);
-		add(textField_6);
-		textField_6.setColumns(10);
-		textField_6.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), "", textField_6);
+		
+		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
-		chckbxTroublesViscraux.setBounds(16, 443, 190, 23);
-		add(chckbxTroublesViscraux);
-		chckbxTroublesViscraux.addChangeListener(new TroublesViscerauxListener());
+		
+		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), "", null);
 		
 		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
-		chckbxMaladieCardiaque.setBounds(86, 469, 150, 23);
-		add(chckbxMaladieCardiaque);
-		chckbxMaladieCardiaque.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
-		chckbxMaladiePulmonaire.setBounds(231, 469, 161, 23);
-		add(chckbxMaladiePulmonaire);
-		chckbxMaladiePulmonaire.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
-		chckbxMaladieDuSystme.setBounds(389, 469, 225, 23);
-		add(chckbxMaladieDuSystme);
-		chckbxMaladieDuSystme.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, "", null);
 		
 		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
-		chckbxPathologieCancreuse.setBounds(614, 469, 175, 23);
-		add(chckbxPathologieCancreuse);
-		chckbxPathologieCancreuse.setVisible(false);
 		
-		chckbxAutrePrciser = new HandicapParticulier("Autre");
-		chckbxAutrePrciser.setBounds(791, 469, 67, 23);
-		add(chckbxAutrePrciser);
-		chckbxAutrePrciser.setVisible(false);
-		chckbxAutrePrciser.addChangeListener(new AutresTroublesViscerauxListener());
+		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, "", null);
+		
+		chckbxAutrePrciser = new HandicapAPreciser("Autre");
 		
 		textField_7 = new JTextField();
-		textField_7.setBounds(870, 471, 141, 20);
-		add(textField_7);
-		textField_7.setColumns(10);
-		textField_7.setVisible(false);
 		
-		chckbxAutresTroublesprciser = new RegroupementTypeHandicap("Autre(s) trouble(s) (préciser)");
-		chckbxAutresTroublesprciser.setBounds(16, 497, 220, 23);
-		add(chckbxAutresTroublesprciser);
-		chckbxAutresTroublesprciser.addChangeListener(new AutresTroublesListener());
+		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), "", textField_7);
+		
+		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		
+		chckbxAutresTroublesprciser = new FamilleHandicapNonDefinie("Autre(s) trouble(s) (préciser)");
 		
 		textField_8 = new JTextField();
-		textField_8.setBounds(360, 499, 254, 20);
-		add(textField_8);
-		textField_8.setColumns(10);
-		textField_8.setVisible(false);
+		
+		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), "", textField_8);
+		
+		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
 		rdbtnCcit = new JRadioButton("Cécité");
-		rdbtnCcit.setBounds(115, 177, 78, 23);
-		add(rdbtnCcit);
-		rdbtnCcit.setVisible(false);
 		
-		rdbtnAutresTroublesDes = new JRadioButton("Autres troubles des fonctions visuelles");
-		rdbtnAutresTroublesDes.setBounds(224, 177, 293, 23);
-		add(rdbtnAutresTroublesDes);
-		rdbtnAutresTroublesDes.setVisible(false);
-		rdbtnAutresTroublesDes.addChangeListener(new AutresTroublesvisuelsListener());
+		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, "", null);
+		
+		rdbtnAutresTroublesDes = new TypeHandicapSensoriel("Autres troubles des fonctions visuelles");
+		
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), "", textField_2);
 		
 		vision = new Vision();
 		regrouperBoutons(vision);
 		
 		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
-		rdbtnSurditSvreEt.setBounds(103, 242, 209, 23);
-		add(rdbtnSurditSvreEt);
-		rdbtnSurditSvreEt.setVisible(false);
 		
-		rdbtnAutresTroublesDes_1 = new JRadioButton("Autres troubles des fonctions auditives");
-		rdbtnAutresTroublesDes_1.setBounds(309, 242, 293, 23);
-		add(rdbtnAutresTroublesDes_1);
-		rdbtnAutresTroublesDes_1.setVisible(false);
-		rdbtnAutresTroublesDes_1.addChangeListener(new AutresTroublesAuditifsListener());
+		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, "", null);
+		
+		rdbtnAutresTroublesDes_1 = new TypeHandicapSensoriel("Autres troubles des fonctions auditives");
+		
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), "", textField_3);
 		
 		audition = new Audition();
 		regrouperBoutons(audition);
 		
 		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
-		chckbxPlusieursTroublesAssocis.setBounds(622, 497, 204, 23);
-		add(chckbxPlusieursTroublesAssocis);
-		chckbxPlusieursTroublesAssocis.setVisible(true);
-		chckbxPlusieursTroublesAssocis.setEnabled(false);
+		
+		gestionChampsEtExceptions(chckbxPlusieursTroublesAssocis, 622, 497, 204, 23, null, true, false, null, false, null, null, null, "", null);
+		
 	}
 
-	public Handicap(String numEtudiant) {
+	public Handicap(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		this.troublesCoches=new ArrayList<RegroupementTypeHandicap>();
@@ -689,273 +646,185 @@ public class Handicap extends AbstractJPanel {
 		
 		setLayout(null);
 		
-		rdbtnNonRenseign = new JRadioButton("Non renseigné");
-		rdbtnNonRenseign.setBounds(18, 7, 150, 23);
-		add(rdbtnNonRenseign);
-		rdbtnNonRenseign.addChangeListener(new NonRenseigneListener());
+		rdbtnNonRenseign = new DureeHandicap("Non renseigné");
 		
-		rdbtnHandicapTemporaire = new JRadioButton("Handicap temporaire");
-		rdbtnHandicapTemporaire.setBounds(18, 33, 175, 23);
-		add(rdbtnHandicapTemporaire);
-		rdbtnHandicapTemporaire.addChangeListener(new HandicapTemporaireListener());
+		rdbtnHandicapTemporaire = new HandicapTemporaire("Handicap temporaire");
 		
-		rdbtnHandicapDfinitif = new JRadioButton("Handicap définitif");
-		rdbtnHandicapDfinitif.setBounds(151, 7, 161, 23);
-		add(rdbtnHandicapDfinitif);
-		rdbtnHandicapDfinitif.addChangeListener(new HandicapDefinitifListener());
+		rdbtnHandicapDfinitif = new DureeHandicap("Handicap définitif");
+		
+		lblPrcisez = new JLabel("Précisez :");
+		
+		textField = new JTextField();
+		
+		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
+		
+		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
+		
+		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
+		
+		chckbxBquilles = new HandicapParticulier("Béquilles");
+		
+		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
+		
+		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
+		
+		chckbxSep = new HandicapParticulier("SEP");
+		
+		chckbxAutres = new HandicapAPreciser("Autres");
+		
+		textField_1 = new JTextField();
+		
+		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
+		
+		textField_2 = new JTextField();
+		
+		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
+		
+		textField_3 = new JTextField();
+		
+		chckbxTroublesCognitifs = new FamilleHandicapNonDefinie("Troubles cognitifs :");
+		
+		textField_4 = new JTextField();
+		
+		chckbxTsa = new RegroupementTypeHandicap("TSA :");
+		
+		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
+		
+		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
+		
+		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
+		
+		chckbxTroublesPsychiques = new FamilleHandicapNonDefinie("Troubles psychiques :");
+		
+		textField_5 = new JTextField();
+		
+		chckbxTroublesDuLangage = new FamilleHandicapNonDefinie("Troubles du langage et de la parole :");
+		
+		textField_6 = new JTextField();
+		
+		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
+		
+		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
+		
+		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
+		
+		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
+		
+		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
+		
+		chckbxAutrePrciser = new HandicapAPreciser("Autre");
+		
+		textField_7 = new JTextField();
+		
+		chckbxAutresTroublesprciser = new FamilleHandicapNonDefinie("Autre(s) trouble(s) (préciser)");
+		
+		textField_8 = new JTextField();
+		
+		rdbtnCcit = new JRadioButton("Cécité");
+		
+		rdbtnAutresTroublesDes = new TypeHandicapSensoriel("Autres troubles des fonctions visuelles");
+		
+		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
+		
+		rdbtnAutresTroublesDes_1 = new TypeHandicapSensoriel("Autres troubles des fonctions auditives");
+		
+		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
+		
+		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), etudiant[3], null);
+		
+		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), etudiant[1], textField);
+		
+		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), etudiant[2], null);
 		
 		handiParticulier = new StatutHandicap();
 		regrouperBoutons(handiParticulier);
 		
-		lblPrcisez = new JLabel("Précisez :");
-		lblPrcisez.setBounds(226, 38, 71, 14);
-		add(lblPrcisez);
-		lblPrcisez.setVisible(false);
+		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null);
 		
-		textField = new JTextField();
-		textField.setBounds(324, 35, 146, 20);
-		add(textField);
-		textField.setColumns(10);
-		textField.setVisible(false);
+		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
 		
-		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
-		chckbxTroublesMoteurs.setBounds(18, 66, 204, 23);
-		add(chckbxTroublesMoteurs);
-		chckbxTroublesMoteurs.addChangeListener(new TroublesMoteursListener());
+		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), etudiant[4], null);
 		
-		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
-		chckbxFauteuilManuel.setBounds(94, 104, 150, 23);
-		add(chckbxFauteuilManuel);
-		chckbxFauteuilManuel.setVisible(false);
+		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, etudiant[5], null);
 		
-		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
-		chckbxFauteuillectrique.setBounds(238, 104, 154, 23);
-		add(chckbxFauteuillectrique);
-		chckbxFauteuillectrique.setVisible(false);
+		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, etudiant[6], null);
 		
-		chckbxBquilles = new HandicapParticulier("Béquilles");
-		chckbxBquilles.setBounds(389, 104, 96, 23);
-		add(chckbxBquilles);
-		chckbxBquilles.setVisible(false);
+		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, etudiant[7], null);
 		
-		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
-		chckbxDyspraxie.setBounds(484, 104, 100, 23);
-		add(chckbxDyspraxie);
-		chckbxDyspraxie.setVisible(false);
+		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, etudiant[8], null);
 		
-		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
-		chckbxEpilepsie.setBounds(585, 104, 108, 23);
-		add(chckbxEpilepsie);
-		chckbxEpilepsie.setVisible(false);
+		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, etudiant[9], null);
 		
-		chckbxSep = new HandicapParticulier("SEP");
-		chckbxSep.setBounds(693, 104, 57, 23);
-		add(chckbxSep);
-		chckbxSep.setVisible(false);
+		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, etudiant[10], null);
 		
-		chckbxAutres = new HandicapParticulier("Autres");
-		chckbxAutres.setBounds(762, 104, 96, 23);
-		add(chckbxAutres);
-		chckbxAutres.setVisible(false);
-		chckbxAutres.addChangeListener(new AutreHandicapMoteurListener());
+		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), etudiant[11], textField_1);
 		
-		textField_1 = new JTextField();
-		textField_1.setBounds(870, 106, 141, 20);
-		add(textField_1);
-		textField_1.setColumns(10);
-		textField_1.setVisible(false);
+		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[11], null);
 		
-		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
-		chckbxTroublesVisuels.setBounds(18, 142, 150, 23);
-		add(chckbxTroublesVisuels);
-		chckbxTroublesVisuels.addChangeListener(new TroublesVisuelsListener());
+		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), etudiant[12], null);
 		
-		textField_2 = new JTextField();
-		textField_2.setBounds(597, 182, 248, 20);
-		add(textField_2);
-		textField_2.setColumns(10);
-		textField_2.setVisible(false);
+		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[14], null);
 		
-		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
-		chckbxNewCheckBox.setBounds(18, 205, 150, 23);
-		add(chckbxNewCheckBox);
-		chckbxNewCheckBox.addChangeListener(new TroublesAuditifsListener());
+		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), etudiant[15], null);
 		
-		textField_3 = new JTextField();
-		textField_3.setBounds(648, 244, 261, 20);
-		add(textField_3);
-		textField_3.setColumns(10);
-		textField_3.setVisible(false);
+		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[17], null);
 		
-		chckbxTroublesCognitifs = new RegroupementTypeHandicap("Troubles cognitifs :");
-		chckbxTroublesCognitifs.setBounds(18, 282, 175, 23);
-		add(chckbxTroublesCognitifs);
-		chckbxTroublesCognitifs.addChangeListener(new TroublesCognitifsListener());
+		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), etudiant[18], textField_4);
 		
-		textField_4 = new JTextField();
-		textField_4.setBounds(248, 284, 196, 20);
-		add(textField_4);
-		textField_4.setColumns(10);
-		textField_4.setVisible(false);
+		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[18], null);
 		
-		chckbxTsa = new RegroupementTypeHandicap("TSA :");
-		chckbxTsa.setBounds(18, 313, 71, 23);
-		add(chckbxTsa);
-		chckbxTsa.addChangeListener(new TsaListener());
+		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), etudiant[19], null);
 		
-		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
-		rdbtnNewRadioButton.setBounds(72, 339, 150, 23);
-		add(rdbtnNewRadioButton);
-		rdbtnNewRadioButton.setVisible(false);
+		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, etudiant[20], null);
 		
-		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
-		rdbtnAutismeDeHaut.setBounds(222, 339, 190, 23);
-		add(rdbtnAutismeDeHaut);
-		rdbtnAutismeDeHaut.setVisible(false);
+		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[21], null);
 		
-		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
-		rdbtnSyndrmeDasperger.setBounds(424, 339, 190, 23);
-		add(rdbtnSyndrmeDasperger);
-		rdbtnSyndrmeDasperger.setVisible(false);
+		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[22], null);
 		
 		autisme = new Autisme();
 		regrouperBoutons(autisme);
 		
-		chckbxTroublesPsychiques = new RegroupementTypeHandicap("Troubles psychiques :");
-		chckbxTroublesPsychiques.setBounds(18, 375, 175, 23);
-		add(chckbxTroublesPsychiques);
-		chckbxTroublesPsychiques.addChangeListener(new TroublesPsychiquesListener());
+		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), etudiant[23], textField_5);
 		
-		textField_5 = new JTextField();
-		textField_5.setBounds(220, 376, 204, 20);
-		add(textField_5);
-		textField_5.setColumns(10);
-		textField_5.setVisible(false);
+		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[23], null);
 		
-		chckbxTroublesDuLangage = new RegroupementTypeHandicap("Troubles du langage et de la parole :");
-		chckbxTroublesDuLangage.setBounds(18, 413, 279, 23);
-		add(chckbxTroublesDuLangage);
-		chckbxTroublesDuLangage.addChangeListener(new TroublesDuLangageEtDeLaParoleListener());
+		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), etudiant[24], textField_6);
 		
-		textField_6 = new JTextField();
-		textField_6.setBounds(324, 414, 204, 20);
-		add(textField_6);
-		textField_6.setColumns(10);
-		textField_6.setVisible(false);
+		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[24], null);
 		
-		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
-		chckbxTroublesViscraux.setBounds(16, 443, 190, 23);
-		add(chckbxTroublesViscraux);
-		chckbxTroublesViscraux.addChangeListener(new TroublesViscerauxListener());
+		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), etudiant[25], null);
 		
-		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
-		chckbxMaladieCardiaque.setBounds(86, 469, 150, 23);
-		add(chckbxMaladieCardiaque);
-		chckbxMaladieCardiaque.setVisible(false);
+		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, etudiant[26], null);
 		
-		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
-		chckbxMaladiePulmonaire.setBounds(231, 469, 161, 23);
-		add(chckbxMaladiePulmonaire);
-		chckbxMaladiePulmonaire.setVisible(false);
+		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, etudiant[27], null);
 		
-		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
-		chckbxMaladieDuSystme.setBounds(389, 469, 225, 23);
-		add(chckbxMaladieDuSystme);
-		chckbxMaladieDuSystme.setVisible(false);
+		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, etudiant[28], null);
 		
-		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
-		chckbxPathologieCancreuse.setBounds(614, 469, 175, 23);
-		add(chckbxPathologieCancreuse);
-		chckbxPathologieCancreuse.setVisible(false);
+		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, etudiant[29], null);
 		
-		chckbxAutrePrciser = new HandicapParticulier("Autre");
-		chckbxAutrePrciser.setBounds(791, 469, 67, 23);
-		add(chckbxAutrePrciser);
-		chckbxAutrePrciser.setVisible(false);
-		chckbxAutrePrciser.addChangeListener(new AutresTroublesViscerauxListener());
+		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), etudiant[30], textField_7);
 		
-		textField_7 = new JTextField();
-		textField_7.setBounds(870, 471, 141, 20);
-		add(textField_7);
-		textField_7.setColumns(10);
-		textField_7.setVisible(false);
+		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[30], null);
 		
-		chckbxAutresTroublesprciser = new RegroupementTypeHandicap("Autre(s) trouble(s) (préciser)");
-		chckbxAutresTroublesprciser.setBounds(16, 497, 220, 23);
-		add(chckbxAutresTroublesprciser);
-		chckbxAutresTroublesprciser.addChangeListener(new AutresTroublesListener());
+		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), etudiant[31], textField_8);
 		
-		textField_8 = new JTextField();
-		textField_8.setBounds(360, 499, 254, 20);
-		add(textField_8);
-		textField_8.setColumns(10);
-		textField_8.setVisible(false);
+		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[31], null);
 		
-		rdbtnCcit = new JRadioButton("Cécité");
-		rdbtnCcit.setBounds(115, 177, 78, 23);
-		add(rdbtnCcit);
-		rdbtnCcit.setVisible(false);
+		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, etudiant[13], null);
 		
-		rdbtnAutresTroublesDes = new JRadioButton("Autres troubles des fonctions visuelles");
-		rdbtnAutresTroublesDes.setBounds(224, 177, 293, 23);
-		add(rdbtnAutresTroublesDes);
-		rdbtnAutresTroublesDes.setVisible(false);
-		rdbtnAutresTroublesDes.addChangeListener(new AutresTroublesvisuelsListener());
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), etudiant[14], textField_2);
 		
 		vision = new Vision();
 		regrouperBoutons(vision);
 		
-		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
-		rdbtnSurditSvreEt.setBounds(103, 242, 209, 23);
-		add(rdbtnSurditSvreEt);
-		rdbtnSurditSvreEt.setVisible(false);
+		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, etudiant[16], null);
 		
-		rdbtnAutresTroublesDes_1 = new JRadioButton("Autres troubles des fonctions auditives");
-		rdbtnAutresTroublesDes_1.setBounds(309, 242, 293, 23);
-		add(rdbtnAutresTroublesDes_1);
-		rdbtnAutresTroublesDes_1.setVisible(false);
-		rdbtnAutresTroublesDes_1.addChangeListener(new AutresTroublesAuditifsListener());
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), etudiant[17], textField_3);
 		
 		audition = new Audition();
 		regrouperBoutons(audition);
 		
-		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
-		chckbxPlusieursTroublesAssocis.setBounds(622, 497, 204, 23);
-		add(chckbxPlusieursTroublesAssocis);
-		chckbxPlusieursTroublesAssocis.setVisible(true);
-		chckbxPlusieursTroublesAssocis.setEnabled(false);
-		
-		handicapCoche(etudiant, 3, rdbtnNonRenseign);
-		handicapCoche(etudiant, 2, rdbtnHandicapDfinitif);
-		handicapCoche(etudiant, 1, rdbtnHandicapTemporaire);
-		handicapCoche(etudiant, 4, chckbxTroublesMoteurs);
-		handicapCoche(etudiant, 5, chckbxFauteuilManuel);
-		handicapCoche(etudiant, 6, chckbxFauteuillectrique);
-		handicapCoche(etudiant, 7, chckbxBquilles);
-		handicapCoche(etudiant, 8, chckbxDyspraxie);
-		handicapCoche(etudiant, 9, chckbxEpilepsie);
-		handicapCoche(etudiant, 10, chckbxSep);
-		handicapCoche(etudiant, 11, chckbxAutres);
-		handicapCoche(etudiant, 12, chckbxTroublesVisuels);
-		handicapCoche(etudiant, 15, chckbxNewCheckBox);
-		handicapCoche(etudiant, 18, chckbxTroublesCognitifs);
-		handicapCoche(etudiant, 19, chckbxTsa);
-		handicapCoche(etudiant, 20, rdbtnNewRadioButton);
-		handicapCoche(etudiant, 21, rdbtnAutismeDeHaut);
-		handicapCoche(etudiant, 22, rdbtnSyndrmeDasperger);
-		handicapCoche(etudiant, 23, chckbxTroublesPsychiques);
-		handicapCoche(etudiant, 24, chckbxTroublesDuLangage);
-		handicapCoche(etudiant, 25, chckbxTroublesViscraux);
-		handicapCoche(etudiant, 26, chckbxMaladieCardiaque);
-		handicapCoche(etudiant, 27, chckbxMaladiePulmonaire);
-		handicapCoche(etudiant, 28, chckbxMaladieDuSystme);
-		handicapCoche(etudiant, 29, chckbxPathologieCancreuse);
-		handicapCoche(etudiant, 30, chckbxAutrePrciser);
-		handicapCoche(etudiant, 31, chckbxAutresTroublesprciser);
-		handicapCoche(etudiant, 13, rdbtnCcit);
-		handicapCoche(etudiant, 14, rdbtnAutresTroublesDes);
-		handicapCoche(etudiant, 16, rdbtnSurditSvreEt);
-		handicapCoche(etudiant, 17, rdbtnAutresTroublesDes_1);
+		gestionChampsEtExceptions(chckbxPlusieursTroublesAssocis, 622, 497, 204, 23, null, true, false, null, false, null, null, null, "", null);
 	}
 	
 	private void plusieursTroublesCoches(ArrayList<RegroupementTypeHandicap> troublesCoches) {
@@ -964,69 +833,6 @@ public class Handicap extends AbstractJPanel {
 		}
 		else {
 			chckbxPlusieursTroublesAssocis.setSelected(false);
-		}
-	}
-	
-	private void handicapCoche(String[] etudiant, int index, JToggleButton button) {
-		
-		if(button instanceof JRadioButton) {
-				if(etudiant[index].equals("Non")) {
-					button.setSelected(false);
-				}
-				else {
-					button.setSelected(true);
-					switch(index) {
-					case 1:
-						textField.setText(etudiant[index]);
-						break;
-					case 14:
-						textField_2.setText(etudiant[index]);
-						break;
-					case 17:
-						textField_3.setText(etudiant[index]);
-						break;
-					}
-				}
-			}
-		else if(button instanceof RegroupementTypeHandicap) {
-				if(etudiant[index].equals("Non")) {
-					button.setSelected(false);
-					}
-					else {
-						button.setSelected(true);
-					
-					switch(index) {
-					case 18:
-						textField_4.setText(etudiant[index]);
-						break;
-					case 23:
-						textField_5.setText(etudiant[index]);
-						break;
-					case 24:
-						textField_6.setText(etudiant[index]);
-						break;
-					}
-				}
-		}
-		else if(button instanceof HandicapParticulier) {
-				if(etudiant[index].equals("Non")) {
-					button.setSelected(false);
-				}
-				else {
-					button.setSelected(true);
-					
-					switch(index) {
-					case 11:
-						textField_1.setText(etudiant[index]);
-						break;
-					case 30:
-						textField_7.setText(etudiant[index]);
-						break;
-					case 31:
-						textField_8.setText(etudiant[index]);
-						break;
-				}
-			}
 		}
 	}
 	

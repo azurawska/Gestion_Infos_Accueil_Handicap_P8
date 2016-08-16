@@ -28,11 +28,11 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
 		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null);
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, "");
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, "", null);
 	}
 	
 	public CarnetDeVisiteEtCommentaires(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
@@ -58,10 +58,10 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
 		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null);
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, infosEtudiant.toString());
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, infosEtudiant.toString(), null);
 	}
 }

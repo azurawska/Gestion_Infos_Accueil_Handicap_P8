@@ -3,7 +3,7 @@ package fenetre.composants;
 import javax.swing.JTextField;
 import javax.swing.text.Document;
 
-public class JTextFieldIdentifiant extends JTextField {
+public final class JTextFieldIdentifiant extends JTextField {
 
 	public JTextFieldIdentifiant() {
 		// TODO Auto-generated constructor stub

@@ -6,5 +6,4 @@ public class Audition extends ButtonGroupAmeliore {
 		// TODO Auto-generated constructor stub
 		super();
 	}
-
 }

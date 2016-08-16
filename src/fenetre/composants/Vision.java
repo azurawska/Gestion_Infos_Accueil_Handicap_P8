@@ -6,5 +6,4 @@ public class Vision extends ButtonGroupAmeliore {
 		// TODO Auto-generated constructor stub
 		super();
 	}
-
 }

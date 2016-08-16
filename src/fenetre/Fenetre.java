@@ -5,6 +5,8 @@ import java.awt.Toolkit;
 
 import javax.swing.JFrame;
 
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.ecrans.Authentification;
 
 public class Fenetre extends JFrame {
@@ -15,8 +17,10 @@ public class Fenetre extends JFrame {
 
 	/**
 	 * Create the frame.
+	 * @throws NullArgumentException 
+	 * @throws LongueurDifferenteListesException 
 	 */
-	private Fenetre() {
+	private Fenetre() throws LongueurDifferenteListesException, NullArgumentException {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		screenSize=Toolkit.getDefaultToolkit().getScreenSize();
 		//screenSize.setSize(1000, 500);
@@ -27,7 +31,7 @@ public class Fenetre extends JFrame {
 		setVisible(true);
 	}
 	
-	public static Fenetre getInstance() {
+	public static Fenetre getInstance() throws LongueurDifferenteListesException, NullArgumentException {
 		if(fenetre==null) {
 			fenetre = new Fenetre();
 		}

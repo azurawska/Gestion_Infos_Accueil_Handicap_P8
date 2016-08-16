@@ -27,7 +27,7 @@ import exceptions.NullArgumentException;
 
 public abstract class AbstractJPanel extends JPanel {
 	
-	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField champCacheARemplir) {
+	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier) {
 		
 		composant.setBounds(x, y, width, height);
 		composant.setVisible(visible);
@@ -37,12 +37,12 @@ public abstract class AbstractJPanel extends JPanel {
 		if(composant instanceof JTextComponent) {
 			((JTextComponent) composant).setEditable(editable);
 			((JTextComponent) composant).setText(chaine);
+			composant.setBackground(color);
 		}
 		add(composant);
 		
 		if(composant instanceof JTextField) {
 			((JTextField) composant).setColumns(10);
-			composant.setBackground(color);
 			if(composant instanceof JTextFieldIdentifiant) {
 				composant.addMouseListener((MouseListener) event);
 			}
@@ -62,6 +62,29 @@ public abstract class AbstractJPanel extends JPanel {
 		}
 		else if(composant instanceof DureeHandicap) {
 			((DureeHandicap) composant).addChangeListener((ChangeListener) event);
+			if(!chaine.equals("")) {
+				if(chaine.equals("Non")) {
+					((DureeHandicap) composant).setSelected(false);
+				}
+				else {
+					((DureeHandicap) composant).setSelected(true);
+					if(composant instanceof HandicapTemporaire) {
+						handicapParticulier.setText(chaine);
+					}
+				}
+			}
+		}
+		else if(composant instanceof TypeHandicapSensoriel) {
+			((TypeHandicapSensoriel) composant).addChangeListener((ChangeListener) event);
+			if(!chaine.equals("")) {
+				if(!chaine.equals("Non")) {
+					((TypeHandicapSensoriel) composant).setSelected(true);
+					handicapParticulier.setText(chaine);
+				}
+				else {
+					((TypeHandicapSensoriel) composant).setSelected(false);
+				}
+			}
 		}
 		else if(composant instanceof Sexe) {
 			if(((Sexe) composant).getText().equals(chaine)) {
@@ -76,30 +99,29 @@ public abstract class AbstractJPanel extends JPanel {
 		}
 		else if(composant instanceof RegroupementTypeHandicap) {
 			((RegroupementTypeHandicap) composant).addChangeListener((ChangeListener) event);
+			if(!chaine.equals("")) {
 			if(chaine.equals("Non")) {
 				((RegroupementTypeHandicap) composant).setSelected(false);
 			}
 			else {
 				((RegroupementTypeHandicap) composant).setSelected(true);
+				if(composant instanceof FamilleHandicapNonDefinie) {
+					handicapParticulier.setText(chaine);
+				}
 			}
 		}
-		else if(composant instanceof HandicapParticulier) {
-			if(chaine.equals("Non")) {
-				((HandicapParticulier) composant).setSelected(false);
-			}
-			else {
-				champCacheARemplir.setText(chaine);
-			}
-		}
+	}
 		else if(composant instanceof JDateChooser) {
 			
 			Date date=null;
 			SimpleDateFormat dateFormat = new SimpleDateFormat("dd/MM/yyyy");
 			try {
+				if(!chaine.equals("")) {
 				date=dateFormat.parse(chaine);
+				}
+				((JDateChooser) composant).getDateEditor().setDate(date);
 			} catch (ParseException e) {
 				// TODO Auto-generated catch block
-				e.printStackTrace();
 			}
 			if(enabled==true) {
 			((JDateChooser) composant).getDateEditor().setEnabled(false);
@@ -108,9 +130,16 @@ public abstract class AbstractJPanel extends JPanel {
 				composant.setEnabled(enabled);
 			}
 		}
+		else if(composant instanceof HandicapParticulier) {
+			((HandicapParticulier) composant).setSelected(selected);
+			if(composant instanceof HandicapAPreciser) {
+				((HandicapParticulier) composant).addChangeListener((ChangeListener) event);
+				handicapParticulier.setText(chaine);
+			}
+		}
 	}
 	
-	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField champCacheARemplir) throws LongueurDifferenteListesException, NullArgumentException {
+	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier) throws LongueurDifferenteListesException, NullArgumentException {
 		
 		try {
 		if((!titresOnglets.equals(null) && onglets.equals(null)) || (!onglets.equals(null) && titresOnglets.equals(null))) {
@@ -122,13 +151,13 @@ public abstract class AbstractJPanel extends JPanel {
 				throw new LongueurDifferenteListesException();
 			}
 			else {
-					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, titresOnglets, onglets, event, chaine, champCacheARemplir);
+					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier);
 				
 				}
 		}
 	} catch(NullPointerException e) {
 		
-		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, titresOnglets, onglets, event, chaine, champCacheARemplir);
+		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier);
 		
 		}
 	}
