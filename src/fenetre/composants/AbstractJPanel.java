@@ -17,6 +17,7 @@ import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
+import javax.swing.JToggleButton;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.JTextComponent;
 
@@ -38,6 +39,9 @@ public abstract class AbstractJPanel extends JPanel {
 			((JTextComponent) composant).setEditable(editable);
 			((JTextComponent) composant).setText(chaine);
 			composant.setBackground(color);
+		}
+		if(composant instanceof JToggleButton) {
+			((JToggleButton) composant).setSelected(selected);
 		}
 		add(composant);
 		
@@ -132,8 +136,16 @@ public abstract class AbstractJPanel extends JPanel {
 		}
 		else if(composant instanceof HandicapParticulier) {
 			((HandicapParticulier) composant).setSelected(selected);
+			if(!chaine.equals("")) {
+				if(chaine.equals("Non")) {
+					((HandicapParticulier) composant).setSelected(false);
+				}
+				else {
+					((HandicapParticulier) composant).setSelected(true);
+				}
+			}
 			if(composant instanceof HandicapAPreciser) {
-				((HandicapParticulier) composant).addChangeListener((ChangeListener) event);
+				((HandicapAPreciser) composant).addChangeListener((ChangeListener) event);
 				handicapParticulier.setText(chaine);
 			}
 		}
