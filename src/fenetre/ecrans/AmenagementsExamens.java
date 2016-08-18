@@ -222,4 +222,8 @@ public class AmenagementsExamens extends AbstractJPanel {
 		add(lblPossibilitDeSortir);
 
 	}
+
+	public AmenagementsExamens(String utilisateur) {
+		// TODO Auto-generated constructor stub
+	}
 }

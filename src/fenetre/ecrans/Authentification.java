@@ -21,8 +21,9 @@ import exceptions.NullArgumentException;
 import fenetre.Fenetre;
 import fenetre.composants.AbstractJPanel;
 import fenetre.composants.JTextFieldIdentifiant;
+import interfaces.GestionFichierCSV;
 
-public class Authentification extends AbstractJPanel {
+public class Authentification extends AbstractJPanel implements GestionFichierCSV {
 	
 	private JTextFieldIdentifiant textField_num_etudiant;
 	private JTextField textField_nom;
@@ -46,7 +47,7 @@ public class Authentification extends AbstractJPanel {
 	
 	private final LectureFichierCSV lectureFichier = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
 	
-	StringBuilder chainesEtudiantsTrouves;
+	private StringBuilder chainesEtudiantsTrouves;
 	
 	public Authentification() throws LongueurDifferenteListesException, NullArgumentException {
 		setLayout(null);
@@ -57,35 +58,35 @@ public class Authentification extends AbstractJPanel {
 		
 		JLabel lblNEtudiant = new JLabel("N° Etudiant :");
 		
-		gestionChampsEtExceptions(lblNEtudiant, x, y, 100, 29, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNEtudiant, x, y, 100, 29, null, true, true, null, null, null, null, null, null, null, null);
 		
 		textField_num_etudiant = new JTextFieldIdentifiant();
 		
-		gestionChampsEtExceptions(textField_num_etudiant, x+pasx, y, sizex, sizey, Color.WHITE, true, true, true, null, null, null, new QuitNumEtudiantFieldMouseEvent(), "", null);
+		gestionChampsEtExceptions(textField_num_etudiant, x+pasx, y, sizex, sizey, Color.WHITE, true, true, true, null, null, null, new QuitNumEtudiantFieldMouseEvent(), "", null, null);
 		
 		JLabel lblNom = new JLabel("Nom :");
 		
-		gestionChampsEtExceptions(lblNom, x, y+pasy, 100, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNom, x, y+pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		textField_nom = new JTextField();
 		
-		gestionChampsEtExceptions(textField_nom, x+pasx, y+pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_nom, x+pasx, y+pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
 		JLabel lblPrnom = new JLabel("Prénom :");
 		
-		gestionChampsEtExceptions(lblPrnom, x, y+2*pasy, 100, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPrnom, x, y+2*pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		textField_prenom = new JTextField();
 		
-		gestionChampsEtExceptions(textField_prenom, x+pasx, y+2*pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_prenom, x+pasx, y+2*pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
 		btnSuivant = new JButton("Suivant");
 		
-		gestionChampsEtExceptions(btnSuivant, x+pasx, y+4*pasy, 89, 23, null, true, true, null, null, null, null, new SuivantAction(), null, null);
+		gestionChampsEtExceptions(btnSuivant, x+pasx, y+4*pasy, 89, 23, null, true, true, null, null, null, null, new SuivantAction(), null, null, null);
 		
 		btnNouveau = new JButton("Nouveau");
 		
-		gestionChampsEtExceptions(btnNouveau, x+pasx, y+5*pasy, 89, 23, null, true, true, null, null, null, null, new NouveauAction(), null, null);
+		gestionChampsEtExceptions(btnNouveau, x+pasx, y+5*pasy, 89, 23, null, true, true, null, null, null, null, new NouveauAction(), null, null, null);
 	}
 	
 	private class NouveauAction implements ActionListener {
@@ -147,6 +148,70 @@ public class Authentification extends AbstractJPanel {
 	
 	private void suivant() throws LongueurDifferenteListesException, NullArgumentException {
 		
+		gererInfosFichierCSV(lectureFichier);
+	}
+	
+	private void accueil() {
+		setVisible(false);
+		try {
+			accueil = new Accueil();
+		} catch (LongueurDifferenteListesException | NullArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		try {
+			Fenetre.getInstance().setContentPane(accueil);
+		} catch (LongueurDifferenteListesException | NullArgumentException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+		accueil.setVisible(true);
+	}
+	
+	private void accueil(String numEtudiant, String nom, String prenom) throws LongueurDifferenteListesException, NullArgumentException {
+		this.setVisible(false);
+		accueil = new Accueil(numEtudiant, nom, prenom);
+		Fenetre.getInstance().setContentPane(accueil);
+		accueil.setVisible(true);
+	}
+	
+	private StringBuilder plusieursEtudiantsSelectionnes(ArrayList<String[]> tableau) {
+		
+		StringBuilder plusieursEtudiantsSelectionnes = new StringBuilder();
+		
+		for(int i=0;i<tableau.size();i++) {
+			for(int j=0;j<tableau.get(i).length;j++) {
+				plusieursEtudiantsSelectionnes.append(tableau.get(i)[j] + "\n");
+			}
+		}
+		return plusieursEtudiantsSelectionnes;
+	}
+	
+	private void chargementEtudiantsAvecChainesCommunes() {
+		donneesEtudiants = lectureFichier.chargerFichier();
+		chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
+		donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
+	}
+	
+	private void chargerChainesNoms() {
+		chargementEtudiantsAvecChainesCommunes();
+		chainesNomNaissance = lectureFichier.retournerChaines(donneesEtudiants, 4);
+		chainesNomMarie = lectureFichier.retournerChaines(donneesEtudiants, 5);
+	}
+	
+	private void chargerChainesPrenoms() {
+		chargementEtudiantsAvecChainesCommunes();
+		chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 6);
+	}
+	
+	private void chargerChainesNomsPrenoms() {
+		chargerChainesNoms();
+		chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 6);
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier) throws LongueurDifferenteListesException, NullArgumentException {
+		
 		int num_etudiant;
 		
 		if(textField_num_etudiant.getText().equals("") && textField_nom.getText().equals("") && textField_prenom.getText().equals("")) {
@@ -158,11 +223,11 @@ public class Authentification extends AbstractJPanel {
 				if(!textField_num_etudiant.getText().equals("")) {
 					num_etudiant = Integer.parseInt(textField_num_etudiant.getText());
 					String num_etudiant_reconverti=Integer.toString(num_etudiant);
-					donneesEtudiants = lectureFichier.chargerFichier();
-					num_etudiant_reconverti=lectureFichier.retournerChaine(donneesEtudiants, num_etudiant_reconverti);
+					donneesEtudiants = fichier.chargerFichier();
+					num_etudiant_reconverti=fichier.retournerChaine(donneesEtudiants, num_etudiant_reconverti);
 					
 					if(num_etudiant_reconverti!=null) {
-						etudiant = lectureFichier.retournerInfosEtudiant(donneesEtudiants, num_etudiant_reconverti);
+						etudiant = fichier.retournerInfosEtudiant(donneesEtudiants, num_etudiant_reconverti);
 						accueil(etudiant[0], etudiant[5], etudiant[6]);
 					}
 					else {
@@ -254,63 +319,5 @@ public class Authentification extends AbstractJPanel {
 				JOptionPane.showMessageDialog(null, "Le champ numéro étudiant ne doit contenir que des chiffres.", "Erreur", JOptionPane.ERROR_MESSAGE);
 			}
 		}
-	}
-	
-	private void accueil() {
-		setVisible(false);
-		try {
-			accueil = new Accueil();
-		} catch (LongueurDifferenteListesException | NullArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		try {
-			Fenetre.getInstance().setContentPane(accueil);
-		} catch (LongueurDifferenteListesException | NullArgumentException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-		}
-		accueil.setVisible(true);
-	}
-	
-	private void accueil(String numEtudiant, String nom, String prenom) throws LongueurDifferenteListesException, NullArgumentException {
-		this.setVisible(false);
-		accueil = new Accueil(numEtudiant, nom, prenom);
-		Fenetre.getInstance().setContentPane(accueil);
-		accueil.setVisible(true);
-	}
-	
-	private StringBuilder plusieursEtudiantsSelectionnes(ArrayList<String[]> tableau) {
-		
-		StringBuilder plusieursEtudiantsSelectionnes = new StringBuilder();
-		
-		for(int i=0;i<tableau.size();i++) {
-			for(int j=0;j<tableau.get(i).length;j++) {
-				plusieursEtudiantsSelectionnes.append(tableau.get(i)[j] + "\n");
-			}
-		}
-		return plusieursEtudiantsSelectionnes;
-	}
-	
-	private void chargementEtudiantsAvecChainesCommunes() {
-		donneesEtudiants = lectureFichier.chargerFichier();
-		chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
-		donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
-	}
-	
-	private void chargerChainesNoms() {
-		chargementEtudiantsAvecChainesCommunes();
-		chainesNomNaissance = lectureFichier.retournerChaines(donneesEtudiants, 4);
-		chainesNomMarie = lectureFichier.retournerChaines(donneesEtudiants, 5);
-	}
-	
-	private void chargerChainesPrenoms() {
-		chargementEtudiantsAvecChainesCommunes();
-		chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 6);
-	}
-	
-	private void chargerChainesNomsPrenoms() {
-		chargerChainesNoms();
-		chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 6);
 	}
 }

@@ -12,11 +12,13 @@ import data.LectureFichierCSV;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import interfaces.GestionFichierCSV;
 
-public class Projets extends AbstractJPanel {
+public class Projets extends AbstractJPanel implements GestionFichierCSV {
 	
 	private boolean nouveau;
 	private String numEtudiant;
+	private final LectureFichierCSV fichierProjets = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/projets.csv");
 
 	/**
 	 * Create the panel.
@@ -31,47 +33,52 @@ public class Projets extends AbstractJPanel {
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 
 	}
 	
 	public Projets(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
-		this.numEtudiant=numEtudiant;
-		
-		LectureFichierCSV fichierProjets = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/projets.csv");
-		
-		ArrayList<String[]> etudiants = fichierProjets.chargerFichier();
-		String[] etudiant = fichierProjets.retournerInfosEtudiant(etudiants, this.numEtudiant);
+		this.numEtudiant=numEtudiant;	
+		gererInfosFichierCSV(fichierProjets);
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
+			
+		ArrayList<String[]> etudiants = fichier.chargerFichier();
+		String[] etudiant = fichier.retournerInfosEtudiant(etudiants, this.numEtudiant);
 		
 		setLayout(null);
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[1], null);
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[1], null, null);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[2], null);
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[2], null, null);
+		
 	}
 }

@@ -1,56 +1,149 @@
 package fenetre.ecrans;
 
-import javax.swing.JPanel;
 import javax.swing.JLabel;
-import javax.swing.JTextField;
 
+import com.toedter.calendar.JDateChooser;
+
+import data.LectureFichierCSV;
+import data.LectureFichierTXT;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import interfaces.DonneesTabbedPane;
+import interfaces.GestionFichierCSV;
+import interfaces.GestionFichierTXT;
+
+import java.util.ArrayList;
 
 import javax.swing.JComboBox;
-import javax.swing.JRadioButton;
-import javax.swing.JCheckBox;
-import javax.swing.JList;
 import javax.swing.JTabbedPane;
 
-public class Amenagements extends AbstractJPanel {
-	private JTextField textField;
-	private JTextField textField_3;
-	private JTextField textField_1;
-	private JTextField textField_2;
-	private JTextField textField_4;
+public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, GestionFichierTXT, GestionFichierCSV {
+	
+	private JDateChooser textField;
+	
+	private JComboBox<String> comboBox;
+	
+	private boolean nouveau;
+	
+	private String numEtudiant;
+	
+	private JLabel lblDateDeLa;
+	private JLabel lblNomDuMdecin;
+	
+	private JTabbedPane tabbedPane;
+	
+	private final LectureFichierTXT fichierMedecins = new LectureFichierTXT("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/txt/medecins.txt");
+	
+	private final LectureFichierCSV fichierAmenagements = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/amenagements.csv");
 
 	/**
 	 * Create the panel.
+	 * @throws NullArgumentException 
+	 * @throws LongueurDifferenteListesException 
 	 */
-	public Amenagements() {
+	public Amenagements() throws LongueurDifferenteListesException, NullArgumentException {
+		
+		this.nouveau=true;
+		
 		setLayout(null);
 		
-		JLabel lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
-		lblDateDeLa.setBounds(21, 6, 273, 14);
-		add(lblDateDeLa);
+		lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
 		
-		textField = new JTextField();
-		textField.setBounds(332, 3, 102, 20);
-		add(textField);
-		textField.setColumns(10);
+		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JLabel lblNomDuMdecin = new JLabel("Nom du médecin");
-		lblNomDuMdecin.setBounds(20, 46, 140, 14);
-		add(lblNomDuMdecin);
+		textField = new JDateChooser();
+	
+		gestionChampsEtExceptions(textField, 332, 3, 102, 20, null, true, true, null, null, null, null, null, "", null, null);
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(290, 44, 186, 20);
-		add(comboBox);
+		lblNomDuMdecin = new JLabel("Nom du médecin");
 		
-		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
-		tabbedPane.setBounds(30, 82, 719, 514);
-		tabbedPane.add("Examens", new AmenagementsExamens());
-		add(tabbedPane);
-		AmenagementsCours amenagementsCours = new AmenagementsCours();
-		tabbedPane.add("Cours", amenagementsCours);
+		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null);
+		
+		comboBox = new JComboBox<String>();
+	
+		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, "", null, null);
+		gererInfosFichierTXT(fichierMedecins);
+		comboBox.setSelectedIndex(0);
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
+		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null);
 	}
 
-	public Amenagements(String numEtudiant) {
-		// TODO Auto-generated constructor stub
+	public Amenagements(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
+		
+		this.nouveau=false;
+		this.numEtudiant=numEtudiant;
+		
+		gererInfosFichierCSV(fichierAmenagements);
+	}
+
+	@Override
+	public ArrayList<String> titresOnglets() {
+		
+		ArrayList<String> titresOnglets = new ArrayList<String>();
+		titresOnglets.add("Cours");
+		titresOnglets.add("Examens");
+		
+		return titresOnglets;
+	}
+
+	@Override
+	public ArrayList<AbstractJPanel> ongletsNouvelUtilisateur()
+			throws LongueurDifferenteListesException, NullArgumentException {
+			ArrayList<AbstractJPanel> onglets = new ArrayList<AbstractJPanel>();
+			onglets.add(new AmenagementsCours());
+			onglets.add(new AmenagementsExamens());
+			
+			return onglets;
+	}
+
+	@Override
+	public ArrayList<AbstractJPanel> ongletsUtilisateurExistant(String utilisateur)
+			throws LongueurDifferenteListesException, NullArgumentException {
+			ArrayList<AbstractJPanel> onglets = new ArrayList<AbstractJPanel>();
+			onglets.add(new AmenagementsCours(utilisateur));
+			onglets.add(new AmenagementsExamens(utilisateur));
+			
+			return onglets;
+	}
+
+	@Override
+	public void gererInfosFichierTXT(LectureFichierTXT lectureFichier) {
+		
+		ArrayList<String> medecins = lectureFichier.chargerFichier();
+		
+		for(int i=0;i<medecins.size();i++) {
+			comboBox.addItem(medecins.get(i));
+		}
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
+		
+		setLayout(null);
+		
+		lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
+		
+		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null);
+		
+		textField = new JDateChooser();
+	
+		gestionChampsEtExceptions(textField, 332, 3, 102, 20, null, true, false, null, null, null, null, null, "", null, null);
+		
+		lblNomDuMdecin = new JLabel("Nom du médecin");
+		
+		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null);
+		
+		comboBox = new JComboBox<String>();
+	
+		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, "", null, null);
+		gererInfosFichierTXT(fichierMedecins);
+		
+		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
+		
+		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null);
 	}
 }

@@ -1,16 +1,15 @@
 package fenetre.ecrans;
 
-import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
-import javax.swing.JToggleButton;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
 import data.LectureFichierCSV;
+import data.LectureFichierTXT;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
@@ -25,6 +24,8 @@ import fenetre.composants.RegroupementTypeHandicap;
 import fenetre.composants.StatutHandicap;
 import fenetre.composants.TypeHandicapSensoriel;
 import fenetre.composants.Vision;
+import interfaces.GestionFichierCSV;
+import interfaces.GestionFichierTXT;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -32,7 +33,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 
-public class Handicap extends AbstractJPanel {
+public class Handicap extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT {
 	
 	private class AutresTroublesListener implements ChangeListener {
 
@@ -448,6 +449,8 @@ public class Handicap extends AbstractJPanel {
 	private Audition audition;
 	
 	private ArrayList<RegroupementTypeHandicap> troublesCoches;
+	
+	private final LectureFichierCSV fichierHandicap = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/handicap.csv");
 
 	/**
 	 * Create the panel.
@@ -462,183 +465,183 @@ public class Handicap extends AbstractJPanel {
 		
 		rdbtnNonRenseign = new DureeHandicap("Non renseigné");
 		
-		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), "", null);
+		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), "", null, null);
 		
 		rdbtnHandicapTemporaire = new HandicapTemporaire("Handicap temporaire");
 		
-		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), "", textField);
+		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), "", textField, null);
 		
 		rdbtnHandicapDfinitif = new DureeHandicap("Handicap définitif");
 		
-		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), "", null);
+		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), "", null, null);
 		
 		handiParticulier = new StatutHandicap();
 		regrouperBoutons(handiParticulier);
 		
 		lblPrcisez = new JLabel("Précisez :");
 		
-		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null, null);
 		
 		textField = new JTextField();
 		
-		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
 		
-		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), "", null);
+		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), "", null, null);
 		
 		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
 		
-		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
 		
-		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxBquilles = new HandicapParticulier("Béquilles");
 		
-		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
 		
-		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
 		
-		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxSep = new HandicapParticulier("SEP");
 		
-		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxAutres = new HandicapAPreciser("Autres");
 		
 		textField_1 = new JTextField();
 		
-		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), "", textField_1);
+		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), "", textField_1, null);
 		
-		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
 		
-		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), "", null);
+		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), "", null, null);
 		
 		textField_2 = new JTextField();
 		
-		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
 		
-		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), "", null);
+		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), "", null, null);
 		
 		textField_3 = new JTextField();
 		
-		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTroublesCognitifs = new FamilleHandicapNonDefinie("Troubles cognitifs :");
 		
-		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), "", textField_4);
+		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), "", textField_4, null);
 		
 		textField_4 = new JTextField();
 		
-		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTsa = new RegroupementTypeHandicap("TSA :");
 		
-		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), "", null);
+		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), "", null, null);
 		
 		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
 		
-		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
 		
-		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
 		
-		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		autisme = new Autisme();
 		regrouperBoutons(autisme);
 		
 		chckbxTroublesPsychiques = new FamilleHandicapNonDefinie("Troubles psychiques :");
 		
-		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), "", textField_5);
+		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), "", textField_5, null);
 		
 		textField_5 = new JTextField();
 		
-		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTroublesDuLangage = new FamilleHandicapNonDefinie("Troubles du langage et de la parole :");
 		
 		textField_6 = new JTextField();
 		
-		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), "", textField_6);
+		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), "", textField_6, null);
 		
-		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
 		
-		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), "", null);
+		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), "", null, null);
 		
 		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
 		
-		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
 		
-		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
 		
-		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
 		
-		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		chckbxAutrePrciser = new HandicapAPreciser("Autre");
 		
 		textField_7 = new JTextField();
 		
-		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), "", textField_7);
+		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), "", textField_7, null);
 		
-		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		chckbxAutresTroublesprciser = new FamilleHandicapNonDefinie("Autre(s) trouble(s) (préciser)");
 		
 		textField_8 = new JTextField();
 		
-		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), "", textField_8);
+		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), "", textField_8, null);
 		
-		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
 		rdbtnCcit = new JRadioButton("Cécité");
 		
-		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		rdbtnAutresTroublesDes = new TypeHandicapSensoriel("Autres troubles des fonctions visuelles");
 		
-		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), "", textField_2);
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), "", textField_2, null);
 		
 		vision = new Vision();
 		regrouperBoutons(vision);
 		
 		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
 		
-		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, "", null, null);
 		
 		rdbtnAutresTroublesDes_1 = new TypeHandicapSensoriel("Autres troubles des fonctions auditives");
 		
-		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), "", textField_3);
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), "", textField_3, null);
 		
 		audition = new Audition();
 		regrouperBoutons(audition);
 		
 		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
 		
-		gestionChampsEtExceptions(chckbxPlusieursTroublesAssocis, 622, 497, 204, 23, null, true, false, null, false, null, null, null, "", null);
+		gestionChampsEtExceptions(chckbxPlusieursTroublesAssocis, 622, 497, 204, 23, null, true, false, null, false, null, null, null, "", null, null);
 		
 	}
 
@@ -646,192 +649,8 @@ public class Handicap extends AbstractJPanel {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		this.troublesCoches=new ArrayList<RegroupementTypeHandicap>();
+		gererInfosFichierCSV(fichierHandicap);
 		
-		LectureFichierCSV fichierHandicap = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/handicap.csv");
-		
-		ArrayList<String[]> etudiants = fichierHandicap.chargerFichier();
-		
-		String[] etudiant = fichierHandicap.retournerInfosEtudiant(etudiants, this.numEtudiant);
-		
-		setLayout(null);
-		
-		rdbtnNonRenseign = new DureeHandicap("Non renseigné");
-		
-		rdbtnHandicapTemporaire = new HandicapTemporaire("Handicap temporaire");
-		
-		rdbtnHandicapDfinitif = new DureeHandicap("Handicap définitif");
-		
-		handiParticulier = new StatutHandicap();
-		regrouperBoutons(handiParticulier);
-		
-		lblPrcisez = new JLabel("Précisez :");
-		
-		textField = new JTextField();
-		
-		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
-		
-		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
-		
-		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
-		
-		chckbxBquilles = new HandicapParticulier("Béquilles");
-		
-		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
-		
-		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
-		
-		chckbxSep = new HandicapParticulier("SEP");
-		
-		chckbxAutres = new HandicapAPreciser("Autres");
-		
-		textField_1 = new JTextField();
-		
-		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
-		
-		textField_2 = new JTextField();
-		
-		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
-		
-		textField_3 = new JTextField();
-		
-		chckbxTroublesCognitifs = new FamilleHandicapNonDefinie("Troubles cognitifs :");
-		
-		textField_4 = new JTextField();
-		
-		chckbxTsa = new RegroupementTypeHandicap("TSA :");
-		
-		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
-		
-		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
-		
-		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
-		
-		autisme = new Autisme();
-		regrouperBoutons(autisme);
-		
-		chckbxTroublesPsychiques = new FamilleHandicapNonDefinie("Troubles psychiques :");
-		
-		textField_5 = new JTextField();
-		
-		chckbxTroublesDuLangage = new FamilleHandicapNonDefinie("Troubles du langage et de la parole :");
-		
-		textField_6 = new JTextField();
-		
-		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
-		
-		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
-		
-		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
-		
-		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
-		
-		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
-		
-		chckbxAutrePrciser = new HandicapAPreciser("Autre");
-		
-		textField_7 = new JTextField();
-		
-		chckbxAutresTroublesprciser = new FamilleHandicapNonDefinie("Autre(s) trouble(s) (préciser)");
-		
-		textField_8 = new JTextField();
-		
-		rdbtnCcit = new JRadioButton("Cécité");
-		
-		rdbtnAutresTroublesDes = new TypeHandicapSensoriel("Autres troubles des fonctions visuelles");
-		
-		vision = new Vision();
-		regrouperBoutons(vision);
-		
-		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
-		
-		rdbtnAutresTroublesDes_1 = new TypeHandicapSensoriel("Autres troubles des fonctions auditives");
-		
-		audition = new Audition();
-		regrouperBoutons(audition);
-		
-		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
-		
-		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null);
-		
-		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null);
-		
-		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), etudiant[3], null);
-		
-		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), etudiant[1], textField);
-		
-		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), etudiant[2], null);
-		
-		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, etudiant[5], null);
-		
-		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, etudiant[6], null);
-		
-		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, etudiant[7], null);
-		
-		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, etudiant[8], null);
-		
-		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, etudiant[9], null);
-		
-		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, etudiant[10], null);
-		
-		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), etudiant[11], textField_1);
-		
-		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[11], null);
-		
-		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), etudiant[4], null);
-		
-		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[14], null);
-		
-		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, etudiant[13], null);
-		
-		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), etudiant[14], textField_2);
-		
-		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), etudiant[12], null);
-
-		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[17], null);
-		
-		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, etudiant[16], null);
-		
-		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), etudiant[17], textField_3);
-		
-		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), etudiant[15], null);
-		
-		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[18], null);
-		
-		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), etudiant[18], textField_4);
-		
-		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, etudiant[20], null);
-		
-		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[21], null);
-		
-		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[22], null);
-		
-		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), etudiant[19], null);
-		
-		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[23], null);
-		
-		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), etudiant[23], textField_5);
-				
-		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[24], null);
-		
-		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), etudiant[24], textField_6);
-		
-		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, etudiant[26], null);
-		
-		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, etudiant[27], null);
-		
-		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, etudiant[28], null);
-		
-		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, etudiant[29], null);
-		
-		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[30], null);
-		
-		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), etudiant[30], textField_7);
-			
-		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), etudiant[25], null);
-		
-		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[31], null);
-		
-		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), etudiant[31], textField_8);
 	}
 	
 	private void plusieursTroublesCoches(ArrayList<RegroupementTypeHandicap> troublesCoches) {
@@ -862,5 +681,201 @@ public class Handicap extends AbstractJPanel {
 			buttons.add(rdbtnAutismeDeHaut);
 			buttons.add(rdbtnSyndrmeDasperger);
 		}
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
+			
+		ArrayList<String[]> etudiants = fichier.chargerFichier();
+		
+		String[] etudiant = fichier.retournerInfosEtudiant(etudiants, this.numEtudiant);
+		
+		setLayout(null);
+		
+		rdbtnNonRenseign = new DureeHandicap("Non renseigné");
+		
+		rdbtnHandicapTemporaire = new HandicapTemporaire("Handicap temporaire");
+		
+		rdbtnHandicapDfinitif = new DureeHandicap("Handicap définitif");
+		
+		handiParticulier = new StatutHandicap();
+		regrouperBoutons(handiParticulier);
+		
+		lblPrcisez = new JLabel("Précisez :");
+		
+		textField = new JTextField();
+		
+		chckbxTroublesMoteurs = new RegroupementTypeHandicap("Troubles moteurs :");
+		
+		chckbxFauteuilManuel = new HandicapParticulier("Fauteuil manuel");
+		
+		chckbxFauteuillectrique = new HandicapParticulier("Fauteuil électrique");
+		
+		chckbxBquilles = new HandicapParticulier("Béquilles");
+		
+		chckbxDyspraxie = new HandicapParticulier("Dyspraxie");
+		
+		chckbxEpilepsie = new HandicapParticulier("Epilepsie");
+		
+		chckbxSep = new HandicapParticulier("SEP");
+		
+		chckbxAutres = new HandicapAPreciser("Autres");
+		
+		textField_1 = new JTextField();
+		
+		chckbxTroublesVisuels = new RegroupementTypeHandicap("Troubles visuels :");
+		
+		textField_2 = new JTextField();
+		
+		chckbxNewCheckBox = new RegroupementTypeHandicap("Troubles auditifs :");
+		
+		textField_3 = new JTextField();
+		
+		chckbxTroublesCognitifs = new FamilleHandicapNonDefinie("Troubles cognitifs :");
+		
+		textField_4 = new JTextField();
+		
+		chckbxTsa = new RegroupementTypeHandicap("TSA :");
+		
+		rdbtnNewRadioButton = new JRadioButton("Autisme profond");
+		
+		rdbtnAutismeDeHaut = new JRadioButton("Autisme de haut niveau");
+		
+		rdbtnSyndrmeDasperger = new JRadioButton("Syndrôme d'Asperger");
+		
+		autisme = new Autisme();
+		regrouperBoutons(autisme);
+		
+		chckbxTroublesPsychiques = new FamilleHandicapNonDefinie("Troubles psychiques :");
+		
+		textField_5 = new JTextField();
+		
+		chckbxTroublesDuLangage = new FamilleHandicapNonDefinie("Troubles du langage et de la parole :");
+		
+		textField_6 = new JTextField();
+		
+		chckbxTroublesViscraux = new RegroupementTypeHandicap("Troubles viscéraux :");
+		
+		chckbxMaladieCardiaque = new HandicapParticulier("Maladie cardiaque");
+		
+		chckbxMaladiePulmonaire = new HandicapParticulier("Maladie pulmonaire");
+		
+		chckbxMaladieDuSystme = new HandicapParticulier("Maladie du système digestif");
+		
+		chckbxPathologieCancreuse = new HandicapParticulier("Pathologie cancéreuse");
+		
+		chckbxAutrePrciser = new HandicapAPreciser("Autre");
+		
+		textField_7 = new JTextField();
+		
+		chckbxAutresTroublesprciser = new FamilleHandicapNonDefinie("Autre(s) trouble(s) (préciser)");
+		
+		textField_8 = new JTextField();
+		
+		rdbtnCcit = new JRadioButton("Cécité");
+		
+		rdbtnAutresTroublesDes = new TypeHandicapSensoriel("Autres troubles des fonctions visuelles");
+		
+		vision = new Vision();
+		regrouperBoutons(vision);
+		
+		rdbtnSurditSvreEt = new JRadioButton("Surdité sévère et profonde");
+		
+		rdbtnAutresTroublesDes_1 = new TypeHandicapSensoriel("Autres troubles des fonctions auditives");
+		
+		audition = new Audition();
+		regrouperBoutons(audition);
+		
+		chckbxPlusieursTroublesAssocis = new JCheckBox("Plusieurs troubles associés");
+		
+		gestionChampsEtExceptions(lblPrcisez, 226, 38, 71, 14, null, false, true, null, null, null, null, null, null, null, null);
+		
+		gestionChampsEtExceptions(textField, 324, 35, 146, 20, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
+		
+		gestionChampsEtExceptions(rdbtnNonRenseign, 18, 7, 150, 23, null, true, true, null, false, null, null, new NonRenseigneListener(), etudiant[3], null, null);
+		
+		gestionChampsEtExceptions(rdbtnHandicapTemporaire, 18, 33, 175, 23, null, true, true, null, false, null, null, new HandicapTemporaireListener(), etudiant[1], textField, null);
+		
+		gestionChampsEtExceptions(rdbtnHandicapDfinitif, 151, 7, 161, 23, null, true, true, null, false, null, null, new HandicapDefinitifListener(), etudiant[2], null, null);
+		
+		gestionChampsEtExceptions(chckbxFauteuilManuel, 94, 104, 150, 23, null, false, true, null, false, null, null, null, etudiant[5], null, null);
+		
+		gestionChampsEtExceptions(chckbxFauteuillectrique, 238, 104, 154, 23, null, false, true, null, false, null, null, null, etudiant[6], null, null);
+		
+		gestionChampsEtExceptions(chckbxBquilles, 389, 104, 96, 23, null, false, true, null, false, null, null, null, etudiant[7], null, null);
+		
+		gestionChampsEtExceptions(chckbxDyspraxie, 484, 104, 100, 23, null, false, true, null, false, null, null, null, etudiant[8], null, null);
+		
+		gestionChampsEtExceptions(chckbxEpilepsie, 585, 104, 108, 23, null, false, true, null, false, null, null, null, etudiant[9], null, null);
+		
+		gestionChampsEtExceptions(chckbxSep, 693, 104, 57, 23, null, false, true, null, false, null, null, null, etudiant[10], null, null);
+		
+		gestionChampsEtExceptions(chckbxAutres, 762, 104, 96, 23, null, false, true, null, false, null, null, new AutreHandicapMoteurListener(), etudiant[11], textField_1, null);
+		
+		gestionChampsEtExceptions(textField_1, 870, 106, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[11], null, null);
+		
+		gestionChampsEtExceptions(chckbxTroublesMoteurs, 18, 66, 204, 23, null, true, true, null, false, null, null, new TroublesMoteursListener(), etudiant[4], null, null);
+		
+		gestionChampsEtExceptions(textField_2, 597, 182, 248, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[14], null, null);
+		
+		gestionChampsEtExceptions(rdbtnCcit, 115, 177, 78, 23, null, false, true, null, false, null, null, null, etudiant[13], null, null);
+		
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes, 224, 177, 293, 23, null, false, true, null, false, null, null, new AutresTroublesvisuelsListener(), etudiant[14], textField_2, null);
+		
+		gestionChampsEtExceptions(chckbxTroublesVisuels, 18, 142, 150, 23, null, true, true, null, false, null, null, new TroublesVisuelsListener(), etudiant[12], null, null);
+
+		gestionChampsEtExceptions(textField_3, 648, 244, 261, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[17], null, null);
+		
+		gestionChampsEtExceptions(rdbtnSurditSvreEt, 103, 242, 209, 23, null, false, true, null, false, null, null, null, etudiant[16], null, null);
+		
+		gestionChampsEtExceptions(rdbtnAutresTroublesDes_1, 309, 242, 293, 23, null, false, true, null, false, null, null, new AutresTroublesAuditifsListener(), etudiant[17], textField_3, null);
+		
+		gestionChampsEtExceptions(chckbxNewCheckBox, 18, 205, 150, 23, null, true, true, null, false, null, null, new TroublesAuditifsListener(), etudiant[15], null, null);
+		
+		gestionChampsEtExceptions(textField_4, 248, 284, 196, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[18], null, null);
+		
+		gestionChampsEtExceptions(chckbxTroublesCognitifs, 18, 282, 175, 23, null, true, true, null, false, null, null, new TroublesCognitifsListener(), etudiant[18], textField_4, null);
+		
+		gestionChampsEtExceptions(rdbtnNewRadioButton, 72, 339, 150, 23, null, false, true, null, false, null, null, null, etudiant[20], null, null);
+		
+		gestionChampsEtExceptions(rdbtnAutismeDeHaut, 222, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[21], null, null);
+		
+		gestionChampsEtExceptions(rdbtnSyndrmeDasperger, 424, 339, 190, 23, null, false, true, null, false, null, null, null, etudiant[22], null, null);
+		
+		gestionChampsEtExceptions(chckbxTsa, 18, 313, 71, 23, null, true, true, null, false, null, null, new TsaListener(), etudiant[19], null, null);
+		
+		gestionChampsEtExceptions(textField_5, 220, 376, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[23], null, null);
+		
+		gestionChampsEtExceptions(chckbxTroublesPsychiques, 18, 375, 175, 23, null, true, true, null, false, null, null, new TroublesPsychiquesListener(), etudiant[23], textField_5, null);
+				
+		gestionChampsEtExceptions(textField_6, 324, 414, 204, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[24], null, null);
+		
+		gestionChampsEtExceptions(chckbxTroublesDuLangage, 18, 413, 279, 23, null, true, true, null, false, null, null, new TroublesDuLangageEtDeLaParoleListener(), etudiant[24], textField_6, null);
+		
+		gestionChampsEtExceptions(chckbxMaladieCardiaque, 86, 469, 150, 23, null, false, true, null, false, null, null, null, etudiant[26], null, null);
+		
+		gestionChampsEtExceptions(chckbxMaladiePulmonaire, 231, 469, 161, 23, null, false, true, null, false, null, null, null, etudiant[27], null, null);
+		
+		gestionChampsEtExceptions(chckbxMaladieDuSystme, 389, 469, 225, 23, null, false, true, null, false, null, null, null, etudiant[28], null, null);
+		
+		gestionChampsEtExceptions(chckbxPathologieCancreuse, 614, 469, 175, 23, null, false, true, null, false, null, null, null, etudiant[29], null, null);
+		
+		gestionChampsEtExceptions(textField_7, 870, 471, 141, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[30], null, null);
+		
+		gestionChampsEtExceptions(chckbxAutrePrciser, 791, 469, 67, 23, null, false, true, null, false, null, null, new AutresTroublesViscerauxListener(), etudiant[30], textField_7, null);
+			
+		gestionChampsEtExceptions(chckbxTroublesViscraux, 16, 443, 190, 23, null, true, true, null, false, null, null, new TroublesViscerauxListener(), etudiant[25], null, null);
+		
+		gestionChampsEtExceptions(textField_8, 360, 499, 254, 20, Color.WHITE, false, true, true, null, null, null, null, etudiant[31], null, null);
+		
+		gestionChampsEtExceptions(chckbxAutresTroublesprciser, 16, 497, 220, 23, null, true, true, null, false, null, null, new AutresTroublesListener(), etudiant[31], textField_8, null);
+		
+	}
+
+	@Override
+	public void gererInfosFichierTXT(LectureFichierTXT lectureFichier) {
+		// TODO Auto-generated method stub
+		
 	}
 }

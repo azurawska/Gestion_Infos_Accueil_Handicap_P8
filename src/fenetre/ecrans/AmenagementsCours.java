@@ -271,4 +271,8 @@ public class AmenagementsCours extends AbstractJPanel {
 		add(lblDispenseDeStage);
 
 	}
+
+	public AmenagementsCours(String utilisateur) {
+		// TODO Auto-generated constructor stub
+	}
 }

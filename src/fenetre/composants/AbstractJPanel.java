@@ -9,7 +9,9 @@ import java.util.ArrayList;
 import java.util.EventListener;
 import java.util.Date;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -28,7 +30,7 @@ import exceptions.NullArgumentException;
 
 public abstract class AbstractJPanel extends JPanel {
 	
-	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier) {
+	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement) {
 		
 		composant.setBounds(x, y, width, height);
 		composant.setVisible(visible);
@@ -149,9 +151,32 @@ public abstract class AbstractJPanel extends JPanel {
 				handicapParticulier.setText(chaine);
 			}
 		}
+		else if(composant instanceof JComboBox<?>) {
+			if(!chaine.equals("")) {
+				((JComboBox<String>) composant).setSelectedItem(chaine);
+			}
+		}
+		else if(composant instanceof Droit && statutAmenagement instanceof Fait) {
+			if(statutAmenagement.isSelected()) {
+				((Droit) composant).setSelected(true);
+				composant.setEnabled(false);
+			}
+			else {
+				((Droit) composant).setEnabled(true);
+			}
+		}
+		else if(composant instanceof Fait && statutAmenagement instanceof Droit) {
+			if(((Fait) composant).isSelected()) {
+				statutAmenagement.setSelected(true);
+				statutAmenagement.setEnabled(false);
+			}
+			else {
+				statutAmenagement.setEnabled(true);
+			}
+		}
 	}
 	
-	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier) throws LongueurDifferenteListesException, NullArgumentException {
+	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement) throws LongueurDifferenteListesException, NullArgumentException {
 		
 		try {
 		if((!titresOnglets.equals(null) && onglets.equals(null)) || (!onglets.equals(null) && titresOnglets.equals(null))) {
@@ -163,13 +188,13 @@ public abstract class AbstractJPanel extends JPanel {
 				throw new LongueurDifferenteListesException();
 			}
 			else {
-					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier);
+					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement);
 				
 				}
 		}
 	} catch(NullPointerException e) {
 		
-		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier);
+		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement);
 		
 		}
 	}

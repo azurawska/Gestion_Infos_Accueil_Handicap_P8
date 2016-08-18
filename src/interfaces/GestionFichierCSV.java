@@ -4,6 +4,8 @@
 package interfaces;
 
 import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 
 /**
  * @author alexis
@@ -11,5 +13,5 @@ import data.LectureFichierCSV;
  */
 public interface GestionFichierCSV {
 
-	void gererInfosFichierCSV(LectureFichierCSV fichier);
+	void gererInfosFichierCSV(LectureFichierCSV fichier) throws LongueurDifferenteListesException, NullArgumentException;
 }

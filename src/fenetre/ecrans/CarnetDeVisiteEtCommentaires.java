@@ -11,8 +11,9 @@ import data.LectureFichierCSV;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import interfaces.GestionFichierCSV;
 
-public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
+public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements GestionFichierCSV {
 
 	/**
 	 * Create the panel.
@@ -20,6 +21,7 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 	
 	private boolean nouveau;
 	private String numEtudiant;
+	private final LectureFichierCSV fichierCarnetVisite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/carnet_des_visites_et_commentaires.csv");
 	
 	public CarnetDeVisiteEtCommentaires() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
@@ -28,22 +30,27 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
 		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, "", null);
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, "", null, null);
 	}
 	
 	public CarnetDeVisiteEtCommentaires(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
 		
-		LectureFichierCSV fichierCarnetVisite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/carnet_des_visites_et_commentaires.csv");
+		gererInfosFichierCSV(fichierCarnetVisite);
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
 		
-		ArrayList<String[]> etudiants = fichierCarnetVisite.chargerFichier();
+		ArrayList<String[]> etudiants = fichier.chargerFichier();
 		
-		ArrayList<String[]> infosMultiplesEtudiants = fichierCarnetVisite.retournerInfosMultiplesEtudiant(etudiants, this.numEtudiant);
+		ArrayList<String[]> infosMultiplesEtudiants = fichier.retournerInfosMultiplesEtudiant(etudiants, this.numEtudiant);
 		
 		StringBuilder infosEtudiant = new StringBuilder();
 		
@@ -58,10 +65,11 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel {
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
 		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, infosEtudiant.toString(), null);
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, infosEtudiant.toString(), null, null);
+		
 	}
 }
