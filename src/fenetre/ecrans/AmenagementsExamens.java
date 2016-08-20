@@ -4,12 +4,20 @@ import javax.swing.JPanel;
 import javax.swing.JLabel;
 import javax.swing.JRadioButton;
 
+import data.LectureFichierCSV;
+import data.LectureFichierTXT;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import interfaces.GestionFichierCSV;
+import interfaces.GestionFichierTXT;
+import interfaces.GroupementBoutons;
 
+import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
-public class AmenagementsExamens extends AbstractJPanel {
+public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons {
 
 	/**
 	 * Create the panel.
@@ -225,5 +233,21 @@ public class AmenagementsExamens extends AbstractJPanel {
 
 	public AmenagementsExamens(String utilisateur) {
 		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void gererInfosFichierTXT(LectureFichierTXT lectureFichier) {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
+		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void regrouperBoutons(ButtonGroup boutons) {
+		// TODO Auto-generated method stub
 	}
 }

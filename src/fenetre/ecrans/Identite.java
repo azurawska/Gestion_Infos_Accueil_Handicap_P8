@@ -21,12 +21,13 @@ import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
 import fenetre.composants.Sexe;
 import interfaces.GestionFichierCSV;
+import interfaces.GroupementBoutons;
 
 import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class Identite extends AbstractJPanel implements Scrollable, GestionFichierCSV {
+public class Identite extends AbstractJPanel implements Scrollable, GestionFichierCSV, GroupementBoutons {
 	private JDateChooser textField;
 	private JDateChooser textField_1;
 	private JTextField textField_2;
@@ -319,11 +320,6 @@ public class Identite extends AbstractJPanel implements Scrollable, GestionFichi
 		// TODO Auto-generated method stub
 		return false;
 	}
-	
-	private void regrouperBoutons(ButtonGroup buttons) {
-		buttons.add(rdbtnM);
-		buttons.add(rdbtnMme);
-	}
 
 	@Override
 	public void gererInfosFichierCSV(LectureFichierCSV fichier)
@@ -529,5 +525,11 @@ public class Identite extends AbstractJPanel implements Scrollable, GestionFichi
 		
 		gestionChampsEtExceptions(textArea, 356, 393, 288, 141, Color.WHITE, true, true, true, null, null, null, null, etudiant[22], null, null);
 		
+	}
+
+	@Override
+	public void regrouperBoutons(ButtonGroup boutons) {
+		boutons.add(rdbtnM);
+		boutons.add(rdbtnMme);
 	}
 }

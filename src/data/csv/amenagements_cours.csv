@@ -1,12 +1,12 @@
-N° Etudiant
-11020304
-10203040
-50607080
-2202529
-13091933
-7071993
-10051993
-22091994
-25021960
-29101988
-777777
+N° Etudiant;Aides humaines;Prise de notes;Tutorat d'accompagnement (soutien pédagogique);Interprétation en LSF;Codage en LPC;Lecture/Frappe au kilomètre/Aide à la recherche documentaire;Aides techniques;Carte d'accessibilité aux locaux et ascenseurs;Remise le;Clés WC accessibles;Remise le;Numérisations;Transcriptions braille;Agrandissements;Prêt de dictaphone;Autres;Aménagements de la formation;Dispense d'assiduité;Aménagement de la durée de formation;Aménagement des horaires;Dispense de stage
+11020304;Non;Non;Non;Non;Non;Non;Non;Non;;Non;;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non
+10203040;Oui;Oui;Non;Non;Non;Oui;Oui;Non;;Non;;Oui;Non;Oui;Oui;Non;oui;Non;Oui;Non;Non
+50607080;Oui;Oui;Non;Oui;Oui;Non;Non;Non;;Non;;Non;Non;Non;Non;Non;Oui;Non;Oui;Non;Non
+2202529;Oui;Oui;Oui;Non;Non;Non;Oui;Non;;Non;;Oui;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Non
+13091933;Oui;Oui;Non;Non;Non;Non;Non;Non;;Non;;Non;;Non;Non;Non;Oui;Non;Oui;Oui;Non
+7071993;Oui;Oui;Oui;Non;Non;Non;Non;Non;;Non;;Oui;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui
+10051993;Non;Non;Non;Non;Non;Non;Non;Non;;Non;;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non
+22091994;Non;Non;Non;Non;Non;Non;Oui;Oui;01/09/09;Oui;01/09/09;Non;Non;Non;Non;Non;Oui;Non;Oui;Non;Non
+25021960;Oui;Oui;Non;Non;Non;Non;Non;Non;;Non;;Non;Non;Non;Oui;Non;Oui;Non;Oui;Non;Non
+29101988;Oui;Non;Oui;Non;Non;Oui;Non;Non;;Non;;Non;Non;Non;Non;Non;Oui;Non;Oui;Non;Non
+777777;Oui;Oui;Non;Non;Non;Non;Oui;Oui;01/09/10;Oui;01/09/10;Non;Non;Non;Oui;Aide humaine pour aller aux toilettes et manger;Oui;Non;Oui;Non;Non

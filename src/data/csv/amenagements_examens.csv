@@ -1,12 +1,12 @@
-N° Etudiant
-11020304
-10203040
-50607080
-2202529
-13091933
-7071993
-10051993
-22091994
-25021960
-29101988
-777777
+N° Etudiant;Aides humaines;Secrétaire;Surveillant;Interprète LSF;Codeur en LPC;Aides techniques;Transcription braille du sujet d'examen;Agrandissement du sujet (format papier ou support USB);Utilisation de matériel personnel;Utilisation de matériel mis à disposition par le service;Autre;Temps majoré pour épreuves écrites;Temps majoré pour préparations épreuves orales;Temps majoré pour épreuves pratiques;Salle particulière;Temps de pause;Possibilité de sortir de la salle pendant l'examen
+11020304;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Non;Non;Non
+10203040;Oui;Oui;Non;Non;Non;Oui;Non;Oui;Ordinateur portable;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+50607080;Oui;Non;Non;Oui;Oui;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+2202529;Oui;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Oui;Oui
+13091933;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;oui;Oui;Oui;Oui;Non;Non;Non
+7071993;Oui;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+10051993;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non
+22091994;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+25021960;Oui;Oui;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+29101988;Non;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+777777;Oui;Oui;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non

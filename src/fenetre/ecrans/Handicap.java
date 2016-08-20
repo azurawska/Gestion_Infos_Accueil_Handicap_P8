@@ -26,6 +26,7 @@ import fenetre.composants.TypeHandicapSensoriel;
 import fenetre.composants.Vision;
 import interfaces.GestionFichierCSV;
 import interfaces.GestionFichierTXT;
+import interfaces.GroupementBoutons;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 
-public class Handicap extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT {
+public class Handicap extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons {
 	
 	private class AutresTroublesListener implements ChangeListener {
 
@@ -661,27 +662,6 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 			chckbxPlusieursTroublesAssocis.setSelected(false);
 		}
 	}
-	
-	private void regrouperBoutons(ButtonGroup buttons) {
-		if(buttons instanceof StatutHandicap) {
-			buttons.add(rdbtnNonRenseign);
-			buttons.add(rdbtnHandicapTemporaire);
-			buttons.add(rdbtnHandicapDfinitif);
-		}
-		else if(buttons instanceof Vision) {
-			buttons.add(rdbtnCcit);
-			buttons.add(rdbtnAutresTroublesDes);
-		}
-		else if(buttons instanceof Audition) {
-			buttons.add(rdbtnSurditSvreEt);
-			buttons.add(rdbtnAutresTroublesDes_1);
-		}
-		else if(buttons instanceof Autisme) {
-			buttons.add(rdbtnNewRadioButton);
-			buttons.add(rdbtnAutismeDeHaut);
-			buttons.add(rdbtnSyndrmeDasperger);
-		}
-	}
 
 	@Override
 	public void gererInfosFichierCSV(LectureFichierCSV fichier)
@@ -877,5 +857,27 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 	public void gererInfosFichierTXT(LectureFichierTXT lectureFichier) {
 		// TODO Auto-generated method stub
 		
+	}
+
+	@Override
+	public void regrouperBoutons(ButtonGroup boutons) {
+		if(boutons instanceof StatutHandicap) {
+			boutons.add(rdbtnNonRenseign);
+			boutons.add(rdbtnHandicapTemporaire);
+			boutons.add(rdbtnHandicapDfinitif);
+		}
+		else if(boutons instanceof Vision) {
+			boutons.add(rdbtnCcit);
+			boutons.add(rdbtnAutresTroublesDes);
+		}
+		else if(boutons instanceof Audition) {
+			boutons.add(rdbtnSurditSvreEt);
+			boutons.add(rdbtnAutresTroublesDes_1);
+		}
+		else if(boutons instanceof Autisme) {
+			boutons.add(rdbtnNewRadioButton);
+			boutons.add(rdbtnAutismeDeHaut);
+			boutons.add(rdbtnSyndrmeDasperger);
+		}
 	}
 }

@@ -54,7 +54,7 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		textField = new JDateChooser();
 	
-		gestionChampsEtExceptions(textField, 332, 3, 102, 20, null, true, true, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, true, null, null, null, null, null, "", null, null);
 		
 		lblNomDuMdecin = new JLabel("Nom du médecin");
 		
@@ -123,6 +123,9 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 	public void gererInfosFichierCSV(LectureFichierCSV fichier)
 			throws LongueurDifferenteListesException, NullArgumentException {
 		
+		ArrayList<String[]> etudiants = fichier.chargerFichier();
+		String [] etudiant = fichier.retournerInfosEtudiant(etudiants, this.numEtudiant);
+		
 		setLayout(null);
 		
 		lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
@@ -131,7 +134,7 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		textField = new JDateChooser();
 	
-		gestionChampsEtExceptions(textField, 332, 3, 102, 20, null, true, false, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, false, null, null, null, null, null, etudiant[1], null, null);
 		
 		lblNomDuMdecin = new JLabel("Nom du médecin");
 		
@@ -139,8 +142,8 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		comboBox = new JComboBox<String>();
 	
-		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, "", null, null);
 		gererInfosFichierTXT(fichierMedecins);
+		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, etudiant[2], null, null);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		

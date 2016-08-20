@@ -100,6 +100,17 @@ public abstract class AbstractJPanel extends JPanel {
 				((Sexe) composant).setSelected(false);
 			}
 		}
+		else if(composant instanceof OuiNon) {
+			((OuiNon) composant).addChangeListener((ChangeListener) event);
+			if(!chaine.equals("")) {
+			if(((OuiNon) composant).getText().equals(chaine)) {
+				((OuiNon) composant).setSelected(true);
+			}
+			else {
+				((OuiNon) composant).setSelected(false);
+			}
+		}
+	}
 		else if(composant instanceof JButton) {
 			((JButton) composant).addActionListener((ActionListener) event);
 		}
@@ -156,23 +167,45 @@ public abstract class AbstractJPanel extends JPanel {
 				((JComboBox<String>) composant).setSelectedItem(chaine);
 			}
 		}
+		else if(composant instanceof Fait) {
+			((Fait) composant).addChangeListener((ChangeListener) event);
+		}
 		else if(composant instanceof Droit && statutAmenagement instanceof Fait) {
-			if(statutAmenagement.isSelected()) {
+			if(!chaine.equals("")) {
+			if(chaine.equals("Fait")) {
 				((Droit) composant).setSelected(true);
 				composant.setEnabled(false);
+				statutAmenagement.setSelected(true);
+			}
+			else if(chaine.equals("Droit")) {
+				((Droit) composant).setSelected(true);
+				statutAmenagement.setSelected(false);
 			}
 			else {
-				((Droit) composant).setEnabled(true);
+				((Droit) composant).setSelected(false);
+				statutAmenagement.setSelected(false);
 			}
 		}
+	}
 		else if(composant instanceof Fait && statutAmenagement instanceof Droit) {
-			if(((Fait) composant).isSelected()) {
+			if(!chaine.equals("")) {
+			if(chaine.equals("Fait")) {
+				((Fait) composant).setSelected(true);
 				statutAmenagement.setSelected(true);
 				statutAmenagement.setEnabled(false);
 			}
-			else {
-				statutAmenagement.setEnabled(true);
+			else if(chaine.equals("Droit")) {
+				((Fait) composant).setSelected(false);
+				statutAmenagement.setSelected(true);
 			}
+			else {
+				((Fait) composant).setSelected(false);
+				statutAmenagement.setSelected(false);
+			}
+		}
+	}
+		else if(composant instanceof DroitParticulier) {
+			handicapParticulier.setText(chaine);
 		}
 	}
 	
