@@ -1,12 +1,12 @@
 N° Etudiant;Aides humaines;Secrétaire;Surveillant;Interprète LSF;Codeur en LPC;Aides techniques;Transcription braille du sujet d'examen;Agrandissement du sujet (format papier ou support USB);Utilisation de matériel personnel;Utilisation de matériel mis à disposition par le service;Autre;Temps majoré pour épreuves écrites;Temps majoré pour préparations épreuves orales;Temps majoré pour épreuves pratiques;Salle particulière;Temps de pause;Possibilité de sortir de la salle pendant l'examen
-11020304;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Non;Non;Non
-10203040;Oui;Oui;Non;Non;Non;Oui;Non;Oui;Ordinateur portable;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
-50607080;Oui;Non;Non;Oui;Oui;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
-2202529;Oui;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Oui;Oui
-13091933;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;oui;Oui;Oui;Oui;Non;Non;Non
-7071993;Oui;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+11020304;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Drit;Droit;Droit;Non;Non;Non
+10203040;Oui;Droit;Non;Non;Non;Oui;Droit;Fait;Ordinateur portable;Non;Oui;Fait;Fait;Fait;Fait;Non;Non
+50607080;Oui;Non;Non;Fait;Fait;Non;Non;Non;Non;Non;Oui;Fait;Fait;Fait;Fait;Non;Non
+2202529;Oui;Non;Fait;Non;Non;Non;Non;Non;Non;Non;Oui;Droit;Droit;Droit;Droit;Fait;Fait
+13091933;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;oui;Droit;Droit;Droit;Non;Non;Non
+7071993;Oui;Non;Droit;Non;Non;Non;Non;Non;Non;Non;Oui;Fait;Fait;Fait;Droit;Non;Non
 10051993;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non
-22091994;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
-25021960;Oui;Oui;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
-29101988;Non;Non;Oui;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
-777777;Oui;Oui;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Oui;Oui;Oui;Oui;Non;Non
+22091994;Non;Non;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Fait;Fait;fAIT;fAIT;Non;Non
+25021960;Oui;Droit;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Droit;Droit;Droit;Droit;Non;Non
+29101988;Oui;Non;Fait;Non;Non;Non;Non;Non;Non;Non;Oui;Fait;Fait;Fait;Fait;Non;Non
+777777;Oui;Fait;Non;Non;Non;Non;Non;Non;Non;Non;Oui;Fait;Fait;Fait;Fait;Non;Non

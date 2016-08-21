@@ -207,6 +207,16 @@ public abstract class AbstractJPanel extends JPanel {
 		else if(composant instanceof DroitParticulier) {
 			handicapParticulier.setText(chaine);
 		}
+		else if(composant instanceof AffectationPrioritaire) {
+			if(!chaine.equals("")) {
+				if(chaine.equals("Oui")) {
+					((AffectationPrioritaire) composant).setSelected(true);
+				}
+				else {
+					((AffectationPrioritaire) composant).setSelected(false);
+				}
+			}
+		}
 	}
 	
 	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement) throws LongueurDifferenteListesException, NullArgumentException {

@@ -2,44 +2,45 @@ package fenetre.composants;
 
 import javax.swing.Action;
 import javax.swing.Icon;
+import javax.swing.JCheckBox;
 
-public class Fait extends DroitFait {
+public class AffectationPrioritaire extends JCheckBox {
 
-	public Fait() {
+	public AffectationPrioritaire() {
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(Icon icon) {
+	public AffectationPrioritaire(Icon icon) {
 		super(icon);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(String text) {
+	public AffectationPrioritaire(String text) {
 		super(text);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(Action a) {
+	public AffectationPrioritaire(Action a) {
 		super(a);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(Icon icon, boolean selected) {
+	public AffectationPrioritaire(Icon icon, boolean selected) {
 		super(icon, selected);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(String text, boolean selected) {
+	public AffectationPrioritaire(String text, boolean selected) {
 		super(text, selected);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(String text, Icon icon) {
+	public AffectationPrioritaire(String text, Icon icon) {
 		super(text, icon);
 		// TODO Auto-generated constructor stub
 	}
 
-	public Fait(String text, Icon icon, boolean selected) {
+	public AffectationPrioritaire(String text, Icon icon, boolean selected) {
 		super(text, icon, selected);
 		// TODO Auto-generated constructor stub
 	}

@@ -9,6 +9,9 @@ import data.LectureFichierTXT;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import fenetre.composants.Droit;
+import fenetre.composants.Fait;
+import interfaces.GestionCasesCochesAmenagements;
 import interfaces.GestionFichierCSV;
 import interfaces.GestionFichierTXT;
 import interfaces.GroupementBoutons;
@@ -17,7 +20,7 @@ import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
-public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons {
+public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons, GestionCasesCochesAmenagements {
 
 	/**
 	 * Create the panel.
@@ -249,5 +252,11 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 	@Override
 	public void regrouperBoutons(ButtonGroup boutons) {
 		// TODO Auto-generated method stub
+	}
+
+	@Override
+	public void gererCasesCochesAmenagements(Droit droit, Fait fait) {
+		// TODO Auto-generated method stub
+		
 	}
 }
