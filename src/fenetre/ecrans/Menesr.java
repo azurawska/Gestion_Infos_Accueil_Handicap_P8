@@ -241,7 +241,7 @@ public class Menesr extends AbstractJPanel implements GestionFichierCSV, Gestion
 		
 		gestionChampsEtExceptions(comboBox_10, 173, 358, 356, 27, null, true, true, null, null, null, null, null, "", null, null);
 		
-		lblTransportSpcialisDans = new JLabel("TransportSpecialise spécialisé dans le cadre des études");
+		lblTransportSpcialisDans = new JLabel("Transport spécialisé dans le cadre des études");
 		
 		gestionChampsEtExceptions(lblTransportSpcialisDans, 31, 390, 294, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
