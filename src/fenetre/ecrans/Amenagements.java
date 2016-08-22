@@ -147,6 +147,6 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null);
+		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsUtilisateurExistant(this.numEtudiant), null, null, null, null);
 	}
 }

@@ -2,15 +2,21 @@ package fenetre.ecrans;
 
 import javax.swing.JPanel;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JRadioButton;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
 import data.LectureFichierCSV;
 import data.LectureFichierTXT;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import fenetre.composants.AidesHumainesExamens;
+import fenetre.composants.AidesTechniquesExamens;
 import fenetre.composants.Droit;
 import fenetre.composants.Fait;
+import fenetre.composants.OuiNon;
 import interfaces.GestionCasesCochesAmenagements;
 import interfaces.GestionFichierCSV;
 import interfaces.GestionFichierTXT;
@@ -22,220 +28,404 @@ import javax.swing.JComboBox;
 
 public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons, GestionCasesCochesAmenagements {
 
+	private class AidesHumainesExamensListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(rdbtnOui.isSelected()) {
+				chckbxDroit.setVisible(true);
+				chckbxFait.setVisible(true);
+				lblSecrtaire.setVisible(true);
+				chckbxDroit_1.setVisible(true);
+				chckbxFait_1.setVisible(true);
+				lblSurveillant.setVisible(true);
+				chckbxDroit_2.setVisible(true);
+				chckbxFait_2.setVisible(true);
+				lblInterprteLsf.setVisible(true);
+				chckbxDroit_3.setVisible(true);
+				chckbxFait_3.setVisible(true);
+				lblCodeurEnLpc.setVisible(true);
+			}
+			else {
+				chckbxDroit.setVisible(false);
+				chckbxDroit.setSelected(false);
+				chckbxFait.setVisible(false);
+				chckbxFait.setSelected(false);
+				lblSecrtaire.setVisible(false);
+				chckbxDroit_1.setVisible(false);
+				chckbxDroit_1.setSelected(false);
+				chckbxFait_1.setVisible(false);
+				chckbxFait_1.setSelected(false);
+				lblSurveillant.setVisible(false);
+				chckbxDroit_2.setVisible(false);
+				chckbxDroit_2.setSelected(false);
+				chckbxFait_2.setVisible(false);
+				chckbxFait_2.setSelected(false);
+				lblInterprteLsf.setVisible(false);
+				chckbxDroit_3.setVisible(false);
+				chckbxDroit_3.setSelected(false);
+				chckbxFait_3.setVisible(false);
+				chckbxFait_3.setSelected(false);
+				lblCodeurEnLpc.setVisible(false);
+			}
+		}
+	}
+	
+	private class AidesTechniquesExamensListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(rdbtnOui_1.isSelected()) {
+				chckbxDroit_4.setVisible(true);
+				chckbxFait_4.setVisible(true);
+				lblTranscriptionBrailleDu.setVisible(true);
+				chckbxDroit_5.setVisible(true);
+				chckbxFait_5.setVisible(true);
+				lblAgrandissementDuSujet.setVisible(true);
+				chckbxDroit_6.setVisible(true);
+				chckbxFait_6.setVisible(true);
+				lblUtilisationDeMatriel.setVisible(true);
+				chckbxDroit_7.setVisible(true);
+				chckbxFait_7.setVisible(true);
+				lblUtilisationDeMatriel_1.setVisible(true);
+			}
+			else {
+				chckbxDroit_4.setVisible(false);
+				chckbxDroit_4.setSelected(false);
+				chckbxFait_4.setVisible(false);
+				chckbxFait_4.setSelected(false);
+				lblTranscriptionBrailleDu.setVisible(false);
+				chckbxDroit_5.setVisible(false);
+				chckbxDroit_5.setSelected(false);
+				chckbxFait_5.setVisible(false);
+				chckbxFait_5.setSelected(false);
+				lblAgrandissementDuSujet.setVisible(false);
+				chckbxDroit_6.setVisible(false);
+				chckbxDroit_6.setSelected(false);
+				chckbxFait_6.setVisible(false);
+				chckbxFait_6.setSelected(false);
+				lblUtilisationDeMatriel.setVisible(false);
+				chckbxDroit_7.setVisible(false);
+				chckbxDroit_7.setSelected(false);
+				chckbxFait_7.setVisible(false);
+				chckbxFait_7.setSelected(false);
+				lblUtilisationDeMatriel_1.setVisible(false);
+			}
+		}
+	}
+	
+	private class FaitListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			gererCasesCochesAmenagements(chckbxDroit, chckbxFait);
+			gererCasesCochesAmenagements(chckbxDroit_1, chckbxFait_1);
+			gererCasesCochesAmenagements(chckbxDroit_2, chckbxFait_2);
+			gererCasesCochesAmenagements(chckbxDroit_3, chckbxFait_3);
+			gererCasesCochesAmenagements(chckbxDroit_4, chckbxFait_4);
+			gererCasesCochesAmenagements(chckbxDroit_5, chckbxFait_5);
+			gererCasesCochesAmenagements(chckbxDroit_6, chckbxFait_6);
+			gererCasesCochesAmenagements(chckbxDroit_7, chckbxFait_7);
+			gererCasesCochesAmenagements(chckbxDroit_8, chckbxFait_8);
+			gererCasesCochesAmenagements(chckbxDroit_9, chckbxFait_9);
+			gererCasesCochesAmenagements(chckbxDroit_10, chckbxFait_10);
+			gererCasesCochesAmenagements(chckbxDroit_11, chckbxFait_11);
+			gererCasesCochesAmenagements(chckbxDroit_12, chckbxFait_12);
+			gererCasesCochesAmenagements(chckbxDroit_13, chckbxFait_13);
+		}
+	}
+	
+	private JLabel lblAidesHumaines;
+	private JLabel lblSecrtaire;
+	private JLabel lblSurveillant;
+	private JLabel lblInterprteLsf;
+	private JLabel lblCodeurEnLpc;
+	private JLabel lblAidesTechniques;
+	private JLabel lblTranscriptionBrailleDu;
+	private JLabel lblAgrandissementDuSujet;
+	private JLabel lblUtilisationDeMatriel;
+	private JLabel lblUtilisationDeMatriel_1;
+	private JLabel lblAutre;
+	private JLabel lblTempsMajorPour;
+	private JLabel lblTempsMajorPour_1;
+	private JLabel lblTempsMajorPour_2;
+	private JLabel lblSalleParticulire;
+	private JLabel lblTempsDePause;
+	private JLabel lblPossibilitDeSortir;
+	
+	private OuiNon rdbtnOui;
+	private OuiNon rdbtnNon;
+	private OuiNon rdbtnOui_1;
+	private OuiNon rdbtnNon_1;
+	
+	private Droit chckbxDroit;
+	private Droit chckbxDroit_1;
+	private Droit chckbxDroit_2;
+	private Droit chckbxDroit_3;
+	private Droit chckbxDroit_4;
+	private Droit chckbxDroit_5;
+	private Droit chckbxDroit_6;
+	private Droit chckbxDroit_7;
+	private Droit chckbxDroit_8;
+	private Droit chckbxDroit_9;
+	private Droit chckbxDroit_10;
+	private Droit chckbxDroit_11;
+	private Droit chckbxDroit_12;
+	private Droit chckbxDroit_13;
+	
+	private Fait chckbxFait;
+	private Fait chckbxFait_1;
+	private Fait chckbxFait_2;
+	private Fait chckbxFait_3;
+	private Fait chckbxFait_4;
+	private Fait chckbxFait_5;
+	private Fait chckbxFait_6;
+	private Fait chckbxFait_7;
+	private Fait chckbxFait_8;
+	private Fait chckbxFait_9;
+	private Fait chckbxFait_10;
+	private Fait chckbxFait_11;
+	private Fait chckbxFait_12;
+	private Fait chckbxFait_13;
+	
+	private JList<String> list;
+	private JList<String> list_1;
+	
+	private boolean nouveau;
+	
+	private String numEtudiant;
+	
+	private final LectureFichierCSV fichierAmenagementsExamens = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/amenagements_examens.csv");
+	
 	/**
 	 * Create the panel.
+	 * @throws NullArgumentException 
+	 * @throws LongueurDifferenteListesException 
 	 */
-	public AmenagementsExamens() {
+	public AmenagementsExamens() throws LongueurDifferenteListesException, NullArgumentException {
+		this.nouveau=true;
+		
 		setLayout(null);
 		
-		JLabel lblAidesHumaines = new JLabel("Aides humaines");
-		lblAidesHumaines.setBounds(98, 6, 111, 16);
-		add(lblAidesHumaines);
+		lblAidesHumaines = new JLabel("Aides humaines");
 		
-		JRadioButton rdbtnOui = new JRadioButton("Oui");
-		rdbtnOui.setBounds(42, 22, 54, 23);
-		add(rdbtnOui);
+		gestionChampsEtExceptions(lblAidesHumaines, 98, 6, 111, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JRadioButton rdbtnNon = new JRadioButton("Non");
-		rdbtnNon.setBounds(167, 22, 58, 23);
-		add(rdbtnNon);
+		rdbtnOui = new OuiNon("Oui");
 		
-		JCheckBox chckbxDroit = new JCheckBox("Droit");
-		chckbxDroit.setBounds(6, 57, 64, 23);
-		add(chckbxDroit);
+		gestionChampsEtExceptions(rdbtnOui, 42, 22, 54, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), "", null, null);
 		
-		JCheckBox chckbxFait = new JCheckBox("Fait");
-		chckbxFait.setBounds(69, 57, 58, 23);
-		add(chckbxFait);
+		rdbtnNon = new OuiNon("Non");
 		
-		JLabel lblSecrtaire = new JLabel("Secrétaire");
-		lblSecrtaire.setBounds(139, 61, 64, 16);
-		add(lblSecrtaire);
+		gestionChampsEtExceptions(rdbtnNon, 167, 22, 58, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), "", null, null);
 		
-		JCheckBox chckbxDroit_1 = new JCheckBox("Droit");
-		chckbxDroit_1.setBounds(6, 80, 64, 23);
-		add(chckbxDroit_1);
+		AidesHumainesExamens aidesHumainesExamens = new AidesHumainesExamens();
+		regrouperBoutons(aidesHumainesExamens);
 		
-		JCheckBox chckbxFait_1 = new JCheckBox("Fait");
-		chckbxFait_1.setBounds(69, 80, 58, 23);
-		add(chckbxFait_1);
+		chckbxDroit = new Droit("Droit");
 		
-		JLabel lblSurveillant = new JLabel("Surveillant");
-		lblSurveillant.setBounds(139, 84, 77, 16);
-		add(lblSurveillant);
+		chckbxFait = new Fait("Fait");
 		
-		JCheckBox chckbxDroit_2 = new JCheckBox("Droit");
-		chckbxDroit_2.setBounds(6, 101, 64, 23);
-		add(chckbxDroit_2);
+		gestionChampsEtExceptions(chckbxDroit, 6, 57, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait);
 		
-		JCheckBox chckbxFait_2 = new JCheckBox("Fait");
-		chckbxFait_2.setBounds(69, 101, 58, 23);
-		add(chckbxFait_2);
+		gestionChampsEtExceptions(chckbxFait, 69, 57, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit);
 		
-		JLabel lblInterprteLsf = new JLabel("Interprète LSF");
-		lblInterprteLsf.setBounds(139, 105, 97, 16);
-		add(lblInterprteLsf);
+		lblSecrtaire = new JLabel("Secrétaire");
 		
-		JCheckBox chckbxDroit_3 = new JCheckBox("Droit");
-		chckbxDroit_3.setBounds(6, 125, 64, 23);
-		add(chckbxDroit_3);
+		gestionChampsEtExceptions(lblSecrtaire, 139, 61, 64, 16, null, false, true, null, null, null, null, null, null, null, null);
 		
-		JCheckBox chckbxFait_3 = new JCheckBox("Fait");
-		chckbxFait_3.setBounds(69, 125, 64, 23);
-		add(chckbxFait_3);
+		chckbxDroit_1 = new Droit("Droit");
 		
-		JLabel lblCodeurEnLpc = new JLabel("Codeur en LPC");
-		lblCodeurEnLpc.setBounds(139, 129, 104, 16);
-		add(lblCodeurEnLpc);
+		chckbxFait_1 = new Fait("Fait");
 		
-		JLabel lblAidesTechniques = new JLabel("Aides techniques");
-		lblAidesTechniques.setBounds(116, 160, 120, 16);
-		add(lblAidesTechniques);
+		gestionChampsEtExceptions(chckbxDroit_1, 6, 80, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_1);
 		
-		JRadioButton rdbtnOui_1 = new JRadioButton("Oui");
-		rdbtnOui_1.setBounds(84, 175, 54, 23);
-		add(rdbtnOui_1);
+		gestionChampsEtExceptions(chckbxFait_1, 69, 80, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_1);
 		
-		JRadioButton rdbtnNon_1 = new JRadioButton("Non");
-		rdbtnNon_1.setBounds(189, 175, 58, 23);
-		add(rdbtnNon_1);
+		lblSurveillant = new JLabel("Surveillant");
 		
-		JCheckBox chckbxDroit_4 = new JCheckBox("Droit");
-		chckbxDroit_4.setBounds(6, 205, 64, 23);
-		add(chckbxDroit_4);
+		gestionChampsEtExceptions(lblSurveillant, 139, 84, 77, 16, null, false, true, null, null, null, null, null, null, null, null);
 		
-		JCheckBox chckbxFait_4 = new JCheckBox("Fait");
-		chckbxFait_4.setBounds(69, 205, 58, 23);
-		add(chckbxFait_4);
+		chckbxDroit_2 = new Droit("Droit");
 		
-		JLabel lblTranscriptionBrailleDu = new JLabel("Transcription braille du sujet d'examen");
-		lblTranscriptionBrailleDu.setBounds(139, 209, 251, 16);
-		add(lblTranscriptionBrailleDu);
+		chckbxFait_2 = new Fait("Fait");
 		
-		JCheckBox chckbxDroit_5 = new JCheckBox("Droit");
-		chckbxDroit_5.setBounds(6, 226, 64, 23);
-		add(chckbxDroit_5);
+		gestionChampsEtExceptions(chckbxDroit_2, 6, 101, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_2);
 		
-		JCheckBox chckbxFait_5 = new JCheckBox("Fait");
-		chckbxFait_5.setBounds(69, 226, 58, 23);
-		add(chckbxFait_5);
+		gestionChampsEtExceptions(chckbxFait_2, 69, 101, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_2);
 		
-		JLabel lblAgrandissementDuSujet = new JLabel("Agrandissement du sujet (format papier ou support USB)");
-		lblAgrandissementDuSujet.setBounds(139, 230, 361, 16);
-		add(lblAgrandissementDuSujet);
+		lblInterprteLsf = new JLabel("Interprète LSF");
 		
-		JCheckBox chckbxDroit_6 = new JCheckBox("Droit");
-		chckbxDroit_6.setBounds(6, 246, 64, 23);
-		add(chckbxDroit_6);
+		gestionChampsEtExceptions(lblInterprteLsf, 139, 105, 97, 16, null, false, true, null, null, null, null, null, null, null, null);
 		
-		JCheckBox chckbxFait_6 = new JCheckBox("Fait");
-		chckbxFait_6.setBounds(69, 246, 58, 23);
-		add(chckbxFait_6);
+		chckbxDroit_3 = new Droit("Droit");
 		
-		JLabel lblUtilisationDeMatriel = new JLabel("Utilisation de matériel personnel");
-		lblUtilisationDeMatriel.setBounds(139, 250, 218, 16);
-		add(lblUtilisationDeMatriel);
+		chckbxFait_3 = new Fait("Fait");
 		
-		JComboBox comboBox = new JComboBox();
-		comboBox.setBounds(379, 246, 218, 27);
-		add(comboBox);
+		gestionChampsEtExceptions(chckbxDroit_3, 6, 125, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_3);
 		
-		JCheckBox chckbxDroit_7 = new JCheckBox("Droit");
-		chckbxDroit_7.setBounds(6, 271, 69, 23);
-		add(chckbxDroit_7);
+		gestionChampsEtExceptions(chckbxFait_3, 69, 125, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_3);
 		
-		JCheckBox chckbxFait_7 = new JCheckBox("Fait");
-		chckbxFait_7.setBounds(69, 271, 58, 23);
-		add(chckbxFait_7);
+		lblCodeurEnLpc = new JLabel("Codeur en LPC");
 		
-		JLabel lblUtilisationDeMatriel_1 = new JLabel("Utilisation de matériel mis à disposition par le service");
-		lblUtilisationDeMatriel_1.setBounds(139, 275, 344, 16);
-		add(lblUtilisationDeMatriel_1);
+		gestionChampsEtExceptions(lblCodeurEnLpc, 139, 129, 104, 16, null, false, true, null, null, null, null, null, null, null, null);
 		
-		JComboBox comboBox_1 = new JComboBox();
-		comboBox_1.setBounds(528, 271, 214, 27);
-		add(comboBox_1);
+		lblAidesTechniques = new JLabel("Aides techniques");
 		
-		JLabel lblAutre = new JLabel("Autre :");
-		lblAutre.setBounds(149, 303, 48, 16);
-		add(lblAutre);
+		gestionChampsEtExceptions(lblAidesTechniques, 116, 160, 120, 16, null, true, true, null, false, null, null, null, null, null, null);
 		
-		JCheckBox chckbxDroit_8 = new JCheckBox("Droit");
+		rdbtnOui_1 = new OuiNon("Oui");
+		
+		gestionChampsEtExceptions(rdbtnOui_1, 84, 175, 54, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), "", null, null);
+		
+		rdbtnNon_1 = new OuiNon("Non");
+		
+		gestionChampsEtExceptions(rdbtnNon_1, 189, 175, 58, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), "", null, null);
+		
+		AidesTechniquesExamens aidesTechniquesExamens = new AidesTechniquesExamens();
+		regrouperBoutons(aidesTechniquesExamens);
+		
+		chckbxDroit_4 = new Droit("Droit");
+		
+		chckbxFait_4 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_4, 6, 205, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_4);
+		
+		gestionChampsEtExceptions(chckbxFait_4, 69, 205, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_4);
+		
+		lblTranscriptionBrailleDu = new JLabel("Transcription braille du sujet d'examen");
+		
+		gestionChampsEtExceptions(lblTranscriptionBrailleDu, 139, 209, 251, 16, null, false, true, null, null, null, null, null, null, null, null);
+		
+		chckbxDroit_5 = new Droit("Droit");
+		
+		chckbxFait_5 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_5, 6, 226, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_5);
+		
+		gestionChampsEtExceptions(chckbxFait_5, 69, 226, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_5);
+		
+		lblAgrandissementDuSujet = new JLabel("Agrandissement du sujet (format papier ou support USB)");
+		
+		gestionChampsEtExceptions(lblAgrandissementDuSujet, 139, 230, 361, 16, null, false, true, null, false, null, null, null, null, null, null);
+		
+		chckbxDroit_6 = new Droit("Droit");
+		
+		chckbxFait_6 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_6, 6, 246, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_6);
+		
+		gestionChampsEtExceptions(chckbxFait_6, 69, 246, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_6);
+		
+		lblUtilisationDeMatriel = new JLabel("Utilisation de matériel personnel");
+		
+		gestionChampsEtExceptions(lblUtilisationDeMatriel, 139, 250, 218, 16, null, false, true, null, false, null, null, null, null, null, null);
+		
+		list = new JList<String>();
+		
+		gestionChampsEtExceptions(list, 379, 246, 218, 27, null, false, true, null, null, null, null, null, "", null, null);
+		
+		chckbxDroit_7 = new Droit("Droit");
+		
+		chckbxFait_7 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_7, 6, 271, 69, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_7);
+		
+		gestionChampsEtExceptions(chckbxFait_7, 69, 271, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, null);
+		
+		lblUtilisationDeMatriel_1 = new JLabel("Utilisation de matériel mis à disposition par le service");
+		
+		gestionChampsEtExceptions(lblUtilisationDeMatriel_1, 139, 275, 344, 16, null, false, true, null, null, null, null, null, null, null, null);
+		
+		list_1 = new JList<String>();
+		
+		gestionChampsEtExceptions(list_1, 528, 271, 214, 27, null, false, true, null, false, null, null, null, "", null, null);
+		
+		lblAutre = new JLabel("Autre :");
+		
+		gestionChampsEtExceptions(lblAutre, 149, 303, 48, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		chckbxDroit_8 = new Droit("Droit");
 		chckbxDroit_8.setBounds(6, 328, 64, 23);
 		add(chckbxDroit_8);
 		
-		JCheckBox chckbxFait_8 = new JCheckBox("Fait");
+		chckbxFait_8 = new Fait("Fait");
 		chckbxFait_8.setBounds(69, 328, 58, 23);
 		add(chckbxFait_8);
 		
-		JLabel lblTempsMajorPour = new JLabel("Temps majoré pour les épreuves écrites");
-		lblTempsMajorPour.setBounds(139, 332, 256, 16);
-		add(lblTempsMajorPour);
+		gestionChampsEtExceptions(chckbxDroit_8, 6, 328, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_8);
 		
-		JCheckBox chckbxDroit_9 = new JCheckBox("Droit");
-		chckbxDroit_9.setBounds(5, 349, 64, 23);
-		add(chckbxDroit_9);
+		gestionChampsEtExceptions(chckbxFait_8, 69, 328, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_8);
 		
-		JCheckBox chckbxFait_9 = new JCheckBox("Fait");
-		chckbxFait_9.setBounds(69, 349, 58, 23);
-		add(chckbxFait_9);
+		lblTempsMajorPour = new JLabel("Temps majoré pour les épreuves écrites");
 		
-		JLabel lblTempsMajorPour_1 = new JLabel("Temps majoré pour les préparations d'épreuves orales");
-		lblTempsMajorPour_1.setBounds(139, 353, 344, 16);
-		add(lblTempsMajorPour_1);
+		gestionChampsEtExceptions(lblTempsMajorPour, 139, 332, 256, 16, null, true, true, null, false, null, null, null, null, null, null);
 		
-		JCheckBox chckbxDroit_10 = new JCheckBox("Droit");
-		chckbxDroit_10.setBounds(6, 373, 64, 23);
-		add(chckbxDroit_10);
+		chckbxDroit_9 = new Droit("Droit");
 		
-		JCheckBox chckbxFait_10 = new JCheckBox("Fait");
-		chckbxFait_10.setBounds(69, 373, 58, 23);
-		add(chckbxFait_10);
+		chckbxFait_9 = new Fait("Fait");
 		
-		JLabel lblTempsMajorPour_2 = new JLabel("Temps majoré pour les épreuves pratiques (devoirs maison, dossiers, exposés...)");
-		lblTempsMajorPour_2.setBounds(139, 381, 513, 16);
-		add(lblTempsMajorPour_2);
+		gestionChampsEtExceptions(chckbxDroit_9, 5, 349, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_9);
 		
-		JCheckBox chckbxDroit_11 = new JCheckBox("Droit");
-		chckbxDroit_11.setBounds(6, 401, 64, 23);
-		add(chckbxDroit_11);
+		gestionChampsEtExceptions(chckbxFait_9, 69, 349, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_9);
 		
-		JCheckBox chckbxFait_11 = new JCheckBox("Fait");
-		chckbxFait_11.setBounds(69, 401, 58, 23);
-		add(chckbxFait_11);
+		lblTempsMajorPour_1 = new JLabel("Temps majoré pour les préparations d'épreuves orales");
 		
-		JLabel lblSalleParticulire = new JLabel("Salle particulière");
-		lblSalleParticulire.setBounds(139, 405, 108, 16);
-		add(lblSalleParticulire);
+		gestionChampsEtExceptions(lblTempsMajorPour_1, 139, 353, 344, 16, null, true, true, null, false, null, null, null, "", null, null);
 		
-		JCheckBox chckbxDroit_12 = new JCheckBox("Droit");
-		chckbxDroit_12.setBounds(5, 423, 69, 23);
-		add(chckbxDroit_12);
+		chckbxDroit_10 = new Droit("Droit");
 		
-		JCheckBox chckbxFait_12 = new JCheckBox("Fait");
-		chckbxFait_12.setBounds(69, 423, 58, 23);
-		add(chckbxFait_12);
+		chckbxFait_10 = new Fait("Fait");
 		
-		JLabel lblTempsDePause = new JLabel("Temps de pause");
-		lblTempsDePause.setBounds(139, 427, 111, 16);
-		add(lblTempsDePause);
+		gestionChampsEtExceptions(chckbxDroit_10, 6, 373, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_10);
 		
-		JCheckBox chckbxDroit_13 = new JCheckBox("Droit");
-		chckbxDroit_13.setBounds(5, 447, 64, 23);
-		add(chckbxDroit_13);
+		gestionChampsEtExceptions(chckbxFait_10, 69, 373, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_10);
 		
-		JCheckBox chckbxFait_13 = new JCheckBox("Fait");
-		chckbxFait_13.setBounds(69, 447, 58, 23);
-		add(chckbxFait_13);
+		lblTempsMajorPour_2 = new JLabel("Temps majoré pour les épreuves pratiques (devoirs maison, dossiers, exposés...)");
 		
-		JLabel lblPossibilitDeSortir = new JLabel("Possibilité de sortir de la salle pendant l'examen");
-		lblPossibilitDeSortir.setBounds(139, 451, 310, 16);
-		add(lblPossibilitDeSortir);
-
+		gestionChampsEtExceptions(lblTempsMajorPour_2, 139, 381, 513, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		chckbxDroit_11 = new Droit("Droit");
+		
+		chckbxFait_11 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_11, 6, 401, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_11);
+		
+		gestionChampsEtExceptions(chckbxFait_11, 69, 401, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_11);
+		
+		lblSalleParticulire = new JLabel("Salle particulière");
+		
+		gestionChampsEtExceptions(lblSalleParticulire, 139, 405, 108, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		chckbxDroit_12 = new Droit("Droit");
+		
+		chckbxFait_12 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_12, 5, 423, 69, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_12);
+		
+		gestionChampsEtExceptions(chckbxFait_12, 69, 423, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_12);
+		
+		lblTempsDePause = new JLabel("Temps de pause");
+		
+		gestionChampsEtExceptions(lblTempsDePause, 139, 427, 111, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		chckbxDroit_13 = new Droit("Droit");
+		
+		chckbxFait_13 = new Fait("Fait");
+		
+		gestionChampsEtExceptions(chckbxDroit_13, 5, 447, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_13);
+		
+		gestionChampsEtExceptions(chckbxFait_13, 69, 447, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_13);
+		
+		lblPossibilitDeSortir = new JLabel("Possibilité de sortir de la salle pendant l'examen");
+		
+		gestionChampsEtExceptions(lblPossibilitDeSortir, 139, 451, 310, 16, null, true, true, null, null, null, null, null, null, null, null);
 	}
 
-	public AmenagementsExamens(String utilisateur) {
-		// TODO Auto-generated constructor stub
+	public AmenagementsExamens(String utilisateur) throws LongueurDifferenteListesException, NullArgumentException {
+		this.nouveau=false;
+		this.numEtudiant=utilisateur;
+		gererInfosFichierCSV(fichierAmenagementsExamens);
 	}
 
 	@Override
@@ -251,12 +441,36 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 
 	@Override
 	public void regrouperBoutons(ButtonGroup boutons) {
-		// TODO Auto-generated method stub
+		if(boutons instanceof AidesHumainesExamens) {
+			boutons.add(rdbtnOui);
+			boutons.add(rdbtnNon);
+		}
+		else if(boutons instanceof AidesTechniquesExamens) {
+			boutons.add(rdbtnOui_1);
+			boutons.add(rdbtnNon_1);
+		}
 	}
 
 	@Override
 	public void gererCasesCochesAmenagements(Droit droit, Fait fait) {
-		// TODO Auto-generated method stub
-		
+		if(fait.isSelected()) {
+			droit.setSelected(true);
+			droit.setEnabled(false);
+			if(fait.equals(chckbxFait_6)) {
+				list.setVisible(true);
+			}
+			else if(fait.equals(chckbxFait_7)) {
+				list_1.setVisible(true);
+			}
+		}
+		else {
+			droit.setEnabled(true);
+			if(fait.equals(chckbxFait_6)) {
+				list.setVisible(false);
+			}
+			else if(fait.equals(chckbxFait_7)) {
+				list_1.setVisible(false);
+			}
+		}
 	}
 }

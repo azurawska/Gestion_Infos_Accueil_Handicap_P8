@@ -1,139 +1,257 @@
 package fenetre.ecrans;
 
 import javax.swing.JPanel;
+
+import java.awt.Color;
+
+import javax.swing.ButtonGroup;
 import javax.swing.JLabel;
 import javax.swing.JTextField;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
 
+import data.LectureFichierCSV;
+import exceptions.LongueurDifferenteListesException;
+import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
+import fenetre.composants.AccompagnementExterieurApresBac;
+import fenetre.composants.AccompagnementExterieurAvantBac;
+import fenetre.composants.FormationParCorrespondance;
+import fenetre.composants.OuiNon;
+import interfaces.GestionFichierCSV;
+import interfaces.GroupementBoutons;
 
 import javax.swing.JTextArea;
 import javax.swing.JRadioButton;
 
-public class ParcoursAnterieurP8 extends AbstractJPanel {
+public class ParcoursAnterieurP8 extends AbstractJPanel implements GestionFichierCSV, GroupementBoutons {
+	
+	private class OuiNonFormationParCorrespondanceListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(rdbtnOui.isSelected()) {
+				textField_2.setVisible(true);
+			}
+			else {
+				textField_2.setVisible(false);
+				textField_2.setText("");
+			}
+		}
+	}
+	
+	private class OuiNonAccompagnementExterieurAvantBacListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(rdbtnOui_1.isSelected()) {
+				textField_3.setVisible(true);
+			}
+			else {
+				textField_3.setVisible(false);
+				textField_3.setText("");
+			}
+		}
+	}
+	
+	private class OuiNonAccompagnementExterieurApresBacListener implements ChangeListener {
+
+		@Override
+		public void stateChanged(ChangeEvent e) {
+			if(radioButton.isSelected()) {
+				textField_4.setVisible(true);
+			}
+			else {
+				textField_4.setVisible(false);
+				textField_4.setText("");
+			}
+		}
+	}
+	
 	private JTextField textField;
 	private JTextField textField_1;
 	private JTextField textField_2;
 	private JTextField textField_3;
 	private JTextField textField_4;
+	
+	private JTextArea textArea;
+	private JTextArea textArea_1;
+	private JTextArea textArea_2;
+	private JTextArea textArea_3;
+	
+	private JLabel lblBaccalauratOuquivalent;
+	private JLabel lblAnneDobtention;
+	private JLabel lblAmnagementsMisEn;
+	private JLabel lblPourLesCours;
+	private JLabel lblPourLesExamens;
+	private JLabel lblFormationParCorrespondance;
+	private JLabel lblAccompagnementExtrieurPar;
+	private JLabel lblAmnagementsMisEn_1;
+	private JLabel label;
+	private JLabel label_1;
+	private JLabel label_2;
+	
+	private OuiNon rdbtnOui;
+	private OuiNon rdbtnNon;
+	private OuiNon rdbtnOui_1;
+	private OuiNon rdbtnNon_1;
+	private OuiNon radioButton;
+	private OuiNon radioButton_1;
+	
+	private boolean nouveau;
+	private String numEtudiant;
+	
+	private final LectureFichierCSV fichierParcoursAnterieurP8 = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/parcours_ens_sup_ante_p8");
 
 	/**
 	 * Create the panel.
+	 * @throws NullArgumentException 
+	 * @throws LongueurDifferenteListesException 
 	 */
-	public ParcoursAnterieurP8() {
+	public ParcoursAnterieurP8() throws LongueurDifferenteListesException, NullArgumentException {
+		this.nouveau=true;
+		
 		setLayout(null);
 		
-		JLabel lblBaccalauratOuquivalent = new JLabel("Baccalauréat ou équivalent");
-		lblBaccalauratOuquivalent.setBounds(18, 18, 172, 16);
-		add(lblBaccalauratOuquivalent);
+		lblBaccalauratOuquivalent = new JLabel("Baccalauréat ou équivalent");
+		
+		gestionChampsEtExceptions(lblBaccalauratOuquivalent, 18, 18, 172, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
 		textField = new JTextField();
-		textField.setBounds(237, 13, 130, 26);
-		add(textField);
-		textField.setColumns(10);
 		
-		JLabel lblAnneDobtention = new JLabel("Année d'obtention");
-		lblAnneDobtention.setBounds(18, 46, 123, 16);
-		add(lblAnneDobtention);
+		gestionChampsEtExceptions(textField, 237, 13, 130, 26, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		
+		lblAnneDobtention = new JLabel("Année d'obtention");
+		
+		gestionChampsEtExceptions(lblAnneDobtention, 18, 46, 123, 16, null, true, true, true, null, null, null, null, "", null, null);
 		
 		textField_1 = new JTextField();
-		textField_1.setBounds(237, 41, 130, 26);
-		add(textField_1);
-		textField_1.setColumns(10);
 		
-		JLabel lblAmnagementsMisEn = new JLabel("Aménagements mis en place et/ou matériel pédagogique mis à disposition avant le baccalauréat :");
-		lblAmnagementsMisEn.setBounds(18, 74, 626, 16);
-		add(lblAmnagementsMisEn);
+		gestionChampsEtExceptions(textField_1, 237, 41, 130, 26, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
-		JLabel lblPourLesCours = new JLabel("Pour les cours :");
-		lblPourLesCours.setBounds(18, 102, 110, 16);
-		add(lblPourLesCours);
+		lblAmnagementsMisEn = new JLabel("Aménagements mis en place et/ou matériel pédagogique mis à disposition avant le baccalauréat :");
 		
-		JTextArea textArea = new JTextArea();
-		textArea.setBounds(121, 90, 204, 84);
-		add(textArea);
+		gestionChampsEtExceptions(lblAmnagementsMisEn, 18, 74, 626, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JLabel lblPourLesExamens = new JLabel("Pour les examens :");
-		lblPourLesExamens.setBounds(337, 102, 123, 16);
-		add(lblPourLesExamens);
+		lblPourLesCours = new JLabel("Pour les cours :");
 		
-		JTextArea textArea_1 = new JTextArea();
-		textArea_1.setBounds(464, 90, 233, 71);
-		add(textArea_1);
+		gestionChampsEtExceptions(lblPourLesCours, 18, 102, 110, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JLabel lblFormationParCorrespondance = new JLabel("Formation par correspondance (si oui, préciser l'organisme)");
-		lblFormationParCorrespondance.setBounds(25, 186, 380, 16);
-		add(lblFormationParCorrespondance);
+		textArea = new JTextArea();
 		
-		JRadioButton rdbtnOui = new JRadioButton("Oui");
-		rdbtnOui.setBounds(404, 182, 60, 23);
-		add(rdbtnOui);
+		gestionChampsEtExceptions(textArea, 121, 90, 204, 84, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
-		JRadioButton rdbtnNon = new JRadioButton("Non");
-		rdbtnNon.setBounds(460, 182, 60, 23);
-		add(rdbtnNon);
+		lblPourLesExamens = new JLabel("Pour les examens :");
+		
+		gestionChampsEtExceptions(lblPourLesExamens, 337, 102, 123, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		textArea_1 = new JTextArea();
+		
+		gestionChampsEtExceptions(textArea_1, 464, 90, 233, 71, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		
+		lblFormationParCorrespondance = new JLabel("Formation par correspondance (si oui, préciser l'organisme)");
+		
+		gestionChampsEtExceptions(lblFormationParCorrespondance, 25, 186, 380, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		rdbtnOui = new OuiNon("Oui");
+		
+		gestionChampsEtExceptions(rdbtnOui, 404, 182, 60, 23, null, true, true, null, false, null, null, new OuiNonFormationParCorrespondanceListener(), "", textField_2, null);
+		
+		rdbtnNon = new OuiNon("Non");
+		
+		gestionChampsEtExceptions(rdbtnNon, 460, 182, 60, 23, null, true, true, null, false, null, null, new OuiNonFormationParCorrespondanceListener(), "", textField_2, null);
+		
+		FormationParCorrespondance formationParCorrespondance = new FormationParCorrespondance();
+		regrouperBoutons(formationParCorrespondance);
 		
 		textField_2 = new JTextField();
-		textField_2.setBounds(529, 181, 168, 26);
-		add(textField_2);
-		textField_2.setColumns(10);
 		
-		JLabel lblAccompagnementExtrieurPar = new JLabel("Accompagnement extérieur par un service/établissement (médico-social ou sanitaire, avsi,...)");
-		lblAccompagnementExtrieurPar.setBounds(24, 214, 599, 16);
-		add(lblAccompagnementExtrieurPar);
+		gestionChampsEtExceptions(textField_2, 529, 181, 168, 26, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
-		JRadioButton rdbtnOui_1 = new JRadioButton("Oui");
-		rdbtnOui_1.setBounds(620, 210, 60, 23);
-		add(rdbtnOui_1);
+		lblAccompagnementExtrieurPar = new JLabel("Accompagnement extérieur par un service/établissement (médico-social ou sanitaire, avsi,...)");
 		
-		JRadioButton rdbtnNon_1 = new JRadioButton("Non");
-		rdbtnNon_1.setBounds(674, 210, 60, 23);
-		add(rdbtnNon_1);
+		gestionChampsEtExceptions(lblAccompagnementExtrieurPar, 24, 214, 599, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		rdbtnOui_1 = new OuiNon("Oui");
+		
+		gestionChampsEtExceptions(rdbtnOui_1, 620, 210, 60, 23, null, true, true, null, false, null, null, new OuiNonAccompagnementExterieurAvantBacListener(), "", textField_3, null);
+		
+		rdbtnNon_1 = new OuiNon("Non");
+		
+		gestionChampsEtExceptions(rdbtnNon_1, 674, 210, 60, 23, null, true, true, null, false, null, null, new OuiNonAccompagnementExterieurAvantBacListener(), "", textField_3, null);
+		
+		AccompagnementExterieurAvantBac accompagnementExterieurAvantBac = new AccompagnementExterieurAvantBac();
+		regrouperBoutons(accompagnementExterieurAvantBac);
 		
 		textField_3 = new JTextField();
-		textField_3.setBounds(734, 209, 167, 26);
-		add(textField_3);
-		textField_3.setColumns(10);
 		
-		JLabel lblAmnagementsMisEn_1 = new JLabel("Aménagements mis en place et/ou matériel pédagogique mis à disposition après l'obtention du baccalauréat :");
-		lblAmnagementsMisEn_1.setBounds(25, 237, 702, 16);
-		add(lblAmnagementsMisEn_1);
+		gestionChampsEtExceptions(textField_3, 734, 209, 167, 26, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 		
-		JLabel label = new JLabel("Pour les cours :");
-		label.setBounds(31, 265, 110, 16);
-		add(label);
+		lblAmnagementsMisEn_1 = new JLabel("Aménagements mis en place et/ou matériel pédagogique mis à disposition après l'obtention du baccalauréat :");
 		
-		JTextArea textArea_2 = new JTextArea();
-		textArea_2.setBounds(134, 265, 204, 84);
-		add(textArea_2);
+		gestionChampsEtExceptions(lblAmnagementsMisEn_1, 25, 237, 702, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JLabel label_1 = new JLabel("Pour les examens :");
-		label_1.setBounds(350, 265, 123, 16);
-		add(label_1);
+		label = new JLabel("Pour les cours :");
 		
-		JTextArea textArea_3 = new JTextArea();
-		textArea_3.setBounds(475, 252, 233, 71);
-		add(textArea_3);
+		gestionChampsEtExceptions(label, 31, 265, 110, 16, null, true, true, null, null, null, null, null, null, null, null);
 		
-		JLabel label_2 = new JLabel("Accompagnement extérieur par un service/établissement (médico-social ou sanitaire, avsi,...)");
-		label_2.setBounds(18, 374, 599, 16);
-		add(label_2);
+		textArea_2 = new JTextArea();
 		
-		JRadioButton radioButton = new JRadioButton("Oui");
-		radioButton.setBounds(620, 370, 60, 23);
-		add(radioButton);
+		gestionChampsEtExceptions(textArea_2, 134, 265, 204, 84, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
 		
-		JRadioButton radioButton_1 = new JRadioButton("Non");
-		radioButton_1.setBounds(674, 370, 60, 23);
-		add(radioButton_1);
+		label_1 = new JLabel("Pour les examens :");
+		
+		gestionChampsEtExceptions(label_1, 350, 265, 123, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		textArea_3 = new JTextArea();
+		
+		gestionChampsEtExceptions(textArea_3, 475, 252, 233, 71, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		
+		label_2 = new JLabel("Accompagnement extérieur par un service/établissement (médico-social ou sanitaire, avsi,...)");
+		
+		gestionChampsEtExceptions(label_2, 18, 374, 599, 16, null, true, true, null, null, null, null, null, null, null, null);
+		
+		radioButton = new OuiNon("Oui");
+		
+		gestionChampsEtExceptions(radioButton, 620, 370, 60, 23, null, true, true, null, false, null, null, new OuiNonAccompagnementExterieurApresBacListener(), "", textField_4, null);
+		
+		radioButton_1 = new OuiNon("Non");
+		
+		gestionChampsEtExceptions(radioButton_1, 674, 370, 60, 23, null, true, true, null, false, null, null, new OuiNonAccompagnementExterieurApresBacListener(), "", textField_4, null);
+		
+		AccompagnementExterieurApresBac accompagnementExterieurApresBac = new AccompagnementExterieurApresBac();
+		regrouperBoutons(accompagnementExterieurApresBac);
 		
 		textField_4 = new JTextField();
-		textField_4.setColumns(10);
-		textField_4.setBounds(734, 369, 167, 26);
-		add(textField_4);
-
+		
+		gestionChampsEtExceptions(textField_4, 734, 369, 167, 26, Color.WHITE, false, true, true, null, null, null, null, "", null, null);
 	}
 
-	public ParcoursAnterieurP8(String numEtudiant) {
-		// TODO Auto-generated constructor stub
+	public ParcoursAnterieurP8(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
+		this.nouveau=false;
+		this.numEtudiant=numEtudiant;
+		gererInfosFichierCSV(fichierParcoursAnterieurP8);
+	}
+
+	@Override
+	public void regrouperBoutons(ButtonGroup boutons) {
+		if(boutons instanceof FormationParCorrespondance) {
+			boutons.add(rdbtnOui);
+			boutons.add(rdbtnNon);
+		}
+		else if(boutons instanceof AccompagnementExterieurAvantBac) {
+			boutons.add(rdbtnOui_1);
+			boutons.add(rdbtnNon_1);
+		}
+		else if(boutons instanceof AccompagnementExterieurApresBac) {
+			boutons.add(radioButton);
+			boutons.add(radioButton_1);
+		}
+	}
+
+	@Override
+	public void gererInfosFichierCSV(LectureFichierCSV fichier)
+			throws LongueurDifferenteListesException, NullArgumentException {
+		// TODO Auto-generated method stub
 	}
 }

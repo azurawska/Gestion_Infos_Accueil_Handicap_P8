@@ -14,6 +14,7 @@ import javax.swing.JButton;
 import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JLabel;
+import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
 import javax.swing.JTabbedPane;
@@ -104,10 +105,16 @@ public abstract class AbstractJPanel extends JPanel {
 			((OuiNon) composant).addChangeListener((ChangeListener) event);
 			if(!chaine.equals("")) {
 			if(((OuiNon) composant).getText().equals(chaine)) {
+				if(chaine.equals("Oui")) {
 				((OuiNon) composant).setSelected(true);
+				}
+				else {
+					((OuiNon) composant).setSelected(false);
+				}
 			}
 			else {
-				((OuiNon) composant).setSelected(false);
+				((OuiNon) composant).setSelected(true);
+				handicapParticulier.setText(chaine);
 			}
 		}
 	}
@@ -215,6 +222,11 @@ public abstract class AbstractJPanel extends JPanel {
 				else {
 					((AffectationPrioritaire) composant).setSelected(false);
 				}
+			}
+		}
+		else if(composant instanceof JList) {
+			if(!chaine.equals("")) {
+			((JList<String>) composant).setSelectedValue(chaine, false);
 			}
 		}
 	}

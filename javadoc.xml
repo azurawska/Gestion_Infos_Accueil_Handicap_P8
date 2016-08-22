@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project default="javadoc">
+    <target name="javadoc">
+        <javadoc access="private" author="true" classpath="/Users/alexis/Downloads/jcalendar.jar:/Users/alexis/Downloads/junit-4.10.jar" destdir="doc" nodeprecated="false" nodeprecatedlist="false" noindex="false" nonavbar="false" notree="false" packagenames="interfaces,fenetre.ecrans,exceptions,data,fenetre.composants,fenetre" source="1.8" sourcefiles="src/Main.java" sourcepath="src:Test" splitindex="true" use="true" version="true"/>
+    </target>
+</project>
