@@ -13,6 +13,7 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 import javax.swing.JTextField;
 
 import data.LectureFichierCSV;
@@ -53,40 +54,44 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		setLayout(null);
 		int x = 300, y = 150, pasx = 100, pasy = 30;
 		int sizex= 86, sizey = 20;
+		//this.setBounds(Fenetre.getInstance().getBounds());
+		JScrollPane scrollPane = new JScrollPane(this);
+		scrollPane.setBounds(this.getBounds());
+		//add(scrollPane);
 		
 		//x= Fenetre.getInstance().screenSize.width/2-(pasx+sizex)/2; y = Fenetre.getInstance().screenSize.height/6;
 		
 		JLabel lblNEtudiant = new JLabel("N° Etudiant :");
 		
-		gestionChampsEtExceptions(lblNEtudiant, x, y, 100, 29, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNEtudiant, x, y, 100, 29, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		textField_num_etudiant = new JTextFieldIdentifiant();
 		
-		gestionChampsEtExceptions(textField_num_etudiant, x+pasx, y, sizex, sizey, Color.WHITE, true, true, true, null, null, null, new QuitNumEtudiantFieldMouseEvent(), "", null, null);
+		gestionChampsEtExceptions(textField_num_etudiant, x+pasx, y, sizex, sizey, Color.WHITE, true, true, true, null, null, null, new QuitNumEtudiantFieldMouseEvent(), "", null, null, null);
 		
 		JLabel lblNom = new JLabel("Nom :");
 		
-		gestionChampsEtExceptions(lblNom, x, y+pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNom, x, y+pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		textField_nom = new JTextField();
 		
-		gestionChampsEtExceptions(textField_nom, x+pasx, y+pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField_nom, x+pasx, y+pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null, null);
 		
 		JLabel lblPrnom = new JLabel("Prénom :");
 		
-		gestionChampsEtExceptions(lblPrnom, x, y+2*pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPrnom, x, y+2*pasy, 100, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		textField_prenom = new JTextField();
 		
-		gestionChampsEtExceptions(textField_prenom, x+pasx, y+2*pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField_prenom, x+pasx, y+2*pasy, sizex, sizey, Color.WHITE, true, true, true, null, null, null, null, "", null, null, null);
 		
 		btnSuivant = new JButton("Suivant");
 		
-		gestionChampsEtExceptions(btnSuivant, x+pasx, y+4*pasy, 89, 23, null, true, true, null, null, null, null, new SuivantAction(), null, null, null);
+		gestionChampsEtExceptions(btnSuivant, x+pasx, y+4*pasy, 89, 23, null, true, true, null, null, null, null, new SuivantAction(), null, null, null, null);
 		
 		btnNouveau = new JButton("Nouveau");
 		
-		gestionChampsEtExceptions(btnNouveau, x+pasx, y+5*pasy, 89, 23, null, true, true, null, null, null, null, new NouveauAction(), null, null, null);
+		gestionChampsEtExceptions(btnNouveau, x+pasx, y+5*pasy, 89, 23, null, true, true, null, null, null, null, new NouveauAction(), null, null, null, null);
 	}
 	
 	private class NouveauAction implements ActionListener {

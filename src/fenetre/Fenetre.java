@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.Toolkit;
 
 import javax.swing.JFrame;
+import javax.swing.JScrollPane;
 
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
@@ -29,6 +30,9 @@ public class Fenetre extends JFrame {
 		setContentPane(authentification);
 		authentification.setVisible(true);
 		setVisible(true);
+		/*JScrollPane scrollpane = new JScrollPane(this);
+		scrollpane.setBounds(this.getBounds());
+		add(scrollpane);*/
 	}
 	
 	public static Fenetre getInstance() throws LongueurDifferenteListesException, NullArgumentException {

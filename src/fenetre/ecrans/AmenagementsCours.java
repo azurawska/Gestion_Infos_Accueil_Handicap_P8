@@ -316,15 +316,15 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		lblAidesHumaines = new JLabel("Aides humaines");
 		
-		gestionChampsEtExceptions(lblAidesHumaines, 108, 6, 115, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAidesHumaines, 108, 6, 115, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		rdbtnOui = new OuiNon("Oui");
 		
-		gestionChampsEtExceptions(rdbtnOui, 74, 34, 54, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnOui, 74, 34, 54, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), "", null, null, null);
 		
 		rdbtnNon = new OuiNon("Non");
 		
-		gestionChampsEtExceptions(rdbtnNon, 155, 34, 59, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnNon, 155, 34, 59, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), "", null, null, null);
 		
 		AidesHumainesCours aidesHumainesCours = new AidesHumainesCours();
 		regrouperBoutons(aidesHumainesCours);
@@ -333,75 +333,75 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		chckbxFait = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit, 6, 69, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait);
+		gestionChampsEtExceptions(chckbxDroit, 6, 69, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait, null);
 		
-		gestionChampsEtExceptions(chckbxFait, 74, 69, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit);
+		gestionChampsEtExceptions(chckbxFait, 74, 69, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit, null);
 		
 		lblPriseDeNotes = new JLabel("Prise de notes");
 		
-		gestionChampsEtExceptions(lblPriseDeNotes, 175, 76, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPriseDeNotes, 175, 76, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_1 = new Droit("Droit");
 		
 		chckbxFait_1 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_1, 6, 91, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_1);
+		gestionChampsEtExceptions(chckbxDroit_1, 6, 91, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_1, null);
 		
-		gestionChampsEtExceptions(chckbxFait_1, 74, 91, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_1);
+		gestionChampsEtExceptions(chckbxFait_1, 74, 91, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_1, null);
 		
 		lblTutoratDaccompagnement = new JLabel("Tutorat d'accompagnement (soutien pédagogique)");
 		
-		gestionChampsEtExceptions(lblTutoratDaccompagnement, 175, 95, 326, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblTutoratDaccompagnement, 175, 95, 326, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_2 = new Droit("Droit");
 		
 		chckbxFait_2 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_2, 6, 113, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_2);
+		gestionChampsEtExceptions(chckbxDroit_2, 6, 113, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_2, null);
 		
-		gestionChampsEtExceptions(chckbxFait_2, 74, 113, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_2);
+		gestionChampsEtExceptions(chckbxFait_2, 74, 113, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_2, null);
 		
 		lblInterprtationEnLsf = new JLabel("Interprétation en LSF");
 		
-		gestionChampsEtExceptions(lblInterprtationEnLsf, 175, 117, 137, 16, null, false, true, null, false, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblInterprtationEnLsf, 175, 117, 137, 16, null, false, true, null, false, null, null, null, null, null, null, null);
 		
 		chckbxDroit_3 = new Droit("Droit");
 		
 		chckbxFait_3 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_3, 6, 137, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_3);
+		gestionChampsEtExceptions(chckbxDroit_3, 6, 137, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_3, null);
 		
-		gestionChampsEtExceptions(chckbxFait_3, 74, 137, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_3);
+		gestionChampsEtExceptions(chckbxFait_3, 74, 137, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_3, null);
 		
 		lblCodageEnLpc = new JLabel("Codage en LPC");
 		
-		gestionChampsEtExceptions(lblCodageEnLpc, 175, 141, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblCodageEnLpc, 175, 141, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_4 = new Droit("Droit");
 		
 		chckbxFait_4 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_4, 6, 158, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_4);
+		gestionChampsEtExceptions(chckbxDroit_4, 6, 158, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_4, null);
 		
-		gestionChampsEtExceptions(chckbxFait_4, 74, 158, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_4);
+		gestionChampsEtExceptions(chckbxFait_4, 74, 158, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_4, null);
 		
 		lblLecturefrappeAuKilomtreaide = new JLabel("Lecture/Frappe au kilomètre/Aide à la recherche documentaire");
 		
-		gestionChampsEtExceptions(lblLecturefrappeAuKilomtreaide, 175, 162, 402, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblLecturefrappeAuKilomtreaide, 175, 162, 402, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		lblAidesTechniques = new JLabel("Aides techniques");
 		
-		gestionChampsEtExceptions(lblAidesTechniques, 142, 190, 115, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAidesTechniques, 142, 190, 115, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		rdbtnOui_1 = new OuiNon("Oui");
 		rdbtnOui_1.setBounds(108, 206, 59, 23);
 		add(rdbtnOui_1);
 		
-		gestionChampsEtExceptions(rdbtnOui_1, 108, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnOui_1, 108, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), "", null, null, null);
 		
 		rdbtnNon_1 = new OuiNon("Non");
 		
-		gestionChampsEtExceptions(rdbtnNon_1, 214, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnNon_1, 214, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), "", null, null, null);
 		
 		AidesTechniquesCours aidesTecheniquesCours = new AidesTechniquesCours();
 		regrouperBoutons(aidesTecheniquesCours);
@@ -410,89 +410,89 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		chckbxFait_5 = new FaitSpecifiqueHandicapMoteur("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_5, 6, 229, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_5);
+		gestionChampsEtExceptions(chckbxDroit_5, 6, 229, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_5, null);
 		
-		gestionChampsEtExceptions(chckbxFait_5, 69, 229, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_5);
+		gestionChampsEtExceptions(chckbxFait_5, 69, 229, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_5, null);
 		
 		lblCarteDaccessibilitAux = new JLabel("Carte d'accessibilité aux locaux et ascenseurs");
 		
-		gestionChampsEtExceptions(lblCarteDaccessibilitAux, 140, 241, 300, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblCarteDaccessibilitAux, 140, 241, 300, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		lblRemiseLe = new JLabel("Remise le :");
 		
-		gestionChampsEtExceptions(lblRemiseLe, 453, 233, 75, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblRemiseLe, 453, 233, 75, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		textField = new JDateChooser();
 		
-		gestionChampsEtExceptions(textField, 529, 228, 130, 26, null, false, true, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField, 529, 228, 130, 26, null, false, true, null, null, null, null, null, "", null, null, null);
 		
 		chckbxDroit_6 = new Droit("Droit");
 		
 		chckbxFait_6 = new FaitSpecifiqueHandicapMoteur("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_6, 6, 253, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_6);
+		gestionChampsEtExceptions(chckbxDroit_6, 6, 253, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_6, null);
 		
-		gestionChampsEtExceptions(chckbxFait_6, 69, 253, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_6);
+		gestionChampsEtExceptions(chckbxFait_6, 69, 253, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_6, null);
 		
 		lblClsWcAccessibles = new JLabel("Clés WC accessibles");
 		
-		gestionChampsEtExceptions(lblClsWcAccessibles, 142, 261, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblClsWcAccessibles, 142, 261, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		lblRemiseLe_1 = new JLabel("Remise le :");
 		
-		gestionChampsEtExceptions(lblRemiseLe_1, 306, 261, 75, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblRemiseLe_1, 306, 261, 75, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		textField_1 = new JDateChooser();
 		
-		gestionChampsEtExceptions(textField_1, 393, 256, 130, 26, null, false, true, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField_1, 393, 256, 130, 26, null, false, true, null, null, null, null, null, "", null, null, null);
 		
 		chckbxDroit_7 = new Droit("Droit");
 		
 		chckbxFait_7 = new Fait("Fait");
 	
-		gestionChampsEtExceptions(chckbxDroit_7, 6, 275, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_7);
+		gestionChampsEtExceptions(chckbxDroit_7, 6, 275, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_7, null);
 		
-		gestionChampsEtExceptions(chckbxFait_7, 69, 275, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_7);
+		gestionChampsEtExceptions(chckbxFait_7, 69, 275, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_7, null);
 		
 		lblNumrisations = new JLabel("Numérisations");
 		
-		gestionChampsEtExceptions(lblNumrisations, 142, 279, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNumrisations, 142, 279, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_8 = new Droit("Droit");
 		
 		chckbxFait_8 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_8, 6, 295, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_8);
+		gestionChampsEtExceptions(chckbxDroit_8, 6, 295, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_8, null);
 		
-		gestionChampsEtExceptions(chckbxFait_8, 69, 295, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_8);
+		gestionChampsEtExceptions(chckbxFait_8, 69, 295, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_8, null);
 		
 		lblTranscriptionsBraille = new JLabel("Transcriptions braille");
 		
-		gestionChampsEtExceptions(lblTranscriptionsBraille, 142, 299, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblTranscriptionsBraille, 142, 299, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_9 = new Droit("Droit");
 		
 		chckbxFait_9 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_9, 6, 310, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_9);
+		gestionChampsEtExceptions(chckbxDroit_9, 6, 310, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_9, null);
 		
-		gestionChampsEtExceptions(chckbxFait_9, 69, 310, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_9);
+		gestionChampsEtExceptions(chckbxFait_9, 69, 310, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_9, null);
 		
 		lblAgrandissements = new JLabel("Agrandissements");
 		
-		gestionChampsEtExceptions(lblAgrandissements, 142, 314, 115, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAgrandissements, 142, 314, 115, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_10 = new Droit("Droit");
 		
 		chckbxFait_10 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_10, 6, 330, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_10);
+		gestionChampsEtExceptions(chckbxDroit_10, 6, 330, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_10, null);
 		
-		gestionChampsEtExceptions(chckbxFait_10, 69, 330, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_10);
+		gestionChampsEtExceptions(chckbxFait_10, 69, 330, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_10, null);
 		
 		lblPrtDeDictaphone = new JLabel("Prêt de dictaphone");
 		
-		gestionChampsEtExceptions(lblPrtDeDictaphone, 142, 334, 131, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPrtDeDictaphone, 142, 334, 131, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_11 = new DroitParticulier("Droit");
 		
@@ -500,27 +500,27 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		textField_2 = new JTextField();
 		
-		gestionChampsEtExceptions(textField_2, 277, 344, 366, 26, Color.WHITE, false, true, false, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField_2, 277, 344, 366, 26, Color.WHITE, false, true, false, null, null, null, null, "", null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_11, 6, 345, 69, 23, null, false, true, null, false, null, null, new DroitListener(), "", textField_2, chckbxFait_11);
+		gestionChampsEtExceptions(chckbxDroit_11, 6, 345, 69, 23, null, false, true, null, false, null, null, new DroitListener(), "", textField_2, chckbxFait_11, null);
 		
-		gestionChampsEtExceptions(chckbxFait_11, 69, 345, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", textField_2, chckbxDroit_11);
+		gestionChampsEtExceptions(chckbxFait_11, 69, 345, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", textField_2, chckbxDroit_11, null);
 		
 		lblAutres = new JLabel("Autres");
 		
-		gestionChampsEtExceptions(lblAutres, 142, 349, 61, 16, null, false, true, null, null, null, null, null, null, textField_2, null);
+		gestionChampsEtExceptions(lblAutres, 142, 349, 61, 16, null, false, true, null, null, null, null, null, null, textField_2, null, null);
 		
 		lblAmnagementsDeLa = new JLabel("Aménagements de la formation");
 		
-		gestionChampsEtExceptions(lblAmnagementsDeLa, 68, 382, 205, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementsDeLa, 68, 382, 205, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		rdbtnOui_2 = new OuiNon("Oui");
 		
-		gestionChampsEtExceptions(rdbtnOui_2, 58, 410, 54, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnOui_2, 58, 410, 54, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), "", null, null, null);
 		
 		rdbtnNon_2 = new OuiNon("Non");
 		
-		gestionChampsEtExceptions(rdbtnNon_2, 181, 410, 59, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), "", null, null);
+		gestionChampsEtExceptions(rdbtnNon_2, 181, 410, 59, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), "", null, null, null);
 		
 		AmenagementsFormation amenagementsFormation = new AmenagementsFormation();
 		regrouperBoutons(amenagementsFormation);
@@ -529,49 +529,49 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		chckbxFait_12 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_12, 38, 445, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_12);
+		gestionChampsEtExceptions(chckbxDroit_12, 38, 445, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_12, null);
 		
-		gestionChampsEtExceptions(chckbxFait_12, 108, 445, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_12);
+		gestionChampsEtExceptions(chckbxFait_12, 108, 445, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_12, null);
 		
 		lblDispenseDassiduit = new JLabel("Dispense d'assiduité");
 		
-		gestionChampsEtExceptions(lblDispenseDassiduit, 175, 449, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDispenseDassiduit, 175, 449, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_13 = new Droit("Droit");
 		
 		chckbxFait_13 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_13, 38, 469, 75, 23, null, false, true, null, false, null, null, null, "", null, chckbxDroit_13);
+		gestionChampsEtExceptions(chckbxDroit_13, 38, 469, 75, 23, null, false, true, null, false, null, null, null, "", null, chckbxDroit_13, null);
 		
-		gestionChampsEtExceptions(chckbxFait_13, 108, 469, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_13);
+		gestionChampsEtExceptions(chckbxFait_13, 108, 469, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_13, null);
 		
 		lblAmnagementDeLa = new JLabel("Aménagement de la durée de formation");
 		
-		gestionChampsEtExceptions(lblAmnagementDeLa, 175, 473, 261, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementDeLa, 175, 473, 261, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_14 = new Droit("Droit");
 		
 		chckbxFait_14 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_14, 39, 495, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_14);
+		gestionChampsEtExceptions(chckbxDroit_14, 39, 495, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_14, null);
 		
-		gestionChampsEtExceptions(chckbxFait_14, 108, 495, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_14);
+		gestionChampsEtExceptions(chckbxFait_14, 108, 495, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_14, null);
 		
 		lblAmnagementDesHoraires = new JLabel("Aménagement des horaires");
 		
-		gestionChampsEtExceptions(lblAmnagementDesHoraires, 175, 499, 178, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementDesHoraires, 175, 499, 178, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
 		chckbxDroit_15 = new Droit("Droit");
 		
 		chckbxFait_15 = new Fait("Fait");
 		
-		gestionChampsEtExceptions(chckbxDroit_15, 39, 523, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_15);
+		gestionChampsEtExceptions(chckbxDroit_15, 39, 523, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_15, null);
 		
-		gestionChampsEtExceptions(chckbxFait_15, 108, 523, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_15);
+		gestionChampsEtExceptions(chckbxFait_15, 108, 523, 59, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_15, null);
 		
 		lblDispenseDeStage = new JLabel("Dispense de stage");
 		
-		gestionChampsEtExceptions(lblDispenseDeStage, 175, 527, 122, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDispenseDeStage, 175, 527, 122, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 
 	}
 
@@ -723,129 +723,129 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		
 		lblDispenseDeStage = new JLabel("Dispense de stage");
 		
-		gestionChampsEtExceptions(chckbxDroit, 6, 69, 64, 23, null, false, true, null, false, null, null, null, etudiant[2], null, chckbxFait);
+		gestionChampsEtExceptions(chckbxDroit, 6, 69, 64, 23, null, false, true, null, false, null, null, null, etudiant[2], null, chckbxFait, null);
 		
-		gestionChampsEtExceptions(chckbxFait, 74, 69, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[2], null, chckbxDroit);
+		gestionChampsEtExceptions(chckbxFait, 74, 69, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[2], null, chckbxDroit, null);
 		
-		gestionChampsEtExceptions(lblPriseDeNotes, 175, 76, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPriseDeNotes, 175, 76, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_1, 6, 91, 64, 23, null, false, true, null, false, null, null, null, etudiant[3], null, chckbxFait_1);
+		gestionChampsEtExceptions(chckbxDroit_1, 6, 91, 64, 23, null, false, true, null, false, null, null, null, etudiant[3], null, chckbxFait_1, null);
 		
-		gestionChampsEtExceptions(chckbxFait_1, 74, 91, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[3], null, chckbxDroit_1);
+		gestionChampsEtExceptions(chckbxFait_1, 74, 91, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[3], null, chckbxDroit_1, null);
 		
-		gestionChampsEtExceptions(lblTutoratDaccompagnement, 175, 95, 326, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblTutoratDaccompagnement, 175, 95, 326, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_2, 6, 113, 64, 23, null, false, true, null, false, null, null, null, etudiant[4], null, chckbxFait_2);
+		gestionChampsEtExceptions(chckbxDroit_2, 6, 113, 64, 23, null, false, true, null, false, null, null, null, etudiant[4], null, chckbxFait_2, null);
 		
-		gestionChampsEtExceptions(chckbxFait_2, 74, 113, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[4], null, chckbxDroit_2);
+		gestionChampsEtExceptions(chckbxFait_2, 74, 113, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[4], null, chckbxDroit_2, null);
 		
-		gestionChampsEtExceptions(lblInterprtationEnLsf, 175, 117, 137, 16, null, false, true, null, false, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblInterprtationEnLsf, 175, 117, 137, 16, null, false, true, null, false, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_3, 6, 137, 64, 23, null, false, true, null, false, null, null, null, etudiant[5], null, chckbxFait_3);
+		gestionChampsEtExceptions(chckbxDroit_3, 6, 137, 64, 23, null, false, true, null, false, null, null, null, etudiant[5], null, chckbxFait_3, null);
 		
-		gestionChampsEtExceptions(chckbxFait_3, 74, 137, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[5], null, chckbxDroit_3);
+		gestionChampsEtExceptions(chckbxFait_3, 74, 137, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[5], null, chckbxDroit_3, null);
 		
-		gestionChampsEtExceptions(lblCodageEnLpc, 175, 141, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblCodageEnLpc, 175, 141, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_4, 6, 158, 64, 23, null, false, true, null, false, null, null, null, etudiant[6], null, chckbxFait_4);
+		gestionChampsEtExceptions(chckbxDroit_4, 6, 158, 64, 23, null, false, true, null, false, null, null, null, etudiant[6], null, chckbxFait_4, null);
 		
-		gestionChampsEtExceptions(chckbxFait_4, 74, 158, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[6], null, chckbxDroit_4);
+		gestionChampsEtExceptions(chckbxFait_4, 74, 158, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[6], null, chckbxDroit_4, null);
 		
-		gestionChampsEtExceptions(lblLecturefrappeAuKilomtreaide, 175, 162, 402, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblLecturefrappeAuKilomtreaide, 175, 162, 402, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(lblAidesHumaines, 108, 6, 115, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAidesHumaines, 108, 6, 115, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnOui, 74, 34, 54, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), etudiant[1], null, null);
+		gestionChampsEtExceptions(rdbtnOui, 74, 34, 54, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), etudiant[1], null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnNon, 155, 34, 59, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), etudiant[1], null, null);
+		gestionChampsEtExceptions(rdbtnNon, 155, 34, 59, 23, null, true, true, null, false, null, null, new AidesHumainesListener(), etudiant[1], null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_5, 6, 229, 64, 23, null, false, true, null, false, null, null, null, etudiant[8], null, chckbxFait_5);
+		gestionChampsEtExceptions(chckbxDroit_5, 6, 229, 64, 23, null, false, true, null, false, null, null, null, etudiant[8], null, chckbxFait_5, null);
 		
-		gestionChampsEtExceptions(chckbxFait_5, 69, 229, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[8], null, chckbxDroit_5);
+		gestionChampsEtExceptions(chckbxFait_5, 69, 229, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[8], null, chckbxDroit_5, null);
 		
-		gestionChampsEtExceptions(lblCarteDaccessibilitAux, 140, 241, 300, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblCarteDaccessibilitAux, 140, 241, 300, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(lblRemiseLe, 453, 233, 75, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblRemiseLe, 453, 233, 75, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(textField, 529, 228, 130, 26, null, false, true, null, null, null, null, null, etudiant[9], null, null);
+		gestionChampsEtExceptions(textField, 529, 228, 130, 26, null, false, true, null, null, null, null, null, etudiant[9], null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_6, 6, 253, 64, 23, null, false, true, null, false, null, null, null, etudiant[10], null, chckbxFait_6);
+		gestionChampsEtExceptions(chckbxDroit_6, 6, 253, 64, 23, null, false, true, null, false, null, null, null, etudiant[10], null, chckbxFait_6, null);
 		
-		gestionChampsEtExceptions(chckbxFait_6, 69, 253, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[10], null, chckbxDroit_6);
+		gestionChampsEtExceptions(chckbxFait_6, 69, 253, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[10], null, chckbxDroit_6, null);
 		
-		gestionChampsEtExceptions(lblClsWcAccessibles, 142, 261, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblClsWcAccessibles, 142, 261, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(lblRemiseLe_1, 306, 261, 75, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblRemiseLe_1, 306, 261, 75, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(textField_1, 393, 256, 130, 26, null, false, true, null, null, null, null, null, etudiant[11], null, null);
+		gestionChampsEtExceptions(textField_1, 393, 256, 130, 26, null, false, true, null, null, null, null, null, etudiant[11], null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_7, 6, 275, 64, 23, null, false, true, null, false, null, null, null, etudiant[12], null, chckbxFait_7);
+		gestionChampsEtExceptions(chckbxDroit_7, 6, 275, 64, 23, null, false, true, null, false, null, null, null, etudiant[12], null, chckbxFait_7, null);
 		
-		gestionChampsEtExceptions(chckbxFait_7, 69, 275, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[12], null, chckbxDroit_7);
+		gestionChampsEtExceptions(chckbxFait_7, 69, 275, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[12], null, chckbxDroit_7, null);
 		
-		gestionChampsEtExceptions(lblNumrisations, 142, 279, 98, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNumrisations, 142, 279, 98, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_8, 6, 295, 64, 23, null, false, true, null, false, null, null, null, etudiant[13], null, chckbxFait_8);
+		gestionChampsEtExceptions(chckbxDroit_8, 6, 295, 64, 23, null, false, true, null, false, null, null, null, etudiant[13], null, chckbxFait_8, null);
 		
-		gestionChampsEtExceptions(chckbxFait_8, 69, 295, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[13], null, chckbxDroit_8);
+		gestionChampsEtExceptions(chckbxFait_8, 69, 295, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[13], null, chckbxDroit_8, null);
 		
-		gestionChampsEtExceptions(lblTranscriptionsBraille, 142, 299, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblTranscriptionsBraille, 142, 299, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_9, 6, 310, 64, 23, null, false, true, null, false, null, null, null, etudiant[14], null, chckbxFait_9);
+		gestionChampsEtExceptions(chckbxDroit_9, 6, 310, 64, 23, null, false, true, null, false, null, null, null, etudiant[14], null, chckbxFait_9, null);
 		
-		gestionChampsEtExceptions(chckbxFait_9, 69, 310, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[14], null, chckbxDroit_9);
+		gestionChampsEtExceptions(chckbxFait_9, 69, 310, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[14], null, chckbxDroit_9, null);
 		
-		gestionChampsEtExceptions(lblAgrandissements, 142, 314, 115, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAgrandissements, 142, 314, 115, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_10, 6, 330, 64, 23, null, false, true, null, false, null, null, null, etudiant[15], null, chckbxFait_10);
+		gestionChampsEtExceptions(chckbxDroit_10, 6, 330, 64, 23, null, false, true, null, false, null, null, null, etudiant[15], null, chckbxFait_10, null);
 		
-		gestionChampsEtExceptions(chckbxFait_10, 69, 330, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[15], null, chckbxDroit_10);
+		gestionChampsEtExceptions(chckbxFait_10, 69, 330, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[15], null, chckbxDroit_10, null);
 		
-		gestionChampsEtExceptions(lblPrtDeDictaphone, 142, 334, 131, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblPrtDeDictaphone, 142, 334, 131, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(textField_2, 277, 344, 366, 26, Color.WHITE, false, true, false, null, null, null, null, etudiant[16], null, null);
+		gestionChampsEtExceptions(textField_2, 277, 344, 366, 26, Color.WHITE, false, true, false, null, null, null, null, etudiant[16], null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_11, 6, 345, 69, 23, null, false, true, null, false, null, null, new DroitListener(), etudiant[16], textField_2, chckbxFait_11);
+		gestionChampsEtExceptions(chckbxDroit_11, 6, 345, 69, 23, null, false, true, null, false, null, null, new DroitListener(), etudiant[16], textField_2, chckbxFait_11, null);
 		
-		gestionChampsEtExceptions(chckbxFait_11, 69, 345, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[16], textField_2, chckbxDroit_11);
+		gestionChampsEtExceptions(chckbxFait_11, 69, 345, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[16], textField_2, chckbxDroit_11, null);
 		
-		gestionChampsEtExceptions(lblAutres, 142, 349, 61, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAutres, 142, 349, 61, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(lblAidesTechniques, 142, 190, 115, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAidesTechniques, 142, 190, 115, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnOui_1, 108, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), etudiant[7], null, null);
+		gestionChampsEtExceptions(rdbtnOui_1, 108, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), etudiant[7], null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnNon_1, 214, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), etudiant[7], null, null);
+		gestionChampsEtExceptions(rdbtnNon_1, 214, 206, 59, 23, null, true, true, null, false, null, null, new AidesTechniquesListener(), etudiant[7], null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_12, 38, 445, 64, 23, null, false, true, null, false, null, null, null, etudiant[18], null, chckbxFait_12);
+		gestionChampsEtExceptions(chckbxDroit_12, 38, 445, 64, 23, null, false, true, null, false, null, null, null, etudiant[18], null, chckbxFait_12, null);
 		
-		gestionChampsEtExceptions(chckbxFait_12, 108, 445, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[18], null, chckbxDroit_12);
+		gestionChampsEtExceptions(chckbxFait_12, 108, 445, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[18], null, chckbxDroit_12, null);
 		
-		gestionChampsEtExceptions(lblDispenseDassiduit, 175, 449, 137, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDispenseDassiduit, 175, 449, 137, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_13, 38, 469, 75, 23, null, false, true, null, false, null, null, null, etudiant[19], null, chckbxDroit_13);
+		gestionChampsEtExceptions(chckbxDroit_13, 38, 469, 75, 23, null, false, true, null, false, null, null, null, etudiant[19], null, chckbxDroit_13, null);
 		
-		gestionChampsEtExceptions(chckbxFait_13, 108, 469, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[19], null, chckbxDroit_13);
+		gestionChampsEtExceptions(chckbxFait_13, 108, 469, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[19], null, chckbxDroit_13, null);
 		
-		gestionChampsEtExceptions(lblAmnagementDeLa, 175, 473, 261, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementDeLa, 175, 473, 261, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_14, 39, 495, 64, 23, null, false, true, null, false, null, null, null, etudiant[20], null, chckbxFait_14);
+		gestionChampsEtExceptions(chckbxDroit_14, 39, 495, 64, 23, null, false, true, null, false, null, null, null, etudiant[20], null, chckbxFait_14, null);
 		
-		gestionChampsEtExceptions(chckbxFait_14, 108, 495, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[20], null, chckbxDroit_14);
+		gestionChampsEtExceptions(chckbxFait_14, 108, 495, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[20], null, chckbxDroit_14, null);
 		
-		gestionChampsEtExceptions(lblAmnagementDesHoraires, 175, 499, 178, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementDesHoraires, 175, 499, 178, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(chckbxDroit_15, 39, 523, 64, 23, null, false, true, null, false, null, null, null, etudiant[21], null, chckbxFait_15);
+		gestionChampsEtExceptions(chckbxDroit_15, 39, 523, 64, 23, null, false, true, null, false, null, null, null, etudiant[21], null, chckbxFait_15, null);
 		
-		gestionChampsEtExceptions(chckbxFait_15, 108, 523, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[21], null, chckbxDroit_15);
+		gestionChampsEtExceptions(chckbxFait_15, 108, 523, 59, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[21], null, chckbxDroit_15, null);
 		
-		gestionChampsEtExceptions(lblDispenseDeStage, 175, 527, 122, 16, null, false, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDispenseDeStage, 175, 527, 122, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(lblAmnagementsDeLa, 68, 382, 205, 16, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblAmnagementsDeLa, 68, 382, 205, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnOui_2, 58, 410, 54, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), etudiant[17], null, null);
+		gestionChampsEtExceptions(rdbtnOui_2, 58, 410, 54, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), etudiant[17], null, null, null);
 		
-		gestionChampsEtExceptions(rdbtnNon_2, 181, 410, 59, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), etudiant[17], null, null);
+		gestionChampsEtExceptions(rdbtnNon_2, 181, 410, 59, 23, null, true, true, null, false, null, null, new AmenagementsFormationListener(), etudiant[17], null, null, null);
 	}
 
 	@Override

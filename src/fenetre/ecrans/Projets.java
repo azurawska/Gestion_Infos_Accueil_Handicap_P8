@@ -1,6 +1,7 @@
 package fenetre.ecrans;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import java.awt.Color;
 import java.util.ArrayList;
@@ -33,19 +34,27 @@ public class Projets extends AbstractJPanel implements GestionFichierCSV {
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null, null);
+		
+		JScrollPane pane = new JScrollPane();
+		
+		gestionChampsEtExceptions(pane, 40, 55, 386, 176, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null, pane);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, true, null, null, null, null, null, null, null, null);
+		
+		JScrollPane pane2 = new JScrollPane();
+		
+		gestionChampsEtExceptions(pane2, 40, 257, 386, 176, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, "", null, null, pane2);
 
 	}
 	
@@ -66,19 +75,27 @@ public class Projets extends AbstractJPanel implements GestionFichierCSV {
 		
 		JLabel lblProjetDeFormation = new JLabel("1 : projet de formation");
 		
-		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjetDeFormation, 20, 26, 186, 14, null, true, true, null, null, null, null, null, null, null, null, null);
+		
+		JScrollPane pane = new JScrollPane();
+		
+		gestionChampsEtExceptions(pane, 40, 55, 386, 176, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[1], null, null);
+		gestionChampsEtExceptions(textArea, 40, 55, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[1], null, null, pane);
 		
 		JLabel lblProjets = new JLabel("2 : projet(s) professionnel(s)");
 		
-		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, null, null, null, null, null, null, null, null, null);
+		
+JScrollPane pane2 = new JScrollPane();
+		
+		gestionChampsEtExceptions(pane2, 40, 257, 386, 176, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea_1 = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[2], null, null);
+		gestionChampsEtExceptions(textArea_1, 40, 257, 386, 176, Color.WHITE, true, true, true, null, null, null, null, etudiant[2], null, null, pane2);
 		
 	}
 }

@@ -50,25 +50,25 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
 		
-		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		textField = new JDateChooser();
 	
-		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, true, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, true, null, null, null, null, null, "", null, null, null);
 		
 		lblNomDuMdecin = new JLabel("Nom du médecin");
 		
-		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		comboBox = new JComboBox<String>();
 	
-		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, "", null, null, null);
 		gererInfosFichierTXT(fichierMedecins);
 		comboBox.setSelectedIndex(0);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null);
+		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null, null);
 	}
 
 	public Amenagements(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
@@ -130,23 +130,23 @@ public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, G
 		
 		lblDateDeLa = new JLabel("Date de la visite à la Médecine Préventive");
 		
-		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblDateDeLa, 21, 6, 273, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		textField = new JDateChooser();
 	
-		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, false, null, null, null, null, null, etudiant[1], null, null);
+		gestionChampsEtExceptions(textField, 332, 3, 150, 20, null, true, false, null, null, null, null, null, etudiant[1], null, null, null);
 		
 		lblNomDuMdecin = new JLabel("Nom du médecin");
 		
-		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblNomDuMdecin, 20, 46, 140, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		comboBox = new JComboBox<String>();
 	
 		gererInfosFichierTXT(fichierMedecins);
-		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, etudiant[2], null, null);
+		gestionChampsEtExceptions(comboBox, 290, 44, 186, 20, null, true, true, null, null, null, null, null, etudiant[2], null, null, null);
 		
 		tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsUtilisateurExistant(this.numEtudiant), null, null, null, null);
+		gestionChampsEtExceptions(tabbedPane, 30, 82, 719, 514, null, true, true, null, null, titresOnglets(), ongletsUtilisateurExistant(this.numEtudiant), null, null, null, null, null);
 	}
 }

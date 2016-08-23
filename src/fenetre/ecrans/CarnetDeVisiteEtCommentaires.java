@@ -1,6 +1,7 @@
 package fenetre.ecrans;
 
 import javax.swing.JPanel;
+import javax.swing.JScrollPane;
 
 import java.util.ArrayList;
 
@@ -26,15 +27,19 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements Gest
 	public CarnetDeVisiteEtCommentaires() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
 		
+		JScrollPane pane = new JScrollPane();
+		
 		setLayout(null);
 		
 		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
 		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, "", null, null);
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, "", null, null, pane);
+		
+		gestionChampsEtExceptions(pane, 10, 51, 707, 436, null, true, true, null, null, null, null, null, null, null, null, null);
 	}
 	
 	public CarnetDeVisiteEtCommentaires(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
@@ -63,13 +68,17 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements Gest
 		
 		setLayout(null);
 		
-		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
-		
-		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null);
-		
 		JTextArea textArea = new JTextArea();
 		
-		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, infosEtudiant.toString(), null, null);
+		JLabel lblIndiquerLesJours = new JLabel("Indiquer le(s) jour(s) de(s) (la) rencontre(s) et son (leurs) objet(s) :");
+		
+		JScrollPane pane = new JScrollPane();
+		
+		gestionChampsEtExceptions(lblIndiquerLesJours, 23, 26, 420, 14, null, true, true, null, null, null, null, null, null, null, null, null);
+	
+		gestionChampsEtExceptions(textArea, 10, 51, 707, 436, null, true, true, true, null, null, null, null, infosEtudiant.toString(), null, null, pane);
+		
+		gestionChampsEtExceptions(pane, 10, 51, 707, 436, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 	}
 }

@@ -58,25 +58,28 @@ public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 	
 	public Accueil() throws LongueurDifferenteListesException, NullArgumentException {
 		
+		JScrollPane scrollPane = new JScrollPane(this);
+		scrollPane.setBounds(this.getBounds());
+		
 		setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("Ok");
 		
-		gestionChampsEtExceptions(btnNewButton_1, Fenetre.getInstance().getScreenSize().width/2-10-61, 5, 61, 29, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(btnNewButton_1, Fenetre.getInstance().getScreenSize().width/2-10-61, 5, 61, 29, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JButton btnAnnuler = new JButton("Annuler");
 		
-		gestionChampsEtExceptions(btnAnnuler, Fenetre.getInstance().getScreenSize().width/2+10, 5, 77, 29, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(btnAnnuler, Fenetre.getInstance().getScreenSize().width/2+10, 5, 77, 29, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		gestionChampsEtExceptions(tabbedPane, 0, 50, Fenetre.getInstance().getScreenSize().width, Fenetre.getInstance().getScreenSize().height-50, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null);
+		gestionChampsEtExceptions(tabbedPane, 0, 50, Fenetre.getInstance().getScreenSize().width, Fenetre.getInstance().getScreenSize().height-50, null, true, true, null, null, titresOnglets(), ongletsNouvelUtilisateur(), null, null, null, null, null);
 		
 		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/img/accueil.jpg");
 		
 		JButton btnNewButton = new JButton(icon);
 		
-		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null);
+		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null, null);
 	}
 	
 	/**
@@ -90,25 +93,28 @@ public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 		this.nom=nom;
 		this.prenom=prenom;
 		
+		JScrollPane scrollPane = new JScrollPane(this);
+		scrollPane.setBounds(this.getBounds());
+		
 		setLayout(null);
 		
 		JButton btnNewButton_1 = new JButton("Ok");
 		
-		gestionChampsEtExceptions(btnNewButton_1, Fenetre.getInstance().getScreenSize().width/2-10-61, 5, 61, 29, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(btnNewButton_1, Fenetre.getInstance().getScreenSize().width/2-10-61, 5, 61, 29, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JButton btnAnnuler = new JButton("Annuler");
 		
-		gestionChampsEtExceptions(btnAnnuler, Fenetre.getInstance().getScreenSize().width/2+10, 5, 77, 29, null, true, true, null, null, null, null, null, null, null, null);
+		gestionChampsEtExceptions(btnAnnuler, Fenetre.getInstance().getScreenSize().width/2+10, 5, 77, 29, null, true, true, null, null, null, null, null, null, null, null, null);
 		
 		JTabbedPane tabbedPane = new JTabbedPane(JTabbedPane.TOP);
 		
-		gestionChampsEtExceptions(tabbedPane, 0, 50, Fenetre.getInstance().getScreenSize().width, Fenetre.getInstance().getScreenSize().height-50, null, true, true, null, null, titresOnglets(), ongletsUtilisateurExistant(this.numEtudiant), null, null, null, null);
+		gestionChampsEtExceptions(tabbedPane, 0, 50, Fenetre.getInstance().getScreenSize().width, Fenetre.getInstance().getScreenSize().height-50, null, true, true, null, null, titresOnglets(), ongletsUtilisateurExistant(this.numEtudiant), null, null, null, null, null);
 		
 		Icon icon = new ImageIcon("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/fenetre/img/accueil.jpg");
 		
 		JButton btnNewButton = new JButton(icon);
 		
-		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null);
+		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null, null);
 	}
 
 	@Override

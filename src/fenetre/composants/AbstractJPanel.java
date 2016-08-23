@@ -17,10 +17,12 @@ import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JPanel;
 import javax.swing.JRadioButton;
+import javax.swing.JScrollPane;
 import javax.swing.JTabbedPane;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.JToggleButton;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ChangeListener;
 import javax.swing.text.JTextComponent;
 
@@ -31,7 +33,7 @@ import exceptions.NullArgumentException;
 
 public abstract class AbstractJPanel extends JPanel {
 	
-	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement) {
+	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement, JScrollPane pane) {
 		
 		composant.setBounds(x, y, width, height);
 		composant.setVisible(visible);
@@ -57,6 +59,7 @@ public abstract class AbstractJPanel extends JPanel {
 		else if(composant instanceof JTextArea) {
 			((JTextArea) composant).setLineWrap(true);
 			((JTextArea) composant).setWrapStyleWord(true);
+			pane.setViewportView(composant);
 		}
 		else if(composant instanceof JTabbedPane) {
 			for(int i=0;i<titresOnglets.size();i++) {
@@ -192,14 +195,16 @@ public abstract class AbstractJPanel extends JPanel {
 				}
 			}
 		}
-		else if(composant instanceof JList) {
+		else if(composant instanceof JList<?>) {
+			((JList<String>) composant).setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+			pane.setViewportView(composant);
 			if(!chaine.equals("")) {
-			((JList<String>) composant).setSelectedValue(chaine, false);
+			((JList<String>) composant).setSelectedValue(chaine, true);
 			}
 		}
 	}
 	
-	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement) throws LongueurDifferenteListesException, NullArgumentException {
+	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement, JScrollPane pane) throws LongueurDifferenteListesException, NullArgumentException {
 		
 		try {
 		if((!titresOnglets.equals(null) && onglets.equals(null)) || (!onglets.equals(null) && titresOnglets.equals(null))) {
@@ -211,13 +216,13 @@ public abstract class AbstractJPanel extends JPanel {
 				throw new LongueurDifferenteListesException();
 			}
 			else {
-					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement);
+					definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement, pane);
 				
 				}
 		}
 	} catch(NullPointerException e) {
 		
-		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement);
+		definirEtAjouterChamp(composant, x, y, width, height, color, visible, enabled, editable, selected, titresOnglets, onglets, event, chaine, handicapParticulier, statutAmenagement, pane);
 		
 		}
 	}

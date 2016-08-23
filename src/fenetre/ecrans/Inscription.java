@@ -34,7 +34,7 @@ public class Inscription extends AbstractJPanel implements GestionFichierCSV {
 		
 		chckbxAffectationPrioritaire = new AffectationPrioritaire("Affectation prioritaire");
 		
-		gestionChampsEtExceptions(chckbxAffectationPrioritaire, 6, 6, 173, 23, null, true, true, null, false, null, null, null, "", null, null);
+		gestionChampsEtExceptions(chckbxAffectationPrioritaire, 6, 6, 173, 23, null, true, true, null, false, null, null, null, "", null, null, null);
 
 	}
 
@@ -56,6 +56,6 @@ public class Inscription extends AbstractJPanel implements GestionFichierCSV {
 		
 		chckbxAffectationPrioritaire = new AffectationPrioritaire("Affectation prioritaire");
 		
-		gestionChampsEtExceptions(chckbxAffectationPrioritaire, 6, 6, 173, 23, null, true, true, null, false, null, null, null, etudiant[1], null, null);
+		gestionChampsEtExceptions(chckbxAffectationPrioritaire, 6, 6, 173, 23, null, true, true, null, false, null, null, null, etudiant[1], null, null, null);
 	}
 }
