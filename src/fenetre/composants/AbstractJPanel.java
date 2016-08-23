@@ -198,8 +198,9 @@ public abstract class AbstractJPanel extends JPanel {
 		else if(composant instanceof JList<?>) {
 			((JList<String>) composant).setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
 			pane.setViewportView(composant);
-			if(!chaine.equals("")) {
+			if(!chaine.equals("") && !chaine.equals("Non")) {
 			((JList<String>) composant).setSelectedValue(chaine, true);
+			statutAmenagement.setSelected(true);
 			}
 		}
 	}

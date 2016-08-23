@@ -6,8 +6,11 @@ import javax.swing.JList;
 import javax.swing.JRadioButton;
 import javax.swing.JScrollPane;
 import javax.swing.ListModel;
+import javax.swing.ListSelectionModel;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 import data.LectureFichierCSV;
 import data.LectureFichierTXT;
@@ -24,6 +27,8 @@ import interfaces.GestionFichierCSV;
 import interfaces.GestionFichierTXT;
 import interfaces.GroupementBoutons;
 
+import java.awt.event.MouseEvent;
+import java.awt.event.MouseListener;
 import java.util.ArrayList;
 
 import javax.swing.ButtonGroup;
@@ -33,6 +38,56 @@ import javax.swing.JComboBox;
 
 public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons, GestionCasesCochesAmenagements {
 
+	private class ClicItemList implements MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			// TODO Auto-generated method stub
+			list.setSelectedIndex(UNDEFINED_CONDITION);
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseReleased(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseEntered(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+
+		@Override
+		public void mouseExited(MouseEvent e) {
+			// TODO Auto-generated method stub
+			
+		}
+		
+	}
+	
+	private class SelectionMaterielPersonnel implements ListSelectionListener {
+
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			ListSelectionModel lsm = (ListSelectionModel) e.getSource();	
+		}
+	}
+	
+	private class SelectionMaterielService implements ListSelectionListener {
+
+		@Override
+		public void valueChanged(ListSelectionEvent e) {
+			ListSelectionModel lsm = (ListSelectionModel) e.getSource();	
+		}
+	}
+	
 	private class AidesHumainesExamensListener implements ChangeListener {
 
 		@Override
@@ -338,9 +393,11 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		
 		list = new JList<String>();
 		
-		gestionChampsEtExceptions(list, 379, 246, 218, 50, null, false, true, null, null, null, null, null, "", null, null, pane);
+		gestionChampsEtExceptions(list, 379, 246, 218, 50, null, false, true, null, null, null, null, new ClicItemList(), "", null, null, pane);
 		
 		gererInfosFichierTXT(fichierMaterielPersonnel);
+		
+		list.setSelectedIndex(0);
 		
 		chckbxDroit_7 = new Droit("Droit");
 		
@@ -360,7 +417,9 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		
 		list_1 = new JList<String>();
 		
-		gestionChampsEtExceptions(list_1, 528, 271, 214, 50, null, false, true, null, false, null, null, null, "", null, null, pane2);
+		list_1.setSelectedIndex(0);
+		
+		gestionChampsEtExceptions(list_1, 528, 271, 214, 50, null, false, true, null, false, null, null, new ClicItemList(), "", null, null, pane2);
 		
 		gererInfosFichierTXT(fichierMaterielService);
 		
@@ -585,51 +644,51 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 			
 			lblPossibilitDeSortir = new JLabel("Possibilité de sortir de la salle pendant l'examen");
 			
-			gestionChampsEtExceptions(chckbxDroit, 6, 57, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait, null);
+			gestionChampsEtExceptions(chckbxDroit, 6, 57, 64, 23, null, false, true, null, false, null, null, null, etudiant[2], null, chckbxFait, null);
 			
-			gestionChampsEtExceptions(chckbxFait, 69, 57, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit, null);
+			gestionChampsEtExceptions(chckbxFait, 69, 57, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[2], null, chckbxDroit, null);
 			
 			gestionChampsEtExceptions(lblSecrtaire, 139, 61, 64, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_1, 6, 80, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_1, null);
+			gestionChampsEtExceptions(chckbxDroit_1, 6, 80, 64, 23, null, false, true, null, false, null, null, null, etudiant[3], null, chckbxFait_1, null);
 			
-			gestionChampsEtExceptions(chckbxFait_1, 69, 80, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_1, null);
+			gestionChampsEtExceptions(chckbxFait_1, 69, 80, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[3], null, chckbxDroit_1, null);
 			
 			gestionChampsEtExceptions(lblSurveillant, 139, 84, 77, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_2, 6, 101, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_2, null);
+			gestionChampsEtExceptions(chckbxDroit_2, 6, 101, 64, 23, null, false, true, null, false, null, null, null, etudiant[4], null, chckbxFait_2, null);
 			
-			gestionChampsEtExceptions(chckbxFait_2, 69, 101, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_2, null);
+			gestionChampsEtExceptions(chckbxFait_2, 69, 101, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[4], null, chckbxDroit_2, null);
 			
 			gestionChampsEtExceptions(lblInterprteLsf, 139, 105, 97, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_3, 6, 125, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_3, null);
+			gestionChampsEtExceptions(chckbxDroit_3, 6, 125, 64, 23, null, false, true, null, false, null, null, null, etudiant[5], null, chckbxFait_3, null);
 			
-			gestionChampsEtExceptions(chckbxFait_3, 69, 125, 64, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_3, null);
+			gestionChampsEtExceptions(chckbxFait_3, 69, 125, 64, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[5], null, chckbxDroit_3, null);
 			
 			gestionChampsEtExceptions(lblCodeurEnLpc, 139, 129, 104, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
 			gestionChampsEtExceptions(lblAidesHumaines, 98, 6, 111, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(rdbtnOui_1, 84, 175, 54, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), "", null, null, null);
+			gestionChampsEtExceptions(rdbtnOui, 42, 22, 54, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), etudiant[1], null, null, null);
 			
-			gestionChampsEtExceptions(rdbtnNon_1, 189, 175, 58, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), "", null, null, null);
+			gestionChampsEtExceptions(rdbtnNon, 167, 22, 58, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), etudiant[1], null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_4, 6, 205, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_4, null);
+			gestionChampsEtExceptions(chckbxDroit_4, 6, 205, 64, 23, null, false, true, null, false, null, null, null, etudiant[7], null, chckbxFait_4, null);
 			
-			gestionChampsEtExceptions(chckbxFait_4, 69, 205, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_4, null);
+			gestionChampsEtExceptions(chckbxFait_4, 69, 205, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[7], null, chckbxDroit_4, null);
 			
 			gestionChampsEtExceptions(lblTranscriptionBrailleDu, 139, 209, 251, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_5, 6, 226, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_5, null);
+			gestionChampsEtExceptions(chckbxDroit_5, 6, 226, 64, 23, null, false, true, null, false, null, null, null, etudiant[8], null, chckbxFait_5, null);
 			
-			gestionChampsEtExceptions(chckbxFait_5, 69, 226, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_5, null);
+			gestionChampsEtExceptions(chckbxFait_5, 69, 226, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[8], null, chckbxDroit_5, null);
 			
 			gestionChampsEtExceptions(lblAgrandissementDuSujet, 139, 230, 361, 16, null, false, true, null, false, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_6, 6, 246, 64, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_6, null);
+			gestionChampsEtExceptions(chckbxDroit_6, 6, 246, 64, 23, null, false, true, null, false, null, null, null, etudiant[9], null, chckbxFait_6, null);
 			
-			gestionChampsEtExceptions(chckbxFait_6, 69, 246, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_6, null);
+			gestionChampsEtExceptions(chckbxFait_6, 69, 246, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[9], null, chckbxDroit_6, null);
 			
 			gestionChampsEtExceptions(lblUtilisationDeMatriel, 139, 250, 218, 16, null, false, true, null, false, null, null, null, null, null, null, null);
 			
@@ -637,11 +696,13 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 			
 			gestionChampsEtExceptions(pane, 379, 246, 218, 50, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(list, 379, 246, 218, 50, null, false, true, null, null, null, null, null, "", null, null, pane);
+			gestionChampsEtExceptions(list, 379, 246, 218, 50, null, false, true, null, null, null, null, null, etudiant[10], null, chckbxFait_6, pane);
 			
-			gestionChampsEtExceptions(chckbxDroit_7, 6, 271, 69, 23, null, false, true, null, false, null, null, null, "", null, chckbxFait_7, null);
+			gererInfosFichierTXT(fichierMaterielPersonnel);
 			
-			gestionChampsEtExceptions(chckbxFait_7, 69, 271, 58, 23, null, false, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_7, null);
+			gestionChampsEtExceptions(chckbxDroit_7, 6, 271, 69, 23, null, false, true, null, false, null, null, null, etudiant[10], null, chckbxFait_7, null);
+			
+			gestionChampsEtExceptions(chckbxFait_7, 69, 271, 58, 23, null, false, true, null, false, null, null, new FaitListener(), etudiant[10], null, chckbxDroit_7, null);
 			
 			gestionChampsEtExceptions(lblUtilisationDeMatriel_1, 139, 275, 344, 16, null, false, true, null, null, null, null, null, null, null, null, null);
 			
@@ -649,49 +710,51 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 			
 			gestionChampsEtExceptions(pane2, 528, 271, 214, 50, null, false, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(list_1, 528, 271, 214, 50, null, false, true, null, false, null, null, null, "", null, null, pane2);
+			gestionChampsEtExceptions(list_1, 528, 271, 214, 50, null, false, true, null, false, null, null, null, etudiant[11], null, chckbxFait_7, pane2);
 			
-			gestionChampsEtExceptions(rdbtnOui, 42, 22, 54, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), "", null, null, null);
+			gererInfosFichierTXT(fichierMaterielService);
 			
-			gestionChampsEtExceptions(rdbtnNon, 167, 22, 58, 23, null, true, true, null, false, null, null, new AidesHumainesExamensListener(), "", null, null, null);
+			gestionChampsEtExceptions(rdbtnOui_1, 84, 175, 54, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), etudiant[6], null, null, null);
+			
+			gestionChampsEtExceptions(rdbtnNon_1, 189, 175, 58, 23, null, true, true, null, false, null, null, new AidesTechniquesExamensListener(), etudiant[6], null, null, null);
 			
 			gestionChampsEtExceptions(lblAidesTechniques, 116, 160, 120, 16, null, true, true, null, false, null, null, null, null, null, null, null);
 			
 			gestionChampsEtExceptions(lblAutre, 149, 303, 48, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_8, 6, 328, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_8, null);
+			gestionChampsEtExceptions(chckbxDroit_8, 6, 328, 64, 23, null, true, true, null, false, null, null, null, etudiant[12], null, chckbxFait_8, null);
 			
-			gestionChampsEtExceptions(chckbxFait_8, 69, 328, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_8, null);
+			gestionChampsEtExceptions(chckbxFait_8, 69, 328, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[12], null, chckbxDroit_8, null);
 			
 			gestionChampsEtExceptions(lblTempsMajorPour, 139, 332, 256, 16, null, true, true, null, false, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_9, 5, 349, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_9, null);
+			gestionChampsEtExceptions(chckbxDroit_9, 5, 349, 64, 23, null, true, true, null, false, null, null, null, etudiant[13], null, chckbxFait_9, null);
 			
-			gestionChampsEtExceptions(chckbxFait_9, 69, 349, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_9, null);
+			gestionChampsEtExceptions(chckbxFait_9, 69, 349, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[13], null, chckbxDroit_9, null);
 			
-			gestionChampsEtExceptions(lblTempsMajorPour_1, 139, 353, 344, 16, null, true, true, null, false, null, null, null, "", null, null, null);
+			gestionChampsEtExceptions(lblTempsMajorPour_1, 139, 353, 344, 16, null, true, true, null, false, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_10, 6, 373, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_10, null);
+			gestionChampsEtExceptions(chckbxDroit_10, 6, 373, 64, 23, null, true, true, null, false, null, null, null, etudiant[14], null, chckbxFait_10, null);
 			
-			gestionChampsEtExceptions(chckbxFait_10, 69, 373, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_10, null);
+			gestionChampsEtExceptions(chckbxFait_10, 69, 373, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[14], null, chckbxDroit_10, null);
 			
 			gestionChampsEtExceptions(lblTempsMajorPour_2, 139, 381, 513, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_11, 6, 401, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_11, null);
+			gestionChampsEtExceptions(chckbxDroit_11, 6, 401, 64, 23, null, true, true, null, false, null, null, null, etudiant[15], null, chckbxFait_11, null);
 			
-			gestionChampsEtExceptions(chckbxFait_11, 69, 401, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_11, null);
+			gestionChampsEtExceptions(chckbxFait_11, 69, 401, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[15], null, chckbxDroit_11, null);
 			
 			gestionChampsEtExceptions(lblSalleParticulire, 139, 405, 108, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_12, 5, 423, 69, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_12, null);
+			gestionChampsEtExceptions(chckbxDroit_12, 5, 423, 69, 23, null, true, true, null, false, null, null, null, etudiant[16], null, chckbxFait_12, null);
 			
-			gestionChampsEtExceptions(chckbxFait_12, 69, 423, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_12, null);
+			gestionChampsEtExceptions(chckbxFait_12, 69, 423, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[6], null, chckbxDroit_12, null);
 			
 			gestionChampsEtExceptions(lblTempsDePause, 139, 427, 111, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 			
-			gestionChampsEtExceptions(chckbxDroit_13, 5, 447, 64, 23, null, true, true, null, false, null, null, null, "", null, chckbxFait_13, null);
+			gestionChampsEtExceptions(chckbxDroit_13, 5, 447, 64, 23, null, true, true, null, false, null, null, null, etudiant[17], null, chckbxFait_13, null);
 			
-			gestionChampsEtExceptions(chckbxFait_13, 69, 447, 58, 23, null, true, true, null, false, null, null, new FaitListener(), "", null, chckbxDroit_13, null);
+			gestionChampsEtExceptions(chckbxFait_13, 69, 447, 58, 23, null, true, true, null, false, null, null, new FaitListener(), etudiant[17], null, chckbxDroit_13, null);
 			
 			gestionChampsEtExceptions(lblPossibilitDeSortir, 139, 451, 310, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 	}
