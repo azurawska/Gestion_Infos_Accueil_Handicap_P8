@@ -36,8 +36,20 @@ import javax.swing.DefaultListModel;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
 
+/**
+ * Ecran d'aménagements des examens (aides humaines, techniques et autres dispositions particulières (tiers-temps notamment).
+ * @author alexis
+ *
+ */
+
 public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons, GestionCasesCochesAmenagements {
 
+	/**
+	 * Classe utilisée pour cliquer les item et les sélectionner dans les JList de l'écran d'aménagements des examens.
+	 * @author alexis
+	 *
+	 */
+	
 	private class ClicItemList implements MouseListener {
 
 		@Override
@@ -69,24 +81,43 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 			// TODO Auto-generated method stub
 			
 		}
-		
 	}
+	
+	/**
+	 * Classe utilisée pour sélectionner des items dans la liste contenant le matériel personnel que l'étudiant peut utiliser dans le cadre de ses examens.
+	 * @author alexis
+	 *
+	 */
 	
 	private class SelectionMaterielPersonnel implements ListSelectionListener {
 
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
-			ListSelectionModel lsm = (ListSelectionModel) e.getSource();	
+			ListSelectionModel lsm = (ListSelectionModel) e.getSource();
+			new ClicItemList();
 		}
 	}
+	
+	/**
+	 * Classe utilisée pour sélectionner des items dans la liste contenant les différents types de matériels mis à disposition par l'accueil-handicap de l'université pour les examens des étudiants.
+	 * @author alexis
+	 *
+	 */
 	
 	private class SelectionMaterielService implements ListSelectionListener {
 
 		@Override
 		public void valueChanged(ListSelectionEvent e) {
-			ListSelectionModel lsm = (ListSelectionModel) e.getSource();	
+			ListSelectionModel lsm = (ListSelectionModel) e.getSource();
+			new ClicItemList();
 		}
 	}
+	
+	/**
+	 * Classe utilisée lorsqu'un des boutons radio concernant les aides humaines pour les examens est coché.
+	 * @author alexis
+	 *
+	 */
 	
 	private class AidesHumainesExamensListener implements ChangeListener {
 
@@ -131,6 +162,12 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		}
 	}
 	
+	/**
+	 * Classe utilisée lorsqu'un des boutons radio concernant les aides techniques pour les examens est coché.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AidesTechniquesExamensListener implements ChangeListener {
 
 		@Override
@@ -174,6 +211,12 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		}
 	}
 	
+	/**
+	 * Classe utilisée lorsqu'une des cases "Fait" est cochée.
+	 * @author alexis
+	 *
+	 */
+	
 	private class FaitListener implements ChangeListener {
 
 		@Override
@@ -195,76 +238,356 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		}
 	}
 	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAidesHumaines;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblSecrtaire;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblSurveillant;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblInterprteLsf;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblCodeurEnLpc;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAidesTechniques;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTranscriptionBrailleDu;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAgrandissementDuSujet;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblUtilisationDeMatriel;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblUtilisationDeMatriel_1;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAutre;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTempsMajorPour;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTempsMajorPour_1;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTempsMajorPour_2;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblSalleParticulire;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTempsDePause;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblPossibilitDeSortir;
 	
+	/**
+	 * Bouton Oui pour les aides humaines
+	 */
+	
 	private OuiNon rdbtnOui;
+	
+	/**
+	 * Bouton Non pour les aides humaines
+	 */
+	
 	private OuiNon rdbtnNon;
+	
+	/**
+	 * Bouton Oui pour les aides techniques
+	 */
+	
 	private OuiNon rdbtnOui_1;
+	
+	/**
+	 * Bouton Non pour les aides techniques
+	 */
+	
 	private OuiNon rdbtnNon_1;
 	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_1;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_2;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_3;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_4;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_5;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_6;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_7;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_8;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_9;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_10;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_11;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_12;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_13;
 	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_1;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_2;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_3;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_4;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_5;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_6;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_7;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_8;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_9;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_10;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_11;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_12;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_13;
 	
+	/**
+	 * Liste contenant le matériel personnel que l'étudiant peut être amené à utiliser pendant ses examens
+	 */
+	
 	private JList<String> list;
+	
+	/**
+	 * Liste contenant le matériel mis à la disposition des étudiants pour leurs examens par le service accueil-handicap de l'université
+	 */
+	
 	private JList<String> list_1;
 	
+	/**
+	 * Mise en place de la barre de défilement dans la liste du matériel personnel
+	 */
+	
 	private JScrollPane pane;
+	
+	/**
+	 * Mise en place de la barre de défilement dans la liste du matériel fourni par le service
+	 */
+	
 	private JScrollPane pane2;
+	
+	/**
+	 * Indique si l'étudiant est nouveau ou non
+	 */
 	
 	private boolean nouveau;
 	
+	/**
+	 * Le numéro de l'étudiant
+	 */
+	
 	private String numEtudiant;
+	
+	/**
+	 * Variable contenant le fichier concernant les aménagements des examens pour chaque étudiant
+	 */
 	
 	private final LectureFichierCSV fichierAmenagementsExamens = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/amenagements_examens.csv");
 	
+	/**
+	 * Variable contenant le fichier pour remplir la liste du matériel personnel
+	 */
+	
 	private final LectureFichierTXT fichierMaterielPersonnel = new LectureFichierTXT("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/txt/materiel_personnel.txt");
+	
+	/**
+	 * Variable contenant le fichier pour remplir la liste du matériel fourni par le service
+	 */
+	
 	private final LectureFichierTXT fichierMaterielService = new LectureFichierTXT("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/txt/materiel_service.txt");
 	
 	/**
-	 * Create the panel.
+	 * Create the panel for a new student.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException 
 	 */
@@ -500,6 +823,13 @@ public class AmenagementsExamens extends AbstractJPanel implements GestionFichie
 		gestionChampsEtExceptions(lblPossibilitDeSortir, 139, 451, 310, 16, null, true, true, null, null, null, null, null, null, null, null, null);
 	}
 
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié
+	 * @param utilisateur le numéro d'étudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	public AmenagementsExamens(String utilisateur) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=utilisateur;

@@ -3,6 +3,14 @@ package fenetre.composants;
 import javax.swing.Action;
 import javax.swing.Icon;
 
+/**
+ * Classe utilisée dans la classe Handicap. Permet de préciser la nature du handicap.
+ * @author alexis
+ * @See Handicap
+ * @See AbstractJPanel
+ *
+ */
+
 public final class HandicapTemporaire extends DureeHandicap {
 
 	public HandicapTemporaire() {

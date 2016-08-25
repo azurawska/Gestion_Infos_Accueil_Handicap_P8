@@ -31,7 +31,19 @@ import interfaces.GestionCasesCochesAmenagements;
 import interfaces.GestionFichierCSV;
 import interfaces.GroupementBoutons;
 
+/**
+ * Ecran d'aménagement des cours (aides humaines, techniques et aménagements de la formation).
+ * @author alexis
+ *
+ */
+
 public class AmenagementsCours extends AbstractJPanel implements GestionFichierCSV, GroupementBoutons, GestionCasesCochesAmenagements {
+	
+	/**
+	 * Classe appelée lorsque l'un des boutons radio correspondant aux aménagements de la formation est coché.
+	 * @author alexis
+	 *
+	 */
 	
 	private class AmenagementsFormationListener implements ChangeListener {
 
@@ -76,6 +88,12 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		}
 	}
 	
+	/**
+	 * Classe utilisée pour le droit à une aide technique particulière pendant les cours qui n'est pas déjà répertoriée dans l'écran, lorsque la case de ce droit est cochée. 
+	 * @author alexis
+	 *
+	 */
+	
 	private class DroitListener implements ChangeListener {
 
 		@Override
@@ -89,6 +107,12 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		}
 	}
 
+	/**
+	 * Classe utilisée lorsque l'un des boutons radio concernant les aides techniques est coché.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AidesTechniquesListener implements ChangeListener {
 
 		@Override
@@ -156,6 +180,12 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		}
 	}
 
+	/**
+	 * Classe utilisée pour toutes les cases Fait de l'écran.
+	 * @author alexis
+	 *
+	 */
+	
 	private class FaitListener implements ChangeListener {
 
 		@Override
@@ -179,6 +209,12 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 		}
 	}
 
+	/**
+	 * Classe utilisée lorsqu'un des boutons radio concernant les aides humaines pendant les cours est coché.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AidesHumainesListener implements ChangeListener {
 
 		@Override
@@ -231,81 +267,385 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 	}
 
 	private JDateChooser textField;
+	
 	private JDateChooser textField_1;
 	
 	private JTextField textField_2;
 	
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAidesHumaines;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblPriseDeNotes;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTutoratDaccompagnement;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblInterprtationEnLsf;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblCodageEnLpc;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblLecturefrappeAuKilomtreaide;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAidesTechniques;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblCarteDaccessibilitAux;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblRemiseLe;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblClsWcAccessibles;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblRemiseLe_1;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblNumrisations;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblTranscriptionsBraille;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAgrandissements;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblPrtDeDictaphone;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAutres;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAmnagementsDeLa;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblDispenseDassiduit;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAmnagementDeLa;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblAmnagementDesHoraires;
+	
+	/**
+	 * Intitulé du champ.
+	 */
+	
 	private JLabel lblDispenseDeStage;
 	
+	/**
+	 * Bouton Oui concernant les aides humaines
+	 */
+	
 	private OuiNon rdbtnOui;
+	
+	/**
+	 * Bouton Non concernant les aides humaines
+	 */
+	
 	private OuiNon rdbtnNon;
+	
+	/**
+	 * Bouton Oui concernant les aides techniques
+	 */
+	
 	private OuiNon rdbtnOui_1;
+	
+	/**
+	 * Bouton Non concernant les aides techniques
+	 */
+	
 	private OuiNon rdbtnNon_1;
+	
+	/**
+	 * Bouton Oui concernant les aménagements de la formation
+	 */
+	
 	private OuiNon rdbtnOui_2;
+	
+	/**
+	 * Bouton Non concernant les aménagements de la formation
+	 */
+	
 	private OuiNon rdbtnNon_2;
 	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
 	private Droit chckbxDroit;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_1;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_2;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_3;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_4;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_5;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_6;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_7;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_8;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_9;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_10;
+	
+	/**
+	 * Case à cocher affichant un droit particulier à autre chose de non répertorié et qu'il faut préciser.
+	 */
+	
 	private DroitParticulier chckbxDroit_11;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_12;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_13;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_14;
+	
+	/**
+	 * Case à cocher indiquant que l'on a droit à telle ou telle aides (valable pour les autres champs de type Droit dans les écrans d'aménagements des cours et des examens).
+	 */
+	
 	private Droit chckbxDroit_15;
 	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_1;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_2;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_3;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_4;
+	
+	/**
+	 * Si cette case est cochée, un champ de date est affiché pour indiquer quand est-ce que la clé d'accessibilité aux locaux et ascenseurs a été remise.
+	 */
+	
 	private FaitSpecifiqueHandicapMoteur chckbxFait_5;
+	
+	/**
+	 * Si cette case est cochée, un champ de date est affiché pour indiquer quand est-ce que la clé d'accessibilités aux WC accessibles a été remise.
+	 */
+	
 	private FaitSpecifiqueHandicapMoteur chckbxFait_6;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_7;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_8;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_9;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_10;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_11;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_12;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_13;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_14;
+	
+	/**
+	 * Case à cocher indiquant que le droit est appliqué (valable pour les autres champs de type Fait dans les écrans d'aménagements des cours et des examens)
+	 */
+	
 	private Fait chckbxFait_15;
+	
+	/**
+	 * Indique si l'étudiant est nouveau ou non
+	 */
 	
 	private boolean nouveau;
 	
+	/**
+	 * Le numéro d'étudiant
+	 */
+	
 	private String numEtudiant;
+	
+	/**
+	 * Variable permettant de travailler avec le fichier contenant les aménagements des cours pour chaque étudiant
+	 */
 	
 	private final LectureFichierCSV fichierAmenagementsCours = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/amenagements_cours.csv");
 
 	/**
-	 * Create the panel.
+	 * Create the panel for a new student.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException 
 	 */
@@ -575,6 +915,13 @@ public class AmenagementsCours extends AbstractJPanel implements GestionFichierC
 
 	}
 
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié.
+	 * @param utilisateur le numéro d'étudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	public AmenagementsCours(String utilisateur) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=utilisateur;

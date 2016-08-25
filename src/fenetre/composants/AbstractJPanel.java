@@ -31,7 +31,52 @@ import com.toedter.calendar.JDateChooser;
 import exceptions.LongueurDifferenteListesException;
 import exceptions.NullArgumentException;
 
+/**
+ * Classe étendue par tous les JPanel de l'application.
+ * @author alexis
+ *@See Identite
+ *@See Authentification
+ *@See ParcoursAnterieurP8
+ *@See Handicap
+ *@See Amenagements
+ *@See AmenagementsCours
+ *@See AmenagementsExamens
+ *@See Projets
+ *@See CarnetDeVisiteEtCommentaires
+ *@See Inscription
+ *@See Accueil
+ *@See NotesReussite
+ *@See ListeEtudiantsAvecNomOuPrenomCommuns
+ */
+
 public abstract class AbstractJPanel extends JPanel {
+	
+	/**
+	 * Méthode centrale permettant de placer les composants sur chaque JPanel implémentant cette classe
+	 * @param composant le composant à positionner sur le JPanel courant
+	 * @param x position horizontale
+	 * @param y position verticale
+	 * @param width largeur
+	 * @param height taille
+	 * @param color couleur du composant dans le cas de JTextField et de JTextArea éditables ou non (blanc si oui, gris sinon). Ce para^tre est à null en dehors de ces cas-là.
+	 * @param visible visibilité du composant
+	 * @param enabled indique si le composant est actif ou pas (s'il peut être rempli par programmation, notamment dans le cas d'un JTextField. S'il est à false, le texte modifié n'apparaîtra pas.
+	 * @param editable indique si le composant est éditable. Valable pour tous les champs de saisie.
+	 * @param selected indique si le composant est sélectionné. Valable pour les composant de type JToggleButton
+	 * @param titresOnglets liste des titres des onglets. Valable si le composant est un JTabbedPane. Null pour les autres types.
+	 * @param onglets liste des onglets. Valable si le composant est un JTabbedPane. Null pour les autres types.
+	 * @param event événement associé à un composant lorsqu'il doit se passer quelque chose quand on intéragit avec lui. Valable pour les boutons, les checkbox, certaines comboBox et les boutons radio. Null le reste du temps.
+	 * @param chaine le texte que doit contenir un champ de saisi ou avec lequel doit être comparé le texte d'un composant afin que celui-ci puisse être sélectionné en conséquence selon certaines conditions. Cette chaîne devra servir, par la suite, à définir dynamiquement les textes des JLabel.
+	 * @param handicapParticulier le JTextField qui doit contenir un texte spécifique lors de la consultation des informations d'un étudiant dans certains cas. Null le reste du temps.
+	 *@See Handicap
+	 * @param statutAmenagement Null si le composant n'est pas de type Droit ou Fait. Il est du type abstrait DroitFait qui est implémenté par Droit et Fait. Du coup, les cases à cocher droit et fait pour chaque type d'aménagements sont liées l'une à l'autre.
+	 *@See AmenagementsCours
+	 *@See AmenagementsExamens
+	 *@See DroitFait
+	 *@See Droit
+	 *@See Fait
+	 * @param pane le JScrollPane utiisé si les composants sont de type JTextArea ou JComboBox. Null le reste du temps. Celui-ci permet de mettre des barres de défilement sur ces champs.
+	 */
 	
 	private void definirEtAjouterChamp(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement, JScrollPane pane) {
 		
@@ -204,6 +249,35 @@ public abstract class AbstractJPanel extends JPanel {
 			}
 		}
 	}
+	
+	/**
+	 * Méthode appelée par toutes les classes étendant cette classe. Cette méthode appelle la méthode centrale (voir plus haut).
+	 * @param composant le composant à positionner sur le JPanel courant
+	 * @param x position horizontale
+	 * @param y position verticale
+	 * @param width largeur
+	 * @param height taille
+	 * @param color couleur du composant dans le cas de JTextField et de JTextArea éditables ou non (blanc si oui, gris sinon). Ce para^tre est à null en dehors de ces cas-là.
+	 * @param visible visibilité du composant
+	 * @param enabled indique si le composant est actif ou pas (s'il peut être rempli par programmation, notamment dans le cas d'un JTextField. S'il est à false, le texte modifié n'apparaîtra pas.
+	 * @param editable indique si le composant est éditable. Valable pour tous les champs de saisie.
+	 * @param selected indique si le composant est sélectionné. Valable pour les composant de type JToggleButton
+	 * @param titresOnglets liste des titres des onglets. Valable si le composant est un JTabbedPane. Null pour les autres types.
+	 * @param onglets liste des onglets. Valable si le composant est un JTabbedPane. Null pour les autres types.
+	 * @param event événement associé à un composant lorsqu'il doit se passer quelque chose quand on intéragit avec lui. Valable pour les boutons, les checkbox, certaines comboBox et les boutons radio. Null le reste du temps.
+	 * @param chaine le texte que doit contenir un champ de saisi ou avec lequel doit être comparé le texte d'un composant afin que celui-ci puisse être sélectionné en conséquence selon certaines conditions. Cette chaîne devra servir, par la suite, à définir dynamiquement les textes des JLabel.
+	 * @param handicapParticulier le JTextField qui doit contenir un texte spécifique lors de la consultation des informations d'un étudiant dans certains cas. Null le reste du temps.
+	 *@See Handicap
+	 * @param statutAmenagement Null si le composant n'est pas de type Droit ou Fait. Il est du type abstrait DroitFait qui est implémenté par Droit et Fait. Du coup, les cases à cocher droit et fait pour chaque type d'aménagements sont liées l'une à l'autre.
+	 *@See AmenagementsCours
+	 *@See AmenagementsExamens
+	 *@See DroitFait
+	 *@See Droit
+	 *@See Fait
+	 * @param pane le JScrollPane utiisé si les composants sont de type JTextArea ou JComboBox. Null le reste du temps. Celui-ci permet de mettre des barres de défilement sur ces champs.
+	 * @throws NullArgumentException
+	 * @throws LongueurDifferenteListesException
+	 */
 	
 	protected void gestionChampsEtExceptions(JComponent composant, int x, int y, int width, int height, Color color, boolean visible, boolean enabled, Boolean editable, Boolean selected, ArrayList<String> titresOnglets, ArrayList<AbstractJPanel> onglets, EventListener event, String chaine, JTextField handicapParticulier, DroitFait statutAmenagement, JScrollPane pane) throws LongueurDifferenteListesException, NullArgumentException {
 		

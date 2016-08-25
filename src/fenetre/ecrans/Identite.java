@@ -27,37 +27,175 @@ import javax.swing.JScrollBar;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Ecran récapitulant les informations générales de l'étudiant ainsi que celles des personnes à contacter en cas d'urgences.
+ * @author alexis
+ *
+ */
+
 public class Identite extends AbstractJPanel implements Scrollable, GestionFichierCSV, GroupementBoutons {
+	
+	/**
+	 * Date de création du dossier
+	 */
+	
 	private JDateChooser textField;
+	
+	/**
+	 * Date de dernière mise à jour du dossier
+	 */
+	
 	private JDateChooser textField_1;
-	private JTextField textField_2;
-	private JTextField textField_3;
-	private JTextField textField_4;
-	private JTextField textField_5;
+	
+	/**
+	 * Date de naissance
+	 */
+	
 	private JDateChooser textField_6;
+	
+	/**
+	 * N° Etudiant
+	 */
+	
+	private JTextField textField_2;
+	
+	/**
+	 * Nom de naissance
+	 */
+	
+	private JTextField textField_3;
+	
+	/**
+	 * Nom marital
+	 */
+	
+	private JTextField textField_4;
+	
+	/**
+	 * Prénom
+	 */
+	
+	private JTextField textField_5;
+	
+	/**
+	 * Adresse du domicile
+	 */
+	
 	private JTextField textField_7;
+	
+	/**
+	 * Code postal
+	 */
+	
 	private JTextField textField_8;
+	
+	/**
+	 * Ville
+	 */
+	
 	private JTextField textField_9;
+	
+	/**
+	 * Téléphone
+	 */
+	
 	private JTextField textField_10;
+	
+	/**
+	 * E-mail
+	 */
+	
 	private JTextField textField_11;
+	
+	/**
+	 * Nom de famille de la personne à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_12;
+	
+	/**
+	 * Prénom de la personne à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_13;
+	
+	/**
+	 * Téléphone de la personne à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_14;
+	
+	/**
+	 * E-mail de la personne à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_15;
+	
+	/**
+	 * Fonction du partenaire extérieur à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_16;
+	
+	/**
+	 * Nom du partenaire extérieur à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_17;
+	
+	/**
+	 * Prénom du partenaire extérieur à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_18;
+	
+	/**
+	 * Téléphone du partenaire extérieur à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_19;
+	
+	/**
+	 * E-mail du partenaire extérieur à contacter en cas d'urgences
+	 */
+	
 	private JTextField textField_20;
 	
+	/**
+	 * Bouton Monsieur
+	 */
+	
 	private Sexe rdbtnM;
+	
+	/**
+	 * Bouton Madame
+	 */
+	
 	private Sexe rdbtnMme;
+	
+	/**
+	 * Indique si l'étudiant est nouveau ou pas
+	 */
 	
 	private boolean nouveau;
 	
+	/**
+	 * Le numéro d'étudiant
+	 */
+	
 	private String numEtudiant;
 	
+	/**
+	 * Variable permettant de travailler avec le fichier contenant toutes les informations générales de chaque étudiant
+	 */
+	
 	private final LectureFichierCSV fichierIdentite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
+	
+	/**
+	 * Crée le panel pour un nouvel étudiant.
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
 	
 	public Identite() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
@@ -267,6 +405,13 @@ public class Identite extends AbstractJPanel implements Scrollable, GestionFichi
 		
 		gestionChampsEtExceptions(textArea, 356, 393, 288, 141, Color.WHITE, true, true, true, null, null, null, null, "", null, null, pane);
 	}
+	
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié
+	 * @param numEtudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
 	
 	public Identite(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		

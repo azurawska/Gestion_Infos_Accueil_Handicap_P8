@@ -15,14 +15,35 @@ import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
 import interfaces.GestionFichierCSV;
 
+/**
+ * Ecran des projets personnels et professionnels de l'étudiant.
+ * @author alexis
+ *
+ */
+
 public class Projets extends AbstractJPanel implements GestionFichierCSV {
 	
+	/**
+	 * Indique si l'étudiant est nouveau ou pas
+	 */
+	
 	private boolean nouveau;
+	
+	/**
+	 * Le numéro d'étudiant
+	 */
+	
+	
 	private String numEtudiant;
+	
+	/**
+	 * Variable permettant de travailler avec le fichier concernant les projets personnels et professionnels de chaque étudiant
+	 */
+	
 	private final LectureFichierCSV fichierProjets = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/projets.csv");
 
 	/**
-	 * Create the panel.
+	 * Create the panel for a new student.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException 
 	 */
@@ -58,6 +79,13 @@ public class Projets extends AbstractJPanel implements GestionFichierCSV {
 
 	}
 	
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié
+	 * @param numEtudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	public Projets(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;	
@@ -89,7 +117,7 @@ public class Projets extends AbstractJPanel implements GestionFichierCSV {
 		
 		gestionChampsEtExceptions(lblProjets, 20, 231, 240, 14, null, true, true, null, null, null, null, null, null, null, null, null);
 		
-JScrollPane pane2 = new JScrollPane();
+		JScrollPane pane2 = new JScrollPane();
 		
 		gestionChampsEtExceptions(pane2, 40, 257, 386, 176, null, true, true, null, null, null, null, null, null, null, null, null);
 		

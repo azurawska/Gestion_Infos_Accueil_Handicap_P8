@@ -15,7 +15,7 @@ import org.junit.Test;
 
 /**
  * @author Alexou
- *
+ *Classe de test concernant la récupération d'une chaine dans un tableau de données représentant les étudiants répertoriés.
  */
 public class LectureFichierTest {
 	

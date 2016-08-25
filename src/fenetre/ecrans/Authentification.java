@@ -24,31 +24,109 @@ import fenetre.composants.AbstractJPanel;
 import fenetre.composants.JTextFieldIdentifiant;
 import interfaces.GestionFichierCSV;
 
+/**
+ * Classe représentant le premier écran de l'application pour rechercher un étudiant, le mettre à jour ou en créer un nouveau.
+ * @author alexis
+ *
+ */
+
 public class Authentification extends AbstractJPanel implements GestionFichierCSV {
 	
+	/**
+	 * Champ de saisie du numéro d'étudiant.
+	 */
+	
 	private JTextFieldIdentifiant textField_num_etudiant;
+	
+	/**
+	 * Champ de saisie du nom de famille de l'étudiant
+	 */
+	
 	private JTextField textField_nom;
+	
+	/**
+	 * Champ de saisie du prénom de l'étudiant
+	 */
+	
 	private JTextField textField_prenom;
+	
+	/**
+	 * Bouton permettant d'accéder à l'écran d'accueil lorsque l'étudiant est répertorié
+	 */
 	
 	private JButton btnSuivant;
 	
+	/**
+	 * Bouton permettant d'accéder à l'écran d'accueil lorsque l'on veut créer un nouvel étudiant
+	 */
+	
 	private JButton btnNouveau;
+	
+	/**
+	 * Ecran d'accueil
+	 */
 	
 	private Accueil accueil;
 	
+	/**
+	 * Tableau contenant tout le fichier identite.csv en mémoire
+	 */
+	
 	private ArrayList<String[]> donneesEtudiants;
+	
+	/**
+	 * Tableau contenant tous les étudiants ayant au moins leur nom ou leur prénom en commun.
+	 */
+	
 	private ArrayList<String[]> donneesEtudiantsAvecChainesCommunes;
 	
+	/**
+	 * Tableau contenant tous les noms de famille de naissance des étudiants.
+	 */
+	
 	private ArrayList<String> chainesNomNaissance;
+	
+	/**
+	 * Tableau contenant tous les noms maritaux des étudiants
+	 */
+	
 	private ArrayList<String> chainesNomMarie;
+	
+	/**
+	 * Tableau contenant tous les prénoms des étudiants
+	 */
+	
 	private ArrayList<String> chainesPrenom;
 	
+	/**
+	 * Tableau contenant toutes les informations relative à un étudiant
+	 */
+	
 	private String[] etudiant;
+	
+	/**
+	 * Tableau contenant les chaines communes récupérées via les champs de saisie du nom et du prénom
+	 */
+	
 	private String[] chainesCommunes;
+	
+	/**
+	 * Variable permettant de travailler avec le fichier Identite.csv contenant toutes les informations générales relatives aux étudiants
+	 */
 	
 	private final LectureFichierCSV lectureFichier = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/identite.csv");
 	
+	/**
+	 * Tous les étudiants ayant au moins une chaine en commun (nom ou prénom)
+	 */
+	
 	private StringBuilder chainesEtudiantsTrouves;
+	
+	/**
+	 * Création du panel d'authentification.
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
 	
 	public Authentification() throws LongueurDifferenteListesException, NullArgumentException {
 		setLayout(null);
@@ -94,6 +172,12 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		gestionChampsEtExceptions(btnNouveau, x+pasx, y+5*pasy, 89, 23, null, true, true, null, null, null, null, new NouveauAction(), null, null, null, null);
 	}
 	
+	/**
+	 * Classe utilisée pour accéder à l'écran d'accueil afin de créer un nouvel utilisateur une fois le bouton "Nouveau" cliqué.
+	 * @author alexis
+	 *
+	 */
+	
 	private class NouveauAction implements ActionListener {
 
 		@Override
@@ -101,6 +185,12 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 			accueil();
 		}
 	}
+	
+	/**
+	 * Permet d'accéder à l'écran d'accueil ou non en fonction des informations renseignées dans les champs de saisies une fois le bouton "Suivant" cliqué.
+	 * @author alexis
+	 *
+	 */
 	
 	private class SuivantAction implements ActionListener {
 
@@ -113,6 +203,12 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 			}
 		}
 	}
+	
+	/**
+	 * Permet de gérer le fait que les champs de saisie nom et prénom ne soient pas éditables si le champ de saisie numéro étudiant est renseigné, le numéro d'étudiant étant unique.
+	 * @author alexis
+	 *
+	 */
 	
 	private class QuitNumEtudiantFieldMouseEvent implements MouseListener {
 
@@ -151,10 +247,20 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		}
 	}
 	
+	/**
+	 * Gère le traitement des informations récupérées via les champs de saisie de l'écran d'authentification.
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	private void suivant() throws LongueurDifferenteListesException, NullArgumentException {
 		
 		gererInfosFichierCSV(lectureFichier);
 	}
+	
+	/**
+	 * Permet d'afficher l'écran d'accueil si l'étudiant n'est pas répertorié.
+	 */
 	
 	private void accueil() {
 		setVisible(false);
@@ -173,12 +279,27 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		accueil.setVisible(true);
 	}
 	
+	/**
+	 * Permet d'accéder à l'accueil dans le cas où l'étudiant existe, est connu du service handicap et est répertorié.
+	 * @param numEtudiant le numéro d'étudiant
+	 * @param nom le nom de famille (de naissance ou marital)
+	 * @param prenom le prénom
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	private void accueil(String numEtudiant, String nom, String prenom) throws LongueurDifferenteListesException, NullArgumentException {
 		this.setVisible(false);
 		accueil = new Accueil(numEtudiant, nom, prenom);
 		Fenetre.getInstance().setContentPane(accueil);
 		accueil.setVisible(true);
 	}
+	
+	/**
+	 * 
+	 * @param tableau
+	 * @return les étudiants ayant le même nom et/ou le même prénom.
+	 */
 	
 	private StringBuilder plusieursEtudiantsSelectionnes(ArrayList<String[]> tableau) {
 		
@@ -192,11 +313,19 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		return plusieursEtudiantsSelectionnes;
 	}
 	
+	/**
+	 * Charge en mémoire les étudiants avec des chaînes communes.
+	 */
+	
 	private void chargementEtudiantsAvecChainesCommunes() {
 		donneesEtudiants = lectureFichier.chargerFichier();
 		chainesCommunes = lectureFichier.retournerChainesCommunes(textField_nom, textField_prenom);
 		donneesEtudiantsAvecChainesCommunes=lectureFichier.retournerEtudiantsAvecChaineCommune(donneesEtudiants, chainesCommunes);
 	}
+	
+	/**
+	 * Charge tous les noms de famille des étudiants en mémoire.
+	 */
 	
 	private void chargerChainesNoms() {
 		chargementEtudiantsAvecChainesCommunes();
@@ -204,10 +333,18 @@ public class Authentification extends AbstractJPanel implements GestionFichierCS
 		chainesNomMarie = lectureFichier.retournerChaines(donneesEtudiants, 5);
 	}
 	
+	/**
+	 * Charge tous les prénoms des étudiants en mémoire.
+	 */
+	
 	private void chargerChainesPrenoms() {
 		chargementEtudiantsAvecChainesCommunes();
 		chainesPrenom=lectureFichier.retournerChaines(donneesEtudiants, 6);
 	}
+	
+	/**
+	 * Charge les noms et prénoms des étudiants en mémoire dans le cas où les champs nom et prénoms sont renseignés tous les deux.
+	 */
 	
 	private void chargerChainesNomsPrenoms() {
 		chargerChainesNoms();

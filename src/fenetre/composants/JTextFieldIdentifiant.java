@@ -3,6 +3,13 @@ package fenetre.composants;
 import javax.swing.JTextField;
 import javax.swing.text.Document;
 
+/**
+ * Classe utilisée dans la classe Authentification pour que le champ de numéro d'étudiant ne soit plus éditable une fois que quelque chose est écrit dedans.
+ * @author alexis
+ *@See Authentification
+ *@See AbstractJPanel
+ */
+
 public final class JTextFieldIdentifiant extends JTextField {
 
 	public JTextFieldIdentifiant() {
@@ -29,5 +36,4 @@ public final class JTextFieldIdentifiant extends JTextField {
 		super(doc, text, columns);
 		// TODO Auto-generated constructor stub
 	}
-
 }

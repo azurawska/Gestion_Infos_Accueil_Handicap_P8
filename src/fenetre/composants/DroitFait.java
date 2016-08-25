@@ -4,6 +4,14 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 
+/**
+ * Classe étendue par les classes Droit et Fait.
+ * @See Droit
+ * @See Fait
+ * @author alexis
+ *
+ */
+
 public abstract class DroitFait extends JCheckBox {
 
 	public DroitFait() {

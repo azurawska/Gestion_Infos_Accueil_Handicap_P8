@@ -14,15 +14,35 @@ import exceptions.NullArgumentException;
 import fenetre.composants.AbstractJPanel;
 import interfaces.GestionFichierCSV;
 
-public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements GestionFichierCSV {
+/**
+ * Ecran récaptiulant les visites à l'accueil handicap ainsi que leurs objets respectifs.
+ * @author alexis
+ *
+ */
 
+public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements GestionFichierCSV {
+	
 	/**
-	 * Create the panel.
+	 * Indique si l'étudiant est nouveau ou pas.
 	 */
 	
 	private boolean nouveau;
+	
+	/**
+	 * Le numéro d'étudiant
+	 */
+	
 	private String numEtudiant;
+	
+	/**
+	 * Variable permettant de travailler avec le fichier contenant les dates de visite à l'accueil handicap et leurs objets respectifs.
+	 */
+	
 	private final LectureFichierCSV fichierCarnetVisite = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/carnet_des_visites_et_commentaires.csv");
+	
+	/**
+	 * Create the panel for a new student.
+	 */
 	
 	public CarnetDeVisiteEtCommentaires() throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=true;
@@ -41,6 +61,13 @@ public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements Gest
 		
 		gestionChampsEtExceptions(pane, 10, 51, 707, 436, null, true, true, null, null, null, null, null, null, null, null, null);
 	}
+	
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié
+	 * @param numEtudiant le numéro d'étudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
 	
 	public CarnetDeVisiteEtCommentaires(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;

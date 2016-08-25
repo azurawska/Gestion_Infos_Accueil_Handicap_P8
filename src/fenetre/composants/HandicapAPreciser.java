@@ -3,6 +3,13 @@ package fenetre.composants;
 import javax.swing.Action;
 import javax.swing.Icon;
 
+/**
+ * Classe utilisée dans la classe Handicap. Elle permet de préciser un type de handicap faisant partie d'un regroupement de handicap.
+ * @author alexis
+ *@See Handicap
+ *@See AbstractJPanel
+ */
+
 public class HandicapAPreciser extends HandicapParticulier {
 
 	/**
@@ -47,5 +54,4 @@ public class HandicapAPreciser extends HandicapParticulier {
 		super(text, icon, selected);
 		// TODO Auto-generated constructor stub
 	}
-
 }

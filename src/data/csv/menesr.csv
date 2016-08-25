@@ -1,12 +1,12 @@
-N° Etudiant;Fiche ministérielle n°;Dossier MDPH;Date du dernier dépôt à la MDPH;Taux d'incapacité;Carte d'invalidité;Carte de priorité;Carte européenne de stationnement;Accompagnement par un auxiliaire de vie;Prestation Compensation au Handicap (PCH);Aide au Travail Personnel à Domicile (ATPD);Recours à un transport spécifique;Reconnaissance Qualité Travailleur Handicapé (RQTH);Allocation Adulte Handicapé (AAH);Autre professionnel de soins ou de rééducation;Suivi psychologique;Transports spécialisés dans le cadre des études;Type de transport;Nom de la société;Téléphone de la société;Adresse Mail de la société;Accompagnement par un assistant de vie ou un accompagnateur
-11020304;1;Oui;14/04/14;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;;;;;Non
-10203040;2;Oui;15/01/14;≥ 80 %;Oui;;Oui;Oui;Oui;Oui;Non;Oui;Oui;Oui;Non;Non;;;;;Oui
-50607080;3;Oui;15/01/14;≥ 80 %;Oui;;Non;Oui;Oui;Non;Non;Oui;Oui;Oui;Oui;Non;;;;;Oui
-2202529;4;Oui;15/01/14;≥ 50 % et < 80 %;Non;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Transport quotidien;TPC;33150505050;tpc@orange.fr;Oui
-13091933;5;Non;00/00/0000;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable
-7071993;6;Oui;15/01/14;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;;;;;Non
-10051993;7;NC;00/00/0000;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC
-22091994;8;Oui;15/01/14;≥ 80 %;Oui;;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Non;Oui;Transport pour étudiants handicapés moteurs;TPEHM;33130303030;tpehm@free.fr;Oui
-25021960;9;Oui;15/01/10;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;;;;;Non
-29101988;10;Oui;15/01/14;≥ 50 % et < 80 %;Non;Non;Non;Oui;Oui;Non;Non;Oui;Oui;Non;Oui;Non;;;;;Non
-777777;11;Non (en cours);20/06/16;Non déterminé;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC
+N° Etudiant;Fiche ministérielle n°;Dossier MDPH;Date du dernier dépôt à la MDPH;Département de dépôt du dossier;Taux d'incapacité;Carte d'invalidité;Carte de priorité;Carte européenne de stationnement;Accompagnement par un auxiliaire de vie;Prestation Compensation au Handicap (PCH);Aide au Travail Personnel à Domicile (ATPD);Recours à un transport spécifique;Reconnaissance Qualité Travailleur Handicapé (RQTH);Allocation Adulte Handicapé (AAH);Autre professionnel de soins ou de rééducation;Suivi psychologique;Transports spécialisés dans le cadre des études;Type de transport;Nom de la société;Téléphone de la société;Adresse Mail de la société;Accompagnement par un assistant de vie ou un accompagnateur
+11020304;1;Oui;14/04/14;93 – Seine-saint-Denis;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;Non applicable;Non applicable;Non applicable;Non applicable;Non
+10203040;2;Oui;15/01/14;94 – Val-De-Marne;≥ 80 %;Oui;;Oui;Oui;Oui;Oui;Non;Oui;Oui;Oui;Non;Non;Non applicable;Non applicable;Non applicable;Non applicable;Oui
+50607080;3;Oui;15/01/14;91 – Essonne;≥ 80 %;Oui;;Non;Oui;Oui;Non;Non;Oui;Oui;Oui;Oui;Non;Non applicable;Non applicable;Non applicable;Non applicable;Oui
+2202529;4;Oui;15/01/14;77 – Seine-et-Marne;≥ 50 % et < 80 % avec  restriction substantielle et durable d'accès à un emploi et station debout pénible;Non;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Transport quotidien;TPC;33150505050;tpc@orange.fr;Oui
+13091933;5;Non;00/00/0000;92 – Hauts-de-Seine;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable;Non applicable
+7071993;6;Oui;15/01/14;78 – Yvelines;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;Non applicable;Non applicable;Non applicable;Non applicable;Non
+10051993;7;NC;00/00/0000;95 – Val-d'Oise;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC
+22091994;8;Oui;15/01/14;59 – Nord;≥ 80 %;Oui;;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Oui;Non;Oui;Transport pour étudiants handicapés moteurs;TPEHM;33130303030;tpehm@free.fr;Oui
+25021960;9;Oui;15/01/10;75 – Paris;< 50 %;Non;Non;Non;Non;Non;Non;Non;Oui;Non;Non;Non;Non;Non applicable;Non applicable;Non applicable;Non applicable;Non
+29101988;10;Oui;15/01/14;76 – Seine-Maritime;≥ 50 % et < 80 % avec restriction substantielle et durable d'accès à un emploi et sans station debout pénible;Non;Non;Non;Oui;Oui;Non;Non;Oui;Oui;Non;Oui;Non;Non applicable;Non applicable;Non applicable;Non applicable;Non
+777777;11;Non;20/06/16;93 – Seine-saint-Denis;Non déterminé;NC;NC;NC;NC;NC;NC;NC;NC;NC;NC;Non;NC;NC;NC;NC;NC;NC

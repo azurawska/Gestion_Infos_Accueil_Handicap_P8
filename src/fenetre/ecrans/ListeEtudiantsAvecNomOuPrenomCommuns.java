@@ -2,19 +2,24 @@ package fenetre.ecrans;
 
 import javax.swing.JPanel;
 
+import fenetre.composants.AbstractJPanel;
+
 import java.util.ArrayList;
 
 import javax.swing.JButton;
 
-public class ListeEtudiantsAvecNomOuPrenomCommuns extends JPanel {
+/**
+ * Ecran permettant de lister tous les étudiants ayant des caractéristiques communes afin de pouvoir n'en sélectionner qu'un seul pour arriver à l'écran d'accueil. Cette classe est à développer.
+ * @author alexis
+ *
+ */
 
-	private ArrayList<JButton> selectionnerButtons; 
+public class ListeEtudiantsAvecNomOuPrenomCommuns extends AbstractJPanel {
 	
 	/**
-	 * Create the panel.
+	 * Crée le panel.
 	 */
 	public ListeEtudiantsAvecNomOuPrenomCommuns() {
 
 	}
-
 }

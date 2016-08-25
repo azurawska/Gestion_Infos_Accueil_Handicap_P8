@@ -4,5 +4,6 @@
 >= 50 % et < 80 % avec station debout pénible et sans restriction substantielle durable d'accès à un emploi
 >= 50 % et < 80 % avec restriction substantielle et durable d'accès à un emploi et station debout pénible
 < 50 %
+Non déterminé
 Non applicable
 NC

@@ -4,6 +4,13 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JCheckBox;
 
+/**
+ * Classe serant a traiter un cas particulier de JCheckBox ne pouvant pas être traité avec le seul cas générique
+ * @See AbstractJPanel
+ * @author alexis
+ *
+ */
+
 public class AffectationPrioritaire extends JCheckBox {
 
 	public AffectationPrioritaire() {

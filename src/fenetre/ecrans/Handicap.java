@@ -36,7 +36,19 @@ import java.util.ArrayList;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
 
+/**
+ * Ecran répertoriant les différents types de handicap que peut avoir un étudiant.
+ * @author alexis
+ *
+ */
+
 public class Handicap extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons {
+	
+	/**
+	 * Classe utilisée lorsque la cases "Autres troubles" est cochée si le handicap n'est pas déjà répertorié.
+	 * @author alexis
+	 *
+	 */
 	
 	private class AutresTroublesListener implements ChangeListener {
 
@@ -56,6 +68,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le trouble viscéraux s'il n'est pas répertorié.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AutresTroublesViscerauxListener implements ChangeListener {
 
 		@Override
@@ -70,6 +88,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de faire apparaître tous les types de troubles viscéraux possibles afin de pouvoir les cocher.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesViscerauxListener implements ChangeListener {
 
 		@Override
@@ -109,6 +133,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le type de trouble du langage et/ou de la parole.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesDuLangageEtDeLaParoleListener implements ChangeListener {
 
 		@Override
@@ -127,6 +157,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le type de handicap psychique.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesPsychiquesListener implements ChangeListener {
 
 		@Override
@@ -145,6 +181,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de faire apparaître les troubles autistiques afin de choisir duquel est atteint l'étudiant s'il en a un.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TsaListener implements ChangeListener {
 
 		@Override
@@ -167,6 +209,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le type de trouble cognitif.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesCognitifsListener implements ChangeListener {
 
 		@Override
@@ -185,6 +233,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le handicap auditif s'il ne s'agit pas d'une surdité totale.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AutresTroublesAuditifsListener implements ChangeListener {
 
 		@Override
@@ -199,6 +253,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant d'afficher les troubles auditifs afin d'en sélectionner un.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesAuditifsListener implements ChangeListener {
 
 		@Override
@@ -222,6 +282,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant de préciser le handicap visuel s'il ne s'agit pas d'une cécité totale.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AutresTroublesvisuelsListener implements ChangeListener {
 
 		@Override
@@ -236,6 +302,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant d'afficher les troubles visuels afin d'en sélectionner un.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesVisuelsListener implements ChangeListener {
 
 		@Override
@@ -259,6 +331,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Permet de préciser la nature du handicap moteur si celui-ci n'est pas déjà répertorié.
+	 * @author alexis
+	 *
+	 */
+	
 	private class AutreHandicapMoteurListener implements ChangeListener {
 
 		@Override
@@ -273,6 +351,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant d'enlever la possibilité d'écrire un handicap temporaire dans un champ spécifique.
+	 * @author alexis
+	 *
+	 */
+	
 	private class HandicapDefinitifListener implements ChangeListener {
 
 		@Override
@@ -286,6 +370,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 
 	}
 
+	/**
+	 * Classe permettant d'afficher tous les troubles moteurs répertoriés pour en sélectionner un ou plusieurs.
+	 * @author alexis
+	 *
+	 */
+	
 	private class TroublesMoteursListener implements ChangeListener {
 
 		@Override
@@ -339,6 +429,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 
 	}
 
+	/**
+	 * Classe permettant d'afficher un champ de saisie supplémentaire afin de préciser la nature du handicap.
+	 * @author alexis
+	 *
+	 */
+	
 	private class HandicapTemporaireListener implements ChangeListener {
 
 		@Override
@@ -355,6 +451,12 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		}
 	}
 
+	/**
+	 * Classe permettant d'empêcher la sélection de tout handicap si ce bouton est coché.
+	 * @author alexis
+	 *
+	 */
+	
 	private class NonRenseigneListener implements ChangeListener {
 
 		@Override
@@ -393,70 +495,309 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 			}
 		}
 	}
+	
+	/**
+	 * Indique si l'étudiant est nouveau ou pas
+	 */
 
 	private boolean nouveau;
 	
+	/**
+	 * Le numéro d'étudiant
+	 */
+	
 	private String numEtudiant;
+	
+	/**
+	 *	Indique qu'il faut préciser le handicap si celui-ci est temporaire
+	 */
 	
 	private JLabel lblPrcisez;
 	
+	/**
+	 * Champ de saisie où renseigner le handicap s'il est temporaire
+	 */
+	
 	private JTextField textField;
+	
+	/**
+	 * Champ de saisie où indiquer le type de handicap moteur si celui-ci n'est pas répertorié
+	 */
+	
 	private JTextField textField_1;
+	
+	/**
+	 * Champ de saisie où indiquer le type de handicap visuel si celui-ci n'est pas répertorié
+	 */
+	
 	private JTextField textField_2;
+	
+	/**
+	 * Champ de saisie où indiquer le type de handicap auditif si celui-ci n'est pas répertorié
+	 */
+	
 	private JTextField textField_3;
+	
+	/**
+	 * Champ de saisie où indiquer le type de handicap cognitif
+	 */
+	
 	private JTextField textField_4;
+	
+	/**
+	 * Champ de saisie où indiquer le type de handicap psychique
+	 */
+	
 	private JTextField textField_5;
+	
+	/**
+	 * Champ de saisie où indiquer le type de trouble du langage et/ou de la parole
+	 */
+	
 	private JTextField textField_6;
+	
+	/**
+	 * Champ de saisie où indiquer le type de trouble viscéraul si celui-ci n'est pas répertorié
+	 */
+	
 	private JTextField textField_7;
+	
+	/**
+	 * Champ de saisie où indiquer le type de trouble si celui-ci n'est répertorié nulle part
+	 */
+	
 	private JTextField textField_8;
 	
+	/**
+	 * Bouton handicap non renseigné qui fait tout disparaître de l'écran sauf les trois boutons de la durée du handicap s'il est coché
+	 */
+	
 	private DureeHandicap rdbtnNonRenseign;
+	
+	/**
+	 * Bouton handicap temporaire qui fait apparaître textField s'il est coché
+	 */
+	
 	private HandicapTemporaire rdbtnHandicapTemporaire;
+	
+	/**
+	 * Bouton handicap définitif
+	 */
+	
 	private DureeHandicap rdbtnHandicapDfinitif;
 	
+	/**
+	 * Bouton autisme profond
+	 */
+	
 	private JRadioButton rdbtnNewRadioButton;
+	
+	/**
+	 * Bouton autisme de haut niveau
+	 */
+	
 	private JRadioButton rdbtnAutismeDeHaut;
+	
+	/**
+	 * Bouton syndrome d'Asperger
+	 */
+	
 	private JRadioButton rdbtnSyndrmeDasperger;
+	
+	/**
+	 * Bouton cécité
+	 */
+	
 	private JRadioButton rdbtnCcit;
+	
+	/**
+	 * Bouton surdité sévère et profonde
+	 */
+	
 	private JRadioButton rdbtnSurditSvreEt;
 	
+	/**
+	 * Bouton autres troubles des fonctions visuelles
+	 */
+	
 	private TypeHandicapSensoriel rdbtnAutresTroublesDes;
+	
+	/**
+	 * Buton autres troubles des fonctions auditives
+	 */
+	
 	private TypeHandicapSensoriel rdbtnAutresTroublesDes_1;
 	
+	/**
+	 * Troubles moteurs
+	 */
+	
 	private RegroupementTypeHandicap chckbxTroublesMoteurs;
+	
+	/**
+	 * Troubles visuels
+	 */
+	
 	private RegroupementTypeHandicap chckbxTroublesVisuels;
+	
+	/**
+	 * Fauteuil manuel
+	 */
+	
 	private HandicapParticulier chckbxFauteuilManuel;
+	
+	/**
+	 * Fauteuil électrique
+	 */
+	
 	private HandicapParticulier chckbxFauteuillectrique;
+	
+	/**
+	 * Béquilles
+	 */
+	
 	private HandicapParticulier chckbxBquilles;
+	
+	/**
+	 * SEP
+	 */
+	
 	private HandicapParticulier chckbxSep;
+	
+	/**
+	 * Dyspraxie
+	 */
+	
 	private HandicapParticulier chckbxDyspraxie;
+	
+	/**
+	 * Epilepsie
+	 */
+	
 	private HandicapParticulier chckbxEpilepsie;
+	
+	/**
+	 * Autres
+	 */
+	
 	private HandicapAPreciser chckbxAutres;
+	
+	/**
+	 * Troubles psychiques
+	 */
+	
 	private FamilleHandicapNonDefinie chckbxTroublesPsychiques;
+	
+	/**
+	 * Troubles du langage et de la parole
+	 */
+	
 	private RegroupementTypeHandicap chckbxNewCheckBox;
+	
+	/**
+	 * Troubles auditifs
+	 */
+	
 	private FamilleHandicapNonDefinie chckbxTroublesCognitifs;
+	
+	/**
+	 * TSA
+	 */
+	
 	private RegroupementTypeHandicap chckbxTsa;
+	
+	/**
+	 * Troubles du langage et de la parole
+	 */
+	
 	private FamilleHandicapNonDefinie chckbxTroublesDuLangage;
+	
+	/**
+	 * Troubles viscéraux
+	 */
+	
 	private RegroupementTypeHandicap chckbxTroublesViscraux;
+	
+	/**
+	 *	Maladie cardiaque
+	 */
+	
 	private HandicapParticulier chckbxMaladieCardiaque;
+	
+	/**
+	 * Maladie pulmonaire
+	 */
+	
 	private HandicapParticulier chckbxMaladiePulmonaire;
+	
+	/**
+	 * Maladie du système digestif
+	 */
+	
 	private HandicapParticulier chckbxMaladieDuSystme;
+	
+	/**
+	 * Pathologie cancéreuse
+	 */
+	
 	private HandicapParticulier chckbxPathologieCancreuse;
+	
+	/**
+	 * Autre trouble viscéral
+	 */
+	
 	private HandicapAPreciser chckbxAutrePrciser;
+	
+	/**
+	 * Autre trouble
+	 */
+	
 	private FamilleHandicapNonDefinie chckbxAutresTroublesprciser;
+	
+	/**
+	 * Case qui se coche par programmation en fonction du nombre de types de troubles cochés
+	 */
+	
 	private JCheckBox chckbxPlusieursTroublesAssocis;
 	
+	/**
+	 * Permet de regrouper les boutons relatifs à la durée du handicap.
+	 */
+	
 	private StatutHandicap handiParticulier;
+	
+	/**
+	 * Groupe de boutons concernant les troubles autistiques (TSA)
+	 */
+	
 	private Autisme autisme;
+	
+	/**
+	 * Groupe de boutons concernant les pathologies visuelles
+	 */
+	
 	private Vision vision;
+	
+	/**
+	 * Groupe de boutons concernant les pathologies auditives
+	 */
+	
 	private Audition audition;
 	
+	/**
+	 * Liste des types de handicap cochés pour savoir si l'étudiant a plusieurs troubles au pas
+	 */
+	
 	private ArrayList<RegroupementTypeHandicap> troublesCoches;
+	
+	/**
+	 * Variable permettant de travailler avec le fichier contenant toutes les informations relatives au handicap de chacun des étudiants
+	 */
 	
 	private final LectureFichierCSV fichierHandicap = new LectureFichierCSV("/Users/alexis/git/Gestion_Infos_Accueil_Handicap_P8/src/data/csv/handicap.csv");
 
 	/**
-	 * Create the panel.
+	 * Create the panel for a new student.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException 
 	 */
@@ -465,6 +806,8 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		this.troublesCoches=new ArrayList<RegroupementTypeHandicap>();
 		
 		setLayout(null);
+		
+		//Tentatives non fructueuses pour mettre les bares de défilement dans un JPanel :
 		
 		//JScrollPane scrollPane = new JScrollPane(this, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		//scrollPane.setBounds(this.getBounds());
@@ -655,6 +998,13 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		
 	}
 
+	/**
+	 * Crée le panel en collectant les informations de l'étudiant à partir de son numéro lorsque celui-ci est répertorié
+	 * @param numEtudiant
+	 * @throws LongueurDifferenteListesException
+	 * @throws NullArgumentException
+	 */
+	
 	public Handicap(String numEtudiant) throws LongueurDifferenteListesException, NullArgumentException {
 		this.nouveau=false;
 		this.numEtudiant=numEtudiant;
@@ -662,6 +1012,11 @@ public class Handicap extends AbstractJPanel implements GestionFichierCSV, Gesti
 		gererInfosFichierCSV(fichierHandicap);
 		
 	}
+	
+	/**
+	 * Méthode permettant de cocher la cases indiquant si un étudiant a plusieurs troubles. Cette case n'est cochable que par cette méthode et non de manière manuelle.
+	 * @param troublesCoches
+	 */
 	
 	private void plusieursTroublesCoches(ArrayList<RegroupementTypeHandicap> troublesCoches) {
 		if(troublesCoches.size()>1) {

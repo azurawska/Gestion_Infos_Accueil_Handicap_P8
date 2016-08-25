@@ -4,6 +4,13 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JRadioButton;
 
+/**
+ * Classe utilisée dans la classe Identite pour le choix du sexe de l'étudiant.
+ * @author alexis
+ *@See Identite
+ *@See AbstractJPanel
+ */
+
 public class Sexe extends JRadioButton {
 
 	public Sexe() {

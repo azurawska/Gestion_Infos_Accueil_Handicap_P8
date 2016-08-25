@@ -3,6 +3,14 @@ package fenetre.composants;
 import javax.swing.Action;
 import javax.swing.Icon;
 
+/**
+ *Classe utilisée dans les classes AmenagementsCours et AmenagementsExamens. 
+ * @author alexis
+ *See AmenagementsCours
+ *@See AmenagementsExamens
+ *@See AbstractJPanel
+ */
+
 public class Fait extends DroitFait {
 
 	public Fait() {

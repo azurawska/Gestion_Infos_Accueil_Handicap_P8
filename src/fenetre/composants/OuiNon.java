@@ -4,6 +4,15 @@ import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.JRadioButton;
 
+/**
+ * Classe utilisée dans les JPanel contenant des boutons radio de type oui/non.
+ * @author alexis
+ *@See AbstractJPanel
+ *@See AmenagementsCours
+ *@See AmenagementsExamens
+ *@See ParcoursAnterieurP8
+ */
+
 public class OuiNon extends JRadioButton {
 
 	public OuiNon() {

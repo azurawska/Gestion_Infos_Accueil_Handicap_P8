@@ -1,7 +1,15 @@
 package fenetre.composants;
 
-public class DroitParticulier extends Droit {
+/**
+ * Classe utilisée dans la classe AmenagementsExamens pour afficher le matériel qu'un étudiant peut utiliser dans le cadre de ses examens. Ainsi, la case Droit cochée seule permet cet affichage contrairement aux autres.
+ * @See AmenagementsExamens
+ * @See AbstractJPanel
+ * @author alexis
+ *
+ */
 
+public class DroitParticulier extends Droit {
+	
 	public DroitParticulier() {
 		// TODO Auto-generated constructor stub
 	}

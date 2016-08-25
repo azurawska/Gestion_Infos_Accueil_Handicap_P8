@@ -20,9 +20,21 @@ import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 
+/**
+ * Ecran d'accueil de l'application après authentification ou pour créer un utilisateur.
+ * @author alexis
+ *
+ */
+
 public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 
-	private class AccueilListener implements ActionListener {
+	/**
+	 * Classe permettant de revenir à l'écran d'authantification lorsque l'utilisateur clique sur le bouton "Maison" en haut à gauche de l'écran d'accueil.
+	 * @author alexis
+	 *
+	 */
+	
+	private class AuthentificationListener implements ActionListener {
 
 		@Override
 		public void actionPerformed(ActionEvent e) {
@@ -43,15 +55,28 @@ public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 			authentification.setVisible(true);
 		}
 	}
+	
+	/**
+	 * Le numéro d'étudient
+	 */
 
 	private String numEtudiant;
+	
+	/**
+	 * Le nom de famile de l'étudiant (de naissance ou marital)
+	 */
 	private String nom;
+	
+	/**
+	 * Le prénom de l'étudiant
+	 */
+	
 	private String prenom;
 	
 	private Authentification authentification;
 	
 	/**
-	 * Create the panel for a new user.
+	 * Create the panel for a new student.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException 
 	 */
@@ -79,7 +104,7 @@ public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 		
 		JButton btnNewButton = new JButton(icon);
 		
-		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null, null);
+		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AuthentificationListener(), null, null, null, null);
 	}
 	
 	/**
@@ -114,7 +139,7 @@ public class Accueil extends AbstractJPanel implements DonneesTabbedPane {
 		
 		JButton btnNewButton = new JButton(icon);
 		
-		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AccueilListener(), null, null, null, null);
+		gestionChampsEtExceptions(btnNewButton, 22, 2, 45, 23, null, true, true, null, null, null, null, new AuthentificationListener(), null, null, null, null);
 	}
 
 	@Override

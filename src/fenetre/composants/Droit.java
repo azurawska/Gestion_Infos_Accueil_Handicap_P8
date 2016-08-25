@@ -5,6 +5,13 @@ import javax.swing.Icon;
 
 public class Droit extends DroitFait {
 
+	/**
+	 * Classe utilisée dans les classes AmenagementsCours et AmenagementsExamens
+	 * @see AmenagementsCours
+	 * @See AmenagementsExamens
+	 * @See AbstractJPanel
+	 */
+	
 	public Droit() {
 		// TODO Auto-generated constructor stub
 	}
