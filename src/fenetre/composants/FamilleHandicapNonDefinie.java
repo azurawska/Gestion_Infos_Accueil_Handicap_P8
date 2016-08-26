@@ -5,8 +5,8 @@ import javax.swing.Icon;
 
 /**
  * Classe utilisée dans la classe Handicap permettant de les différencier des regroupements de handicap, ceux-ci étant à préciser d'office.
- * @See Handicap
- * @See AbstractJPanel
+ * @see Handicap
+ * @see AbstractJPanel
  * @author alexis
  *
  */

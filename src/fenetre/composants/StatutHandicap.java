@@ -5,8 +5,8 @@ import javax.swing.ButtonGroup;
 /**
  * Classe permettant de grouper les boutons de type de handicap (temporaire, définitif ou non renseigné).
  * @author alexis
- *@See Handicap
- *@See AbstractJPanel
+ *@see Handicap
+ *@see AbstractJPanel
  */
 
 public class StatutHandicap extends ButtonGroup {

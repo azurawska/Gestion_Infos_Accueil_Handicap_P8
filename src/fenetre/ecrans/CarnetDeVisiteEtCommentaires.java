@@ -17,7 +17,7 @@ import interfaces.GestionFichierCSV;
 /**
  * Ecran récaptiulant les visites à l'accueil handicap ainsi que leurs objets respectifs.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class CarnetDeVisiteEtCommentaires extends AbstractJPanel implements GestionFichierCSV {

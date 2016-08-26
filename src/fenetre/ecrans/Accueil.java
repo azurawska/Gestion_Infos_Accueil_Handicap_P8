@@ -23,7 +23,7 @@ import javax.swing.JButton;
 /**
  * Ecran d'accueil de l'application après authentification ou pour créer un utilisateur.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Accueil extends AbstractJPanel implements DonneesTabbedPane {

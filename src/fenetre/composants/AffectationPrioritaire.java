@@ -6,7 +6,7 @@ import javax.swing.JCheckBox;
 
 /**
  * Classe serant a traiter un cas particulier de JCheckBox ne pouvant pas être traité avec le seul cas générique
- * @See AbstractJPanel
+ * @see AbstractJPanel
  * @author alexis
  *
  */

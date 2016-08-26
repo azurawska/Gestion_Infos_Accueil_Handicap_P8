@@ -34,7 +34,7 @@ import interfaces.GroupementBoutons;
 /**
  * Ecran d'aménagement des cours (aides humaines, techniques et aménagements de la formation).
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class AmenagementsCours extends AbstractJPanel implements GestionFichierCSV, GroupementBoutons, GestionCasesCochesAmenagements {

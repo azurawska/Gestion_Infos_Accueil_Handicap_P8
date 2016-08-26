@@ -30,6 +30,7 @@ import javax.swing.JComboBox;
 /**
  * Ecran récapitulant les aides et prestations accordées par la MDPH à l'étudiant ainsi que certaines aides hors décision de la CDAPH (voir documentation technique du projet).
  * @author alexis
+ * @see AbstractJPanel
  *Classe qu'il faudra reprendre car incomplète par manque de temps.
  */
 

@@ -7,8 +7,8 @@ import javax.swing.JCheckBox;
 /**
  * Classe utilisée dans la classe Handicap. Permet de qualifier les checkBox représentant des regroupements de handicaps (moteur, visuel, etc...).
  * @author alexis
- *@See Handicap
- *@See AbstractJPanel
+ *@see Handicap
+ *@see AbstractJPanel
  */
 
 public class RegroupementTypeHandicap extends JCheckBox {

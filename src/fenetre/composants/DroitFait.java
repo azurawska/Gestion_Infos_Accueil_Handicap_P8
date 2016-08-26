@@ -6,8 +6,8 @@ import javax.swing.JCheckBox;
 
 /**
  * Classe étendue par les classes Droit et Fait.
- * @See Droit
- * @See Fait
+ * @see Droit
+ * @see Fait
  * @author alexis
  *
  */

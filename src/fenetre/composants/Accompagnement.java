@@ -4,7 +4,7 @@ import javax.swing.ButtonGroup;
 
 /**
  * Classe utilisée dans la classe Menesr.
- * @See Menesr
+ * @see Menesr
  * @author alexis
  *
  */

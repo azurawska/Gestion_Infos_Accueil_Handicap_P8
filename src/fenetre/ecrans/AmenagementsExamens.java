@@ -39,7 +39,7 @@ import javax.swing.JComboBox;
 /**
  * Ecran d'aménagements des examens (aides humaines, techniques et autres dispositions particulières (tiers-temps notamment).
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class AmenagementsExamens extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons, GestionCasesCochesAmenagements {

@@ -2,8 +2,8 @@ package fenetre.composants;
 
 /**
  * Classe utilisée dans la classe AmenagementsExamens pour afficher le matériel qu'un étudiant peut utiliser dans le cadre de ses examens. Ainsi, la case Droit cochée seule permet cet affichage contrairement aux autres.
- * @See AmenagementsExamens
- * @See AbstractJPanel
+ * @see AmenagementsExamens
+ * @see AbstractJPanel
  * @author alexis
  *
  */

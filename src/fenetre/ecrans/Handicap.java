@@ -39,7 +39,7 @@ import javax.swing.JCheckBox;
 /**
  * Ecran répertoriant les différents types de handicap que peut avoir un étudiant.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Handicap extends AbstractJPanel implements GestionFichierCSV, GestionFichierTXT, GroupementBoutons {

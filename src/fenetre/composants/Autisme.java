@@ -3,7 +3,7 @@ package fenetre.composants;
 /**
  * Classe utilisée dans la classe Handicap.
  * @author alexis
- *@See Handicap
+ *@see Handicap
  */
 
 public class Autisme extends ButtonGroupAmeliore {

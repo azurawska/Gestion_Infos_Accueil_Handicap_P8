@@ -4,7 +4,7 @@ import javax.swing.ButtonGroup;
 
 /**
  * Classe utilisée dans la classe Handicap pour regrouper les boutons radio concernant le handicap auditif. 
- * @See Handicap
+ * @see Handicap
  * @author alexis
  *
  */

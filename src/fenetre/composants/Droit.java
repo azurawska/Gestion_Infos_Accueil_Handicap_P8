@@ -8,8 +8,8 @@ public class Droit extends DroitFait {
 	/**
 	 * Classe utilisée dans les classes AmenagementsCours et AmenagementsExamens
 	 * @see AmenagementsCours
-	 * @See AmenagementsExamens
-	 * @See AbstractJPanel
+	 * @see AmenagementsExamens
+	 * @see AbstractJPanel
 	 */
 	
 	public Droit() {

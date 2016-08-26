@@ -5,7 +5,7 @@ import javax.swing.ButtonGroup;
 /**
  * Classe servant à regrouper les boutons concernant le handicap visuel.
  * @author alexis
- *@See Handicap
+ *@see Handicap
  */
 
 public class Vision extends ButtonGroup {

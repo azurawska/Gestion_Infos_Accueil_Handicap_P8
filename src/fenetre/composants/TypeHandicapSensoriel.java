@@ -7,8 +7,8 @@ import javax.swing.JRadioButton;
 /**
  * Classe utilisée dans la classe Handicap pour qualifier les boutons radio concernant les handicaps visuels et auditifs.
  * @author alexis
- * @See Handicap
- *@See AbstractJPanel
+ * @see Handicap
+ *@see AbstractJPanel
  */
 
 public final class TypeHandicapSensoriel extends JRadioButton {

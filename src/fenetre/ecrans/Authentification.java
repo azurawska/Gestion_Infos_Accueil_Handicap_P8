@@ -27,7 +27,7 @@ import interfaces.GestionFichierCSV;
 /**
  * Classe représentant le premier écran de l'application pour rechercher un étudiant, le mettre à jour ou en créer un nouveau.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Authentification extends AbstractJPanel implements GestionFichierCSV {

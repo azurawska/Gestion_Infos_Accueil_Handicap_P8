@@ -4,7 +4,7 @@ import javax.swing.ButtonGroup;
 
 /**
  * Classe utilisée dans la classe ParcoursAnterieurP8.
- * @See ParcoursAnterieurP8
+ * @see ParcoursAnterieurP8
  * @author alexis
  *
  */

@@ -11,7 +11,7 @@ import javax.swing.JButton;
 /**
  * Ecran permettant de lister tous les étudiants ayant des caractéristiques communes afin de pouvoir n'en sélectionner qu'un seul pour arriver à l'écran d'accueil. Cette classe est à développer.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class ListeEtudiantsAvecNomOuPrenomCommuns extends AbstractJPanel {

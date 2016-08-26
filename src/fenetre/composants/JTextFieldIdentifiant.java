@@ -6,8 +6,8 @@ import javax.swing.text.Document;
 /**
  * Classe utilisée dans la classe Authentification pour que le champ de numéro d'étudiant ne soit plus éditable une fois que quelque chose est écrit dedans.
  * @author alexis
- *@See Authentification
- *@See AbstractJPanel
+ *@see Authentification
+ *@see AbstractJPanel
  */
 
 public final class JTextFieldIdentifiant extends JTextField {

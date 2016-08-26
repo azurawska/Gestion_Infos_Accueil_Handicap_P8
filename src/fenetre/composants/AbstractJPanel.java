@@ -34,19 +34,19 @@ import exceptions.NullArgumentException;
 /**
  * Classe étendue par tous les JPanel de l'application.
  * @author alexis
- *@See Identite
- *@See Authentification
- *@See ParcoursAnterieurP8
- *@See Handicap
- *@See Amenagements
- *@See AmenagementsCours
- *@See AmenagementsExamens
- *@See Projets
- *@See CarnetDeVisiteEtCommentaires
- *@See Inscription
- *@See Accueil
- *@See NotesReussite
- *@See ListeEtudiantsAvecNomOuPrenomCommuns
+ *@see Identite
+ *@see Authentification
+ *@see ParcoursAnterieurP8
+ *@see Handicap
+ *@see Amenagements
+ *@see AmenagementsCours
+ *@see AmenagementsExamens
+ *@see Projets
+ *@see CarnetDeVisiteEtCommentaires
+ *@see Inscription
+ *@see Accueil
+ *@see NotesReussite
+ *@see ListeEtudiantsAvecNomOuPrenomCommuns
  */
 
 public abstract class AbstractJPanel extends JPanel {
@@ -68,13 +68,13 @@ public abstract class AbstractJPanel extends JPanel {
 	 * @param event événement associé à un composant lorsqu'il doit se passer quelque chose quand on intéragit avec lui. Valable pour les boutons, les checkbox, certaines comboBox et les boutons radio. Null le reste du temps.
 	 * @param chaine le texte que doit contenir un champ de saisi ou avec lequel doit être comparé le texte d'un composant afin que celui-ci puisse être sélectionné en conséquence selon certaines conditions. Cette chaîne devra servir, par la suite, à définir dynamiquement les textes des JLabel.
 	 * @param handicapParticulier le JTextField qui doit contenir un texte spécifique lors de la consultation des informations d'un étudiant dans certains cas. Null le reste du temps.
-	 *@See Handicap
+	 *@see Handicap
 	 * @param statutAmenagement Null si le composant n'est pas de type Droit ou Fait. Il est du type abstrait DroitFait qui est implémenté par Droit et Fait. Du coup, les cases à cocher droit et fait pour chaque type d'aménagements sont liées l'une à l'autre.
-	 *@See AmenagementsCours
-	 *@See AmenagementsExamens
-	 *@See DroitFait
-	 *@See Droit
-	 *@See Fait
+	 *@see AmenagementsCours
+	 *@see AmenagementsExamens
+	 *@see DroitFait
+	 *@see Droit
+	 *@see Fait
 	 * @param pane le JScrollPane utiisé si les composants sont de type JTextArea ou JComboBox. Null le reste du temps. Celui-ci permet de mettre des barres de défilement sur ces champs.
 	 */
 	
@@ -267,13 +267,13 @@ public abstract class AbstractJPanel extends JPanel {
 	 * @param event événement associé à un composant lorsqu'il doit se passer quelque chose quand on intéragit avec lui. Valable pour les boutons, les checkbox, certaines comboBox et les boutons radio. Null le reste du temps.
 	 * @param chaine le texte que doit contenir un champ de saisi ou avec lequel doit être comparé le texte d'un composant afin que celui-ci puisse être sélectionné en conséquence selon certaines conditions. Cette chaîne devra servir, par la suite, à définir dynamiquement les textes des JLabel.
 	 * @param handicapParticulier le JTextField qui doit contenir un texte spécifique lors de la consultation des informations d'un étudiant dans certains cas. Null le reste du temps.
-	 *@See Handicap
+	 *@see Handicap
 	 * @param statutAmenagement Null si le composant n'est pas de type Droit ou Fait. Il est du type abstrait DroitFait qui est implémenté par Droit et Fait. Du coup, les cases à cocher droit et fait pour chaque type d'aménagements sont liées l'une à l'autre.
-	 *@See AmenagementsCours
-	 *@See AmenagementsExamens
-	 *@See DroitFait
-	 *@See Droit
-	 *@See Fait
+	 *@see AmenagementsCours
+	 *@see AmenagementsExamens
+	 *@see DroitFait
+	 *@see Droit
+	 *@see Fait
 	 * @param pane le JScrollPane utiisé si les composants sont de type JTextArea ou JComboBox. Null le reste du temps. Celui-ci permet de mettre des barres de défilement sur ces champs.
 	 * @throws NullArgumentException
 	 * @throws LongueurDifferenteListesException

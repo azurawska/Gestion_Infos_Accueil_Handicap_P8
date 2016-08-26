@@ -12,7 +12,7 @@ import java.util.ArrayList;
 /**
  * Ecran concernant les inscriptions de l'étudiant par année d'études. Cette classe est à développer.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Inscription extends AbstractJPanel implements GestionFichierCSV {

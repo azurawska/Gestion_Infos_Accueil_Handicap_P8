@@ -3,15 +3,15 @@ package exceptions;
 /**
  * Classe d'exception concernant la longueur des listes pour les onglets.
  * @author alexis
- *@See Accueil
- *@See Amenagements
+ *@see Accueil
+ *@see Amenagements
  */
 
 public class LongueurDifferenteListesException extends Exception {
 
 	/**
 	 * Exception lancée en cas de longueur de listes différentes entre les onglets et les titres si celles-ci ne sont pas nulles toutes les deux.
-	 * @See Main
+	 * @see Main
 	 */
 	
 	public LongueurDifferenteListesException() {

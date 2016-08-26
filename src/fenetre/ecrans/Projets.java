@@ -18,7 +18,7 @@ import interfaces.GestionFichierCSV;
 /**
  * Ecran des projets personnels et professionnels de l'étudiant.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Projets extends AbstractJPanel implements GestionFichierCSV {

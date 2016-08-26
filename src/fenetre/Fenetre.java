@@ -40,7 +40,7 @@ public class Fenetre extends JFrame {
 	 * Create the frame.
 	 * @throws NullArgumentException 
 	 * @throws LongueurDifferenteListesException
-	 * @See Main
+	 * @see Main
 	 * Définit la taille de la fenêtre et instancie le premier écran de celle-ci lors du lancement de l'application (authentification). 
 	 *Le constructeur est volontairement privée afin d'utiliser le pattern Singleton permettant de n'instancier qu'une seule fois un objet afin de ne pas user torp de mémoire inutilement et surtout pour pouvoir modifier le contentPane de la fenêtre, chose qu'il est impossible de faire si on n'utilise pas ce pattern, car on ne peut pas y accéder, celui-ci dépendant de la Fenêtre et non du JPanel en cours.
 	 */
@@ -63,7 +63,7 @@ public class Fenetre extends JFrame {
 	 * @return une instance de la fenêtre si elle n'est pas créée ou l'instance courante si elle existe.
 	 * @throws LongueurDifferenteListesException
 	 * @throws NullArgumentException
-	 * @See Main
+	 * @see Main
 	 */
 	
 	public static Fenetre getInstance() throws LongueurDifferenteListesException, NullArgumentException {

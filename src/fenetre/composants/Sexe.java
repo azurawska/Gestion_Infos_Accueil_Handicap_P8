@@ -7,8 +7,8 @@ import javax.swing.JRadioButton;
 /**
  * Classe utilisée dans la classe Identite pour le choix du sexe de l'étudiant.
  * @author alexis
- *@See Identite
- *@See AbstractJPanel
+ *@see Identite
+ *@see AbstractJPanel
  */
 
 public class Sexe extends JRadioButton {

@@ -6,8 +6,8 @@ import javax.swing.Icon;
 /**
  * Classe utilisée dans la classe Handicap. Permet de préciser la nature du handicap.
  * @author alexis
- * @See Handicap
- * @See AbstractJPanel
+ * @see Handicap
+ * @see AbstractJPanel
  *
  */
 

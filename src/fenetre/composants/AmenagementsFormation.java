@@ -4,7 +4,7 @@ import javax.swing.ButtonGroup;
 
 /**
  * Classe utilisée dans la classe AmenagementsCours
- * @See AmenagementsCours
+ * @see AmenagementsCours
  * @author alexis
  *
  */

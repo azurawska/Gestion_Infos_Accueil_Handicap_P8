@@ -6,9 +6,9 @@ import javax.swing.Icon;
 /**
  *Classe utilisée dans les classes AmenagementsCours et AmenagementsExamens. 
  * @author alexis
- *See AmenagementsCours
- *@See AmenagementsExamens
- *@See AbstractJPanel
+ *@see AmenagementsCours
+ *@see AmenagementsExamens
+ *@see AbstractJPanel
  */
 
 public class Fait extends DroitFait {

@@ -21,7 +21,7 @@ import javax.swing.JTabbedPane;
 /**
  * Ecran d'aménagements comportant la date de dernière visite à la médecine préventive ainsi que le nom du médecin, en plus des onglets d'aménagements pour les cours et les examens.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Amenagements extends AbstractJPanel implements DonneesTabbedPane, GestionFichierTXT, GestionFichierCSV {

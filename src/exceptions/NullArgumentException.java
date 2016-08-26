@@ -10,7 +10,7 @@ public class NullArgumentException extends Exception {
 
 	/**
 	 * Exception qui ne sera peut-être jamais lancée.
-	 * @See Main
+	 * @see Main
 	 */
 	
 	public NullArgumentException() {

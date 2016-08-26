@@ -30,7 +30,7 @@ import javax.swing.JTextArea;
 /**
  * Ecran récapitulant les informations générales de l'étudiant ainsi que celles des personnes à contacter en cas d'urgences.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class Identite extends AbstractJPanel implements Scrollable, GestionFichierCSV, GroupementBoutons {

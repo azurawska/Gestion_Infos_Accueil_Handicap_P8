@@ -26,7 +26,7 @@ import javax.swing.JScrollPane;
 /**
  * Ecran retraçant le parcours de l'étudiant avant son entrée à l'université Paris 8 - Vincennes - Saint-Denis ou une de ses composantes (IUT par exemple).
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class ParcoursAnterieurP8 extends AbstractJPanel implements GestionFichierCSV, GroupementBoutons {

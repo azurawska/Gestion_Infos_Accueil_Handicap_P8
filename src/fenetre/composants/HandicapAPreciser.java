@@ -6,8 +6,8 @@ import javax.swing.Icon;
 /**
  * Classe utilisée dans la classe Handicap. Elle permet de préciser un type de handicap faisant partie d'un regroupement de handicap.
  * @author alexis
- *@See Handicap
- *@See AbstractJPanel
+ *@see Handicap
+ *@see AbstractJPanel
  */
 
 public class HandicapAPreciser extends HandicapParticulier {

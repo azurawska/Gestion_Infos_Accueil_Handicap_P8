@@ -6,7 +6,7 @@ import javax.swing.JRadioButton;
 
 /**
  * Classe utilisée dans la classe Handicap pour spécifier la durée du handicap (non renseigné, définitif ou temporaire).
- * @See Handicap
+ * @see Handicap
  * @author alexis
  *
  */

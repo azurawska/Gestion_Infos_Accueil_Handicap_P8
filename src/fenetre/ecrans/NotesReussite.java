@@ -5,7 +5,7 @@ import fenetre.composants.AbstractJPanel;
 /**
  * Ecran récapitulant toutes les notes de l'étudiant pour l'année courante ainsi que ses résultats (admis, ajourné, etc...). Cette classe est à développer.
  * @author alexis
- *
+ *@see AbstractJPanel
  */
 
 public class NotesReussite extends AbstractJPanel {
